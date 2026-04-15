@@ -35,10 +35,35 @@
     .code-block {
       position: relative;
     }
-    .code-block .lang-label {
+    .code-block .copy-btn {
       position: absolute;
       top: 0.5rem;
       right: 0.75rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #94a3b8;
+      padding: 2px;
+      border-radius: 4px;
+      transition: color 0.15s, background 0.15s;
+      display: flex;
+      align-items: center;
+    }
+    .code-block .copy-btn:hover {
+      color: #1B3A6B;
+      background: rgba(255,255,255,0.5);
+    }
+    .dark .code-block .copy-btn:hover {
+      color: #e2e8f0;
+      background: rgba(255,255,255,0.08);
+    }
+    .code-block .copy-btn.copied {
+      color: #5B9A5F;
+    }
+    .code-block .lang-label {
+      position: absolute;
+      top: 0.5rem;
+      right: 2.5rem;
       font-size: 0.7rem;
       color: #94a3b8;
       text-transform: uppercase;
@@ -147,7 +172,7 @@
       <div id="register" class="mb-12 scroll-mt-20">
         <h3 class="text-xl font-semibold text-custom-navy dark:text-white mb-4">Step 1 — 注册与登录</h3>
         <ol class="list-decimal ml-6 space-y-2 text-gray-700 dark:text-gray-300 leading-relaxed">
-          <li>访问 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">https://sub2.pigcoder.com</code> 打开控制台。</li>
+          <li>访问 <a href="https://sub2.pigcoder.com" target="_blank" class="text-custom-gold hover:underline font-bold">控制台</a>。</li>
           <li>使用邮箱或第三方账号（GitHub / Google）完成注册。</li>
           <li>登录后进入个人仪表盘。</li>
         </ol>
@@ -769,6 +794,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
   window.addEventListener('scroll', updateActiveLink);
   updateActiveLink();
+
+  // 为每个代码块添加复制按钮
+  document.querySelectorAll('.code-block').forEach(function(block) {
+    var btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.title = '复制代码';
+    btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px">content_copy</span>';
+    block.appendChild(btn);
+    btn.addEventListener('click', function() {
+      var code = block.querySelector('code');
+      if (!code) return;
+      var text = code.textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        btn.classList.add('copied');
+        btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px">check</span>';
+        setTimeout(function() {
+          btn.classList.remove('copied');
+          btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px">content_copy</span>';
+        }, 1500);
+      });
+    });
+  });
 });
 </script>
 <script src="shared.js"></script>
