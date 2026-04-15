@@ -1,0 +1,4 @@
+.mcp.json
+.claude/
+*.stackdump
+node_modules/

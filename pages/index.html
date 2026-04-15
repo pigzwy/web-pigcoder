@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pigcoder - 稳定高速的 AI 编程中转站</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f4f3f8",
+                        "outline": "#747780",
+                        "tertiary-fixed": "#aff3af",
+                        "primary-fixed": "#d7e2ff",
+                        "on-surface-variant": "#44474f",
+                        "on-tertiary-container": "#73b476",
+                        "secondary": "#7e5700",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1a1b1f",
+                        "tertiary": "#002c0b",
+                        "on-primary-fixed": "#001a40",
+                        "on-secondary-container": "#6e4c00",
+                        "tertiary-fixed-dim": "#94d695",
+                        "surface-container-highest": "#e3e2e7",
+                        "surface-container": "#eeedf2",
+                        "surface-dim": "#dad9de",
+                        "secondary-container": "#fdbb39",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffdeab",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#105220",
+                        "outline-variant": "#c4c6d0",
+                        "on-primary-fixed-variant": "#294678",
+                        "background": "#faf9fe",
+                        "inverse-on-surface": "#f1f0f5",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1a1b1f",
+                        "surface-variant": "#e3e2e7",
+                        "surface-tint": "#425e91",
+                        "primary-container": "#1b3a6b",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#faf9fe",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#acc7ff",
+                        "secondary-fixed-dim": "#fdbb39",
+                        "on-secondary-fixed": "#271900",
+                        "primary": "#002452",
+                        "tertiary-container": "#004515",
+                        "surface-container-high": "#e9e7ec",
+                        "inverse-surface": "#2f3034",
+                        "on-primary-container": "#89a5dd",
+                        "on-secondary-fixed-variant": "#5f4100",
+                        "on-tertiary-fixed": "#002107",
+                        "surface": "#faf9fe",
+                        "inverse-primary": "#acc7ff",
+                        "custom-navy": "#1B3A6B",
+                        "custom-gold": "#E8A825",
+                        "custom-green": "#5B9A5F"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "8px",
+                        "lg": "12px",
+                        "xl": "24px",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .logo-badge-icon {
+            font-size: 10px !important;
+            font-weight: bold;
+        }
+        .custom-card-shadow {
+            box-shadow: 0 16px 48px rgba(27, 58, 107, 0.08);
+        }
+        .custom-card-shadow-light {
+            box-shadow: 0 16px 48px rgba(27, 58, 107, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-white font-body text-on-surface selection:bg-custom-gold selection:text-white">
+<!-- TopNavBar -->
+<header class="w-full sticky top-0 z-50 bg-white/80 backdrop-blur-xl shadow-sm">
+<nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<svg height="36" viewbox="0 0 100 100" width="36" xmlns="http://www.w3.org/2000/svg">
+<!-- 猪耳朵 -->
+<polygon fill="#E8A825" points="22,30 10,8 32,18" stroke="#1B3A6B" stroke-width="3"></polygon>
+<polygon fill="#E8A825" points="78,30 90,8 68,18" stroke="#1B3A6B" stroke-width="3"></polygon>
+<!-- 猪脸圆形 -->
+<circle cx="50" cy="50" fill="#E8A825" r="35" stroke="#1B3A6B" stroke-width="3"></circle>
+<!-- 代码徽章 -->
+<circle cx="75" cy="60" fill="#5B9A5F" r="15" stroke="#1B3A6B" stroke-width="2"></circle>
+<text fill="white" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" x="75" y="65">&lt;/&gt;</text>
+</svg>
+<span class="text-[#1B3A6B]" style="font-weight:700;font-size:1.25rem;letter-spacing:-0.01em;">pigcoder</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-custom-navy border-b-2 border-custom-gold pb-1 font-medium transition-colors" href="#">首页</a>
+<a class="text-on-surface-variant font-medium hover:text-custom-gold transition-colors" href="#">文档</a>
+<a class="text-on-surface-variant font-medium hover:text-custom-gold transition-colors" href="#">价格</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-custom-navy cursor-pointer hover:text-custom-gold transition-colors" data-icon="language">language</span>
+<span class="material-symbols-outlined text-custom-navy cursor-pointer hover:text-custom-gold transition-colors" data-icon="dark_mode">dark_mode</span>
+<button class="bg-custom-navy text-white px-6 py-2 rounded font-semibold active:scale-95 transition-all">控制台</button>
+</div>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="relative bg-custom-navy overflow-hidden pt-20 pb-32">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<div class="absolute top-0 right-0 w-[800px] h-[800px] bg-custom-gold blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+<div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-custom-green blur-[100px] rounded-full -translate-x-1/2 translate-y-1/2"></div>
+</div>
+<div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+<span class="inline-flex items-center gap-2 bg-custom-green text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-8">
+<span class="material-symbols-outlined text-xs" data-icon="auto_awesome">auto_awesome</span>
+                新一代 AI 编程中转站
+            </span>
+<h1 class="text-5xl md:text-7xl font-bold font-headline tracking-tight text-white mb-6 leading-tight">
+                稳定高速 <span class="text-custom-gold">AI 编程中转站.</span>
+</h1>
+<p class="text-primary-fixed-dim text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                为开发者打造的专业级大模型中转平台。一个 API Key 畅享全球顶级 AI 能力，极速响应，安全可靠。
+            </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+<button class="bg-custom-gold text-custom-navy px-10 py-4 rounded-lg font-bold text-lg active:scale-95 transition-all shadow-lg hover:brightness-110">
+                    立即开始
+                </button>
+<button class="border border-white/30 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-all">
+                    查看文档
+                </button>
+</div>
+<!-- Code Preview Block -->
+<div class="max-w-4xl mx-auto rounded-xl bg-custom-navy/50 border border-white/10 backdrop-blur-md overflow-hidden shadow-2xl">
+<div class="flex items-center justify-between px-6 py-3 bg-white/5 border-b border-white/10">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-red-400"></div>
+<div class="w-3 h-3 rounded-full bg-amber-400"></div>
+<div class="w-3 h-3 rounded-full bg-green-400"></div>
+</div>
+<span class="text-xs text-white/50 font-mono">main.py</span>
+</div>
+<div class="p-8 text-left font-mono text-sm leading-relaxed overflow-x-auto">
+<div class="flex gap-4">
+<span class="text-white/20 select-none">1</span>
+<code class="text-blue-300">import <span class="text-white">pigcoder</span></code>
+</div>
+<div class="flex gap-4">
+<span class="text-white/20 select-none">2</span>
+<code class="text-blue-300">client = <span class="text-white">pigcoder.Client(api_key=</span><span class="text-custom-gold">"sk-pig-..."</span><span class="text-white">)</span></code>
+</div>
+<div class="flex gap-4">
+<span class="text-white/20 select-none">3</span>
+<code> </code>
+</div>
+<div class="flex gap-4">
+<span class="text-white/20 select-none">4</span>
+<code class="text-green-300"># 使用统一接口调用顶级模型</code>
+</div>
+<div class="flex gap-4">
+<span class="text-white/20 select-none">5</span>
+<code class="text-white">response = client.chat.completions.create(</code>
+</div>
+<div class="flex gap-4">
+<span class="text-white/20 select-none">6</span>
+<code class="text-white">    model=<span class="text-custom-gold">"gpt-4o"</span>,</code>
+</div>
+<div class="flex gap-4">
+<span class="text-white/20 select-none">7</span>
+<code class="text-white">    messages=[{<span class="text-custom-gold">"role"</span>: <span class="text-custom-gold">"user"</span>, <span class="text-custom-gold">"content"</span>: <span class="text-custom-gold">"帮我写一个高效的排序算法"</span>}]</code>
+</div>
+<div class="flex gap-4">
+<span class="text-white/20 select-none">8</span>
+<code class="text-white">)</code>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Section -->
+<section class="py-20 bg-[#F5F7FA]">
+<div class="max-w-7xl mx-auto px-6">
+<div class="bg-white rounded-[24px] custom-card-shadow p-[60px]">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold font-headline text-custom-navy mb-4">为什么选择 Pigcoder</h2>
+<div class="w-20 h-1.5 bg-custom-gold mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="p-8 rounded-xl bg-surface-container-low hover:shadow-lg transition-shadow">
+<span class="material-symbols-outlined text-4xl text-custom-green mb-4" data-icon="speed">speed</span>
+<h3 class="text-xl font-bold mb-3 text-custom-navy">极速响应</h3>
+<p class="text-on-surface-variant">全球多节点冗余分发，毫秒级延迟，确保您的编程体验流畅无阻。</p>
+</div>
+<!-- Card 2 -->
+<div class="p-8 rounded-xl bg-surface-container-low hover:shadow-lg transition-shadow">
+<span class="material-symbols-outlined text-4xl text-custom-green mb-4" data-icon="cloud_done">cloud_done</span>
+<h3 class="text-xl font-bold mb-3 text-custom-navy">高可用性</h3>
+<p class="text-on-surface-variant">99.99% 服务可用性承诺，自动故障切换，告别模型宕机烦恼。</p>
+</div>
+<!-- Card 3 -->
+<div class="p-8 rounded-xl bg-surface-container-low hover:shadow-lg transition-shadow">
+<span class="material-symbols-outlined text-4xl text-custom-green mb-4" data-icon="security">security</span>
+<h3 class="text-xl font-bold mb-3 text-custom-navy">数据安全</h3>
+<p class="text-on-surface-variant">企业级加密传输，严格执行零日志政策，全面保护您的核心代码资产。</p>
+</div>
+<!-- Card 4 -->
+<div class="p-8 rounded-xl bg-surface-container-low hover:shadow-lg transition-shadow">
+<span class="material-symbols-outlined text-4xl text-custom-green mb-4" data-icon="account_balance_wallet">account_balance_wallet</span>
+<h3 class="text-xl font-bold mb-3 text-custom-navy">成本优化</h3>
+<p class="text-on-surface-variant">灵活的计费模式，按需付费，比直接集成多家 API 节省高达 40% 的成本。</p>
+</div>
+<!-- Card 5 -->
+<div class="p-8 rounded-xl bg-surface-container-low hover:shadow-lg transition-shadow">
+<span class="material-symbols-outlined text-4xl text-custom-green mb-4" data-icon="integration_instructions">integration_instructions</span>
+<h3 class="text-xl font-bold mb-3 text-custom-navy">一键接入</h3>
+<p class="text-on-surface-variant">完美兼容 OpenAI 接口规范，只需修改 BaseURL，现有工具瞬间升级 AI 能力。</p>
+</div>
+<!-- Card 6 -->
+<div class="p-8 rounded-xl bg-surface-container-low hover:shadow-lg transition-shadow">
+<span class="material-symbols-outlined text-4xl text-custom-green mb-4" data-icon="monitoring">monitoring</span>
+<h3 class="text-xl font-bold mb-3 text-custom-navy">精细监控</h3>
+<p class="text-on-surface-variant">可视化用量统计与限流管理，让每一笔额度消耗都清晰可见。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Model Channels -->
+<section class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-6">
+<div class="bg-[#F8F9FA] rounded-[24px] custom-card-shadow p-[60px]">
+<div class="flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="md:w-1/3">
+<h2 class="text-3xl font-bold font-headline text-custom-navy mb-6">全模型覆盖</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                            整合全球最顶尖的 AI 模型资源。无论您需要逻辑推理、代码生成还是多模态理解，Pigcoder 都能为您提供最强战力支撑。
+                        </p>
+</div>
+<div class="md:w-2/3 flex flex-wrap gap-6 justify-center md:justify-start">
+<!-- Anthropic Card -->
+<div class="flex items-center gap-4 bg-white px-6 py-4 rounded-xl shadow-sm border border-outline-variant hover:border-custom-gold transition-all cursor-pointer min-w-[180px]">
+<svg class="w-6 h-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L13.5 9.5H21L15 14L17.5 21.5L12 17L6.5 21.5L9 14L3 9.5H10.5L12 2Z" fill="#D97757"></path>
+</svg>
+<span class="font-bold text-custom-navy">Anthropic</span>
+</div>
+<!-- OpenAI Card -->
+<div class="flex items-center gap-4 bg-white px-6 py-4 rounded-xl shadow-sm border border-outline-variant hover:border-custom-gold transition-all cursor-pointer min-w-[180px]">
+<svg class="w-6 h-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5153-4.9066 6.0462 6.0462 0 0 0-3.9991-3.1281 5.9805 5.9805 0 0 0-5.4977 1.2223 6.0549 6.0549 0 0 0-3.921 2.2136 5.9785 5.9785 0 0 0-1.7551 5.1708 6.0467 6.0467 0 0 0-1.6351 4.3414 5.9835 5.9835 0 0 0 3.1281 5.2469 6.0469 6.0469 0 0 0 5.4977 1.2223 5.9807 5.9807 0 0 0 3.921-2.2136 6.0556 6.0556 0 0 0 1.7551-5.1708 5.9813 5.9813 0 0 0 1.6351-4.3414 5.9723 5.9723 0 0 0-.5638-4.6569z" fill="#10A37F"></path>
+</svg>
+<span class="font-bold text-custom-navy">OpenAI</span>
+</div>
+<!-- Google Card -->
+<div class="flex items-center gap-4 bg-white px-6 py-4 rounded-xl shadow-sm border border-outline-variant hover:border-custom-gold transition-all cursor-pointer min-w-[180px]">
+<svg class="w-6 h-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="#4285F4"></path>
+</svg>
+<span class="font-bold text-custom-navy">Google</span>
+</div>
+<!-- Zhipu Card -->
+<div class="flex items-center gap-4 bg-white px-6 py-4 rounded-xl shadow-sm border border-outline-variant hover:border-custom-gold transition-all cursor-pointer min-w-[180px]">
+<svg class="w-6 h-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" fill="none" r="9" stroke="#4F6EF7" stroke-dasharray="2 2" stroke-width="2"></circle>
+<circle cx="12" cy="12" fill="#4F6EF7" r="4"></circle>
+</svg>
+<span class="font-bold text-custom-navy">智谱</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Developer Toolbox - Asymmetric Bento Grid -->
+<section class="py-20 bg-[#F5F7FA]">
+<div class="max-w-7xl mx-auto px-6">
+<div class="bg-white rounded-[24px] custom-card-shadow p-[60px]">
+<div class="mb-16">
+<h2 class="text-3xl font-bold font-headline text-custom-navy mb-2">开发者工具箱</h2>
+<p class="text-on-surface-variant">不仅是中转，更是生产力加速引擎</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<div class="md:col-span-8 bg-surface-container-low rounded-xl p-10 flex flex-col justify-between overflow-hidden relative group shadow-sm">
+<div class="relative z-10">
+<span class="bg-custom-green/10 text-custom-green px-3 py-1 rounded text-xs font-bold mb-4 inline-block">核心能力</span>
+<h3 class="text-2xl font-bold text-custom-navy mb-4">统一命令终端</h3>
+<p class="text-on-surface-variant max-w-md">通过标准化 CLI 工具直接在终端调用任意模型，支持管道符输出与文件直接读取，重塑您的工作流。</p>
+</div>
+<div class="mt-8 transform group-hover:scale-105 transition-transform">
+<img alt="Terminal interface" class="rounded-lg shadow-xl" data-alt="Sleek modern code editor terminal showing syntax highlighted python script with vibrant blue and green colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8oMfoKmB3wTUlyqd9Zxq-a7PESTu7rvYgQ8DjNeXSCIheb3FJwlbmy3nPU2XngXpXKWHw-J3oU04ORCyYPG2gRmWFTMFPUnFUnDmQ5k3e5SGEYkIaGVPWw0M73nnJc_6Zf0vFZOXuuLzgAizNXmGUvGP-Vv9JRFCB7CQZgXGEu-IUQ4VN214APsatRVLDFHfvCnu9GEJ66QbppNkqh1Iuc5Gf7MppIjNzooQG9warBCTqrgtrpZsMjMuE0Azt7sUVRcI5fmbu7dw"/>
+</div>
+</div>
+<div class="md:col-span-4 bg-custom-navy rounded-xl p-10 text-white flex flex-col justify-between shadow-lg">
+<div>
+<span class="bg-white/10 text-white/80 px-3 py-1 rounded text-xs font-bold mb-4 inline-block">监控审计</span>
+<h3 class="text-2xl font-bold mb-4 text-white">即时遥测</h3>
+<p class="text-white/70">实时观察每一个 Request 的生命周期，精准捕获异常与瓶颈，确保线上业务纹丝不动。</p>
+</div>
+<div class="mt-6 flex items-center justify-center">
+<span class="material-symbols-outlined text-8xl text-custom-gold opacity-50" data-icon="query_stats">query_stats</span>
+</div>
+</div>
+<div class="md:col-span-5 bg-surface-container-low rounded-xl p-10 shadow-sm">
+<span class="material-symbols-outlined text-custom-green text-3xl mb-4" data-icon="shield">shield</span>
+<h3 class="text-xl font-bold text-custom-navy mb-3">安全防护</h3>
+<p class="text-on-surface-variant">内置敏感词库过滤与智能反欺诈系统，自动识别异常调用行为，保障您的账户安全。</p>
+</div>
+<div class="md:col-span-7 bg-surface-container-low rounded-xl p-10 flex items-center justify-between shadow-sm">
+<div class="max-w-[60%]">
+<h3 class="text-xl font-bold text-custom-navy mb-3">生态同步</h3>
+<p class="text-on-surface-variant">完美适配 VS Code, JetBrains 全家桶及各种主流开发者浏览器插件，全场景 AI 赋能。</p>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-white rounded flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-custom-navy" data-icon="code">code</span>
+</div>
+<div class="w-12 h-12 bg-white rounded flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-custom-navy" data-icon="extension">extension</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom CTA -->
+<section class="py-20 bg-[#F5F7FA]">
+<div class="max-w-[1200px] mx-auto px-6">
+<div class="relative bg-gradient-to-br from-[#1B3A6B] to-[#0D2347] rounded-xl py-20 px-8 text-center shadow-[0_20px_60px_rgba(27,58,107,0.15)] overflow-hidden">
+<!-- Decorative Background Elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-custom-gold/10 blur-3xl rounded-full translate-y-1/2 -translate-x-1/2"></div>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl font-bold font-headline text-white mb-6 tracking-tight">
+                        准备好开启智能编程了吗？
+                    </h2>
+<p class="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                        加入超过 50,000 名开发者，用精准工具构建未来。
+                    </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto bg-[#E8A825] text-[#1B3A6B] px-10 py-4 rounded-lg font-bold text-lg hover:brightness-110 active:scale-95 transition-all shadow-lg">
+                            立即启动 Pigcoder
+                        </button>
+<button class="w-full sm:w-auto border border-white/40 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10 active:scale-95 transition-all">
+                            联系销售
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 bg-slate-50 py-12">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+<div class="col-span-2 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<svg height="36" viewbox="0 0 100 100" width="36" xmlns="http://www.w3.org/2000/svg">
+<!-- 猪耳朵 -->
+<polygon fill="#E8A825" points="22,30 10,8 32,18" stroke="#1B3A6B" stroke-width="3"></polygon>
+<polygon fill="#E8A825" points="78,30 90,8 68,18" stroke="#1B3A6B" stroke-width="3"></polygon>
+<!-- 猪脸圆形 -->
+<circle cx="50" cy="50" fill="#E8A825" r="35" stroke="#1B3A6B" stroke-width="3"></circle>
+<!-- 代码徽章 -->
+<circle cx="75" cy="60" fill="#5B9A5F" r="15" stroke="#1B3A6B" stroke-width="2"></circle>
+<text fill="white" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" x="75" y="65">&lt;/&gt;</text>
+</svg>
+<span class="text-[#1B3A6B]" style="font-weight:700;font-size:1.25rem;letter-spacing:-0.01em;">pigcoder</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-6">稳定、高速、安全的 AI 模型中转枢纽，为全球开发者赋能。</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-custom-navy cursor-pointer hover:text-custom-gold" data-icon="hub">hub</span>
+<span class="material-symbols-outlined text-custom-navy cursor-pointer hover:text-custom-gold" data-icon="terminal">terminal</span>
+<span class="material-symbols-outlined text-custom-navy cursor-pointer hover:text-custom-gold" data-icon="mail">mail</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-custom-navy mb-6">产品与服务</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-custom-navy text-sm" href="#">产品介绍</a></li>
+<li><a class="text-on-surface-variant hover:text-custom-navy text-sm" href="#">模型列表</a></li>
+<li><a class="text-on-surface-variant hover:text-custom-navy text-sm" href="#">价格体系</a></li>
+<li><a class="text-on-surface-variant hover:text-custom-navy text-sm" href="#">企业版</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-custom-navy mb-6">技术支持</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-custom-navy text-sm" href="#">开发者文档</a></li>
+<li><a class="text-on-surface-variant hover:text-custom-navy text-sm" href="#">API 参考</a></li>
+<li><a class="text-on-surface-variant hover:text-custom-navy text-sm" href="#">状态监控</a></li>
+<li><a class="text-on-surface-variant hover:text-custom-navy text-sm" href="#">联系我们</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-custom-navy mb-6">关于我们</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-custom-navy text-sm" href="#">公司简介</a></li>
+<li><a class="text-on-surface-variant hover:text-custom-navy text-sm" href="#">加入我们</a></li>
+<li><a class="text-on-surface-variant hover:text-custom-navy text-sm" href="#">隐私政策</a></li>
+<li><a class="text-on-surface-variant hover:text-custom-navy text-sm" href="#">服务条款</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
+<p class="text-on-surface-variant text-sm">© 2024 Pigcoder Tech. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<span class="text-xs text-on-surface-variant">沪ICP备12345678号-1</span>
+<span class="text-xs text-on-surface-variant">沪公网安备 1234567890号</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
