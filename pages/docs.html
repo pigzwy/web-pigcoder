@@ -131,32 +131,59 @@
     html {
       scroll-behavior: smooth;
     }
+
+    /* 回到顶部按钮 */
+    #back-to-top {
+      position: fixed;
+      right: 2rem;
+      bottom: 2rem;
+      z-index: 40;
+      height: 44px;
+      padding: 0 20px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #1B3A6B;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(27, 58, 107, 0.1);
+      font-size: 13px;
+      font-weight: 600;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    #back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    #back-to-top:hover {
+      border-color: rgba(232, 168, 37, 0.5);
+      box-shadow: 0 8px 28px rgba(27, 58, 107, 0.15);
+    }
+    .dark #back-to-top {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2e8f0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .dark #back-to-top:hover {
+      border-color: rgba(232, 168, 37, 0.4);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+    }
 </style>
 </head>
 <body class="bg-white dark:bg-[#0D1B2A] font-body text-gray-800 dark:text-gray-200 selection:bg-custom-gold selection:text-white transition-colors duration-300">
 
-<!-- 导航栏 -->
-<header class="w-full sticky top-0 z-50 bg-white/80 dark:bg-[#0D1B2A]/90 backdrop-blur-xl shadow-sm dark:shadow-none dark:border-b dark:border-white/10">
-  <nav class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
-    <!-- logo -->
-    <div class="flex items-center gap-2">
-      <img src="logo.jpg" alt="Pigcoder" class="w-8 h-8 rounded-full object-cover"/>
-      <span class="text-[#1B3A6B] dark:text-white" style="font-weight:700;font-size:1.1rem;">pigcoder</span>
-    </div>
-    <!-- 导航链接 -->
-    <div class="flex items-center gap-8">
-      <a class="text-on-surface-variant dark:text-gray-400 font-medium hover:text-custom-gold transition-colors" href="index.html">首页</a>
-      <a class="text-custom-navy dark:text-white border-b-2 border-custom-gold pb-1 font-medium" href="docs.html">文档</a>
-      <a class="text-on-surface-variant dark:text-gray-400 font-medium hover:text-custom-gold transition-colors" href="pricing.html">价格</a>
-    </div>
-    <!-- 右侧 -->
-    <div class="flex items-center gap-4">
-      <span class="material-symbols-outlined text-custom-navy dark:text-white cursor-pointer hover:text-custom-gold transition-colors">language</span>
-      <span id="theme-toggle" class="material-symbols-outlined text-custom-navy dark:text-white cursor-pointer hover:text-custom-gold transition-colors">dark_mode</span>
-      <a href="https://sub2.pigcoder.com/login" class="bg-custom-navy text-white px-6 py-2 rounded font-semibold active:scale-95 transition-all">控制台</a>
-    </div>
-  </nav>
-</header>
+<!-- 导航栏（由 components.js 渲染） -->
+<div id="site-header"></div>
 
 <!-- 主体：两栏布局 -->
 <div class="flex gap-6 max-w-[1400px] mx-auto px-6 py-8 min-h-screen">
@@ -719,59 +746,14 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
 
 </div>
 
-<!-- 页脚 -->
-<footer class="w-full border-t border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#0A1628] py-12">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-      <div class="col-span-2 md:col-span-1">
-        <div class="flex items-center gap-2 mb-6">
-          <img src="logo.jpg" alt="Pigcoder" class="w-8 h-8 rounded-full object-cover"/>
-          <span class="text-[#1B3A6B] dark:text-white" style="font-weight:700;font-size:1.1rem;letter-spacing:-0.01em;">pigcoder</span>
-        </div>
-        <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-6">稳定、高速、安全的 AI 模型中转枢纽，为全球开发者赋能。</p>
-        <div class="flex gap-4">
-          <span class="material-symbols-outlined text-custom-navy dark:text-gray-400 cursor-pointer hover:text-custom-gold transition-colors">hub</span>
-          <span class="material-symbols-outlined text-custom-navy dark:text-gray-400 cursor-pointer hover:text-custom-gold transition-colors">terminal</span>
-          <span class="material-symbols-outlined text-custom-navy dark:text-gray-400 cursor-pointer hover:text-custom-gold transition-colors">mail</span>
-        </div>
-      </div>
-      <div>
-        <h4 class="font-bold text-custom-navy dark:text-white mb-6">产品与服务</h4>
-        <ul class="space-y-4">
-          <li><a class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors" href="index.html">产品介绍</a></li>
-          <li><a class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors" href="#">模型列表</a></li>
-          <li><a class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors" href="pricing.html">价格体系</a></li>
-          <li><a class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors" href="#">企业版</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-bold text-custom-navy dark:text-white mb-6">技术支持</h4>
-        <ul class="space-y-4">
-          <li><a class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors" href="docs.html">开发者文档</a></li>
-          <li><a class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors" href="#">API 参考</a></li>
-          <li><a class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors" href="#">状态监控</a></li>
-          <li><a class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors" href="#">联系我们</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-bold text-custom-navy dark:text-white mb-6">关于我们</h4>
-        <ul class="space-y-4">
-          <li><a class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors" href="#">公司简介</a></li>
-          <li><a class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors" href="#">加入我们</a></li>
-          <li><a class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors" href="#">隐私政策</a></li>
-          <li><a class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors" href="#">服务条款</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="pt-8 border-t border-slate-200 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-on-surface-variant dark:text-gray-500 text-sm">&copy; 2024 Pigcoder Tech. All rights reserved.</p>
-      <div class="flex items-center gap-6">
-        <span class="text-xs text-on-surface-variant dark:text-gray-500">沪ICP备12345678号-1</span>
-        <span class="text-xs text-on-surface-variant dark:text-gray-500">沪公网安备 1234567890号</span>
-      </div>
-    </div>
-  </div>
-</footer>
+<!-- 页脚（由 components.js 渲染） -->
+<div id="site-footer"></div>
+
+<!-- 回到顶部 -->
+<button id="back-to-top" aria-label="回到顶部">
+  <span class="material-symbols-outlined" style="font-size:20px">keyboard_arrow_up</span>
+  <span>顶部</span>
+</button>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -816,8 +798,22 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+
+  // 回到顶部按钮
+  var backBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      backBtn.classList.add('show');
+    } else {
+      backBtn.classList.remove('show');
+    }
+  });
+  backBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 });
 </script>
+<script src="components.js"></script>
 <script src="shared.js"></script>
 </body>
 </html>
