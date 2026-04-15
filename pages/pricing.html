@@ -1,382 +1,728 @@
 <!DOCTYPE html>
+<html class="light" lang="zh-CN">
 
-<html class="dark" lang="zh-CN"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-secondary-fixed": "#271900",
-                        "outline": "#747780",
-                        "surface-dim": "#dad9de",
-                        "on-primary-container": "#89a5dd",
-                        "surface-container-lowest": "#ffffff",
-                        "secondary-container": "#fdbb39",
-                        "inverse-primary": "#acc7ff",
-                        "on-tertiary": "#ffffff",
-                        "surface": "#faf9fe",
-                        "primary-container": "#1b3a6b",
-                        "error-container": "#ffdad6",
-                        "surface-container-high": "#e9e7ec",
-                        "on-secondary": "#ffffff",
-                        "on-surface-variant": "#44474f",
-                        "on-primary": "#ffffff",
-                        "surface-tint": "#425e91",
-                        "tertiary": "#002c0b",
-                        "on-tertiary-fixed-variant": "#105220",
-                        "secondary-fixed": "#ffdeab",
-                        "primary-fixed-dim": "#acc7ff",
-                        "on-error": "#ffffff",
-                        "surface-bright": "#faf9fe",
-                        "tertiary-fixed-dim": "#94d695",
-                        "primary-fixed": "#d7e2ff",
-                        "error": "#ba1a1a",
-                        "on-tertiary-fixed": "#002107",
-                        "inverse-surface": "#2f3034",
-                        "on-surface": "#1a1b1f",
-                        "tertiary-fixed": "#aff3af",
-                        "background": "#faf9fe",
-                        "surface-container": "#eeedf2",
-                        "secondary": "#7e5700",
-                        "on-tertiary-container": "#73b476",
-                        "on-secondary-fixed-variant": "#5f4100",
-                        "primary": "#002452",
-                        "on-primary-fixed-variant": "#294678",
-                        "surface-container-low": "#f4f3f8",
-                        "surface-variant": "#e3e2e7",
-                        "on-primary-fixed": "#001a40",
-                        "on-error-container": "#93000a",
-                        "secondary-fixed-dim": "#fdbb39",
-                        "on-background": "#1a1b1f",
-                        "surface-container-highest": "#e3e2e7",
-                        "inverse-on-surface": "#f1f0f5",
-                        "outline-variant": "#c4c6d0",
-                        "on-secondary-container": "#6e4c00",
-                        "tertiary-container": "#004515"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "fontFamily": {
-                        "headline": ["Space Grotesk"],
-                        "body": ["Inter"],
-                        "label": ["Inter"]
-                    },
-                    "boxShadow": {
-                        "ambient": "0 12px 40px rgba(26, 27, 31, 0.04)"
-                    }
-                }
-            }
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>价格 - Pigcoder</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#f4f3f8",
+            "outline": "#747780",
+            "tertiary-fixed": "#aff3af",
+            "primary-fixed": "#d7e2ff",
+            "on-surface-variant": "#44474f",
+            "on-tertiary-container": "#73b476",
+            "secondary": "#7e5700",
+            "error": "#ba1a1a",
+            "on-surface": "#1a1b1f",
+            "tertiary": "#002c0b",
+            "on-primary-fixed": "#001a40",
+            "on-secondary-container": "#6e4c00",
+            "tertiary-fixed-dim": "#94d695",
+            "surface-container-highest": "#e3e2e7",
+            "surface-container": "#eeedf2",
+            "surface-dim": "#dad9de",
+            "secondary-container": "#fdbb39",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#ffdeab",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed-variant": "#105220",
+            "outline-variant": "#c4c6d0",
+            "on-primary-fixed-variant": "#294678",
+            "background": "#faf9fe",
+            "inverse-on-surface": "#f1f0f5",
+            "on-error-container": "#93000a",
+            "on-background": "#1a1b1f",
+            "surface-variant": "#e3e2e7",
+            "surface-tint": "#425e91",
+            "primary-container": "#1b3a6b",
+            "error-container": "#ffdad6",
+            "surface-bright": "#faf9fe",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "primary-fixed-dim": "#acc7ff",
+            "secondary-fixed-dim": "#fdbb39",
+            "on-secondary-fixed": "#271900",
+            "primary": "#002452",
+            "tertiary-container": "#004515",
+            "surface-container-high": "#e9e7ec",
+            "inverse-surface": "#2f3034",
+            "on-primary-container": "#89a5dd",
+            "on-secondary-fixed-variant": "#5f4100",
+            "on-tertiary-fixed": "#002107",
+            "surface": "#faf9fe",
+            "inverse-primary": "#acc7ff",
+            "custom-navy": "#1B3A6B",
+            "custom-gold": "#E8A825",
+            "custom-green": "#5B9A5F"
+          },
+          borderRadius: {
+            "DEFAULT": "8px",
+            "lg": "12px",
+            "xl": "24px",
+            "full": "9999px"
+          },
+          fontFamily: {
+            "headline": ["Space Grotesk", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "label": ["Inter", "sans-serif"]
+          }
         }
-    </script>
-<style>
-        body {
-            background-color: #0D1B2A;
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-        }
-        .headline-font {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-panel {
-            background: rgba(17, 24, 39, 0.8);
-            backdrop-filter: blur(24px);
-        }
-        .card-slate {
-            background-color: #111827;
-        }
-        .accent-gold {
-            color: #E8A825;
-        }
-        .bg-accent-gold {
-            background-color: #E8A825;
-        }
-        .accent-green {
-            color: #5B9A5F;
-        }
-        .bg-accent-green {
-            background-color: #5B9A5F;
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* FAQ 折叠动画 */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-chevron {
+      transition: transform 0.3s ease;
+    }
+  </style>
 </head>
-<body class="antialiased selection:bg-secondary/30">
-<!-- TopNavBar -->
-<nav class="w-full top-0 sticky z-50 bg-slate-950 dark:bg-[#0D1B2A] shadow-ambient dark:shadow-none">
-<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20">
-<div class="flex items-center gap-8">
-<span class="text-2xl font-bold tracking-tighter text-white headline-font">Pigcoder</span>
-<div class="hidden md:flex gap-6">
-<a class="text-slate-300 hover:text-white transition-colors font-space-grotesk tracking-tight text-sm" href="#">首页</a>
-<a class="text-slate-300 hover:text-white transition-colors font-space-grotesk tracking-tight text-sm" href="#">文档</a>
-<a class="text-[#E8A825] border-b-2 border-[#E8A825] pb-1 font-space-grotesk tracking-tight text-sm" href="#">价格</a>
-</div>
-</div>
-<button class="bg-[#E8A825] text-slate-950 px-5 py-2 rounded-lg font-bold text-sm hover:opacity-80 transition-all scale-95 duration-200">控制台</button>
-</div>
-</nav>
-<main class="max-w-7xl mx-auto px-6 py-16">
-<!-- Hero Section -->
-<section class="text-center mb-16">
-<h1 class="text-5xl md:text-6xl font-bold headline-font tracking-tight mb-6">
-                选择适合你的 <span class="accent-gold">订阅套餐</span>
-</h1>
-<p class="text-slate-400 text-lg mb-10 max-w-2xl mx-auto">
-                通过支付购买或兑换码激活获取订阅服务
-            </p>
-<div class="inline-flex items-center p-1 bg-slate-900 rounded-xl">
-<button class="px-8 py-2.5 rounded-lg bg-accent-gold text-slate-950 font-bold transition-all">按量付费</button>
-<button class="px-8 py-2.5 rounded-lg text-slate-500 font-medium hover:text-slate-300 transition-all">包月套餐</button>
-</div>
-</section>
-<!-- Info Banner -->
-<section class="mb-12">
-<div class="card-slate p-6 rounded-xl flex flex-col md:flex-row justify-between items-center border border-slate-800 shadow-xl gap-6">
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">
-<span class="material-symbols-outlined accent-gold" style="font-variation-settings: 'FILL' 1;">bolt</span>
-</div>
-<div>
-<h3 class="font-bold text-lg mb-1">按量付费模式</h3>
-<p class="text-slate-400 text-sm">无需订阅，充值即用，按实际消耗扣费。余额所有渠道通用。价格以美元计价（当前比例：1美元≈1人民币）</p>
-</div>
-</div>
-<div class="text-right">
-<span class="text-sm font-medium accent-gold bg-secondary/10 px-4 py-2 rounded-full border border-secondary/20">
-                        倍率越低越划算 · 0.15倍率 = 1元可用约6.67美元额度
-                    </span>
-</div>
-</div>
-</section>
-<!-- Pricing Grid -->
-<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Card 1: AWS Bedrock -->
-<div class="card-slate rounded-xl p-8 border border-slate-800 hover:border-slate-700 transition-all shadow-2xl relative overflow-hidden flex flex-col">
-<div class="flex justify-between items-start mb-6">
-<span class="px-3 py-1 bg-accent-green/20 text-accent-green text-xs font-bold rounded-full tracking-wide">CLAUDE</span>
-<span class="text-slate-500 text-sm font-medium">AWS Bedrock</span>
-</div>
-<div class="mb-6">
-<h2 class="accent-gold text-4xl font-bold headline-font mb-1">1:5</h2>
-<span class="text-slate-500 text-sm">0.20$/元</span>
-</div>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">opus-4-6</span>
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">sonnet-4-6</span>
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">haiku-4-5</span>
-</div>
-<ul class="space-y-3 mb-8 flex-grow">
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> 高级thinking
-                    </li>
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> 200k/1M上下文
-                    </li>
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> WebSearch
-                    </li>
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> AWS托管
-                    </li>
-</ul>
-<button class="w-full py-4 bg-accent-green hover:opacity-90 text-white font-bold rounded-lg transition-all">立即充值</button>
-</div>
-<!-- Card 2: Claude Max -->
-<div class="card-slate rounded-xl p-8 border border-slate-800 hover:border-slate-700 transition-all shadow-2xl flex flex-col">
-<div class="flex justify-between items-start mb-6">
-<span class="px-3 py-1 bg-accent-green/20 text-accent-green text-xs font-bold rounded-full tracking-wide">CLAUDE</span>
-<span class="text-slate-500 text-sm font-medium">Claude Max</span>
-</div>
-<div class="mb-6">
-<h2 class="accent-gold text-4xl font-bold headline-font mb-1">1:2.1</h2>
-<span class="text-slate-500 text-sm">0.48$/元</span>
-</div>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">opus-4-5</span>
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">sonnet-4-5</span>
-</div>
-<ul class="space-y-3 mb-8 flex-grow">
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> thinking
-                    </li>
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> 200k/1M上下文
-                    </li>
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> WebSearch
-                    </li>
-<li class="flex items-center gap-2 text-sm text-slate-400 italic">
-<span class="material-symbols-outlined text-sm">info</span> 仅支持cli
-                    </li>
-</ul>
-<button class="w-full py-4 bg-accent-green hover:opacity-90 text-white font-bold rounded-lg transition-all">立即充值</button>
-</div>
-<!-- Card 3: CC-反重力逆向 -->
-<div class="card-slate rounded-xl p-8 border border-slate-800 hover:border-slate-700 transition-all shadow-2xl flex flex-col">
-<div class="flex justify-between items-start mb-6">
-<span class="px-3 py-1 bg-accent-green/20 text-accent-green text-xs font-bold rounded-full tracking-wide">CLAUDE</span>
-<span class="text-slate-500 text-sm font-medium">CC-反重力逆向</span>
-</div>
-<div class="mb-6">
-<h2 class="accent-gold text-4xl font-bold headline-font mb-1">1:1</h2>
-<span class="text-slate-500 text-sm">1.00$/元</span>
-</div>
-<div class="flex flex-wrap gap-2 mb-6 h-[24px]">
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">Subset Models</span>
-</div>
-<ul class="space-y-3 mb-8 flex-grow">
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> thinking
-                    </li>
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> 200k 上下文
-                    </li>
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> WebSearch
-                    </li>
-</ul>
-<button class="w-full py-4 bg-accent-green hover:opacity-90 text-white font-bold rounded-lg transition-all">立即充值</button>
-</div>
-<!-- Card 4: Kiro标准版 -->
-<div class="card-slate rounded-xl p-8 border border-slate-800 hover:border-slate-700 transition-all shadow-2xl flex flex-col">
-<div class="flex justify-between items-start mb-6">
-<span class="px-3 py-1 bg-accent-green/20 text-accent-green text-xs font-bold rounded-full tracking-wide">CLAUDE</span>
-<span class="text-slate-500 text-sm font-medium">Kiro标准版</span>
-</div>
-<div class="mb-6">
-<h2 class="accent-gold text-4xl font-bold headline-font mb-1">1:0.3</h2>
-<span class="text-slate-500 text-sm">3.33$/元</span>
-</div>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">Sonnet</span>
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">Haiku</span>
-</div>
-<ul class="space-y-3 mb-8 flex-grow">
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> 内置thinking
-                    </li>
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> WebSearch
-                    </li>
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> 200k 上下文
-                    </li>
-<li class="flex items-center gap-2 text-sm accent-green font-bold">
-<span class="material-symbols-outlined text-sm">star</span> OpenClaw首选
-                    </li>
-</ul>
-<button class="w-full py-4 bg-accent-green hover:opacity-90 text-white font-bold rounded-lg transition-all">立即充值</button>
-</div>
-<!-- Card 5: Codex(GPT PRO) -->
-<div class="card-slate rounded-xl p-8 border border-slate-800 hover:border-slate-700 transition-all shadow-2xl flex flex-col">
-<div class="flex justify-between items-start mb-6">
-<span class="px-3 py-1 bg-primary-container text-white text-xs font-bold rounded-full tracking-wide">CODEX</span>
-<span class="text-slate-500 text-sm font-medium">Codex(GPT PRO)</span>
-</div>
-<div class="mb-6">
-<h2 class="accent-gold text-4xl font-bold headline-font mb-1">1:0.6</h2>
-<span class="text-slate-500 text-sm">1.67$/元</span>
-</div>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">gpt-5.4</span>
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">gpt-5.3-codex</span>
-</div>
-<ul class="space-y-3 mb-8 flex-grow">
-<li class="flex items-center gap-2 text-sm accent-green font-bold">
-<span class="material-symbols-outlined text-sm">bolt</span> xhigh全部支持
-                    </li>
-</ul>
-<button class="w-full py-4 bg-accent-green hover:opacity-90 text-white font-bold rounded-lg transition-all">立即充值</button>
-</div>
-<!-- Card 6: Gemini官方 -->
-<div class="card-slate rounded-xl p-8 border border-slate-800 hover:border-slate-700 transition-all shadow-2xl flex flex-col">
-<div class="flex justify-between items-start mb-6">
-<span class="px-3 py-1 bg-primary-container text-white text-xs font-bold rounded-full tracking-wide">GEMINI</span>
-<span class="text-slate-500 text-sm font-medium">Gemini官方</span>
-</div>
-<div class="mb-6">
-<h2 class="accent-gold text-4xl font-bold headline-font mb-1">1:0.6</h2>
-<span class="text-slate-500 text-sm">1.67$/元</span>
-</div>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">gemini-3-pro</span>
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">3-flash</span>
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">2.5-pro</span>
-</div>
-<ul class="space-y-3 mb-8 flex-grow">
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> thinking
-                    </li>
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">check_circle</span> WebSearch
-                    </li>
-</ul>
-<button class="w-full py-4 bg-accent-green hover:opacity-90 text-white font-bold rounded-lg transition-all">立即充值</button>
-</div>
-<!-- Card 7: Codex(Team) -->
-<div class="card-slate rounded-xl p-8 border border-slate-800 hover:border-slate-700 transition-all shadow-2xl flex flex-col">
-<div class="flex justify-between items-start mb-6">
-<span class="px-3 py-1 bg-primary-container text-white text-xs font-bold rounded-full tracking-wide">CODEX</span>
-<span class="text-slate-500 text-sm font-medium">Codex(Team)</span>
-</div>
-<div class="mb-6">
-<h2 class="accent-gold text-4xl font-bold headline-font mb-1">1:0.3</h2>
-<span class="text-slate-500 text-sm">3.33$/元</span>
-</div>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">gpt-5.4</span>
-<span class="px-2 py-1 bg-slate-800 text-slate-300 text-[10px] rounded">5.3-codex</span>
-</div>
-<ul class="space-y-3 mb-8 flex-grow">
-<li class="flex items-center gap-2 text-sm accent-green">
-<span class="material-symbols-outlined text-sm">group</span> 团队协作版
-                    </li>
-</ul>
-<button class="w-full py-4 bg-accent-green hover:opacity-90 text-white font-bold rounded-lg transition-all">立即充值</button>
-</div>
-</section>
-<p class="text-center text-slate-500 text-sm mt-16 font-medium">
-            上述套餐价格与权益请以控制台「订阅」页面与官方公告为准
-        </p>
-<!-- Decorative Illustration Area -->
-<div class="mt-24 relative rounded-2xl overflow-hidden h-64 border border-slate-800/50">
-<div class="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] to-transparent z-10"></div>
-<img class="w-full h-full object-cover opacity-30 grayscale" data-alt="Abstract 3D digital nodes connected by golden light trails on a deep navy background, sleek futuristic high-tech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSeDrRrAICYsMW5EZPX_wJ0jC7EVzv8gxqubkg5cXCdR6A2Bkzf-cEATzmv3-MzqVrYwofYGkDjdjKOrvXL6GVFUmmE1RWiiCx58YE-lLj24OfAcPIQkRUgViw1O_X1GyleisTNEobOt4sl3kcmMHX1QXXA64fjDp9L5K8Usi-vZWXipLluhFpi7OCmK97jRTjh8Go_uLIgVQduaEBsLG94B000tLu8b0HK3oBhFCw3hQ8iYSiO0M5QbVx8w-Eo9QNvfdJvNYYpL8"/>
-<div class="absolute inset-0 flex items-center justify-center z-20">
-<div class="text-center">
-<h4 class="headline-font text-2xl font-bold mb-2">算力无界，即刻开启</h4>
-<p class="text-slate-400 text-sm">全球领先的 AI 模型托管与聚合接入平台</p>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer -->
-<footer class="w-full border-t border-slate-800/50 bg-slate-950 dark:bg-[#0D1B2A]">
-<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 py-12">
-<div class="mb-8 md:mb-0">
-<span class="text-xl font-black text-white headline-font">Pigcoder</span>
-<p class="font-inter text-xs uppercase tracking-widest text-slate-400 mt-2">© 2024 Pigcoder. All rights reserved.</p>
-</div>
-<div class="flex flex-wrap justify-center gap-8">
-<a class="font-inter text-xs uppercase tracking-widest text-slate-500 hover:text-[#E8A825] transition-colors" href="#">首页</a>
-<a class="font-inter text-xs uppercase tracking-widest text-slate-500 hover:text-[#E8A825] transition-colors" href="#">文档</a>
-<a class="font-inter text-xs uppercase tracking-widest text-[#E8A825] transition-colors" href="#">价格</a>
-<a class="font-inter text-xs uppercase tracking-widest text-slate-500 hover:text-[#E8A825] transition-colors" href="#">隐私政策</a>
-<a class="font-inter text-xs uppercase tracking-widest text-slate-500 hover:text-[#E8A825] transition-colors" href="#">服务条款</a>
-</div>
-</div>
-</footer>
 
-```</body></html>
+<body
+  class="bg-white dark:bg-[#0D1B2A] font-body text-on-surface dark:text-white selection:bg-custom-gold selection:text-white transition-colors duration-300">
+
+  <!-- 导航栏 -->
+  <header
+    class="w-full sticky top-0 z-50 bg-white/80 dark:bg-[#0D1B2A]/90 backdrop-blur-xl shadow-sm dark:shadow-none dark:border-b dark:border-white/10 transition-colors duration-300">
+    <nav class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <img src="logo.jpg" alt="Pigcoder" class="w-8 h-8 rounded-full object-cover" />
+        <span class="text-[#1B3A6B] dark:text-white"
+          style="font-weight:700;font-size:1.1rem;letter-spacing:-0.01em;">pigcoder</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8">
+        <a class="text-on-surface-variant dark:text-gray-400 font-medium hover:text-custom-gold transition-colors"
+          href="index.html">首页</a>
+        <a class="text-on-surface-variant dark:text-gray-400 font-medium hover:text-custom-gold transition-colors"
+          href="docs.html">文档</a>
+        <a class="text-custom-navy dark:text-white border-b-2 border-custom-gold pb-1 font-medium"
+          href="pricing.html">价格</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <span
+          class="material-symbols-outlined text-custom-navy dark:text-white cursor-pointer hover:text-custom-gold transition-colors">language</span>
+        <span id="theme-toggle"
+          class="material-symbols-outlined text-custom-navy dark:text-white cursor-pointer hover:text-custom-gold transition-colors">dark_mode</span>
+        <a href="https://sub2.pigcoder.com/login"
+          class="bg-custom-navy text-white px-6 py-2 rounded font-semibold active:scale-95 transition-all">控制台</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 页面标题区 -->
+    <section class="bg-[#F5F7FA] dark:bg-[#0D1B2A] pt-16 pb-10 transition-colors duration-300">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold font-headline tracking-tight mb-4">
+          <span class="text-custom-navy dark:text-white">选择适合你的</span>
+          <span class="text-custom-gold">订阅套餐</span>
+        </h1>
+        <p class="text-on-surface-variant dark:text-gray-400 text-lg">通过支付购买或兑换码激活获取订阅服务</p>
+      </div>
+    </section>
+
+    <!-- 切换按钮 -->
+    <section class="bg-[#F5F7FA] dark:bg-[#0D1B2A] pb-10 transition-colors duration-300">
+      <div class="flex justify-center">
+        <div class="inline-flex items-center p-1 bg-slate-100 dark:bg-[#1a2332] rounded-full">
+          <button id="tab-payg"
+            class="px-8 py-2.5 rounded-full font-semibold text-sm transition-all bg-custom-navy text-white dark:bg-custom-gold dark:text-custom-navy">按量付费</button>
+          <button id="tab-monthly"
+            class="px-8 py-2.5 rounded-full font-semibold text-sm transition-all bg-white text-gray-600 dark:bg-[#1a2332] dark:text-gray-400">包月套餐</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 说明横幅 -->
+    <section class="bg-[#F5F7FA] dark:bg-[#0D1B2A] pb-10 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-6">
+        <div
+          class="bg-white dark:bg-[#111827] rounded-xl border-l-[3px] border-l-custom-green border border-slate-200 dark:border-white/10 p-6 transition-colors duration-300">
+          <div class="flex flex-col md:flex-row md:items-center gap-4">
+            <div class="flex items-start gap-3 flex-1">
+              <span class="material-symbols-outlined text-custom-gold text-2xl mt-0.5"
+                style="font-variation-settings: 'FILL' 1;">bolt</span>
+              <div>
+                <h3 class="font-bold text-custom-navy dark:text-white text-base mb-1">按量付费模式</h3>
+                <p class="text-on-surface-variant dark:text-gray-400 text-sm leading-relaxed">
+                  无需订阅，充值即用，按实际消耗扣费。余额所有渠道通用，可自由切换。价格以美元计价（当前比例：1美元≈1人民币）</p>
+                <p class="text-on-surface-variant dark:text-gray-500 text-xs mt-2">倍率越低越划算 · 0.15倍率 = 1元可用约6.67美元额度</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 产品卡片网格 -->
+    <section class="bg-[#F5F7FA] dark:bg-[#0D1B2A] pb-16 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- 卡片 1: AWS Bedrock -->
+          <!-- <div class="bg-white dark:bg-[#111827] rounded-xl border border-slate-200 dark:border-white/10 p-6 flex flex-col transition-colors duration-300 hover:shadow-lg">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="px-2.5 py-0.5 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full">Claude</span>
+            <span class="text-custom-navy dark:text-white font-bold text-base">AWS Bedrock</span>
+          </div>
+          <div class="mb-4">
+            <span class="text-custom-gold text-3xl font-bold font-body">1:5</span>
+            <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">0.20$/元</span>
+          </div>
+          <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">基于 AWS 的 Claude 企业级接入服务</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-opus-4-6(1M)</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-opus-4-5</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-sonnet-4-6</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-sonnet-4-5</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-haiku-4-5</span>
+          </div>
+          <div class="flex flex-wrap gap-2 mb-6 flex-grow">
+            <span class="text-custom-green text-xs font-medium">支持高级thinking</span>
+            <span class="text-custom-green text-xs font-medium">200k上下文</span>
+            <span class="text-custom-green text-xs font-medium">支持1M上下文</span>
+            <span class="text-custom-green text-xs font-medium">支持WebSearch</span>
+            <span class="text-custom-green text-xs font-medium">AWS官方托管接入</span>
+            <span class="text-custom-green text-xs font-medium">相当于官方约7折</span>
+          </div>
+          <button class="w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
+        </div> -->
+
+          <!-- 卡片 2: Claude Max -->
+          <div
+            class="bg-white dark:bg-[#111827] rounded-xl border border-slate-200 dark:border-white/10 p-6 flex flex-col transition-colors duration-300 hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-4">
+              <span
+                class="px-2.5 py-0.5 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full">Claude</span>
+              <span class="text-custom-navy dark:text-white font-bold text-base">Claude Max</span>
+            </div>
+            <div class="mb-4">
+              <span class="text-custom-gold text-3xl font-bold font-body">1:1.5</span>
+              <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">0.67$/元</span>
+            </div>
+            <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">官方Max20x账号，效果最好</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-opus-4-6(1M)</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-opus-4-5</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-sonnet-4-6</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-sonnet-4-5</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-haiku-4-5</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-6 flex-grow">
+              <span class="text-custom-green text-xs font-medium">支持高级thinking</span>
+              <span class="text-custom-green text-xs font-medium">200k上下文</span>
+              <span class="text-custom-green text-xs font-medium">支持1M上下文</span>
+              <span class="text-custom-green text-xs font-medium">支持WebSearch</span>
+              <span class="text-custom-green text-xs font-medium">仅支持claude code cli</span>
+            </div>
+            <button onclick="openRechargeModal()"
+              class="w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
+          </div>
+
+          <!-- 卡片 3: CC-反重力逆向 -->
+          <div
+            class="bg-white dark:bg-[#111827] rounded-xl border border-slate-200 dark:border-white/10 p-6 flex flex-col transition-colors duration-300 hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-4">
+              <span
+                class="px-2.5 py-0.5 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full">Claude</span>
+              <span class="text-custom-navy dark:text-white font-bold text-base">CC-反重力逆向</span>
+            </div>
+            <div class="mb-4">
+              <span class="text-custom-gold text-3xl font-bold font-body">1:0.6</span>
+              <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">1.67$/元</span>
+            </div>
+            <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">性能与价格均衡，稳定性较好</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-opus-4-6(1M)</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-sonnet-4-6(1M)</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-opus-4-5</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-haiku-4-5</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-6 flex-grow">
+              <span class="text-custom-green text-xs font-medium">支持thinking</span>
+              <span class="text-custom-green text-xs font-medium">200k上下文</span>
+              <span class="text-custom-green text-xs font-medium">支持WebSearch</span>
+            </div>
+            <button onclick="openRechargeModal()"
+              class="w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
+          </div>
+
+          <!-- 卡片 4: Kiro标准版 -->
+          <div
+            class="bg-white dark:bg-[#111827] rounded-xl border border-slate-200 dark:border-white/10 p-6 flex flex-col transition-colors duration-300 hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-4">
+              <span
+                class="px-2.5 py-0.5 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full">Claude</span>
+              <span class="text-custom-navy dark:text-white font-bold text-base">Kiro标准版</span>
+            </div>
+            <div class="mb-4">
+              <span class="text-custom-gold text-3xl font-bold font-body">1:0.55</span>
+              <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">1.82$/元</span>
+            </div>
+            <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">只能用sonnet和haiku，稳定性强</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-sonnet-4-6</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-sonnet-4-5</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-haiku-4-5</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-6 flex-grow">
+              <span class="text-custom-green text-xs font-medium">支持内置thinking</span>
+              <span class="text-custom-green text-xs font-medium">支持WebSearch</span>
+              <span class="text-custom-green text-xs font-medium">200k上下文</span>
+              <span class="text-custom-green text-xs font-medium">OpenClaw首选</span>
+            </div>
+            <button onclick="openRechargeModal()"
+              class="w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
+          </div>
+
+          <!-- 卡片 5: Codex(GPT PRO) -->
+          <div
+            class="bg-white dark:bg-[#111827] rounded-xl border border-slate-200 dark:border-white/10 p-6 flex flex-col transition-colors duration-300 hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-4">
+              <span
+                class="px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full">Codex</span>
+              <span class="text-custom-navy dark:text-white font-bold text-base">Codex(GPT PRO)</span>
+            </div>
+            <div class="mb-4">
+              <span class="text-custom-gold text-3xl font-bold font-body">1:0.3</span>
+              <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">1.67$/元</span>
+            </div>
+            <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">支持codex所有模型，包含gpt-5.3-codex，稳定性强</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.4</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.3-codex</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.3等</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-6 flex-grow">
+              <span class="text-custom-green text-xs font-medium">xhigh等全部支持</span>
+            </div>
+            <button onclick="openRechargeModal()"
+              class="w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
+          </div>
+
+          <!-- 卡片 6: Gemini官方 -->
+          <div
+            class="bg-white dark:bg-[#111827] rounded-xl border border-slate-200 dark:border-white/10 p-6 flex flex-col transition-colors duration-300 hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-4">
+              <span
+                class="px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full">Gemini</span>
+              <span class="text-custom-navy dark:text-white font-bold text-base">Gemini逆向</span>
+            </div>
+            <div class="mb-4">
+              <span class="text-custom-gold text-3xl font-bold font-body">1:0.45</span>
+              <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">2.22$/元</span>
+            </div>
+            <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">暂不支持图片生成模型</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gemini-3-pro-preview</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gemini-3-flash-preview</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gemini-2.5-flash</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gemini-2.5-pro</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-6 flex-grow">
+              <span class="text-custom-green text-xs font-medium">支持thinking</span>
+              <span class="text-custom-green text-xs font-medium">支持WebSearch</span>
+            </div>
+            <button onclick="openRechargeModal()"
+              class="w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
+          </div>
+
+          <!-- 卡片 7: Codex(GPT PLUS) -->
+          <div
+            class="bg-white dark:bg-[#111827] rounded-xl border border-slate-200 dark:border-white/10 p-6 flex flex-col transition-colors duration-300 hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-4">
+              <span
+                class="px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full">Codex</span>
+              <span class="text-custom-navy dark:text-white font-bold text-base">Codex(GPT PLUS)</span>
+            </div>
+            <div class="mb-4">
+              <span class="text-custom-gold text-3xl font-bold font-body">1:0.15</span>
+              <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">6.67$/元</span>
+            </div>
+            <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">Plus 会员级别，性价比极高</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.4</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.3-codex</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.3等</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-6 flex-grow">
+              <span class="text-custom-green dark:text-green-400 text-xs font-medium">xhigh等全部支持</span>
+            </div>
+            <button onclick="openRechargeModal()"
+              class="w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
+          </div>
+
+          <!-- 卡片 8: Codex(GPT FREE) -->
+          <div
+            class="bg-white dark:bg-[#111827] rounded-xl border border-slate-200 dark:border-white/10 p-6 flex flex-col transition-colors duration-300 hover:shadow-lg">
+            <div class="flex items-center gap-3 mb-4">
+              <span
+                class="px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full">Codex</span>
+              <span class="text-custom-navy dark:text-white font-bold text-base">Codex(GPT FREE)</span>
+            </div>
+            <div class="mb-4">
+              <span class="text-custom-gold text-3xl font-bold font-body">1:0.1</span>
+              <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">10.00$/元</span>
+            </div>
+            <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">免费级别接入，倍率最低</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.4</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.3-codex</span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full"><span
+                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.3等</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-6 flex-grow">
+              <span class="text-custom-green dark:text-green-400 text-xs font-medium">xhigh等全部支持</span>
+            </div>
+            <button onclick="openRechargeModal()"
+              class="w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 底部说明 -->
+    <section class="bg-[#F5F7FA] dark:bg-[#0D1B2A] pb-10 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="text-center text-on-surface-variant dark:text-gray-500 text-sm">* 上述套餐价格与权益请以控制台「订阅」页面与官方公告为准。</p>
+      </div>
+    </section>
+
+    <!-- FAQ 区域 -->
+    <section class="bg-[#F5F7FA] dark:bg-[#0D1B2A] pb-20 transition-colors duration-300">
+      <div class="max-w-3xl mx-auto px-6">
+        <div
+          class="bg-white dark:bg-[#111827] rounded-xl border border-slate-200 dark:border-white/10 p-8 md:p-10 shadow-sm transition-colors duration-300">
+          <h2 class="text-2xl font-bold font-headline text-custom-navy dark:text-white mb-8 text-center">常见问题</h2>
+          <div class="space-y-4" id="faq-list">
+
+            <div class="faq-item border-b border-slate-100 dark:border-white/5 pb-4 cursor-pointer"
+              onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between">
+                <h3 class="font-semibold text-custom-navy dark:text-white text-sm">如何购买激活码？</h3>
+                <span
+                  class="material-symbols-outlined faq-chevron text-on-surface-variant dark:text-gray-400 text-xl">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p class="text-on-surface-variant dark:text-gray-400 text-sm pt-3 leading-relaxed">
+                  在套餐页面选择适合您的套餐，点击「立即购买」按钮，完成支付后即可获得激活码。</p>
+              </div>
+            </div>
+
+            <div class="faq-item border-b border-slate-100 dark:border-white/5 pb-4 cursor-pointer"
+              onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between">
+                <h3 class="font-semibold text-custom-navy dark:text-white text-sm">如何激活使用？</h3>
+                <span
+                  class="material-symbols-outlined faq-chevron text-on-surface-variant dark:text-gray-400 text-xl">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p class="text-on-surface-variant dark:text-gray-400 text-sm pt-3 leading-relaxed">获得激活码后，登录 Pigcoder
+                  控制台，在「兑换码」页面输入激活码即可激活。</p>
+              </div>
+            </div>
+
+            <div class="faq-item border-b border-slate-100 dark:border-white/5 pb-4 cursor-pointer"
+              onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between">
+                <h3 class="font-semibold text-custom-navy dark:text-white text-sm">激活码有效期是多久？</h3>
+                <span
+                  class="material-symbols-outlined faq-chevron text-on-surface-variant dark:text-gray-400 text-xl">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p class="text-on-surface-variant dark:text-gray-400 text-sm pt-3 leading-relaxed">
+                  按量付费套餐的余额永久有效，不过期。包月套餐在激活后开始计时。</p>
+              </div>
+            </div>
+
+            <div class="faq-item border-b border-slate-100 dark:border-white/5 pb-4 cursor-pointer"
+              onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between">
+                <h3 class="font-semibold text-custom-navy dark:text-white text-sm">支持哪些 AI 模型？</h3>
+                <span
+                  class="material-symbols-outlined faq-chevron text-on-surface-variant dark:text-gray-400 text-xl">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p class="text-on-surface-variant dark:text-gray-400 text-sm pt-3 leading-relaxed">目前支持 Claude 全系列、GPT 和
+                  Gemini。</p>
+              </div>
+            </div>
+
+            <div class="faq-item border-b border-slate-100 dark:border-white/5 pb-4 cursor-pointer"
+              onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between">
+                <h3 class="font-semibold text-custom-navy dark:text-white text-sm">可以退款吗？</h3>
+                <span
+                  class="material-symbols-outlined faq-chevron text-on-surface-variant dark:text-gray-400 text-xl">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p class="text-on-surface-variant dark:text-gray-400 text-sm pt-3 leading-relaxed">激活码一经激活不支持退款。未激活可 7
+                  天内申请。</p>
+              </div>
+            </div>
+
+            <div class="faq-item pb-4 cursor-pointer" onclick="toggleFaq(this)">
+              <div class="flex items-center justify-between">
+                <h3 class="font-semibold text-custom-navy dark:text-white text-sm">如何获取技术支持？</h3>
+                <span
+                  class="material-symbols-outlined faq-chevron text-on-surface-variant dark:text-gray-400 text-xl">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p class="text-on-surface-variant dark:text-gray-400 text-sm pt-3 leading-relaxed">查阅文档、加入用户群、通过工单联系客服。
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer
+    class="w-full border-t border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#0a1120] py-12 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div class="col-span-2 md:col-span-1">
+          <div class="flex items-center gap-2 mb-6">
+            <img src="logo.jpg" alt="Pigcoder" class="w-8 h-8 rounded-full object-cover" />
+            <span class="text-[#1B3A6B] dark:text-white"
+              style="font-weight:700;font-size:1.1rem;letter-spacing:-0.01em;">pigcoder</span>
+          </div>
+          <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-6">稳定、高速、安全的 AI 模型中转枢纽，为全球开发者赋能。</p>
+          <div class="flex gap-4">
+            <span
+              class="material-symbols-outlined text-custom-navy dark:text-gray-400 cursor-pointer hover:text-custom-gold transition-colors">hub</span>
+            <span
+              class="material-symbols-outlined text-custom-navy dark:text-gray-400 cursor-pointer hover:text-custom-gold transition-colors">terminal</span>
+            <span
+              class="material-symbols-outlined text-custom-navy dark:text-gray-400 cursor-pointer hover:text-custom-gold transition-colors">mail</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold text-custom-navy dark:text-white mb-6">产品与服务</h4>
+          <ul class="space-y-4">
+            <li><a
+                class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors"
+                href="index.html">产品介绍</a></li>
+            <li><a
+                class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors"
+                href="#">模型列表</a></li>
+            <li><a
+                class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors"
+                href="pricing.html">价格体系</a></li>
+            <li><a
+                class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors"
+                href="#">企业版</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-custom-navy dark:text-white mb-6">技术支持</h4>
+          <ul class="space-y-4">
+            <li><a
+                class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors"
+                href="docs.html">开发者文档</a></li>
+            <li><a
+                class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors"
+                href="#">API 参考</a></li>
+            <li><a
+                class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors"
+                href="#">状态监控</a></li>
+            <li><a
+                class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors"
+                href="#">联系我们</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-custom-navy dark:text-white mb-6">关于我们</h4>
+          <ul class="space-y-4">
+            <li><a
+                class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors"
+                href="#">公司简介</a></li>
+            <li><a
+                class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors"
+                href="#">加入我们</a></li>
+            <li><a
+                class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors"
+                href="#">隐私政策</a></li>
+            <li><a
+                class="text-on-surface-variant dark:text-gray-400 hover:text-custom-navy dark:hover:text-white text-sm transition-colors"
+                href="#">服务条款</a></li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="pt-8 border-t border-slate-200 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-on-surface-variant dark:text-gray-500 text-sm">&copy; 2024 Pigcoder Tech. All rights reserved.
+        </p>
+        <div class="flex items-center gap-6">
+          <span class="text-xs text-on-surface-variant dark:text-gray-500">沪ICP备12345678号-1</span>
+          <span class="text-xs text-on-surface-variant dark:text-gray-500">沪公网安备 1234567890号</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 充值引导 Modal -->
+  <div id="recharge-modal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+    <!-- 遮罩层 -->
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeRechargeModal()"></div>
+    <!-- 弹窗卡片 -->
+    <div class="relative bg-[#111827] rounded-2xl max-w-md mx-auto p-8 z-10 shadow-2xl">
+      <!-- 关闭按钮 -->
+      <button onclick="closeRechargeModal()" class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <!-- 图标 + 标题 -->
+      <div class="flex flex-col items-center mb-8">
+        <span class="material-symbols-outlined text-custom-green text-4xl mb-3" style="font-variation-settings: 'FILL' 1;">bolt</span>
+        <h3 class="text-white text-xl font-bold text-center">现已支持在控制台直接充值</h3>
+      </div>
+      <!-- 步骤列表 -->
+      <div class="space-y-5 mb-8">
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-full bg-white/10 text-white text-sm font-semibold">1</div>
+          <p class="text-white/90 text-sm leading-relaxed pt-1">前往控制台注册账号或登录</p>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-full bg-white/10 text-white text-sm font-semibold">2</div>
+          <p class="text-white/90 text-sm leading-relaxed pt-1">进入充值 / 订阅菜单</p>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-full bg-white/10 text-white text-sm font-semibold">3</div>
+          <p class="text-white/90 text-sm leading-relaxed pt-1">完成充值</p>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-full bg-white/10 text-white text-sm font-semibold">4</div>
+          <p class="text-white/90 text-sm leading-relaxed pt-1">进入 API 密钥菜单，创建 API 密钥，选择分组</p>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-full bg-white/10 text-white text-sm font-semibold">5</div>
+          <p class="text-white/90 text-sm leading-relaxed pt-1">点击使用密钥查看 URL</p>
+        </div>
+      </div>
+      <!-- 底部按钮 -->
+      <a href="https://sub2.pigcoder.com/login"
+        class="block w-full py-3.5 text-center text-white font-bold rounded-xl bg-gradient-to-r from-custom-green to-emerald-500 hover:brightness-110 active:scale-[0.98] transition-all">
+        立即前往控制台
+      </a>
+    </div>
+  </div>
+
+  <!-- FAQ 折叠脚本 -->
+  <script>
+    function toggleFaq(el) {
+      el.classList.toggle('open');
+    }
+  </script>
+
+  <!-- 充值引导 Modal 脚本 -->
+  <script>
+    function openRechargeModal() {
+      var modal = document.getElementById('recharge-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      // 禁止背景滚动
+      document.body.style.overflow = 'hidden';
+    }
+    function closeRechargeModal() {
+      var modal = document.getElementById('recharge-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+    // ESC 键关闭
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeRechargeModal();
+    });
+  </script>
+
+  <!-- 主题切换等共享逻辑 -->
+  <script src="shared.js"></script>
+</body>
+
+</html>
