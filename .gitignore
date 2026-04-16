@@ -2,3 +2,4 @@
 .claude/
 *.stackdump
 node_modules/
+docs/plans/

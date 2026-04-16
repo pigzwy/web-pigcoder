@@ -1,0 +1,70 @@
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "on-secondary": "#ffffff",
+        "surface-container-low": "#f4f3f8",
+        "outline": "#747780",
+        "tertiary-fixed": "#aff3af",
+        "primary-fixed": "#d7e2ff",
+        "on-surface-variant": "#44474f",
+        "on-tertiary-container": "#73b476",
+        "secondary": "#7e5700",
+        "error": "#ba1a1a",
+        "on-surface": "#1a1b1f",
+        "tertiary": "#002c0b",
+        "on-primary-fixed": "#001a40",
+        "on-secondary-container": "#6e4c00",
+        "tertiary-fixed-dim": "#94d695",
+        "surface-container-highest": "#e3e2e7",
+        "surface-container": "#eeedf2",
+        "surface-dim": "#dad9de",
+        "secondary-container": "#fdbb39",
+        "surface-container-lowest": "#ffffff",
+        "secondary-fixed": "#ffdeab",
+        "on-primary": "#ffffff",
+        "on-tertiary-fixed-variant": "#105220",
+        "outline-variant": "#c4c6d0",
+        "on-primary-fixed-variant": "#294678",
+        "background": "#faf9fe",
+        "inverse-on-surface": "#f1f0f5",
+        "on-error-container": "#93000a",
+        "on-background": "#1a1b1f",
+        "surface-variant": "#e3e2e7",
+        "surface-tint": "#425e91",
+        "primary-container": "#1b3a6b",
+        "error-container": "#ffdad6",
+        "surface-bright": "#faf9fe",
+        "on-tertiary": "#ffffff",
+        "on-error": "#ffffff",
+        "primary-fixed-dim": "#acc7ff",
+        "secondary-fixed-dim": "#fdbb39",
+        "on-secondary-fixed": "#271900",
+        "primary": "#002452",
+        "tertiary-container": "#004515",
+        "surface-container-high": "#e9e7ec",
+        "inverse-surface": "#2f3034",
+        "on-primary-container": "#89a5dd",
+        "on-secondary-fixed-variant": "#5f4100",
+        "on-tertiary-fixed": "#002107",
+        "surface": "#faf9fe",
+        "inverse-primary": "#acc7ff",
+        "custom-navy": "#1B3A6B",
+        "custom-gold": "#E8A825",
+        "custom-green": "#5B9A5F"
+      },
+      borderRadius: {
+        DEFAULT: "8px",
+        lg: "12px",
+        xl: "24px",
+        full: "9999px"
+      },
+      fontFamily: {
+        headline: ["Space Grotesk", "sans-serif"],
+        body: ["Inter", "sans-serif"],
+        label: ["Inter", "sans-serif"]
+      }
+    }
+  }
+};

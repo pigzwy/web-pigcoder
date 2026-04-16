@@ -7,30 +7,9 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "custom-navy": "#1B3A6B",
-            "custom-gold": "#E8A825",
-            "custom-green": "#5B9A5F",
-            "on-surface-variant": "#44474f",
-          },
-          fontFamily: {
-            headline: ["Space Grotesk", "sans-serif"],
-            body: ["Inter", "sans-serif"],
-          }
-        }
-      }
-    }
-</script>
+<script src="theme.js"></script>
+<link href="common.css" rel="stylesheet"/>
 <style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      vertical-align: middle;
-    }
     /* 代码块样式 */
     .code-block {
       position: relative;
@@ -68,21 +47,6 @@
       color: #94a3b8;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-    }
-    /* 自定义滚动条 */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 3px;
-    }
-    .dark ::-webkit-scrollbar-thumb {
-      background: #334155;
     }
     /* 侧边栏当前项 */
     .sidebar-link {

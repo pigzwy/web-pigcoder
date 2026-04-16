@@ -13,278 +13,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "on-secondary": "#ffffff",
-                        "surface-container-low": "#f4f3f8",
-                        "outline": "#747780",
-                        "tertiary-fixed": "#aff3af",
-                        "primary-fixed": "#d7e2ff",
-                        "on-surface-variant": "#44474f",
-                        "on-tertiary-container": "#73b476",
-                        "secondary": "#7e5700",
-                        "error": "#ba1a1a",
-                        "on-surface": "#1a1b1f",
-                        "tertiary": "#002c0b",
-                        "on-primary-fixed": "#001a40",
-                        "on-secondary-container": "#6e4c00",
-                        "tertiary-fixed-dim": "#94d695",
-                        "surface-container-highest": "#e3e2e7",
-                        "surface-container": "#eeedf2",
-                        "surface-dim": "#dad9de",
-                        "secondary-container": "#fdbb39",
-                        "surface-container-lowest": "#ffffff",
-                        "secondary-fixed": "#ffdeab",
-                        "on-primary": "#ffffff",
-                        "on-tertiary-fixed-variant": "#105220",
-                        "outline-variant": "#c4c6d0",
-                        "on-primary-fixed-variant": "#294678",
-                        "background": "#faf9fe",
-                        "inverse-on-surface": "#f1f0f5",
-                        "on-error-container": "#93000a",
-                        "on-background": "#1a1b1f",
-                        "surface-variant": "#e3e2e7",
-                        "surface-tint": "#425e91",
-                        "primary-container": "#1b3a6b",
-                        "error-container": "#ffdad6",
-                        "surface-bright": "#faf9fe",
-                        "on-tertiary": "#ffffff",
-                        "on-error": "#ffffff",
-                        "primary-fixed-dim": "#acc7ff",
-                        "secondary-fixed-dim": "#fdbb39",
-                        "on-secondary-fixed": "#271900",
-                        "primary": "#002452",
-                        "tertiary-container": "#004515",
-                        "surface-container-high": "#e9e7ec",
-                        "inverse-surface": "#2f3034",
-                        "on-primary-container": "#89a5dd",
-                        "on-secondary-fixed-variant": "#5f4100",
-                        "on-tertiary-fixed": "#002107",
-                        "surface": "#faf9fe",
-                        "inverse-primary": "#acc7ff",
-                        "custom-navy": "#1B3A6B",
-                        "custom-gold": "#E8A825",
-                        "custom-green": "#5B9A5F"
-                    },
-                    borderRadius: {
-                        "DEFAULT": "8px",
-                        "lg": "12px",
-                        "xl": "24px",
-                        "full": "9999px"
-                    },
-                    fontFamily: {
-                        "headline": ["Space Grotesk", "sans-serif"],
-                        "body": ["Inter", "sans-serif"],
-                        "label": ["Inter", "sans-serif"]
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-
-        .logo-badge-icon {
-            font-size: 10px !important;
-            font-weight: bold;
-        }
-
-        .custom-card-shadow {
-            box-shadow: 0 16px 48px rgba(27, 58, 107, 0.08);
-        }
-
-        .custom-card-shadow-light {
-            box-shadow: 0 16px 48px rgba(27, 58, 107, 0.06);
-        }
-
-        /* 滚动入场动画 */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Hero 渐变动画 */
-        @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .hero-gradient {
-            background-size: 200% 200%;
-            animation: gradientShift 8s ease infinite;
-        }
-
-        /* 代码行闪烁光标 */
-        @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
-
-        .cursor-blink {
-            animation: blink 1.2s step-end infinite;
-        }
-
-        /* 特性卡片 - 毛玻璃 */
-        .feature-card {
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 4px 24px rgba(27, 58, 107, 0.06);
-        }
-
-        .dark .feature-card {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(27, 58, 107, 0.1);
-            border-color: rgba(232, 168, 37, 0.4);
-        }
-
-        .dark .feature-card:hover {
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(232, 168, 37, 0.3);
-        }
-
-        .feature-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #E8A825, transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .feature-card:hover::after {
-            opacity: 1;
-        }
-
-        /* 模型卡片 - 毛玻璃 */
-        .model-card {
-            background: rgba(255, 255, 255, 0.6) !important;
-            backdrop-filter: blur(16px) !important;
-            -webkit-backdrop-filter: blur(16px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.5) !important;
-            box-shadow: 0 4px 24px rgba(27, 58, 107, 0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-
-        .dark .model-card {
-            background: rgba(255, 255, 255, 0.08) !important;
-            border: 1px solid rgba(255, 255, 255, 0.12) !important;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-        }
-
-        .model-card:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 12px 24px rgba(27, 58, 107, 0.1);
-            border-color: rgba(232, 168, 37, 0.4) !important;
-        }
-
-        .dark .model-card:hover {
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-            border-color: rgba(232, 168, 37, 0.3) !important;
-        }
-
-        /* CTA 按钮光泽 */
-        .btn-shine {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-shine::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(to right,
-                    transparent 0%,
-                    rgba(255, 255, 255, 0.15) 50%,
-                    transparent 100%);
-            transform: rotate(30deg) translateX(-100%);
-            transition: transform 0.5s ease;
-        }
-
-        .btn-shine:hover::after {
-            transform: rotate(30deg) translateX(100%);
-        }
-
-        /* 数字统计脉动 */
-        @keyframes subtlePulse {
-
-            0%,
-            100% {
-                opacity: 0.6;
-            }
-
-            50% {
-                opacity: 1;
-            }
-        }
-
-        .stat-pulse {
-            animation: subtlePulse 3s ease-in-out infinite;
-        }
-
-        /* 自定义滚动条 */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 3px;
-        }
-
-        .dark ::-webkit-scrollbar-thumb {
-            background: #334155;
-        }
-    </style>
+    <script src="theme.js"></script>
+    <link href="common.css" rel="stylesheet" />
 </head>
 
 <body
@@ -293,22 +23,12 @@
     <div id="site-header"></div>
     <!-- Hero Section -->
     <section class="relative overflow-hidden pt-10 pb-10">
-        <div
-            class="absolute inset-0 bg-gradient-to-br from-[#EEF2F7] via-[#E0E8F5] to-[#D5DFF0] dark:from-[#0D1B2A] dark:via-[#0f1e38] dark:to-[#0D1B2A]">
-        </div>
-        <div
-            class="absolute top-0 right-0 w-[800px] h-[800px] bg-custom-gold/30 dark:bg-custom-gold/20 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none">
-        </div>
-        <div
-            class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-custom-green/30 dark:bg-custom-green/15 blur-[100px] rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none">
-        </div>
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/20 dark:bg-purple-500/10 blur-[80px] rounded-full pointer-events-none">
-        </div>
-        <div class="absolute inset-0 hero-gradient pointer-events-none"
-            style="background: linear-gradient(135deg, rgba(27,58,107,0.45), rgba(13,35,71,0.55), rgba(27,58,107,0.45)); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);">
-        </div>
-        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center pt-16 pb-20">
+        <div class="surface-gradient-hero"></div>
+        <div class="orb-gold-hero"></div>
+        <div class="orb-green-hero"></div>
+        <div class="orb-purple-hero"></div>
+        <div class="hero-glass-overlay hero-gradient"></div>
+        <div class="hero-shell-wide pt-16 pb-20">
             <span
                 class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-6 inline-block">
                 <span class="material-symbols-outlined text-sm text-custom-gold"
@@ -322,15 +42,24 @@
             <p class="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
                 为开发者打造的专业级大模型中转平台。一个 API Key 畅享全球顶级 AI 能力，极速响应，安全可靠。
             </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-                <a href="https://sub2.pigcoder.com/login"
-                    class="btn-shine bg-custom-gold text-custom-navy px-10 py-4 rounded-lg font-bold text-lg active:scale-95 transition-all shadow-lg shadow-custom-gold/25 hover:shadow-custom-gold/40 hover:brightness-110 inline-block">
-                    立即开始
-                </a>
-                <a href="docs.html"
-                    class="btn-shine border border-white/20 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10 hover:border-white/40 transition-all inline-block">
-                    查看文档
-                </a>
+            <div data-partial="partials/cta-actions.html"
+                data-wrapper-class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+                data-primary-href="https://sub2.pigcoder.com/login"
+                data-primary-class="btn-shine bg-custom-gold text-custom-navy px-10 py-4 rounded-lg font-bold text-lg active:scale-95 transition-all shadow-lg shadow-custom-gold/25 hover:shadow-custom-gold/40 hover:brightness-110 inline-block"
+                data-primary-label="立即开始"
+                data-secondary-href="docs.html"
+                data-secondary-class="btn-shine border border-white/20 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10 hover:border-white/40 transition-all inline-block"
+                data-secondary-label="查看文档">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                    <a href="https://sub2.pigcoder.com/login"
+                        class="btn-shine bg-custom-gold text-custom-navy px-10 py-4 rounded-lg font-bold text-lg active:scale-95 transition-all shadow-lg shadow-custom-gold/25 hover:shadow-custom-gold/40 hover:brightness-110 inline-block">
+                        立即开始
+                    </a>
+                    <a href="docs.html"
+                        class="btn-shine border border-white/20 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10 hover:border-white/40 transition-all inline-block">
+                        查看文档
+                    </a>
+                </div>
             </div>
             <!-- Code Preview Block -->
             <div class="max-w-4xl mx-auto bg-white/5 backdrop-blur-lg overflow-hidden">
@@ -383,19 +112,11 @@
     </section>
     <!-- Why Choose Section -->
     <section class="py-10 relative overflow-hidden">
-        <div
-            class="absolute inset-0 bg-gradient-to-br from-[#EEF2F7] via-[#E0E8F5] to-[#D5DFF0] dark:from-[#0D1B2A] dark:via-[#0a1628] dark:to-[#0D1B2A]">
-        </div>
-        <div
-            class="absolute top-0 right-1/4 w-[600px] h-[600px] bg-custom-gold/25 dark:bg-custom-gold/40 blur-[120px] rounded-full">
-        </div>
-        <div
-            class="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-custom-green/25 dark:bg-custom-green/35 blur-[100px] rounded-full">
-        </div>
-        <div
-            class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-purple-500/20 dark:bg-purple-500/30 blur-[80px] rounded-full">
-        </div>
-        <div class="max-w-[1200px] mx-auto px-6 relative z-10">
+        <div class="surface-gradient-main"></div>
+        <div class="orb-gold-right"></div>
+        <div class="orb-green-left"></div>
+        <div class="orb-purple-center-soft"></div>
+        <div class="section-shell">
             <div class="rounded-[24px] p-8 md:p-10">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl md:text-4xl font-bold font-headline text-custom-navy dark:text-white mb-4">为什么选择
@@ -451,17 +172,11 @@
         </div>
     </section>
     <!-- Model Channels -->
-    <section class="py-10 relative overflow-hidden">
-        <div
-            class="absolute inset-0 bg-gradient-to-br from-[#EEF2F7] via-[#E0E8F5] to-[#D5DFF0] dark:from-[#0D1B2A] dark:via-[#0a1628] dark:to-[#0D1B2A]">
-        </div>
-        <div
-            class="absolute bottom-0 right-1/3 w-[600px] h-[600px] bg-custom-navy/20 dark:bg-custom-navy/25 blur-[120px] rounded-full">
-        </div>
-        <div
-            class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-custom-gold/20 dark:bg-custom-gold/10 blur-[80px] rounded-full">
-        </div>
-        <div class="max-w-[1200px] mx-auto px-6 relative z-10">
+    <section id="models" class="py-10 relative overflow-hidden">
+        <div class="surface-gradient-main"></div>
+        <div class="orb-navy-right"></div>
+        <div class="orb-gold-top-left-soft"></div>
+        <div class="section-shell">
             <div class="rounded-[24px] p-8 md:p-10">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-12">
                     <div class="md:w-1/3">
@@ -516,16 +231,10 @@
     </section>
     <!-- Developer Toolbox - Asymmetric Bento Grid -->
     <section class="py-10 relative overflow-hidden">
-        <div
-            class="absolute inset-0 bg-gradient-to-br from-[#E0E8F5] via-[#D5DFF0] to-[#E8ECF4] dark:from-[#0D1B2A] dark:via-[#0a1628] dark:to-[#0D1B2A]">
-        </div>
-        <div
-            class="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-custom-gold/25 dark:bg-custom-gold/10 blur-[100px] rounded-full">
-        </div>
-        <div
-            class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-custom-green/20 dark:bg-custom-green/10 blur-[80px] rounded-full">
-        </div>
-        <div class="max-w-[1200px] mx-auto px-6 relative z-10">
+        <div class="surface-gradient-alt"></div>
+        <div class="orb-gold-left-soft"></div>
+        <div class="orb-green-right-soft"></div>
+        <div class="section-shell">
             <div class="rounded-[24px] p-8 md:p-10">
                 <div class="mb-16">
                     <h2 class="text-3xl font-bold font-headline text-custom-navy dark:text-white mb-2">开发者工具箱</h2>
@@ -596,7 +305,7 @@
         <div
             class="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-custom-gold/20 dark:bg-custom-gold/10 blur-[100px] rounded-full">
         </div>
-        <div class="max-w-[1200px] mx-auto px-6 relative z-10">
+        <div class="section-shell">
             <div
                 class="relative bg-gradient-to-br from-[#1B3A6B] via-[#0D2347] to-[#1B3A6B] hero-gradient rounded-xl py-20 px-8 text-center shadow-[0_20px_60px_rgba(27,58,107,0.15)] overflow-hidden">
                 <!-- Decorative Background Elements -->
@@ -610,15 +319,24 @@
                     <h2 class="text-4xl md:text-5xl font-bold font-headline text-white mb-6 tracking-tight">
                         准备好开启智能编程了吗？
                     </h2>
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a href="https://sub2.pigcoder.com/login"
-                            class="w-full sm:w-auto btn-shine bg-[#E8A825] text-[#1B3A6B] px-10 py-4 rounded-lg font-bold text-lg hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-custom-gold/25 hover:shadow-custom-gold/40 inline-block text-center">
-                            立即启动 Pigcoder
-                        </a>
-                        <a href="docs.html"
-                            class="w-full sm:w-auto btn-shine border border-white/20 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10 hover:border-white/40 active:scale-95 transition-all inline-block text-center">
-                            查看文档
-                        </a>
+                    <div data-partial="partials/cta-actions.html"
+                        data-wrapper-class="flex flex-col sm:flex-row items-center justify-center gap-4"
+                        data-primary-href="https://sub2.pigcoder.com/login"
+                        data-primary-class="w-full sm:w-auto btn-shine bg-[#E8A825] text-[#1B3A6B] px-10 py-4 rounded-lg font-bold text-lg hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-custom-gold/25 hover:shadow-custom-gold/40 inline-block text-center"
+                        data-primary-label="立即启动 Pigcoder"
+                        data-secondary-href="docs.html"
+                        data-secondary-class="w-full sm:w-auto btn-shine border border-white/20 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10 hover:border-white/40 active:scale-95 transition-all inline-block text-center"
+                        data-secondary-label="查看文档">
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <a href="https://sub2.pigcoder.com/login"
+                                class="w-full sm:w-auto btn-shine bg-[#E8A825] text-[#1B3A6B] px-10 py-4 rounded-lg font-bold text-lg hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-custom-gold/25 hover:shadow-custom-gold/40 inline-block text-center">
+                                立即启动 Pigcoder
+                            </a>
+                            <a href="docs.html"
+                                class="w-full sm:w-auto btn-shine border border-white/20 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10 hover:border-white/40 active:scale-95 transition-all inline-block text-center">
+                                查看文档
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

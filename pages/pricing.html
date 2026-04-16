@@ -11,182 +11,9 @@
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet" />
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "on-secondary": "#ffffff",
-            "surface-container-low": "#f4f3f8",
-            "outline": "#747780",
-            "tertiary-fixed": "#aff3af",
-            "primary-fixed": "#d7e2ff",
-            "on-surface-variant": "#44474f",
-            "on-tertiary-container": "#73b476",
-            "secondary": "#7e5700",
-            "error": "#ba1a1a",
-            "on-surface": "#1a1b1f",
-            "tertiary": "#002c0b",
-            "on-primary-fixed": "#001a40",
-            "on-secondary-container": "#6e4c00",
-            "tertiary-fixed-dim": "#94d695",
-            "surface-container-highest": "#e3e2e7",
-            "surface-container": "#eeedf2",
-            "surface-dim": "#dad9de",
-            "secondary-container": "#fdbb39",
-            "surface-container-lowest": "#ffffff",
-            "secondary-fixed": "#ffdeab",
-            "on-primary": "#ffffff",
-            "on-tertiary-fixed-variant": "#105220",
-            "outline-variant": "#c4c6d0",
-            "on-primary-fixed-variant": "#294678",
-            "background": "#faf9fe",
-            "inverse-on-surface": "#f1f0f5",
-            "on-error-container": "#93000a",
-            "on-background": "#1a1b1f",
-            "surface-variant": "#e3e2e7",
-            "surface-tint": "#425e91",
-            "primary-container": "#1b3a6b",
-            "error-container": "#ffdad6",
-            "surface-bright": "#faf9fe",
-            "on-tertiary": "#ffffff",
-            "on-error": "#ffffff",
-            "primary-fixed-dim": "#acc7ff",
-            "secondary-fixed-dim": "#fdbb39",
-            "on-secondary-fixed": "#271900",
-            "primary": "#002452",
-            "tertiary-container": "#004515",
-            "surface-container-high": "#e9e7ec",
-            "inverse-surface": "#2f3034",
-            "on-primary-container": "#89a5dd",
-            "on-secondary-fixed-variant": "#5f4100",
-            "on-tertiary-fixed": "#002107",
-            "surface": "#faf9fe",
-            "inverse-primary": "#acc7ff",
-            "custom-navy": "#1B3A6B",
-            "custom-gold": "#E8A825",
-            "custom-green": "#5B9A5F"
-          },
-          borderRadius: {
-            "DEFAULT": "8px",
-            lg: "12px",
-            xl: "24px",
-            full: "9999px"
-          },
-          fontFamily: {
-            "headline": ["Space Grotesk", "sans-serif"],
-            "body": ["Inter", "sans-serif"],
-            "label": ["Inter", "sans-serif"]
-          }
-        }
-      }
-    }
-  </script>
+  <script src="theme.js"></script>
+  <link href="common.css" rel="stylesheet" />
   <style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-
-    /* 滚动入场动画 */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Hero 渐变动画 */
-    @keyframes gradientShift {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    .hero-gradient {
-      background-size: 200% 200%;
-      animation: gradientShift 8s ease infinite;
-    }
-
-    /* 特性卡片 - 毛玻璃 */
-    .feature-card {
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      box-shadow: 0 4px 24px rgba(27, 58, 107, 0.06);
-    }
-
-    .dark .feature-card {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(27, 58, 107, 0.1);
-      border-color: rgba(232, 168, 37, 0.4);
-    }
-
-    .dark .feature-card:hover {
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      border-color: rgba(232, 168, 37, 0.3);
-    }
-
-    .feature-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #E8A825, transparent);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .feature-card:hover::after {
-      opacity: 1;
-    }
-
-    /* CTA 按钮光泽 */
-    .btn-shine {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-shine::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%);
-      transform: rotate(30deg) translateX(-100%);
-      transition: transform 0.5s ease;
-    }
-
-    .btn-shine:hover::after {
-      transform: rotate(30deg) translateX(100%);
-    }
-
     /* FAQ 折叠动画 */
     .faq-answer {
       max-height: 0;
@@ -205,25 +32,6 @@
     .faq-chevron {
       transition: transform 0.3s ease;
     }
-
-    /* 自定义滚动条 */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 3px;
-    }
-
-    .dark ::-webkit-scrollbar-thumb {
-      background: #334155;
-    }
   </style>
 </head>
 
@@ -236,22 +44,12 @@
   <main>
     <!-- 页面标题区 - Hero Glassmorphism -->
     <section class="relative overflow-hidden pt-16 pb-10">
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-[#EEF2F7] via-[#E0E8F5] to-[#D5DFF0] dark:from-[#0D1B2A] dark:via-[#0f1e38] dark:to-[#0D1B2A]">
-      </div>
-      <div
-        class="absolute top-0 right-0 w-[800px] h-[800px] bg-custom-gold/30 dark:bg-custom-gold/20 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none">
-      </div>
-      <div
-        class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-custom-green/30 dark:bg-custom-green/15 blur-[100px] rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none">
-      </div>
-      <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/20 dark:bg-purple-500/10 blur-[80px] rounded-full pointer-events-none">
-      </div>
-      <div class="absolute inset-0 hero-gradient pointer-events-none"
-        style="background: linear-gradient(135deg, rgba(27,58,107,0.45), rgba(13,35,71,0.55), rgba(27,58,107,0.45)); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);">
-      </div>
-      <div class="max-w-4xl mx-auto px-6 relative z-10 text-center pt-8 pb-10">
+      <div class="surface-gradient-hero"></div>
+      <div class="orb-gold-hero"></div>
+      <div class="orb-green-hero"></div>
+      <div class="orb-purple-hero"></div>
+      <div class="hero-glass-overlay hero-gradient"></div>
+      <div class="hero-shell pt-8 pb-10">
         <span
           class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-6 inline-block">
           <span class="material-symbols-outlined text-sm text-custom-gold">payments</span>
@@ -266,21 +64,13 @@
     </section>
 
     <!-- 切换按钮 + 说明横幅 + 产品卡片 -->
-    <section class="relative overflow-hidden pb-16">
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-[#EEF2F7] via-[#E0E8F5] to-[#D5DFF0] dark:from-[#0D1B2A] dark:via-[#0a1628] dark:to-[#0D1B2A]">
-      </div>
-      <div
-        class="absolute top-1/4 right-1/3 w-[600px] h-[600px] bg-custom-gold/25 dark:bg-custom-gold/40 blur-[120px] rounded-full">
-      </div>
-      <div
-        class="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-custom-green/25 dark:bg-custom-green/35 blur-[100px] rounded-full">
-      </div>
-      <div
-        class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-purple-500/20 dark:bg-purple-500/30 blur-[80px] rounded-full">
-      </div>
+    <section id="plans" class="relative overflow-hidden pb-16">
+      <div class="surface-gradient-main"></div>
+      <div class="orb-gold-right"></div>
+      <div class="orb-green-left"></div>
+      <div class="orb-purple-center-soft"></div>
 
-      <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="section-shell-wide">
         <!-- 切换按钮 -->
         <div class="flex justify-center pt-10 pb-8">
           <div
@@ -312,240 +102,13 @@
         </div>
 
         <!-- 产品卡片网格 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- 卡片 1: Claude Max -->
-          <div class="feature-card rounded-xl p-6 flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <span
-                class="px-2.5 py-0.5 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full">Claude</span>
-              <span class="text-custom-navy dark:text-white font-bold text-base">Claude Max</span>
-            </div>
-            <div class="mb-4">
-              <span class="text-custom-gold text-3xl font-bold font-body">1:1.5</span>
-              <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">0.67$/元</span>
-            </div>
-            <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">官方Max20x账号，效果最好</p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-opus-4-6(1M)</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-opus-4-5</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-sonnet-4-6</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-sonnet-4-5</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-haiku-4-5</span>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-6 flex-grow">
-              <span class="text-custom-green text-xs font-medium">支持高级thinking</span>
-              <span class="text-custom-green text-xs font-medium">200k上下文</span>
-              <span class="text-custom-green text-xs font-medium">支持1M上下文</span>
-              <span class="text-custom-green text-xs font-medium">支持WebSearch</span>
-              <span class="text-custom-green text-xs font-medium">仅支持claude code cli</span>
-            </div>
-            <button onclick="openRechargeModal()"
-              class="btn-shine w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
-          </div>
-
-          <!-- 卡片 2: CC-反重力逆向 -->
-          <div class="feature-card rounded-xl p-6 flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <span
-                class="px-2.5 py-0.5 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full">Claude</span>
-              <span class="text-custom-navy dark:text-white font-bold text-base">CC-反重力逆向</span>
-            </div>
-            <div class="mb-4">
-              <span class="text-custom-gold text-3xl font-bold font-body">1:0.6</span>
-              <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">1.67$/元</span>
-            </div>
-            <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">性能与价格均衡，稳定性较好</p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-opus-4-6(1M)</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-sonnet-4-6(1M)</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-opus-4-5</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-haiku-4-5</span>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-6 flex-grow">
-              <span class="text-custom-green text-xs font-medium">支持thinking</span>
-              <span class="text-custom-green text-xs font-medium">200k上下文</span>
-              <span class="text-custom-green text-xs font-medium">支持WebSearch</span>
-            </div>
-            <button onclick="openRechargeModal()"
-              class="btn-shine w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
-          </div>
-
-          <!-- 卡片 3: Kiro标准版 -->
-          <div class="feature-card rounded-xl p-6 flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <span
-                class="px-2.5 py-0.5 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full">Claude</span>
-              <span class="text-custom-navy dark:text-white font-bold text-base">Kiro标准版</span>
-            </div>
-            <div class="mb-4">
-              <span class="text-custom-gold text-3xl font-bold font-body">1:0.55</span>
-              <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">1.82$/元</span>
-            </div>
-            <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">只能用sonnet和haiku，稳定性强</p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-sonnet-4-6</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-sonnet-4-5</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-custom-green"></span>claude-haiku-4-5</span>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-6 flex-grow">
-              <span class="text-custom-green text-xs font-medium">支持内置thinking</span>
-              <span class="text-custom-green text-xs font-medium">支持WebSearch</span>
-              <span class="text-custom-green text-xs font-medium">200k上下文</span>
-              <span class="text-custom-green text-xs font-medium">OpenClaw首选</span>
-            </div>
-            <button onclick="openRechargeModal()"
-              class="btn-shine w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
-          </div>
-
-          <!-- 卡片 4: Codex(GPT FREE) -->
-          <div class="feature-card rounded-xl p-6 flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <span
-                class="px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full">Codex</span>
-              <span class="text-custom-navy dark:text-white font-bold text-base">Codex(GPT FREE)</span>
-            </div>
-            <div class="mb-4">
-              <span class="text-custom-gold text-3xl font-bold font-body">1:0.1</span>
-              <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">10.00$/元</span>
-            </div>
-            <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">免费级别接入，倍率最低</p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.4</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.3-codex</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.3等</span>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-6 flex-grow">
-              <span class="text-custom-green dark:text-green-400 text-xs font-medium">xhigh等全部支持</span>
-            </div>
-            <button onclick="openRechargeModal()"
-              class="btn-shine w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
-          </div>
-
-          <!-- 卡片 5: Codex(GPT PLUS) -->
-          <div class="feature-card rounded-xl p-6 flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <span
-                class="px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full">Codex</span>
-              <span class="text-custom-navy dark:text-white font-bold text-base">Codex(GPT PLUS)</span>
-            </div>
-            <div class="mb-4">
-              <span class="text-custom-gold text-3xl font-bold font-body">1:0.15</span>
-              <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">6.67$/元</span>
-            </div>
-            <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">Plus 会员级别，性价比极高</p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.4</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.3-codex</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.3等</span>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-6 flex-grow">
-              <span class="text-custom-green dark:text-green-400 text-xs font-medium">xhigh等全部支持</span>
-            </div>
-            <button onclick="openRechargeModal()"
-              class="btn-shine w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
-          </div>
-
-          <!-- 卡片 6: Codex(GPT PRO) -->
-          <div class="feature-card rounded-xl p-6 flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <span
-                class="px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full">Codex</span>
-              <span class="text-custom-navy dark:text-white font-bold text-base">Codex(GPT PRO)</span>
-            </div>
-            <div class="mb-4">
-              <span class="text-custom-gold text-3xl font-bold font-body">1:0.3</span>
-              <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">1.67$/元</span>
-            </div>
-            <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">支持codex所有模型，包含gpt-5.3-codex，稳定性强</p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.4</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.3-codex</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gpt-5.3等</span>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-6 flex-grow">
-              <span class="text-custom-green text-xs font-medium">xhigh等全部支持</span>
-            </div>
-            <button onclick="openRechargeModal()"
-              class="btn-shine w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
-          </div>
-
-          <!-- 卡片 7: Gemini逆向 -->
-          <div class="feature-card rounded-xl p-6 flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <span
-                class="px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full">Gemini</span>
-              <span class="text-custom-navy dark:text-white font-bold text-base">Gemini逆向</span>
-            </div>
-            <div class="mb-4">
-              <span class="text-custom-gold text-3xl font-bold font-body">1:0.45</span>
-              <span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">2.22$/元</span>
-            </div>
-            <p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">支持图片生成模型</p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gemini-3-pro-preview</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gemini-3-flash-preview</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gemini-2.5-flash</span>
-              <span
-                class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm"><span
-                  class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>gemini-2.5-pro</span>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-6 flex-grow">
-              <span class="text-custom-green text-xs font-medium">支持thinking</span>
-              <span class="text-custom-green text-xs font-medium">支持WebSearch</span>
-            </div>
-            <button onclick="openRechargeModal()"
-              class="btn-shine w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">立即充值</button>
-          </div>
-
+        <div id="pricing-card-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="pricing-card-skeleton partial-loading"></div>
+          <div class="pricing-card-skeleton partial-loading"></div>
+          <div class="pricing-card-skeleton partial-loading"></div>
+          <div class="pricing-card-skeleton partial-loading"></div>
+          <div class="pricing-card-skeleton partial-loading"></div>
+          <div class="pricing-card-skeleton partial-loading"></div>
         </div>
 
         <!-- 底部说明 -->
@@ -555,17 +118,11 @@
     </section>
 
     <!-- FAQ 区域 -->
-    <section class="relative overflow-hidden pb-20">
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-[#E0E8F5] via-[#D5DFF0] to-[#E8ECF4] dark:from-[#0D1B2A] dark:via-[#0a1628] dark:to-[#0D1B2A]">
-      </div>
-      <div
-        class="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-custom-gold/25 dark:bg-custom-gold/10 blur-[100px] rounded-full">
-      </div>
-      <div
-        class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-custom-green/20 dark:bg-custom-green/10 blur-[80px] rounded-full">
-      </div>
-      <div class="max-w-3xl mx-auto px-6 relative z-10">
+    <section id="faq" class="relative overflow-hidden pb-20">
+      <div class="surface-gradient-alt"></div>
+      <div class="orb-gold-left-soft"></div>
+      <div class="orb-green-right-soft"></div>
+      <div class="section-shell-narrow">
         <div class="feature-card rounded-xl p-8 md:p-10">
           <h2 class="text-2xl font-bold font-headline text-custom-navy dark:text-white mb-8 text-center">常见问题</h2>
           <div class="space-y-4" id="faq-list">
@@ -753,6 +310,7 @@
 
   <!-- 公共组件（导航栏 + 页脚） -->
   <script src="components.js"></script>
+  <script src="pricing-cards.js"></script>
   <!-- 主题切换等共享逻辑 -->
   <script src="shared.js"></script>
 </body>
