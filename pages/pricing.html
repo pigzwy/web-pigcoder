@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>价格 - Pigcoder</title>
+  <title data-i18n="pricing.title">价格 - Pigcoder</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
@@ -53,13 +53,13 @@
         <span
           class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-6 inline-block">
           <span class="material-symbols-outlined text-sm text-custom-gold">payments</span>
-          灵活计费方案
+          <span data-i18n="pricing.hero.badge">灵活计费方案</span>
         </span>
-        <h1 class="text-4xl md:text-5xl font-bold font-headline tracking-tight mb-4 leading-tight">
+        <h1 data-i18n-html="pricing.hero.title" class="text-4xl md:text-5xl font-bold font-headline tracking-tight mb-4 leading-tight">
           <span class="text-white">选择适合你的</span>
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-custom-gold to-amber-300">订阅套餐</span>
         </h1>
-        <p class="text-white/70 text-lg max-w-2xl mx-auto">通过支付购买或兑换码激活获取订阅服务</p>
+        <p data-i18n="pricing.hero.description" class="text-white/70 text-lg max-w-2xl mx-auto">通过支付购买或兑换码激活获取订阅服务</p>
       </div>
     </section>
 
@@ -75,9 +75,9 @@
         <div class="flex justify-center pt-10 pb-8">
           <div
             class="inline-flex items-center p-1 bg-white/30 dark:bg-white/5 backdrop-blur-md rounded-full border border-white/30 dark:border-white/10">
-            <button id="tab-payg"
+            <button id="tab-payg" data-i18n="pricing.tabs.payg"
               class="px-8 py-2.5 rounded-full font-semibold text-sm transition-all bg-custom-navy text-white dark:bg-custom-gold dark:text-custom-navy">按量付费</button>
-            <button id="tab-monthly"
+            <button id="tab-monthly" data-i18n="pricing.tabs.monthly"
               class="px-8 py-2.5 rounded-full font-semibold text-sm transition-all bg-transparent text-gray-600 dark:text-gray-400 hover:bg-white/20 dark:hover:bg-white/5">包月套餐</button>
           </div>
         </div>
@@ -90,10 +90,10 @@
                 <span class="material-symbols-outlined text-custom-gold text-2xl mt-0.5"
                   style="font-variation-settings: 'FILL' 1;">bolt</span>
                 <div>
-                  <h3 class="font-bold text-custom-navy dark:text-white text-base mb-1">按量付费模式</h3>
-                  <p class="text-on-surface-variant dark:text-gray-400 text-sm leading-relaxed">
+                  <h3 data-i18n="pricing.banner.title" class="font-bold text-custom-navy dark:text-white text-base mb-1">按量付费模式</h3>
+                  <p data-i18n="pricing.banner.description" class="text-on-surface-variant dark:text-gray-400 text-sm leading-relaxed">
                     无需订阅，充值即用，按实际消耗扣费。余额所有渠道通用，可自由切换。价格以美元计价（当前比例：1美元≈1人民币）</p>
-                  <p class="text-on-surface-variant dark:text-gray-500 text-xs mt-2">倍率越低越划算 · 0.15倍率 = 1元可用约6.67美元额度
+                  <p data-i18n="pricing.banner.hint" class="text-on-surface-variant dark:text-gray-500 text-xs mt-2">倍率越低越划算 · 0.15倍率 = 1元可用约6.67美元额度
                   </p>
                 </div>
               </div>
@@ -112,7 +112,7 @@
         </div>
 
         <!-- 底部说明 -->
-        <p class="text-center text-on-surface-variant dark:text-gray-500 text-sm mt-10">* 上述套餐价格与权益请以控制台「订阅」页面与官方公告为准。
+        <p data-i18n="pricing.note" class="text-center text-on-surface-variant dark:text-gray-500 text-sm mt-10">* 上述套餐价格与权益请以控制台「订阅」页面与官方公告为准。
         </p>
       </div>
     </section>
@@ -124,7 +124,7 @@
       <div class="orb-green-right-soft"></div>
       <div class="section-shell-narrow">
         <div class="feature-card rounded-xl p-8 md:p-10">
-          <h2 class="text-2xl font-bold font-headline text-custom-navy dark:text-white mb-8 text-center">常见问题</h2>
+          <h2 data-i18n="pricing.faq.title" class="text-2xl font-bold font-headline text-custom-navy dark:text-white mb-8 text-center">常见问题</h2>
           <div class="space-y-4" id="faq-list">
 
             <!-- <div class="faq-item border-b border-white/20 dark:border-white/5 pb-4 cursor-pointer" onclick="toggleFaq(this)">
@@ -163,12 +163,12 @@
             <div class="faq-item border-b border-white/20 dark:border-white/5 pb-4 cursor-pointer"
               onclick="toggleFaq(this)">
               <div class="flex items-center justify-between">
-                <h3 class="font-semibold text-custom-navy dark:text-white text-sm">支持哪些 AI 模型？</h3>
+                <h3 data-i18n="pricing.faq.model.q" class="font-semibold text-custom-navy dark:text-white text-sm">支持哪些 AI 模型？</h3>
                 <span
                   class="material-symbols-outlined faq-chevron text-on-surface-variant dark:text-gray-400 text-xl">expand_more</span>
               </div>
               <div class="faq-answer">
-                <p class="text-on-surface-variant dark:text-gray-400 text-sm pt-3 leading-relaxed">目前支持 Claude 全系列、GPT 和
+                <p data-i18n="pricing.faq.model.a" class="text-on-surface-variant dark:text-gray-400 text-sm pt-3 leading-relaxed">目前支持 Claude 全系列、GPT 和
                   Gemini。</p>
               </div>
             </div>
@@ -176,23 +176,23 @@
             <div class="faq-item border-b border-white/20 dark:border-white/5 pb-4 cursor-pointer"
               onclick="toggleFaq(this)">
               <div class="flex items-center justify-between">
-                <h3 class="font-semibold text-custom-navy dark:text-white text-sm">可以退款吗？</h3>
+                <h3 data-i18n="pricing.faq.refund.q" class="font-semibold text-custom-navy dark:text-white text-sm">可以退款吗？</h3>
                 <span
                   class="material-symbols-outlined faq-chevron text-on-surface-variant dark:text-gray-400 text-xl">expand_more</span>
               </div>
               <div class="faq-answer">
-                <p class="text-on-surface-variant dark:text-gray-400 text-sm pt-3 leading-relaxed">可以。</p>
+                <p data-i18n="pricing.faq.refund.a" class="text-on-surface-variant dark:text-gray-400 text-sm pt-3 leading-relaxed">可以。</p>
               </div>
             </div>
 
             <div class="faq-item pb-4 cursor-pointer" onclick="toggleFaq(this)">
               <div class="flex items-center justify-between">
-                <h3 class="font-semibold text-custom-navy dark:text-white text-sm">如何获取技术支持？</h3>
+                <h3 data-i18n="pricing.faq.support.q" class="font-semibold text-custom-navy dark:text-white text-sm">如何获取技术支持？</h3>
                 <span
                   class="material-symbols-outlined faq-chevron text-on-surface-variant dark:text-gray-400 text-xl">expand_more</span>
               </div>
               <div class="faq-answer">
-                <p class="text-on-surface-variant dark:text-gray-400 text-sm pt-3 leading-relaxed">查阅文档、加入用户群、通过工单联系客服。
+                <p data-i18n="pricing.faq.support.a" class="text-on-surface-variant dark:text-gray-400 text-sm pt-3 leading-relaxed">查阅文档、加入用户群、通过工单联系客服。
                 </p>
               </div>
             </div>
@@ -210,7 +210,7 @@
   <div id="recharge-modal" class="fixed inset-0 z-[100] hidden items-center justify-center">
     <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeRechargeModal()"></div>
     <div class="relative bg-[#111827] rounded-2xl max-w-md mx-auto p-8 z-10 shadow-2xl">
-      <button onclick="closeRechargeModal()"
+      <button onclick="closeRechargeModal()" data-i18n-attr="aria-label:pricing.modal.close;title:pricing.modal.close"
         class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
           stroke-width="2">
@@ -220,41 +220,41 @@
       <div class="flex flex-col items-center mb-8">
         <span class="material-symbols-outlined text-custom-green text-4xl mb-3"
           style="font-variation-settings: 'FILL' 1;">bolt</span>
-        <h3 class="text-white text-xl font-bold text-center">现已支持在控制台直接充值</h3>
+        <h3 data-i18n="pricing.modal.title" class="text-white text-xl font-bold text-center">现已支持在控制台直接充值</h3>
       </div>
       <div class="space-y-5 mb-8">
         <div class="flex items-start gap-4">
           <div
             class="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-full bg-white/10 text-white text-sm font-semibold">
             1</div>
-          <p class="text-white/90 text-sm leading-relaxed pt-1">前往控制台注册账号或登录</p>
+          <p data-i18n="pricing.modal.step1" class="text-white/90 text-sm leading-relaxed pt-1">前往控制台注册账号或登录</p>
         </div>
         <div class="flex items-start gap-4">
           <div
             class="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-full bg-white/10 text-white text-sm font-semibold">
             2</div>
-          <p class="text-white/90 text-sm leading-relaxed pt-1">进入充值 / 订阅菜单</p>
+          <p data-i18n="pricing.modal.step2" class="text-white/90 text-sm leading-relaxed pt-1">进入充值 / 订阅菜单</p>
         </div>
         <div class="flex items-start gap-4">
           <div
             class="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-full bg-white/10 text-white text-sm font-semibold">
             3</div>
-          <p class="text-white/90 text-sm leading-relaxed pt-1">完成充值</p>
+          <p data-i18n="pricing.modal.step3" class="text-white/90 text-sm leading-relaxed pt-1">完成充值</p>
         </div>
         <div class="flex items-start gap-4">
           <div
             class="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-full bg-white/10 text-white text-sm font-semibold">
             4</div>
-          <p class="text-white/90 text-sm leading-relaxed pt-1">进入 API 密钥菜单，创建 API 密钥，选择分组</p>
+          <p data-i18n="pricing.modal.step4" class="text-white/90 text-sm leading-relaxed pt-1">进入 API 密钥菜单，创建 API 密钥，选择分组</p>
         </div>
         <div class="flex items-start gap-4">
           <div
             class="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-full bg-white/10 text-white text-sm font-semibold">
             5</div>
-          <p class="text-white/90 text-sm leading-relaxed pt-1">点击使用密钥查看 URL</p>
+          <p data-i18n="pricing.modal.step5" class="text-white/90 text-sm leading-relaxed pt-1">点击使用密钥查看 URL</p>
         </div>
       </div>
-      <a href="https://sub2.pigcoder.com/login"
+      <a href="https://sub2.pigcoder.com/login" data-i18n="common.cta.console"
         class="btn-shine block w-full py-3.5 text-center text-white font-bold rounded-xl bg-gradient-to-r from-custom-green to-emerald-500 hover:brightness-110 active:scale-[0.98] transition-all">
         立即前往控制台
       </a>
@@ -309,6 +309,7 @@
   </script>
 
   <!-- 公共组件（导航栏 + 页脚） -->
+  <script src="i18n.js"></script>
   <script src="components.js"></script>
   <script src="pricing-cards.js"></script>
   <!-- 主题切换等共享逻辑 -->

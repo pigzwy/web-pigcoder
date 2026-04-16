@@ -59,6 +59,12 @@
       .then(function (template) {
         el.innerHTML = renderTemplate(template, data);
         if (settings.afterLoad) settings.afterLoad(el);
+        document.dispatchEvent(new CustomEvent('pigcoder:partial-loaded', {
+          detail: {
+            root: el,
+            partialPath: partialPath
+          }
+        }));
       })
       .catch(function (error) {
         console.error(error);
@@ -122,6 +128,8 @@
     document.dispatchEvent(new CustomEvent('pigcoder:header-ready'));
   });
 
-  loadPartial('site-footer', 'partials/footer.html');
+  loadPartial('site-footer', 'partials/footer.html', function () {
+    document.dispatchEvent(new CustomEvent('pigcoder:footer-ready'));
+  });
   hydrateInlinePartials();
 })();
