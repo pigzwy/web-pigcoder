@@ -12,10 +12,49 @@
 
   function markActiveNav(root) {
     root.querySelectorAll('[data-nav-key]').forEach(function (link) {
+      var activeClass = link.dataset.navActiveClass || activeNavClass;
+      var inactiveClass = link.dataset.navInactiveClass || inactiveNavClass;
       if (link.getAttribute('data-nav-key') === page) {
-        link.className = activeNavClass;
+        link.className = activeClass;
       } else {
-        link.className = inactiveNavClass;
+        link.className = inactiveClass;
+      }
+    });
+  }
+
+  function bindMobileNav(root) {
+    var toggle = root.querySelector('#mobile-nav-toggle');
+    var panel = root.querySelector('#mobile-nav-panel');
+    var icon = root.querySelector('#mobile-nav-toggle-icon');
+
+    if (!toggle || !panel || toggle.dataset.bound === 'true') {
+      return;
+    }
+
+    function setOpen(open) {
+      panel.classList.toggle('hidden', !open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (icon) {
+        icon.textContent = open ? 'close' : 'menu';
+      }
+    }
+
+    toggle.dataset.bound = 'true';
+    setOpen(false);
+
+    toggle.addEventListener('click', function () {
+      setOpen(panel.classList.contains('hidden'));
+    });
+
+    panel.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        setOpen(false);
+      });
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!root.contains(event.target)) {
+        setOpen(false);
       }
     });
   }
@@ -125,6 +164,7 @@
 
   loadPartial('site-header', 'partials/header.html', function (headerRoot) {
     markActiveNav(headerRoot);
+    bindMobileNav(headerRoot);
     document.dispatchEvent(new CustomEvent('pigcoder:header-ready'));
   });
 
