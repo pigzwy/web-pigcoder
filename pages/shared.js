@@ -2,6 +2,15 @@
   const html = document.documentElement;
   let toggle = null;
 
+  function isDarkPreferred() {
+    var storedTheme = localStorage.getItem('pigcoder-theme');
+    if (storedTheme) {
+      return storedTheme === 'dark';
+    }
+
+    return true;
+  }
+
   function applyTheme(dark) {
     if (dark) {
       html.classList.add('dark');
@@ -23,7 +32,7 @@
     }
 
     toggle.dataset.bound = 'true';
-    applyTheme(localStorage.getItem('pigcoder-theme') === 'dark');
+    applyTheme(isDarkPreferred());
 
     toggle.addEventListener('click', function() {
       var isDark = html.classList.contains('dark');
@@ -32,7 +41,7 @@
     });
   }
 
-  applyTheme(localStorage.getItem('pigcoder-theme') === 'dark');
+  applyTheme(isDarkPreferred());
   bindThemeToggle();
   document.addEventListener('pigcoder:header-ready', bindThemeToggle);
 })();
