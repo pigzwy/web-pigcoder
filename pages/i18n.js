@@ -1,10 +1,13 @@
 (function () {
   var STORAGE_KEY = 'pigcoder-locale';
+  var LOCALE_DEFAULT_VERSION_KEY = 'pigcoder-locale-default-version';
+  var LOCALE_DEFAULT_VERSION = '2026-06-09-zh-default';
   var SUPPORTED_LOCALES = ['zh-CN', 'en-US'];
 
   var translations = {
     'zh-CN': {
       common: {
+        skip: '跳到主要内容',
         nav: {
           index: '首页',
           docs: '文档',
@@ -35,9 +38,9 @@
           }
         },
         cta: {
-          start: '立即开始',
-          docs: '查看文档',
-          launch: '立即启动 Pigcoder',
+          start: '获取 API Key',
+          docs: '查看接入文档',
+          launch: '打开控制台',
           recharge: '立即充值',
           console: '立即前往控制台'
         }
@@ -45,49 +48,57 @@
       index: {
         title: 'Pigcoder - 稳定高速的 AI 编程中转站',
         hero: {
-          badge: '新一代 AI 编程中转站',
-          title: '稳定高速 <span class="text-transparent bg-clip-text bg-gradient-to-r from-custom-gold to-amber-300">AI 编程中转站</span>',
-          description: '为开发者打造的专业级大模型中转平台。一个 API Key 畅享全球顶级 AI 能力，极速响应，安全可靠。',
+          badge: 'AI Model Router / API Gateway',
+          title: '统一模型路由 <span class="brand-emphasis">兼容 AI 编程工具</span>',
+          description: '面向 Claude Code、Codex CLI、Gemini CLI 等开发者工具的统一 API 入口。按协议、模型、倍率和上下文能力选择路由，接入后即可调用多家模型。',
           codeComment: '# 使用统一接口调用顶级模型',
-          codePrompt: '"帮我写一个高效的排序算法"'
+          codePrompt: '"帮我写一个高效的排序算法"',
+          metrics: {
+            protocolsValue: '3 协议',
+            availability: 'OpenAI / Anthropic / Gemini',
+            unifiedValue: '1 Key',
+            unified: '跨模型统一鉴权',
+            ratioValue: '倍率',
+            savings: '按渠道透明计费'
+          }
         },
         choose: {
-          title: '为什么选择 Pigcoder'
+          title: '路由与接入能力'
         },
         features: {
           response: {
-            title: '极速响应',
-            description: '全球多节点冗余分发，毫秒级延迟，确保您的编程体验流畅无阻。'
+            title: '协议兼容',
+            description: '兼容 OpenAI / Anthropic / Gemini 常用协议，只需替换 Base URL 即可接入。'
           },
           availability: {
-            title: '高可用性',
-            description: '99.99% 服务可用性承诺，自动故障切换，告别模型宕机烦恼。'
+            title: '模型渠道',
+            description: '按 Claude、Codex、Gemini 等模型渠道组织能力，便于按工具选择。'
           },
           security: {
-            title: '数据安全',
-            description: '企业级加密传输，严格执行零日志政策，全面保护您的核心代码资产。'
+            title: '上下文能力',
+            description: '展示 200k、1M、thinking、WebSearch 等上下文和模型特性。'
           },
           cost: {
-            title: '成本优化',
-            description: '灵活的计费模式，按需付费，比直接集成多家 API 节省高达 40% 的成本。'
+            title: '倍率透明',
+            description: '每个渠道直接展示倍率和可用额度，避免传统订阅页包装。'
           },
           integration: {
-            title: '一键接入',
-            description: '完美兼容 OpenAI 接口规范，只需修改 BaseURL，现有工具瞬间升级 AI 能力。'
+            title: 'CLI 优先',
+            description: '面向 Claude Code、Codex CLI、Gemini CLI、OpenCode 等开发者工具。'
           },
           monitoring: {
-            title: '精细监控',
-            description: '可视化用量统计与限流管理，让每一笔额度消耗都清晰可见。'
+            title: '请求日志',
+            description: '通过控制台查看调用日志、用量消耗、异常请求和密钥分组。'
           }
         },
         models: {
-          title: '全模型覆盖',
-          description: '整合全球最顶尖的 AI 模型资源。无论您需要逻辑推理、代码生成还是多模态理解，Pigcoder 都能为您提供最强战力支撑。',
+          title: 'Provider 与模型覆盖',
+          description: '聚合 Claude、GPT、Gemini、智谱等模型能力，按协议和工具场景提供统一路由。',
           zhipu: '智谱'
         },
         toolbox: {
-          title: '开发者工具箱',
-          subtitle: '不仅是中转，更是生产力加速引擎',
+          title: '开发者接入面板',
+          subtitle: '围绕 endpoint、环境变量、CLI、日志和密钥分组组织接入流程',
           terminal: {
             badge: '核心能力',
             title: '统一命令终端',
@@ -107,29 +118,82 @@
             description: '完美适配 VS Code, JetBrains 全家桶及各种主流开发者浏览器插件，全场景 AI 赋能。'
           }
         },
+        integration: {
+          eyebrow: 'Integration Flow',
+          title: '从 API Key 到模型路由',
+          description: 'Pigcoder 的页面信息围绕开发者接入路径组织：创建密钥、选择协议、替换 Endpoint、观察请求日志。',
+          keys: {
+            title: '创建 API Key',
+            description: '在控制台创建令牌，并按工具选择 OpenAI、Anthropic 或 Gemini 分组。'
+          },
+          protocol: {
+            title: '选择协议',
+            description: '根据 Claude Code、Codex CLI、Gemini CLI 等工具选择对应协议入口。'
+          },
+          endpoint: {
+            title: '替换 Endpoint',
+            description: '只改 Base URL 和 API Key，尽量保持原工具配置方式不变。'
+          },
+          logs: {
+            title: '查看日志',
+            description: '通过请求日志追踪模型、渠道、用量、状态和异常原因。'
+          }
+        },
+        matrix: {
+          eyebrow: 'Routing Matrix',
+          title: '按工具选择模型渠道',
+          description: '比起普通订阅页，Pigcoder 更强调模型渠道、协议、上下文和能力标签，方便开发者判断该走哪条路由。',
+          columns: {
+            channel: '渠道',
+            protocol: '协议',
+            context: '上下文 / 能力',
+            tools: '适用工具'
+          }
+        },
         bottom: {
-          title: '准备好开启智能编程了吗？'
+          eyebrow: 'API Ready',
+          title: '准备接入 Pigcoder API？',
+          description: '先创建 API Key，再按工具复制对应 Endpoint。文档页提供 Claude Code、Codex CLI、Gemini CLI 和 OpenCode 的接入示例。'
         }
       },
       pricing: {
         title: '价格 - Pigcoder',
         hero: {
-          badge: '灵活计费方案',
-          title: '<span class="text-white">选择适合你的</span><span class="text-transparent bg-clip-text bg-gradient-to-r from-custom-gold to-amber-300">订阅套餐</span>',
-          description: '通过支付购买或兑换码激活获取订阅服务'
+          badge: '模型渠道与倍率',
+          title: '<span>透明模型倍率</span><span class="brand-emphasis">与渠道能力</span>',
+          description: '按 Provider 和工具场景查看倍率、模型、上下文、thinking、WebSearch 与适用工具。充值后按实际调用消耗，最终权益以控制台实时展示为准。',
+          cards: {
+            rechargeTitle: '余额通用',
+            rechargeDescription: '充值余额可在不同模型渠道间使用，按实际调用消耗。',
+            ratioTitle: '倍率透明',
+            ratioDescription: '每个渠道直接展示兑换倍率和可用额度。',
+            modelTitle: '能力标签',
+            modelDescription: '上下文、thinking、WebSearch、CLI 适配一眼可见。'
+          }
         },
         tabs: {
-          payg: '按量付费',
-          monthly: '包月套餐'
+          payg: '模型渠道',
+          monthly: '包月 / 兑换'
+        },
+        catalog: {
+          eyebrow: 'Channel Catalog',
+          title: '模型渠道倍率表',
+          description: '按 Provider 和工具场景查看渠道倍率、可用模型和能力标签。充值后按实际调用消耗，最终权益以控制台实时展示为准。'
         },
         banner: {
-          title: '按量付费模式',
-          description: '无需订阅，充值即用，按实际消耗扣费。余额所有渠道通用，可自由切换。价格以美元计价（当前比例：1美元≈1人民币）',
-          hint: '倍率越低越划算 · 0.15倍率 = 1元可用约6.67美元额度'
+          title: '',
+          description: '',
+          hint: ''
         },
-        note: '* 上述套餐价格与权益请以控制台「订阅」页面与官方公告为准。',
+        note: '* 页面展示为模型渠道与倍率说明，最终可用模型、倍率和权益以控制台实时配置为准。',
+        card: {
+          channel: '',
+          ratio: '倍率',
+          models: '可用模型',
+          capabilities: '能力标签'
+        },
         faq: {
-          title: '常见问题',
+          title: '接入与计费问题',
           model: {
             q: '支持哪些 AI 模型？',
             a: '目前支持 Claude 全系列、GPT 和 Gemini。'
@@ -199,16 +263,16 @@
         backToTop: '顶部',
         platform: {
           register: `
-            <h3 class="text-xl font-semibold text-custom-navy dark:text-white mb-4">Step 1 — 注册与登录</h3>
-            <ol class="list-decimal ml-6 space-y-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 1 — 注册与登录</h3>
+            <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
               <li>访问 <a href="https://sub2.pigcoder.com" target="_blank" class="text-custom-gold hover:underline font-bold">控制台</a>。</li>
               <li>使用邮箱或第三方账号（GitHub / Google）完成注册。</li>
               <li>登录后进入个人仪表盘。</li>
             </ol>
           `,
           apikey: `
-            <h3 class="text-xl font-semibold text-custom-navy dark:text-white mb-4">Step 2 — 获取 API Key</h3>
-            <ol class="list-decimal ml-6 space-y-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 2 — 获取 API Key</h3>
+            <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
               <li>进入控制台后，点击左侧菜单「令牌」。</li>
               <li>点击「创建令牌」按钮。</li>
               <li>为令牌填写一个名称（如 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">my-cli-key</code>）。</li>
@@ -223,16 +287,16 @@
               <li>复制并妥善保存生成的 API Key。</li>
             </ol>
             <div class="border-l-4 border-custom-gold bg-amber-50 dark:bg-amber-900/20 p-4 mt-4 rounded-r-lg">
-              <p class="text-sm text-gray-700 dark:text-gray-300"><strong>注意：</strong>API Key 仅在创建时显示一次，请务必立即复制保存。如果丢失，需要重新创建新的令牌。</p>
+              <p class="text-sm text-slate-700 dark:text-slate-300"><strong>注意：</strong>API Key 仅在创建时显示一次，请务必立即复制保存。如果丢失，需要重新创建新的令牌。</p>
             </div>
           `,
           endpointTitle: 'Step 3 — 确认端点地址',
           endpointLead: '根据不同的 CLI 工具，使用对应的端点地址：',
           endpointHead: `
-            <tr class="bg-slate-50 dark:bg-[#1a2332]">
-              <th class="px-4 py-3 text-sm font-semibold text-custom-navy dark:text-gray-300 border-b border-slate-200 dark:border-white/10">协议类型</th>
-              <th class="px-4 py-3 text-sm font-semibold text-custom-navy dark:text-gray-300 border-b border-slate-200 dark:border-white/10">端点地址</th>
-              <th class="px-4 py-3 text-sm font-semibold text-custom-navy dark:text-gray-300 border-b border-slate-200 dark:border-white/10">适用工具</th>
+            <tr class="bg-slate-50 dark:bg-[#111C2D]">
+              <th class="px-4 py-3 text-sm font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">协议类型</th>
+              <th class="px-4 py-3 text-sm font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">端点地址</th>
+              <th class="px-4 py-3 text-sm font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">适用工具</th>
             </tr>
           `,
           endpointBody: `
@@ -253,15 +317,15 @@
             </tr>
           `,
           usage: `
-            <h3 class="text-xl font-semibold text-custom-navy dark:text-white mb-4">Step 4 — 查看用量</h3>
-            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">登录控制台后，在首页仪表盘即可查看当前额度余额和调用统计。点击左侧菜单「日志」可以查看详细的请求记录与用量明细。</p>
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 4 — 查看用量</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">登录控制台后，在首页仪表盘即可查看当前额度余额和调用统计。点击左侧菜单「日志」可以查看详细的请求记录与用量明细。</p>
           `,
           quickConfig: `
-            <h3 class="text-xl font-semibold text-custom-navy dark:text-white mb-4">Step 5 — 使用密钥快速配置</h3>
-            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">获取 API Key 后，最快的方式是通过环境变量配置。在终端中执行：</p>
-            <div class="code-block bg-[#F1F5F9] dark:bg-[#1a2332] rounded-lg p-4 font-mono text-sm mb-4">
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 5 — 使用密钥快速配置</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">获取 API Key 后，最快的方式是通过环境变量配置。在终端中执行：</p>
+            <div class="code-block bg-slate-50 dark:bg-[#111C2D] rounded-lg p-4 font-mono text-sm mb-4">
               <span class="lang-label">bash</span>
-              <pre class="text-gray-800 dark:text-gray-200 overflow-x-auto"><code># Anthropic 协议（Claude Code）
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># Anthropic 协议（Claude Code）
 export ANTHROPIC_API_KEY="sk-pig-xxxx"
 export ANTHROPIC_BASE_URL="https://sub2.pigcoder.com"
 
@@ -273,17 +337,17 @@ export OPENAI_BASE_URL="https://sub2.pigcoder.com/v1"
 export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
             </div>
             <div class="border-l-4 border-custom-green bg-green-50 dark:bg-green-900/20 p-4 rounded-r-lg">
-              <p class="text-sm text-gray-700 dark:text-gray-300"><strong>提示：</strong>建议将环境变量写入 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.bashrc</code> 或 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.zshrc</code>，这样每次打开终端都会自动加载。</p>
+              <p class="text-sm text-slate-700 dark:text-slate-300"><strong>提示：</strong>建议将环境变量写入 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.bashrc</code> 或 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.zshrc</code>，这样每次打开终端都会自动加载。</p>
             </div>
           `,
           ccSwitchImport: `
-            <h3 class="text-xl font-semibold text-custom-navy dark:text-white mb-4">Step 6 — CC Switch 一键导入</h3>
-            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">如果你使用 CC Switch，可以通过 Deep Link 一键导入服务商配置，无需手动编辑任何文件：</p>
-            <div class="code-block bg-[#F1F5F9] dark:bg-[#1a2332] rounded-lg p-4 font-mono text-sm mb-4">
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 6 — CC Switch 一键导入</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">如果你使用 CC Switch，可以通过 Deep Link 一键导入服务商配置，无需手动编辑任何文件：</p>
+            <div class="code-block bg-slate-50 dark:bg-[#111C2D] rounded-lg p-4 font-mono text-sm mb-4">
               <span class="lang-label">text</span>
-              <pre class="text-gray-800 dark:text-gray-200 overflow-x-auto"><code>ccswitch://provider/add?name=Pigcoder&apiBaseUrl=https://sub2.pigcoder.com&apiKey=sk-pig-xxxx</code></pre>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>ccswitch://provider/add?name=Pigcoder&apiBaseUrl=https://sub2.pigcoder.com&apiKey=sk-pig-xxxx</code></pre>
             </div>
-            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">在浏览器中打开上述链接，CC Switch 将自动添加 Pigcoder 作为服务商，填入你的 API Key 即可。</p>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">在浏览器中打开上述链接，CC Switch 将自动添加 Pigcoder 作为服务商，填入你的 API Key 即可。</p>
           `
         },
         tools: {
@@ -304,6 +368,7 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
     },
     'en-US': {
       common: {
+        skip: 'Skip to main content',
         nav: {
           index: 'Home',
           docs: 'Docs',
@@ -334,9 +399,9 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
           }
         },
         cta: {
-          start: 'Get Started',
-          docs: 'View Docs',
-          launch: 'Launch Pigcoder',
+          start: 'Get API Key',
+          docs: 'Integration Docs',
+          launch: 'Open Console',
           recharge: 'Recharge Now',
           console: 'Open Console'
         }
@@ -344,49 +409,57 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
       index: {
         title: 'Pigcoder - Stable High-Speed AI Coding Gateway',
         hero: {
-          badge: 'Next-Gen AI Coding Gateway',
-          title: 'Stable High-Speed <span class="text-transparent bg-clip-text bg-gradient-to-r from-custom-gold to-amber-300">AI Coding Gateway</span>',
-          description: 'A professional model gateway built for developers. One API key unlocks top-tier AI capabilities worldwide with fast response times and dependable security.',
+          badge: 'AI Model Router / API Gateway',
+          title: 'Unified Model Routing <span class="brand-emphasis">for AI Coding Tools</span>',
+          description: 'A unified API entry for Claude Code, Codex CLI, Gemini CLI, and other developer tools. Route by protocol, model, ratio, and context capability.',
           codeComment: '# Call top-tier models through one unified interface',
-          codePrompt: '"Write an efficient sorting algorithm for me"'
+          codePrompt: '"Write an efficient sorting algorithm for me"',
+          metrics: {
+            protocolsValue: '3 Protocols',
+            availability: 'OpenAI / Anthropic / Gemini',
+            unifiedValue: '1 Key',
+            unified: 'One key across models',
+            ratioValue: 'Ratios',
+            savings: 'Transparent channel ratios'
+          }
         },
         choose: {
-          title: 'Why Pigcoder'
+          title: 'Routing & Integration Capabilities'
         },
         features: {
           response: {
-            title: 'Fast Response',
-            description: 'Multi-region redundant routing keeps latency in the millisecond range and your coding flow uninterrupted.'
+            title: 'Protocol Compatible',
+            description: 'Compatible with common OpenAI, Anthropic, and Gemini protocols. Swap the Base URL to connect.'
           },
           availability: {
-            title: 'High Availability',
-            description: '99.99% service availability with automatic failover, so model outages no longer block your work.'
+            title: 'Model Channels',
+            description: 'Organize Claude, Codex, Gemini, and other channels by developer tool scenarios.'
           },
           security: {
-            title: 'Data Security',
-            description: 'Enterprise-grade encryption and a strict zero-log policy keep your core code assets protected.'
+            title: 'Context Capabilities',
+            description: 'Surface 200k, 1M, thinking, WebSearch, and model-specific capabilities clearly.'
           },
           cost: {
-            title: 'Cost Efficiency',
-            description: 'Flexible pay-as-you-go billing that can cut integration costs by up to 40% compared with managing multiple APIs directly.'
+            title: 'Transparent Ratios',
+            description: 'Show ratio and usable quota for every channel directly, without subscription-page packaging.'
           },
           integration: {
-            title: 'Drop-In Integration',
-            description: 'Fully compatible with the OpenAI API spec. Swap the BaseURL and upgrade your existing tools instantly.'
+            title: 'CLI First',
+            description: 'Designed for Claude Code, Codex CLI, Gemini CLI, OpenCode, and similar developer tools.'
           },
           monitoring: {
-            title: 'Usage Visibility',
-            description: 'Visual usage analytics and rate-control management keep every unit of quota visible and controllable.'
+            title: 'Request Logs',
+            description: 'Inspect usage, request logs, error cases, and key groups in the console.'
           }
         },
         models: {
-          title: 'Full Model Coverage',
-          description: 'Aggregate top AI models from around the world. Whether you need reasoning, code generation, or multimodal understanding, Pigcoder gives you the strongest stack in one place.',
+          title: 'Provider & Model Coverage',
+          description: 'Aggregate Claude, GPT, Gemini, Zhipu, and other models behind one routing layer for protocol-specific tools.',
           zhipu: 'Zhipu AI'
         },
         toolbox: {
-          title: 'Developer Toolbox',
-          subtitle: 'More than a gateway, it is a productivity accelerator',
+          title: 'Developer Integration Panel',
+          subtitle: 'Endpoint, environment variables, CLI setup, logs, and key groups organized for integration',
           terminal: {
             badge: 'Core Capability',
             title: 'Unified Terminal Workflow',
@@ -406,29 +479,82 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
             description: 'Works smoothly with VS Code, the JetBrains suite, and mainstream developer browser extensions for end-to-end AI assistance.'
           }
         },
+        integration: {
+          eyebrow: 'Integration Flow',
+          title: 'From API Key to Model Routing',
+          description: 'Pigcoder organizes the integration path around keys, protocol selection, endpoint replacement, and request logs.',
+          keys: {
+            title: 'Create API Key',
+            description: 'Create a token in the console and choose an OpenAI, Anthropic, or Gemini group for your tool.'
+          },
+          protocol: {
+            title: 'Choose Protocol',
+            description: 'Pick the protocol entry for Claude Code, Codex CLI, Gemini CLI, or other developer tools.'
+          },
+          endpoint: {
+            title: 'Replace Endpoint',
+            description: 'Change only the Base URL and API key while keeping your existing tool configuration familiar.'
+          },
+          logs: {
+            title: 'Inspect Logs',
+            description: 'Trace model, channel, usage, status, and error reasons from request logs.'
+          }
+        },
+        matrix: {
+          eyebrow: 'Routing Matrix',
+          title: 'Choose Channels by Tool',
+          description: 'Instead of subscription plans, Pigcoder highlights channels, protocols, context, and capability tags so developers can pick the right route.',
+          columns: {
+            channel: 'Channel',
+            protocol: 'Protocol',
+            context: 'Context / Capability',
+            tools: 'Tools'
+          }
+        },
         bottom: {
-          title: 'Ready to Start Smarter Coding?'
+          eyebrow: 'API Ready',
+          title: 'Ready to connect to Pigcoder API?',
+          description: 'Create an API key, copy the endpoint for your tool, and follow docs for Claude Code, Codex CLI, Gemini CLI, and OpenCode.'
         }
       },
       pricing: {
         title: 'Pricing - Pigcoder',
         hero: {
-          badge: 'Flexible Billing',
-          title: '<span class="text-white">Choose the</span><span class="text-transparent bg-clip-text bg-gradient-to-r from-custom-gold to-amber-300">right plan</span>',
-          description: 'Purchase directly or redeem access codes to activate your subscription'
+          badge: 'Model Channels & Ratios',
+          title: '<span>Transparent Model Ratios</span><span class="brand-emphasis">and Channel Capabilities</span>',
+          description: 'Compare ratios, models, context, thinking, WebSearch, and compatible tools by provider and tool scenario. Consumption follows actual usage, and final entitlements follow the live console.',
+          cards: {
+            rechargeTitle: 'Shared balance',
+            rechargeDescription: 'Use one balance across model channels and pay by actual usage.',
+            ratioTitle: 'Transparent ratios',
+            ratioDescription: 'Every channel shows ratio and usable quota directly.',
+            modelTitle: 'Capability tags',
+            modelDescription: 'Context, thinking, WebSearch, and CLI fit are visible at a glance.'
+          }
         },
         tabs: {
-          payg: 'Pay As You Go',
-          monthly: 'Monthly Plans'
+          payg: 'Model Channels',
+          monthly: 'Monthly / Redeem'
+        },
+        catalog: {
+          eyebrow: 'Channel Catalog',
+          title: 'Model Channel Ratio Catalog',
+          description: 'Compare channel ratios, available models, and capability tags by provider and tool scenario. Consumption follows actual usage, and final entitlements follow the live console.'
         },
         banner: {
-          title: 'Pay-As-You-Go Mode',
-          description: 'No subscription required. Recharge and use immediately, with billing based on actual usage. Balance is shared across all channels and can be switched freely. Prices are denominated in USD.',
-          hint: 'Lower ratios mean better value · 0.15 ratio gives roughly $6.67 of usable quota per ¥1'
+          title: '',
+          description: '',
+          hint: ''
         },
-        note: '* Final pricing and entitlements are subject to the Subscription page in the console and official announcements.',
+        note: '* This page explains model channels and ratios. Final models, ratios, and entitlements follow the live console configuration.',
+        card: {
+          channel: '',
+          ratio: 'Ratio',
+          models: 'Models',
+          capabilities: 'Capabilities'
+        },
         faq: {
-          title: 'FAQ',
+          title: 'Integration & Billing Questions',
           model: {
             q: 'Which AI models are supported?',
             a: 'Pigcoder currently supports the full Claude family, GPT, and Gemini.'
@@ -498,16 +624,16 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
         backToTop: 'Top',
         platform: {
           register: `
-            <h3 class="text-xl font-semibold text-custom-navy dark:text-white mb-4">Step 1 — Register and Sign In</h3>
-            <ol class="list-decimal ml-6 space-y-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 1 — Register and Sign In</h3>
+            <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
               <li>Open the <a href="https://sub2.pigcoder.com" target="_blank" class="text-custom-gold hover:underline font-bold">console</a>.</li>
               <li>Create an account with email or a third-party login such as GitHub or Google.</li>
               <li>After signing in, enter your personal dashboard.</li>
             </ol>
           `,
           apikey: `
-            <h3 class="text-xl font-semibold text-custom-navy dark:text-white mb-4">Step 2 — Create an API Key</h3>
-            <ol class="list-decimal ml-6 space-y-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 2 — Create an API Key</h3>
+            <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
               <li>Open the console and click the <strong>Tokens</strong> menu.</li>
               <li>Click the <strong>Create Token</strong> button.</li>
               <li>Give the token a name, for example <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">my-cli-key</code>.</li>
@@ -522,16 +648,16 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
               <li>Copy and store the generated API key safely.</li>
             </ol>
             <div class="border-l-4 border-custom-gold bg-amber-50 dark:bg-amber-900/20 p-4 mt-4 rounded-r-lg">
-              <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Note:</strong> The API key is shown only once when it is created. Copy it immediately. If it is lost, create a new token.</p>
+              <p class="text-sm text-slate-700 dark:text-slate-300"><strong>Note:</strong> The API key is shown only once when it is created. Copy it immediately. If it is lost, create a new token.</p>
             </div>
           `,
           endpointTitle: 'Step 3 — Confirm Endpoint URLs',
           endpointLead: 'Use the corresponding endpoint for each CLI tool:',
           endpointHead: `
-            <tr class="bg-slate-50 dark:bg-[#1a2332]">
-              <th class="px-4 py-3 text-sm font-semibold text-custom-navy dark:text-gray-300 border-b border-slate-200 dark:border-white/10">Protocol</th>
-              <th class="px-4 py-3 text-sm font-semibold text-custom-navy dark:text-gray-300 border-b border-slate-200 dark:border-white/10">Endpoint</th>
-              <th class="px-4 py-3 text-sm font-semibold text-custom-navy dark:text-gray-300 border-b border-slate-200 dark:border-white/10">Tools</th>
+            <tr class="bg-slate-50 dark:bg-[#111C2D]">
+              <th class="px-4 py-3 text-sm font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">Protocol</th>
+              <th class="px-4 py-3 text-sm font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">Endpoint</th>
+              <th class="px-4 py-3 text-sm font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">Tools</th>
             </tr>
           `,
           endpointBody: `
@@ -540,13 +666,13 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
             <tr><td class="px-4 py-3 font-medium">Gemini</td><td class="px-4 py-3"><code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">https://sub2.pigcoder.com/v1beta</code></td><td class="px-4 py-3">Gemini CLI</td></tr>
           `,
           usage: `
-            <h3 class="text-xl font-semibold text-custom-navy dark:text-white mb-4">Step 4 — Check Usage</h3>
-            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">After signing in, your dashboard shows the current balance and request stats. Open the <strong>Logs</strong> menu to inspect request history and usage details.</p>
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 4 — Check Usage</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">After signing in, your dashboard shows the current balance and request stats. Open the <strong>Logs</strong> menu to inspect request history and usage details.</p>
           `,
           quickConfig: `
-            <h3 class="text-xl font-semibold text-custom-navy dark:text-white mb-4">Step 5 — Quick Configuration</h3>
-            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">After you get an API key, the fastest setup path is via environment variables:</p>
-            <div class="code-block bg-[#F1F5F9] dark:bg-[#1a2332] rounded-lg p-4 font-mono text-sm mb-4"><span class="lang-label">bash</span><pre class="text-gray-800 dark:text-gray-200 overflow-x-auto"><code># Anthropic protocol (Claude Code)
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 5 — Quick Configuration</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">After you get an API key, the fastest setup path is via environment variables:</p>
+            <div class="code-block bg-slate-50 dark:bg-[#111C2D] rounded-lg p-4 font-mono text-sm mb-4"><span class="lang-label">bash</span><pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># Anthropic protocol (Claude Code)
 export ANTHROPIC_API_KEY="sk-pig-xxxx"
 export ANTHROPIC_BASE_URL="https://sub2.pigcoder.com"
 
@@ -556,13 +682,13 @@ export OPENAI_BASE_URL="https://sub2.pigcoder.com/v1"
 
 # Gemini protocol (Gemini CLI)
 export GEMINI_API_KEY="sk-pig-xxxx"</code></pre></div>
-            <div class="border-l-4 border-custom-green bg-green-50 dark:bg-green-900/20 p-4 rounded-r-lg"><p class="text-sm text-gray-700 dark:text-gray-300"><strong>Tip:</strong> Save these values in <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.bashrc</code> or <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.zshrc</code> so every new terminal session loads them automatically.</p></div>
+            <div class="border-l-4 border-custom-green bg-green-50 dark:bg-green-900/20 p-4 rounded-r-lg"><p class="text-sm text-slate-700 dark:text-slate-300"><strong>Tip:</strong> Save these values in <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.bashrc</code> or <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.zshrc</code> so every new terminal session loads them automatically.</p></div>
           `,
           ccSwitchImport: `
-            <h3 class="text-xl font-semibold text-custom-navy dark:text-white mb-4">Step 6 — One-Click CC Switch Import</h3>
-            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">If you use CC Switch, you can import the provider configuration with a Deep Link instead of editing files manually:</p>
-            <div class="code-block bg-[#F1F5F9] dark:bg-[#1a2332] rounded-lg p-4 font-mono text-sm mb-4"><span class="lang-label">text</span><pre class="text-gray-800 dark:text-gray-200 overflow-x-auto"><code>ccswitch://provider/add?name=Pigcoder&apiBaseUrl=https://sub2.pigcoder.com&apiKey=sk-pig-xxxx</code></pre></div>
-            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">Open the link above in your browser and CC Switch will add Pigcoder as a provider automatically. Then paste your API key and you are done.</p>
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 6 — One-Click CC Switch Import</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">If you use CC Switch, you can import the provider configuration with a Deep Link instead of editing files manually:</p>
+            <div class="code-block bg-slate-50 dark:bg-[#111C2D] rounded-lg p-4 font-mono text-sm mb-4"><span class="lang-label">text</span><pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>ccswitch://provider/add?name=Pigcoder&apiBaseUrl=https://sub2.pigcoder.com&apiKey=sk-pig-xxxx</code></pre></div>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">Open the link above in your browser and CC Switch will add Pigcoder as a provider automatically. Then paste your API key and you are done.</p>
           `
         },
         tools: {
@@ -603,7 +729,18 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre></div>
     return normalizeLocale(navigator.language || navigator.userLanguage || 'zh-CN');
   }
 
-  var currentLocale = getStoredLocale() || getBrowserLocale();
+  var storedDefaultVersion = null;
+  try {
+    storedDefaultVersion = localStorage.getItem(LOCALE_DEFAULT_VERSION_KEY);
+    if (storedDefaultVersion !== LOCALE_DEFAULT_VERSION) {
+      localStorage.setItem(STORAGE_KEY, 'zh-CN');
+      localStorage.setItem(LOCALE_DEFAULT_VERSION_KEY, LOCALE_DEFAULT_VERSION);
+    }
+  } catch (error) {
+    // ignore
+  }
+
+  var currentLocale = getStoredLocale() || 'zh-CN';
 
   function lookup(locale, key) {
     return key.split('.').reduce(function (result, part) {

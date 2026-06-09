@@ -1,6 +1,7 @@
 (function() {
   const html = document.documentElement;
   let toggle = null;
+  let toggleIcon = null;
 
   function isDarkPreferred() {
     var storedTheme = localStorage.getItem('pigcoder-theme');
@@ -8,7 +9,11 @@
       return storedTheme === 'dark';
     }
 
-    return true;
+    if (window.matchMedia) {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    return false;
   }
 
   function applyTheme(dark) {
@@ -20,13 +25,20 @@
       html.classList.add('light');
     }
 
+    if (toggleIcon) {
+      toggleIcon.textContent = dark ? 'light_mode' : 'dark_mode';
+    }
+
     if (toggle) {
-      toggle.textContent = dark ? 'light_mode' : 'dark_mode';
+      var label = dark ? '切换到浅色模式' : '切换到深色模式';
+      toggle.setAttribute('aria-label', label);
+      toggle.setAttribute('title', label);
     }
   }
 
   function bindThemeToggle() {
     toggle = document.getElementById('theme-toggle');
+    toggleIcon = document.getElementById('theme-toggle-icon');
     if (!toggle || toggle.dataset.bound === 'true') {
       return;
     }

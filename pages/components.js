@@ -6,8 +6,8 @@
   else if (path.includes('docs.html')) page = 'docs';
   else if (path.includes('pricing.html')) page = 'pricing';
 
-  var activeNavClass = 'text-custom-navy dark:text-white border-b-2 border-custom-gold pb-1 font-medium';
-  var inactiveNavClass = 'text-on-surface-variant dark:text-gray-400 font-medium hover:text-custom-gold transition-colors';
+  var activeNavClass = 'rounded-full px-4 py-2 text-sm font-semibold text-custom-navy dark:text-white bg-slate-100 dark:bg-white/10';
+  var inactiveNavClass = 'rounded-full px-4 py-2 text-sm font-medium text-custom-muted dark:text-slate-300 hover:text-custom-navy hover:bg-slate-100 dark:hover:text-white dark:hover:bg-white/10 transition-colors';
   var templateCache = {};
 
   function markActiveNav(root) {

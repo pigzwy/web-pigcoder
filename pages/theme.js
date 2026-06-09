@@ -50,18 +50,24 @@ tailwind.config = {
         "on-tertiary-fixed": "#002107",
         "surface": "#faf9fe",
         "inverse-primary": "#acc7ff",
-        "custom-navy": "#1B3A6B",
+        "custom-navy": "#18345F",
         "custom-gold": "#E8A825",
-        "custom-green": "#5B9A5F"
+        "custom-green": "#4F9462",
+        "custom-ink": "#0F172A",
+        "custom-muted": "#667085",
+        "custom-line": "#E4E7EC",
+        "custom-paper": "#FFFFFF",
+        "custom-wash": "#F7F9FC"
       },
       borderRadius: {
-        DEFAULT: "8px",
-        lg: "12px",
-        xl: "24px",
+        DEFAULT: "6px",
+        lg: "10px",
+        xl: "12px",
+        "2xl": "16px",
         full: "9999px"
       },
       fontFamily: {
-        headline: ["Space Grotesk", "sans-serif"],
+        headline: ["Space Grotesk", "Inter", "sans-serif"],
         body: ["Inter", "sans-serif"],
         label: ["Inter", "sans-serif"]
       }

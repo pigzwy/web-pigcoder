@@ -6,173 +6,173 @@
     'zh-CN': [
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-0.5 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
         title: 'Claude Max',
         ratio: '1:1.5',
         rate: '0.67$/元',
-        description: '官方 Max20x 账号，效果最好',
+        description: 'Claude 高配渠道，适合长上下文与复杂代码任务',
         dotClass: 'bg-custom-green',
-        models: ['claude-opus-4-6(1M)', 'claude-opus-4-5', 'claude-sonnet-4-6', 'claude-sonnet-4-5', 'claude-haiku-4-5'],
+        models: ['claude-opus-4-8', 'claude-sonnet-4-6', 'claude-haiku-4-5'],
         perks: ['支持高级 thinking', '200k 上下文', '支持 1M 上下文', '支持 WebSearch', '仅支持 Claude Code CLI'],
-        perkClass: 'text-custom-green text-xs font-medium'
+        perkClass: 'text-custom-green text-xs font-semibold'
       },
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-0.5 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
         title: 'CC-反重力逆向',
         ratio: '1:0.6',
         rate: '1.67$/元',
-        description: '性能与价格均衡，稳定性较好',
+        description: 'Claude 逆向渠道，倍率与能力均衡',
         dotClass: 'bg-custom-green',
-        models: ['claude-opus-4-6(1M)', 'claude-sonnet-4-6(1M)', 'claude-opus-4-5', 'claude-haiku-4-5'],
+        models: ['claude-opus-4-8', 'claude-sonnet-4-6', 'claude-haiku-4-5'],
         perks: ['支持 thinking', '200k 上下文', '支持 WebSearch'],
-        perkClass: 'text-custom-green text-xs font-medium'
+        perkClass: 'text-custom-green text-xs font-semibold'
       },
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-0.5 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
-        title: 'Kiro 标准版',
-        ratio: '1:0.55',
+        categoryClass: 'px-2.5 py-1 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
+        title: 'Kiro',
+        ratio: '1:0.5',
         rate: '1.82$/元',
-        description: '只能用 Sonnet 和 Haiku，稳定性强',
+        description: 'Sonnet / Haiku 渠道，适合日常代码代理',
         dotClass: 'bg-custom-green',
-        models: ['claude-sonnet-4-6', 'claude-sonnet-4-5', 'claude-haiku-4-5'],
+        models: ['claude-sonnet-4-6', 'claude-haiku-4-5'],
         perks: ['支持内置 thinking', '支持 WebSearch', '200k 上下文', 'OpenClaw 首选'],
-        perkClass: 'text-custom-green text-xs font-medium'
+        perkClass: 'text-custom-green text-xs font-semibold'
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
         title: 'Codex (GPT FREE)',
         ratio: '1:0.1',
         rate: '10.00$/元',
-        description: '免费级别接入，倍率最低',
+        description: 'Codex 免费级渠道，倍率最低，适合轻量任务',
         dotClass: 'bg-blue-500',
-        models: ['gpt-5.4', 'gpt-5.3-codex', 'gpt-5.3 等'],
+        models: ['gpt-5.5', 'gpt-5.4'],
         perks: ['xhigh 等全部支持'],
-        perkClass: 'text-custom-green dark:text-green-400 text-xs font-medium'
+        perkClass: 'text-custom-green dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
         title: 'Codex (GPT PLUS)',
         ratio: '1:0.15',
         rate: '6.67$/元',
-        description: 'Plus 会员级别，性价比极高',
+        description: 'Codex Plus 级渠道，适合高频开发调用',
         dotClass: 'bg-blue-500',
-        models: ['gpt-5.4', 'gpt-5.3-codex', 'gpt-5.3 等'],
+        models: ['gpt-5.5', 'gpt-5.4'],
         perks: ['xhigh 等全部支持'],
-        perkClass: 'text-custom-green dark:text-green-400 text-xs font-medium'
+        perkClass: 'text-custom-green dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
         title: 'Codex (GPT PRO)',
         ratio: '1:0.3',
         rate: '1.67$/元',
-        description: '支持 Codex 所有模型，包含 gpt-5.3-codex，稳定性强',
+        description: 'Codex Pro 级渠道，覆盖最新 Codex 模型',
         dotClass: 'bg-blue-500',
-        models: ['gpt-5.4', 'gpt-5.3-codex', 'gpt-5.3 等'],
+        models: ['gpt-5.5', 'gpt-5.4'],
         perks: ['xhigh 等全部支持'],
-        perkClass: 'text-custom-green text-xs font-medium'
+        perkClass: 'text-custom-green text-xs font-semibold'
       },
       {
         category: 'Gemini',
-        categoryClass: 'px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
         title: 'Gemini 逆向',
         ratio: '1:0.45',
         rate: '2.22$/元',
-        description: '支持图片生成模型',
+        description: 'Gemini 渠道，覆盖多模态与图片生成能力',
         dotClass: 'bg-blue-500',
         models: ['gemini-3-pro-preview', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-2.5-pro'],
         perks: ['支持 thinking', '支持 WebSearch'],
-        perkClass: 'text-custom-green text-xs font-medium'
+        perkClass: 'text-custom-green text-xs font-semibold'
       }
     ],
     'en-US': [
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-0.5 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
         title: 'Claude Max',
         ratio: '1:1.5',
         rate: '$0.67 / CNY',
-        description: 'Official Max20x account with the best overall results',
+        description: 'Claude high-capability channel for long-context coding tasks',
         dotClass: 'bg-custom-green',
-        models: ['claude-opus-4-6(1M)', 'claude-opus-4-5', 'claude-sonnet-4-6', 'claude-sonnet-4-5', 'claude-haiku-4-5'],
+        models: ['claude-opus-4-8', 'claude-sonnet-4-6', 'claude-haiku-4-5'],
         perks: ['Advanced thinking', '200k context', '1M context', 'WebSearch support', 'Claude Code CLI only'],
-        perkClass: 'text-custom-green text-xs font-medium'
+        perkClass: 'text-custom-green text-xs font-semibold'
       },
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-0.5 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
         title: 'CC Anti-Gravity',
         ratio: '1:0.6',
         rate: '$1.67 / CNY',
-        description: 'Balanced performance and pricing with solid stability',
+        description: 'Claude reverse channel with balanced ratio and capabilities',
         dotClass: 'bg-custom-green',
-        models: ['claude-opus-4-6(1M)', 'claude-sonnet-4-6(1M)', 'claude-opus-4-5', 'claude-haiku-4-5'],
+        models: ['claude-opus-4-8', 'claude-sonnet-4-6', 'claude-haiku-4-5'],
         perks: ['Thinking support', '200k context', 'WebSearch support'],
-        perkClass: 'text-custom-green text-xs font-medium'
+        perkClass: 'text-custom-green text-xs font-semibold'
       },
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-0.5 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
-        title: 'Kiro Standard',
-        ratio: '1:0.55',
+        categoryClass: 'px-2.5 py-1 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
+        title: 'Kiro',
+        ratio: '1:0.5',
         rate: '$1.82 / CNY',
-        description: 'Sonnet and Haiku only, with strong stability',
+        description: 'Sonnet / Haiku channel for everyday coding agents',
         dotClass: 'bg-custom-green',
-        models: ['claude-sonnet-4-6', 'claude-sonnet-4-5', 'claude-haiku-4-5'],
+        models: ['claude-sonnet-4-6', 'claude-haiku-4-5'],
         perks: ['Built-in thinking', 'WebSearch support', '200k context', 'Great for OpenClaw'],
-        perkClass: 'text-custom-green text-xs font-medium'
+        perkClass: 'text-custom-green text-xs font-semibold'
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
         title: 'Codex (GPT FREE)',
         ratio: '1:0.1',
         rate: '$10.00 / CNY',
-        description: 'Free-tier style access with the lowest multiplier',
+        description: 'Codex free-tier channel with the lowest ratio for lightweight tasks',
         dotClass: 'bg-blue-500',
-        models: ['gpt-5.4', 'gpt-5.3-codex', 'gpt-5.3 series'],
+        models: ['gpt-5.5', 'gpt-5.4'],
         perks: ['All xhigh tiers supported'],
-        perkClass: 'text-custom-green dark:text-green-400 text-xs font-medium'
+        perkClass: 'text-custom-green dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
         title: 'Codex (GPT PLUS)',
         ratio: '1:0.15',
         rate: '$6.67 / CNY',
-        description: 'Plus-tier access with excellent cost performance',
+        description: 'Codex Plus channel for frequent developer calls',
         dotClass: 'bg-blue-500',
-        models: ['gpt-5.4', 'gpt-5.3-codex', 'gpt-5.3 series'],
+        models: ['gpt-5.5', 'gpt-5.4'],
         perks: ['All xhigh tiers supported'],
-        perkClass: 'text-custom-green dark:text-green-400 text-xs font-medium'
+        perkClass: 'text-custom-green dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
         title: 'Codex (GPT PRO)',
         ratio: '1:0.3',
         rate: '$3.33 / CNY',
-        description: 'Full Codex model access including gpt-5.3-codex, with strong stability',
+        description: 'Codex Pro channel with latest Codex model coverage',
         dotClass: 'bg-blue-500',
-        models: ['gpt-5.4', 'gpt-5.3-codex', 'gpt-5.3 series'],
+        models: ['gpt-5.5', 'gpt-5.4'],
         perks: ['All xhigh tiers supported'],
-        perkClass: 'text-custom-green text-xs font-medium'
+        perkClass: 'text-custom-green text-xs font-semibold'
       },
       {
         category: 'Gemini',
-        categoryClass: 'px-2.5 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
         title: 'Gemini Reverse',
         ratio: '1:0.45',
         rate: '$2.22 / CNY',
-        description: 'Includes image generation models',
+        description: 'Gemini channel with multimodal and image-generation capabilities',
         dotClass: 'bg-blue-500',
         models: ['gemini-3-pro-preview', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-2.5-pro'],
         perks: ['Thinking support', 'WebSearch support'],
-        perkClass: 'text-custom-green text-xs font-medium'
+        perkClass: 'text-custom-green text-xs font-semibold'
       }
     ]
   };
@@ -190,7 +190,7 @@
   }
 
   function renderModel(model, dotClass) {
-    return '<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-white/30 dark:bg-white/5 text-on-surface-variant dark:text-gray-300 text-[11px] rounded-full backdrop-blur-sm">' +
+    return '<span class="inline-flex items-center gap-1 px-2 py-1 bg-custom-wash dark:bg-white/5 text-custom-muted dark:text-slate-300 text-[11px] rounded-full">' +
       '<span class="w-1.5 h-1.5 rounded-full ' + dotClass + '"></span>' + model +
       '</span>';
   }
@@ -208,20 +208,41 @@
       return renderPerk(perk, card.perkClass);
     }).join('');
 
-    return '<div class="feature-card rounded-xl p-6 flex flex-col">' +
-      '<div class="flex items-center gap-3 mb-4">' +
-        '<span class="' + card.categoryClass + '">' + card.category + '</span>' +
-        '<span class="text-custom-navy dark:text-white font-bold text-base">' + card.title + '</span>' +
+    var labels = window.PigcoderI18n ? {
+      ratio: window.PigcoderI18n.t('pricing.card.ratio'),
+      models: window.PigcoderI18n.t('pricing.card.models'),
+      capabilities: window.PigcoderI18n.t('pricing.card.capabilities'),
+      action: window.PigcoderI18n.t('common.cta.recharge')
+    } : {
+      ratio: '倍率',
+      models: '模型',
+      capabilities: '能力',
+      action: '立即充值'
+    };
+
+    return '<div class="pricing-card channel-card rounded-xl p-5 flex flex-col">' +
+      '<div class="flex items-start justify-between gap-3 mb-4">' +
+        '<div class="min-w-0">' +
+          '<span class="' + card.categoryClass + '">' + card.category + '</span>' +
+          '<h3 class="mt-3 truncate text-custom-ink dark:text-white font-semibold text-base">' + card.title + '</h3>' +
+        '</div>' +
+        '<div class="channel-ratio text-right">' +
+          '<span class="block text-[11px] font-bold uppercase tracking-[0.18em] text-custom-muted dark:text-slate-500">' + labels.ratio + '</span>' +
+          '<strong class="text-custom-gold text-2xl font-bold font-body">' + card.ratio + '</strong>' +
+          '<span class="block text-xs font-semibold text-custom-muted dark:text-slate-500">' + card.rate + '</span>' +
+        '</div>' +
       '</div>' +
+      '<p class="text-custom-muted dark:text-slate-400 text-sm mb-4 leading-6">' + card.description + '</p>' +
       '<div class="mb-4">' +
-        '<span class="text-custom-gold text-3xl font-bold font-body">' + card.ratio + '</span>' +
-        '<span class="text-on-surface-variant dark:text-gray-500 text-sm ml-2">' + card.rate + '</span>' +
+        '<span class="channel-label">' + labels.models + '</span>' +
+        '<div class="mt-2 flex flex-wrap gap-1.5">' + modelsHtml + '</div>' +
       '</div>' +
-      '<p class="text-on-surface-variant dark:text-gray-400 text-sm mb-4">' + card.description + '</p>' +
-      '<div class="flex flex-wrap gap-1.5 mb-4">' + modelsHtml + '</div>' +
-      '<div class="flex flex-wrap gap-2 mb-6 flex-grow">' + perksHtml + '</div>' +
-      '<div data-partial="partials/recharge-button.html" data-label="' + (window.PigcoderI18n ? window.PigcoderI18n.t('common.cta.recharge') : '立即充值') + '" data-label-i18n="common.cta.recharge">' +
-        '<button onclick="openRechargeModal()" class="btn-shine w-full py-3 bg-custom-green text-white font-semibold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">' + (window.PigcoderI18n ? window.PigcoderI18n.t('common.cta.recharge') : '立即充值') + '</button>' +
+      '<div class="mb-6 flex-grow">' +
+        '<span class="channel-label">' + labels.capabilities + '</span>' +
+        '<div class="mt-2 flex flex-wrap gap-2">' + perksHtml + '</div>' +
+      '</div>' +
+      '<div data-partial="partials/recharge-button.html" data-label="' + labels.action + '" data-label-i18n="common.cta.recharge">' +
+        '<button type="button" onclick="openRechargeModal()" class="btn-primary btn-primary-green btn-shine w-full px-5 py-3 text-sm">' + labels.action + '</button>' +
       '</div>' +
     '</div>';
   }
@@ -252,7 +273,7 @@
       window.PigcoderPartials.hydrateWithin(grid);
     }
 
-    animateCards(Array.prototype.slice.call(grid.querySelectorAll('.feature-card')));
+    animateCards(Array.prototype.slice.call(grid.querySelectorAll('.pricing-card')));
   }
 
   render();
