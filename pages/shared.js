@@ -30,7 +30,8 @@
     }
 
     if (toggle) {
-      var label = dark ? '切换到浅色模式' : '切换到深色模式';
+      var labelKey = dark ? 'common.header.switchToLight' : 'common.header.switchToDark';
+      var label = window.PigcoderI18n ? window.PigcoderI18n.t(labelKey) : (dark ? '切换到浅色模式' : '切换到深色模式');
       toggle.setAttribute('aria-label', label);
       toggle.setAttribute('title', label);
     }
@@ -56,4 +57,7 @@
   applyTheme(isDarkPreferred());
   bindThemeToggle();
   document.addEventListener('pigcoder:header-ready', bindThemeToggle);
+  document.addEventListener('pigcoder:locale-changed', function () {
+    applyTheme(html.classList.contains('dark'));
+  });
 })();

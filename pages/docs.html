@@ -934,7 +934,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
 
   <!-- 回到顶部 -->
   <button id="back-to-top" aria-label="回到顶部" data-i18n-attr="aria-label:docs.backToTop">
-    <span class="material-symbols-outlined" style="font-size:20px">keyboard_arrow_up</span>
+    <span class="material-symbols-outlined" style="font-size:20px" aria-hidden="true">keyboard_arrow_up</span>
     <span data-i18n="docs.backToTop">顶部</span>
   </button>
 
@@ -966,7 +966,8 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           var btn = document.createElement('button');
           btn.className = 'copy-btn';
           btn.title = '复制代码';
-          btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px">content_copy</span>';
+          btn.setAttribute('aria-label', '复制代码');
+          btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">content_copy</span>';
           block.appendChild(btn);
           btn.addEventListener('click', function () {
             var code = block.querySelector('code');
@@ -974,10 +975,10 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             var text = code.textContent;
             navigator.clipboard.writeText(text).then(function () {
               btn.classList.add('copied');
-              btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px">check</span>';
+              btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">check</span>';
               setTimeout(function () {
                 btn.classList.remove('copied');
-                btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px">content_copy</span>';
+                btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">content_copy</span>';
               }, 1500);
             });
           });

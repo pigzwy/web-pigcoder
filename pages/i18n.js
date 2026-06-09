@@ -16,7 +16,13 @@
         header: {
           console: '控制台',
           switchToEnglish: '切换到英文',
-          switchToChinese: '切换到中文'
+          switchToChinese: '切换到中文',
+          switchToLight: '切换到浅色模式',
+          switchToDark: '切换到深色模式',
+          openMenu: '打开导航菜单',
+          closeMenu: '关闭导航菜单',
+          language: '语言',
+          theme: '主题'
         },
         footer: {
           tagline: '稳定、高速、安全的 AI 模型中转枢纽，为全球开发者赋能。',
@@ -41,7 +47,6 @@
           start: '获取 API Key',
           docs: '查看接入文档',
           launch: '打开控制台',
-          recharge: '立即充值',
           console: '立即前往控制台'
         }
       },
@@ -80,7 +85,7 @@
           },
           cost: {
             title: '倍率透明',
-            description: '每个渠道直接展示倍率和可用额度，避免传统订阅页包装。'
+            description: '每个渠道直接展示倍率和能力标签，避免包装成传统套餐。'
           },
           integration: {
             title: 'CLI 优先',
@@ -142,7 +147,7 @@
         matrix: {
           eyebrow: 'Routing Matrix',
           title: '按工具选择模型渠道',
-          description: '比起普通订阅页，Pigcoder 更强调模型渠道、协议、上下文和能力标签，方便开发者判断该走哪条路由。',
+          description: 'Pigcoder 强调模型渠道、协议、上下文和能力标签，方便开发者判断该走哪条路由。',
           columns: {
             channel: '渠道',
             protocol: '协议',
@@ -166,24 +171,15 @@
             rechargeTitle: '余额通用',
             rechargeDescription: '充值余额可在不同模型渠道间使用，按实际调用消耗。',
             ratioTitle: '倍率透明',
-            ratioDescription: '每个渠道直接展示兑换倍率和可用额度。',
+            ratioDescription: '每个渠道直接展示兑换倍率和能力标签。',
             modelTitle: '能力标签',
             modelDescription: '上下文、thinking、WebSearch、CLI 适配一眼可见。'
           }
-        },
-        tabs: {
-          payg: '模型渠道',
-          monthly: '包月 / 兑换'
         },
         catalog: {
           eyebrow: 'Channel Catalog',
           title: '模型渠道倍率表',
           description: '按 Provider 和工具场景查看渠道倍率、可用模型和能力标签。充值后按实际调用消耗，最终权益以控制台实时展示为准。'
-        },
-        banner: {
-          title: '',
-          description: '',
-          hint: ''
         },
         note: '* 页面展示为模型渠道与倍率说明，最终可用模型、倍率和权益以控制台实时配置为准。',
         card: {
@@ -207,15 +203,6 @@
             a: '查阅文档、加入用户群、通过工单联系客服。'
           }
         },
-        modal: {
-          close: '关闭充值引导',
-          title: '现已支持在控制台直接充值',
-          step1: '前往控制台注册账号或登录',
-          step2: '进入充值 / 订阅菜单',
-          step3: '完成充值',
-          step4: '进入 API 密钥菜单，创建 API 密钥，选择分组',
-          step5: '点击使用密钥查看 URL'
-        }
       },
       docs: {
         title: '技术文档 - Pigcoder',
@@ -377,7 +364,13 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
         header: {
           console: 'Console',
           switchToEnglish: 'Switch to English',
-          switchToChinese: 'Switch to Chinese'
+          switchToChinese: 'Switch to Chinese',
+          switchToLight: 'Switch to Light Mode',
+          switchToDark: 'Switch to Dark Mode',
+          openMenu: 'Open Navigation Menu',
+          closeMenu: 'Close Navigation Menu',
+          language: 'Language',
+          theme: 'Theme'
         },
         footer: {
           tagline: 'A stable, fast, and secure AI model gateway built for developers worldwide.',
@@ -388,7 +381,7 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
           links: {
             intro: 'Overview',
             models: 'Model Catalog',
-            pricing: 'Pricing Plans',
+            pricing: 'Channel Pricing',
             enterprise: 'Enterprise',
             docs: 'Developer Docs',
             api: 'API Reference',
@@ -402,7 +395,6 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
           start: 'Get API Key',
           docs: 'Integration Docs',
           launch: 'Open Console',
-          recharge: 'Recharge Now',
           console: 'Open Console'
         }
       },
@@ -441,7 +433,7 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
           },
           cost: {
             title: 'Transparent Ratios',
-            description: 'Show ratio and usable quota for every channel directly, without subscription-page packaging.'
+            description: 'Show channel ratios and capability tags directly, without packaging them as traditional plans.'
           },
           integration: {
             title: 'CLI First',
@@ -527,24 +519,15 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
             rechargeTitle: 'Shared balance',
             rechargeDescription: 'Use one balance across model channels and pay by actual usage.',
             ratioTitle: 'Transparent ratios',
-            ratioDescription: 'Every channel shows ratio and usable quota directly.',
+            ratioDescription: 'Every channel shows ratio and capability tags directly.',
             modelTitle: 'Capability tags',
             modelDescription: 'Context, thinking, WebSearch, and CLI fit are visible at a glance.'
           }
-        },
-        tabs: {
-          payg: 'Model Channels',
-          monthly: 'Monthly / Redeem'
         },
         catalog: {
           eyebrow: 'Channel Catalog',
           title: 'Model Channel Ratio Catalog',
           description: 'Compare channel ratios, available models, and capability tags by provider and tool scenario. Consumption follows actual usage, and final entitlements follow the live console.'
-        },
-        banner: {
-          title: '',
-          description: '',
-          hint: ''
         },
         note: '* This page explains model channels and ratios. Final models, ratios, and entitlements follow the live console configuration.',
         card: {
@@ -568,15 +551,6 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
             a: 'Read the docs, join the user group, or contact support through tickets.'
           }
         },
-        modal: {
-          close: 'Close recharge guide',
-          title: 'Direct recharge is now available in the console',
-          step1: 'Create an account or sign in to the console',
-          step2: 'Open the Recharge / Subscription menu',
-          step3: 'Complete the recharge',
-          step4: 'Open the API Key menu, create a key, and choose a group',
-          step5: 'Click the key usage guide to view the URL'
-        }
       },
       docs: {
         title: 'Documentation - Pigcoder',
@@ -802,7 +776,7 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre></div>
     if (!button || !label) return;
 
     var nextIsEnglish = currentLocale === 'zh-CN';
-    label.textContent = nextIsEnglish ? 'EN' : '中';
+    label.textContent = nextIsEnglish ? 'EN' : 'ZH';
 
     var labelText = t(nextIsEnglish ? 'common.header.switchToEnglish' : 'common.header.switchToChinese');
     button.setAttribute('aria-label', labelText);

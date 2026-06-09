@@ -51,7 +51,7 @@
                             data-primary-i18n="common.cta.start"
                             data-secondary-href="docs.html"
                             data-secondary-class="btn-secondary w-full sm:w-auto px-8 py-3.5 text-base"
-                            data-secondary-label="Integration Docs"
+                            data-secondary-label="查看接入文档"
                             data-secondary-i18n="common.cta.docs">
                             <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-8">
                                 <a href="https://sub2.pigcoder.com/login"
@@ -59,13 +59,13 @@
                                     获取 API Key
                                 </a>
                                 <a href="docs.html" class="btn-secondary w-full sm:w-auto px-8 py-3.5 text-base">
-                                    Integration Docs
+                                    查看接入文档
                                 </a>
                             </div>
                         </div>
                         <div class="hero-proof-grid max-w-2xl" aria-label="Pigcoder 平台关键能力">
                             <div class="hero-proof-card">
-                                <span class="hero-metric-value">3 Protocol</span>
+                                <span class="hero-metric-value" data-i18n="index.hero.metrics.protocolsValue">3 协议</span>
                                 <span class="hero-metric-label" data-i18n="index.hero.metrics.availability">OpenAI / Anthropic / Gemini</span>
                             </div>
                             <div class="hero-proof-card">
@@ -150,32 +150,32 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     <div class="feature-card p-6 rounded-xl">
-                        <span class="material-symbols-outlined text-3xl text-custom-green mb-4" data-icon="speed">speed</span>
+                        <span class="material-symbols-outlined text-3xl text-custom-green mb-4" data-icon="speed" aria-hidden="true">speed</span>
                         <h3 data-i18n="index.features.response.title" class="text-xl font-semibold mb-3 text-custom-ink dark:text-white">协议兼容</h3>
                         <p data-i18n="index.features.response.description" class="text-custom-muted dark:text-slate-400 leading-6">兼容 OpenAI / Anthropic / Gemini 常用协议，只需替换 Base URL 即可接入。</p>
                     </div>
                     <div class="feature-card p-6 rounded-xl">
-                        <span class="material-symbols-outlined text-3xl text-custom-green mb-4" data-icon="cloud_done">cloud_done</span>
+                        <span class="material-symbols-outlined text-3xl text-custom-green mb-4" data-icon="cloud_done" aria-hidden="true">cloud_done</span>
                         <h3 data-i18n="index.features.availability.title" class="text-xl font-semibold mb-3 text-custom-ink dark:text-white">模型渠道</h3>
                         <p data-i18n="index.features.availability.description" class="text-custom-muted dark:text-slate-400 leading-6">按 Claude、Codex、Gemini 等模型渠道组织能力，便于按工具选择。</p>
                     </div>
                     <div class="feature-card p-6 rounded-xl">
-                        <span class="material-symbols-outlined text-3xl text-custom-green mb-4" data-icon="security">security</span>
+                        <span class="material-symbols-outlined text-3xl text-custom-green mb-4" data-icon="security" aria-hidden="true">security</span>
                         <h3 data-i18n="index.features.security.title" class="text-xl font-semibold mb-3 text-custom-ink dark:text-white">上下文能力</h3>
                         <p data-i18n="index.features.security.description" class="text-custom-muted dark:text-slate-400 leading-6">展示 200k、1M、thinking、WebSearch 等上下文和模型特性。</p>
                     </div>
                     <div class="feature-card p-6 rounded-xl">
-                        <span class="material-symbols-outlined text-3xl text-custom-green mb-4" data-icon="account_balance_wallet">account_balance_wallet</span>
+                        <span class="material-symbols-outlined text-3xl text-custom-green mb-4" data-icon="account_balance_wallet" aria-hidden="true">account_balance_wallet</span>
                         <h3 data-i18n="index.features.cost.title" class="text-xl font-semibold mb-3 text-custom-ink dark:text-white">倍率透明</h3>
-                        <p data-i18n="index.features.cost.description" class="text-custom-muted dark:text-slate-400 leading-6">每个渠道直接展示倍率和可用额度，避免传统订阅页包装。</p>
+                        <p data-i18n="index.features.cost.description" class="text-custom-muted dark:text-slate-400 leading-6">每个渠道直接展示倍率和能力标签，避免包装成传统套餐。</p>
                     </div>
                     <div class="feature-card p-6 rounded-xl">
-                        <span class="material-symbols-outlined text-3xl text-custom-green mb-4" data-icon="integration_instructions">integration_instructions</span>
+                        <span class="material-symbols-outlined text-3xl text-custom-green mb-4" data-icon="integration_instructions" aria-hidden="true">integration_instructions</span>
                         <h3 data-i18n="index.features.integration.title" class="text-xl font-semibold mb-3 text-custom-ink dark:text-white">CLI 优先</h3>
                         <p data-i18n="index.features.integration.description" class="text-custom-muted dark:text-slate-400 leading-6">面向 Claude Code、Codex CLI、Gemini CLI、OpenCode 等开发者工具。</p>
                     </div>
                     <div class="feature-card p-6 rounded-xl">
-                        <span class="material-symbols-outlined text-3xl text-custom-green mb-4" data-icon="monitoring">monitoring</span>
+                        <span class="material-symbols-outlined text-3xl text-custom-green mb-4" data-icon="monitoring" aria-hidden="true">monitoring</span>
                         <h3 data-i18n="index.features.monitoring.title" class="text-xl font-semibold mb-3 text-custom-ink dark:text-white">请求日志</h3>
                         <p data-i18n="index.features.monitoring.description" class="text-custom-muted dark:text-slate-400 leading-6">通过控制台查看调用日志、用量消耗、异常请求和密钥分组。</p>
                     </div>
@@ -233,28 +233,28 @@
                 <div class="mb-10 max-w-3xl">
                     <span class="section-eyebrow" data-i18n="index.integration.eyebrow">Integration Flow</span>
                     <h2 data-i18n="index.integration.title" class="mt-3 text-3xl md:text-4xl font-bold font-headline text-custom-ink dark:text-white">从 API Key 到模型路由</h2>
-                    <p data-i18n="index.integration.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Pigcoder 的页面信息围绕开发者接入路径组织：创建密钥、Choose Protocol、Replace Endpoint、观察请求日志。</p>
+                    <p data-i18n="index.integration.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Pigcoder 的页面信息围绕开发者接入路径组织：创建密钥、选择协议、替换 Endpoint、观察请求日志。</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div class="flow-card rounded-xl p-5">
                         <span class="flow-step">01</span>
-                        <h3 data-i18n="index.integration.keys.title" class="mt-5 text-lg font-semibold text-custom-ink dark:text-white">Create API Key</h3>
-                        <p data-i18n="index.integration.keys.description" class="mt-2 text-sm leading-6 text-custom-muted dark:text-slate-400">Create a token and choose an OpenAI, Anthropic, or Gemini group for your tool.</p>
+                        <h3 data-i18n="index.integration.keys.title" class="mt-5 text-lg font-semibold text-custom-ink dark:text-white">创建 API Key</h3>
+                        <p data-i18n="index.integration.keys.description" class="mt-2 text-sm leading-6 text-custom-muted dark:text-slate-400">在控制台创建令牌，并按工具选择 OpenAI、Anthropic 或 Gemini 分组。</p>
                     </div>
                     <div class="flow-card rounded-xl p-5">
                         <span class="flow-step">02</span>
-                        <h3 data-i18n="index.integration.protocol.title" class="mt-5 text-lg font-semibold text-custom-ink dark:text-white">Choose Protocol</h3>
-                        <p data-i18n="index.integration.protocol.description" class="mt-2 text-sm leading-6 text-custom-muted dark:text-slate-400">Pick the protocol entry for Claude Code, Codex CLI, Gemini CLI, or other tools.</p>
+                        <h3 data-i18n="index.integration.protocol.title" class="mt-5 text-lg font-semibold text-custom-ink dark:text-white">选择协议</h3>
+                        <p data-i18n="index.integration.protocol.description" class="mt-2 text-sm leading-6 text-custom-muted dark:text-slate-400">根据 Claude Code、Codex CLI、Gemini CLI 等工具选择对应协议入口。</p>
                     </div>
                     <div class="flow-card rounded-xl p-5">
                         <span class="flow-step">03</span>
-                        <h3 data-i18n="index.integration.endpoint.title" class="mt-5 text-lg font-semibold text-custom-ink dark:text-white">Replace Endpoint</h3>
-                        <p data-i18n="index.integration.endpoint.description" class="mt-2 text-sm leading-6 text-custom-muted dark:text-slate-400">Change only the Base URL and API key while keeping tool configuration familiar.</p>
+                        <h3 data-i18n="index.integration.endpoint.title" class="mt-5 text-lg font-semibold text-custom-ink dark:text-white">替换 Endpoint</h3>
+                        <p data-i18n="index.integration.endpoint.description" class="mt-2 text-sm leading-6 text-custom-muted dark:text-slate-400">只改 Base URL 和 API Key，尽量保持原工具配置方式不变。</p>
                     </div>
                     <div class="flow-card rounded-xl p-5">
                         <span class="flow-step">04</span>
-                        <h3 data-i18n="index.integration.logs.title" class="mt-5 text-lg font-semibold text-custom-ink dark:text-white">Inspect Logs</h3>
-                        <p data-i18n="index.integration.logs.description" class="mt-2 text-sm leading-6 text-custom-muted dark:text-slate-400">Trace model, channel, usage, status, and error reasons from request logs.</p>
+                        <h3 data-i18n="index.integration.logs.title" class="mt-5 text-lg font-semibold text-custom-ink dark:text-white">查看日志</h3>
+                        <p data-i18n="index.integration.logs.description" class="mt-2 text-sm leading-6 text-custom-muted dark:text-slate-400">通过请求日志追踪模型、渠道、用量、状态和异常原因。</p>
                     </div>
                 </div>
             </div>
@@ -266,8 +266,8 @@
                 <div class="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
                     <div>
                         <span class="section-eyebrow" data-i18n="index.matrix.eyebrow">Routing Matrix</span>
-                        <h2 data-i18n="index.matrix.title" class="mt-3 text-3xl md:text-4xl font-bold font-headline text-custom-ink dark:text-white">Choose Channels by Tool</h2>
-                        <p data-i18n="index.matrix.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Pigcoder highlights channels, protocols, context, and capability tags so developers can pick the right route.</p>
+                        <h2 data-i18n="index.matrix.title" class="mt-3 text-3xl md:text-4xl font-bold font-headline text-custom-ink dark:text-white">按工具选择模型渠道</h2>
+                        <p data-i18n="index.matrix.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Pigcoder 更强调模型渠道、协议、上下文和能力标签，方便开发者判断该走哪条路由。</p>
                     </div>
                     <div class="router-matrix rounded-2xl overflow-hidden">
                         <div class="router-matrix-head">
@@ -306,22 +306,22 @@
                     <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
                         <div>
                             <span class="section-eyebrow" data-i18n="index.bottom.eyebrow">API Ready</span>
-                            <h2 data-i18n="index.bottom.title" class="mt-3 text-3xl md:text-4xl font-bold font-headline text-custom-ink dark:text-white">Ready to connect to Pigcoder API?</h2>
-                            <p data-i18n="index.bottom.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">先Create API Key，再按工具复制对应 Endpoint。文档页提供 Claude Code、Codex CLI、Gemini CLI 和 OpenCode 的接入示例。</p>
+                            <h2 data-i18n="index.bottom.title" class="mt-3 text-3xl md:text-4xl font-bold font-headline text-custom-ink dark:text-white">准备接入 Pigcoder API？</h2>
+                            <p data-i18n="index.bottom.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">先创建 API Key，再按工具复制对应 Endpoint。文档页提供 Claude Code、Codex CLI、Gemini CLI 和 OpenCode 的接入示例。</p>
                         </div>
                         <div data-partial="partials/cta-actions.html"
                             data-wrapper-class="flex flex-col sm:flex-row lg:flex-col items-stretch gap-3"
                             data-primary-href="https://sub2.pigcoder.com/login"
                             data-primary-class="btn-primary btn-primary-gold btn-shine w-full px-8 py-3.5 text-base"
-                            data-primary-label="Open Console"
+                            data-primary-label="打开控制台"
                             data-primary-i18n="common.cta.launch"
                             data-secondary-href="docs.html"
                             data-secondary-class="btn-secondary w-full px-8 py-3.5 text-base"
-                            data-secondary-label="Integration Docs"
+                            data-secondary-label="查看接入文档"
                             data-secondary-i18n="common.cta.docs">
                             <div class="flex flex-col sm:flex-row lg:flex-col items-stretch gap-3">
-                                <a href="https://sub2.pigcoder.com/login" class="btn-primary btn-primary-gold btn-shine w-full px-8 py-3.5 text-base">Open Console</a>
-                                <a href="docs.html" class="btn-secondary w-full px-8 py-3.5 text-base">Integration Docs</a>
+                                <a href="https://sub2.pigcoder.com/login" class="btn-primary btn-primary-gold btn-shine w-full px-8 py-3.5 text-base">打开控制台</a>
+                                <a href="docs.html" class="btn-secondary w-full px-8 py-3.5 text-base">查看接入文档</a>
                             </div>
                         </div>
                     </div>

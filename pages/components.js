@@ -31,9 +31,21 @@
       return;
     }
 
+    function getHeaderLabel(key, fallback) {
+      if (window.PigcoderI18n && typeof window.PigcoderI18n.t === 'function') {
+        return window.PigcoderI18n.t(key);
+      }
+      return fallback;
+    }
+
     function setOpen(open) {
       panel.classList.toggle('hidden', !open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      var label = open
+        ? getHeaderLabel('common.header.closeMenu', '关闭导航菜单')
+        : getHeaderLabel('common.header.openMenu', '打开导航菜单');
+      toggle.setAttribute('aria-label', label);
+      toggle.setAttribute('title', label);
       if (icon) {
         icon.textContent = open ? 'close' : 'menu';
       }
@@ -56,6 +68,10 @@
       if (!root.contains(event.target)) {
         setOpen(false);
       }
+    });
+
+    document.addEventListener('pigcoder:locale-changed', function () {
+      setOpen(!panel.classList.contains('hidden'));
     });
   }
 

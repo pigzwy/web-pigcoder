@@ -1,4 +1,4 @@
-<header class="w-full border-b border-custom-line/80 dark:border-white/10 bg-white/95 dark:bg-[#0D1B2A]/95 backdrop-blur-xl shadow-[0_1px_0_rgba(15,23,42,0.03)] transition-colors duration-300">
+<header class="w-full border-b border-custom-line/80 dark:border-white/10 bg-white/95 dark:bg-[#0D1B2A]/95 backdrop-blur-xl transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <nav class="h-14 flex items-center justify-between" aria-label="Primary navigation">
       <a href="index.html" class="flex min-w-0 items-center gap-2 rounded-lg focus-visible:outline-offset-4" aria-label="Pigcoder 首页">
@@ -12,15 +12,15 @@
       </div>
       <div class="flex flex-shrink-0 items-center gap-1.5 sm:gap-2">
         <button id="language-toggle" type="button" class="hidden sm:inline-flex min-h-10 items-center gap-1.5 rounded-lg px-2.5 text-custom-muted dark:text-slate-300 hover:bg-slate-100 hover:text-custom-navy dark:hover:bg-white/10 dark:hover:text-white transition-colors" aria-label="切换到英文" title="切换到英文">
-          <span class="material-symbols-outlined text-[20px]">language</span>
+          <span class="material-symbols-outlined text-[20px]" aria-hidden="true">language</span>
           <span id="language-toggle-label" class="hidden sm:inline text-xs font-semibold tracking-[0.14em]">EN</span>
         </button>
         <button id="theme-toggle" type="button" class="hidden sm:inline-flex min-h-10 min-w-10 items-center justify-center rounded-lg text-custom-muted dark:text-slate-300 hover:bg-slate-100 hover:text-custom-navy dark:hover:bg-white/10 dark:hover:text-white transition-colors" aria-label="切换主题" title="切换主题">
-          <span id="theme-toggle-icon" class="material-symbols-outlined text-[20px]">dark_mode</span>
+          <span id="theme-toggle-icon" class="material-symbols-outlined text-[20px]" aria-hidden="true">dark_mode</span>
         </button>
         <a href="https://sub2.pigcoder.com/login" data-i18n="common.header.console" class="btn-primary hidden sm:inline-flex min-h-10 rounded-full px-4 sm:px-5 text-sm">控制台</a>
-        <button id="mobile-nav-toggle" type="button" class="inline-flex md:hidden items-center justify-center min-h-10 min-w-10 rounded-lg bg-custom-navy text-white shadow-sm hover:brightness-110 transition-colors" aria-expanded="false" aria-controls="mobile-nav-panel" aria-label="打开导航菜单">
-          <span id="mobile-nav-toggle-icon" class="material-symbols-outlined">menu</span>
+        <button id="mobile-nav-toggle" type="button" class="inline-flex md:hidden items-center justify-center min-h-10 min-w-10 rounded-lg bg-custom-navy text-white shadow-sm hover:brightness-110 transition-colors" aria-expanded="false" aria-controls="mobile-nav-panel" aria-label="打开导航菜单" title="打开导航菜单">
+          <span id="mobile-nav-toggle-icon" class="material-symbols-outlined" aria-hidden="true">menu</span>
         </button>
       </div>
     </nav>
@@ -47,8 +47,8 @@
             href="pricing.html">价格</a>
         </div>
         <div class="mt-2 grid grid-cols-2 gap-2 sm:hidden">
-          <button type="button" class="min-h-10 rounded-xl border border-custom-line px-4 text-sm font-semibold text-custom-muted dark:border-white/10 dark:text-slate-300" onclick="document.getElementById('language-toggle') && document.getElementById('language-toggle').click()">中 / EN</button>
-          <button type="button" class="min-h-10 rounded-xl border border-custom-line px-4 text-sm font-semibold text-custom-muted dark:border-white/10 dark:text-slate-300" onclick="document.getElementById('theme-toggle') && document.getElementById('theme-toggle').click()">主题</button>
+          <button type="button" data-i18n="common.header.language" class="min-h-10 rounded-xl border border-custom-line px-4 text-sm font-semibold text-custom-muted dark:border-white/10 dark:text-slate-300" onclick="document.getElementById('language-toggle') && document.getElementById('language-toggle').click()">语言</button>
+          <button type="button" data-i18n="common.header.theme" class="min-h-10 rounded-xl border border-custom-line px-4 text-sm font-semibold text-custom-muted dark:border-white/10 dark:text-slate-300" onclick="document.getElementById('theme-toggle') && document.getElementById('theme-toggle').click()">主题</button>
         </div>
         <a href="https://sub2.pigcoder.com/login" data-i18n="common.header.console" class="mt-2 btn-primary min-h-10 rounded-xl px-4 text-sm md:hidden">控制台</a>
       </div>

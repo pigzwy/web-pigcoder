@@ -212,24 +212,24 @@
       ratio: window.PigcoderI18n.t('pricing.card.ratio'),
       models: window.PigcoderI18n.t('pricing.card.models'),
       capabilities: window.PigcoderI18n.t('pricing.card.capabilities'),
-      action: window.PigcoderI18n.t('common.cta.recharge')
+      action: window.PigcoderI18n.t('common.cta.console')
     } : {
       ratio: '倍率',
       models: '模型',
       capabilities: '能力',
-      action: '立即充值'
+      action: '立即前往控制台'
     };
 
     return '<div class="pricing-card channel-card rounded-xl p-5 flex flex-col">' +
-      '<div class="flex items-start justify-between gap-3 mb-4">' +
+      '<div class="channel-card-head mb-4">' +
         '<div class="min-w-0">' +
           '<span class="' + card.categoryClass + '">' + card.category + '</span>' +
           '<h3 class="mt-3 truncate text-custom-ink dark:text-white font-semibold text-base">' + card.title + '</h3>' +
         '</div>' +
-        '<div class="channel-ratio text-right">' +
-          '<span class="block text-[11px] font-bold uppercase tracking-[0.18em] text-custom-muted dark:text-slate-500">' + labels.ratio + '</span>' +
-          '<strong class="text-custom-gold text-2xl font-bold font-body">' + card.ratio + '</strong>' +
-          '<span class="block text-xs font-semibold text-custom-muted dark:text-slate-500">' + card.rate + '</span>' +
+        '<div class="channel-ratio">' +
+          '<span class="channel-ratio-label">' + labels.ratio + '</span>' +
+          '<strong>' + card.ratio + '</strong>' +
+          '<span>' + card.rate + '</span>' +
         '</div>' +
       '</div>' +
       '<p class="text-custom-muted dark:text-slate-400 text-sm mb-4 leading-6">' + card.description + '</p>' +
@@ -241,8 +241,8 @@
         '<span class="channel-label">' + labels.capabilities + '</span>' +
         '<div class="mt-2 flex flex-wrap gap-2">' + perksHtml + '</div>' +
       '</div>' +
-      '<div data-partial="partials/recharge-button.html" data-label="' + labels.action + '" data-label-i18n="common.cta.recharge">' +
-        '<button type="button" onclick="openRechargeModal()" class="btn-primary btn-primary-green btn-shine w-full px-5 py-3 text-sm">' + labels.action + '</button>' +
+      '<div data-partial="partials/recharge-button.html" data-label="' + labels.action + '" data-label-i18n="common.cta.console">' +
+        '<a href="https://sub2.pigcoder.com/login" class="btn-primary btn-shine w-full px-5 py-3 text-sm">' + labels.action + '</a>' +
       '</div>' +
     '</div>';
   }

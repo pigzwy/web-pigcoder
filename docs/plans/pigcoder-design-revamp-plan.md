@@ -4,7 +4,7 @@
 
 本计划用于约束 Pigcoder 官网的视觉改版方向。改版参考 `docs/plans/openrouter.ai-DESIGN.md` 中的设计原则，但不复制 OpenRouter 的品牌视觉、配色结果或页面结构。
 
-本次改版目标是将现有页面从“强玻璃拟态 + 多光晕 + 深蓝金色科技感”收敛为更清爽、更专业、更适合开发者阅读和决策的 SaaS 官网风格，同时保留 Pigcoder 自身品牌识别。
+本次改版目标是将现有页面从“强玻璃拟态 + 多光晕 + 深蓝金色科技感”收敛为更清爽、更专业、更适合开发者阅读和决策的 AI 模型路由 / API Gateway 平台，同时保留 Pigcoder 自身品牌识别。
 
 ## 改版原则
 
@@ -37,11 +37,11 @@
 
 最终风格应接近：
 
-> Pigcoder 2.0：清爽、专业、开发者友好的 AI 基础设施 SaaS 官网。
+> Pigcoder 2.0：清爽、专业、开发者友好的 AI Model Router / API Gateway。
 
 核心关键词：
 
-- Clean SaaS
+- Developer API Platform
 - Developer-first
 - Subtle tech
 - High readability
@@ -96,7 +96,7 @@
 
 统一按钮系统，至少包含：
 
-- Primary Button：主 CTA，优先用于“立即开始”“立即充值”“前往控制台”。
+- Primary Button：主 CTA，优先用于“获取 API Key”“打开控制台”“查看接入文档”。
 - Secondary Button：次 CTA，优先用于“查看文档”等辅助动作。
 - Ghost Button：导航、轻量操作、文档辅助链接。
 
@@ -113,7 +113,7 @@
 
 - Standard Card：普通功能、FAQ、文档提示。
 - Feature Card：首页重点能力和模型展示。
-- Pricing Card：价格套餐。
+- Channel Ratio Card：模型渠道倍率。
 - Doc Panel：文档页正文容器。
 
 要求：
@@ -171,15 +171,15 @@
 
 ### 价格页
 
-价格页应接近标准 SaaS Pricing 页面。
+价格页应接近透明模型渠道目录，而不是传统 SaaS 套餐销售页。
 
 重点调整：
 
-- Hero 简化。
-- 套餐卡片统一高度、边框、主次层级。
-- 按量付费和包月切换更清晰。
+- Hero 简化，突出 Provider、模型、倍率和能力标签。
+- Channel Ratio Card 统一高度、边框、主次层级。
+- 按渠道展示倍率、模型、上下文、thinking、WebSearch 和适用工具。
 - FAQ 改善语义和可访问性。
-- 充值 Modal 保持清晰流程，但补充语义和 focus 体验。
+- 控制台 / 充值引导保持清晰流程，并补充语义和 focus 体验。
 
 ## 可访问性要求
 
@@ -223,7 +223,7 @@
 - 三个核心页面内容完整，无关键入口丢失。
 - Header、Footer、CTA、卡片和按钮风格一致。
 - 文档页比改版前更清晰、更易读。
-- 价格页套餐信息更容易比较和行动。
+- 价格页模型渠道、倍率和能力标签更容易比较和行动。
 - 移动端布局正常，无明显溢出。
 - partial 加载正常，无控制台关键错误。
 - 主题切换、语言切换、FAQ、Modal、价格卡片渲染正常。
