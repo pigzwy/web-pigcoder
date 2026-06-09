@@ -1,7 +1,7 @@
 (function () {
   var STORAGE_KEY = 'pigcoder-locale';
   var LOCALE_DEFAULT_VERSION_KEY = 'pigcoder-locale-default-version';
-  var LOCALE_DEFAULT_VERSION = '2026-06-09-zh-default';
+  var LOCALE_DEFAULT_VERSION = '2026-06-09-en-default';
   var SUPPORTED_LOCALES = ['zh-CN', 'en-US'];
 
   var translations = {
@@ -684,7 +684,7 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre></div>
   };
 
   function normalizeLocale(locale) {
-    if (!locale) return 'zh-CN';
+    if (!locale) return 'en-US';
     if (SUPPORTED_LOCALES.indexOf(locale) !== -1) return locale;
     if (String(locale).toLowerCase().indexOf('en') === 0) return 'en-US';
     return 'zh-CN';
@@ -700,21 +700,21 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre></div>
   }
 
   function getBrowserLocale() {
-    return normalizeLocale(navigator.language || navigator.userLanguage || 'zh-CN');
+    return normalizeLocale(navigator.language || navigator.userLanguage || 'en-US');
   }
 
   var storedDefaultVersion = null;
   try {
     storedDefaultVersion = localStorage.getItem(LOCALE_DEFAULT_VERSION_KEY);
     if (storedDefaultVersion !== LOCALE_DEFAULT_VERSION) {
-      localStorage.setItem(STORAGE_KEY, 'zh-CN');
+      localStorage.setItem(STORAGE_KEY, 'en-US');
       localStorage.setItem(LOCALE_DEFAULT_VERSION_KEY, LOCALE_DEFAULT_VERSION);
     }
   } catch (error) {
     // ignore
   }
 
-  var currentLocale = getStoredLocale() || 'zh-CN';
+  var currentLocale = getStoredLocale() || 'en-US';
 
   function lookup(locale, key) {
     return key.split('.').reduce(function (result, part) {
