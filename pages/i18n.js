@@ -722,11 +722,15 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre></div>
     }, translations[locale]);
   }
 
-  function t(key) {
+  function resolveTranslation(key) {
     var localeValue = lookup(currentLocale, key);
     if (localeValue !== undefined) return localeValue;
-    var fallbackValue = lookup('zh-CN', key);
-    return fallbackValue !== undefined ? fallbackValue : key;
+    return lookup('zh-CN', key);
+  }
+
+  function t(key) {
+    var value = resolveTranslation(key);
+    return value !== undefined ? value : key;
   }
 
   function collectNodes(root, selector) {
@@ -739,20 +743,25 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre></div>
 
   function applyHtml(root) {
     collectNodes(root, '[data-i18n-html]').forEach(function (node) {
-      var value = t(node.getAttribute('data-i18n-html'));
+      var value = resolveTranslation(node.getAttribute('data-i18n-html'));
       if (typeof value === 'string') {
         node.innerHTML = value;
       }
     });
   }
 
-  function applyText(root) {
-    collectNodes(root, '[data-i18n]').forEach(function (node) {
-      var value = t(node.getAttribute('data-i18n'));
+  function applyTextAttribute(root, attrName) {
+    collectNodes(root, '[' + attrName + ']').forEach(function (node) {
+      var value = resolveTranslation(node.getAttribute(attrName));
       if (typeof value === 'string') {
         node.textContent = value;
       }
     });
+  }
+
+  function applyText(root) {
+    applyTextAttribute(root, 'data-i18n');
+    applyTextAttribute(root, 'data-i18n-safe');
   }
 
   function applyAttributes(root) {
@@ -762,7 +771,7 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre></div>
         if (parts.length !== 2) return;
         var attr = parts[0].trim();
         var key = parts[1].trim();
-        var value = t(key);
+        var value = resolveTranslation(key);
         if (attr && typeof value === 'string') {
           node.setAttribute(attr, value);
         }
