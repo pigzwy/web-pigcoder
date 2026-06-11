@@ -40,6 +40,22 @@ Pigcoder 的界面体系服务于一个 AI Model Router / API Gateway / Develope
 
 ## 3. 设计原则
 
+### 3.0 Design Taste 拨盘
+
+Pigcoder 的 UI 体系按以下审美拨盘执行：
+
+- `DESIGN_VARIANCE: 5`：版式允许有变化，但不能牺牲稳定、可信和可扫描。
+- `MOTION_INTENSITY: 3`：微交互为主，避免持续循环动效和强滚动特效。
+- `VISUAL_DENSITY: 7`：以数据和接入信息为中心，不做空泛大留白营销页。
+
+这些拨盘意味着：
+
+- 首页可以有品牌感，但第一屏必须出现 endpoint、provider、protocol 或 model routing 信息。
+- 价格和模型页面应偏目录、表格、数据卡，而不是三栏套餐卡。
+- 文档和控制台页面应偏工作界面，而不是展示型 landing page。
+- 卡片、按钮、标签和表格必须共享同一套圆角、边框、阴影和状态规则。
+- 动效只用于解释状态变化或提升反馈，不用于制造视觉噪音。
+
 ### 3.1 少营销，多信息
 
 页面应优先展示开发者做决策需要的信息。
@@ -613,6 +629,13 @@ Pigcoder 是一个 AI Model Router / API Gateway / Developer Infrastructure 平�
 页面内容优先展示 Endpoint、Provider、Model、Ratio、Context、Capability、API Key、Base URL、CLI、Request logs。避免传统 SaaS 营销话术，不要做“选择套餐 / Why us / 生产力加速”式页面。
 
 组件风格使用浅边框、轻阴影、小圆角、清晰标签、代码块、表格和数据卡片。价格相关页面应设计成模型渠道倍率表，而不是 SaaS pricing card。文档和控制台页面应强调开发者接入效率。
+
+Design taste guardrails：
+- 不要使用 AI 紫色渐变、三张等宽功能卡、泛玻璃拟态或装饰性光球。
+- 不要把页面做成 Web3、DeFi、钱包、交易所或普通 SaaS 套餐页。
+- 不要把卡片套进卡片；页面区块用留白、分隔线、背景带或表格组织。
+- 不要让所有区块使用同一种卡片布局；模型、价格、文档步骤和日志应有不同的信息形态。
+- 所有 endpoint、model ID、ratio、API key placeholder、request log 使用 monospace。
 ```
 
 ## 14. 快速检查清单
@@ -629,3 +652,6 @@ Pigcoder 是一个 AI Model Router / API Gateway / Developer Infrastructure 平�
 - [ ] 移动端可读。
 - [ ] 暗色模式不过度霓虹。
 - [ ] 交互元素可访问。
+- [ ] 没有 AI 紫色渐变、三张等宽功能卡、泛玻璃拟态或装饰性光球。
+- [ ] 卡片没有无意义套嵌，区块层级清晰。
+- [ ] 数字、倍率、模型 ID、endpoint 和日志使用 monospace。

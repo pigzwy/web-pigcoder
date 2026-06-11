@@ -71,6 +71,24 @@ Pigcoder 和 OpenRouter 类似，核心不是“销售一套企业软件”，�
 
 > 清爽、克制、有数据感的开发者 API 平台。
 
+### Design Taste 校准
+
+按照 `design-taste-frontend` 审查后，Pigcoder 不应走普通 landing page 的默认审美。
+
+推荐拨盘：
+
+- `DESIGN_VARIANCE: 5`：保持结构化和可信度，避免模板化，但不做实验性视觉。
+- `MOTION_INTENSITY: 3`：只保留 hover、focus、复制反馈和 Live 状态点，不做持续漂浮或大规模滚动动效。
+- `VISUAL_DENSITY: 7`：信息密度高于普通 SaaS 官网，低于复杂控制台。
+
+硬规则：
+
+- Hero 优先左文案 + 右 endpoint / provider 数据面板，不默认使用居中大标题。
+- 不使用 AI 紫色渐变、三张等宽功能卡、泛玻璃拟态、装饰性光球作为默认视觉。
+- 卡片必须承载真实信息单位，如 endpoint、provider、model、ratio、capability、docs step。
+- 页面区块不要全部长得一样，能力、模型、价格和文档步骤应使用不同布局节奏。
+- 所有数字、倍率、模型 ID、endpoint 和 API key placeholder 优先使用 monospace。
+
 页面应让开发者一眼看到：
 
 - 支持什么协议

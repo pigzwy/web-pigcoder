@@ -51,6 +51,20 @@
       └─ recharge-button.html   # 充值按钮模板
 ```
 
+## 设计文档说明
+
+`docs/plans/` 中的文档用途如下：
+
+| 文档 | 作用 | 重要性 |
+| --- | --- | --- |
+| `pigcoder-design-language.md` | 主设计方向 | 最高 |
+| `pigcoder-ui-system-reference.md` | 给其它页面复用 | 最高 |
+| `pigcoder-design-revamp-plan.md` | 本次改版计划 | 中 |
+| `openrouter.ai-DESIGN.md` | OpenRouter 参考 | 参考用 |
+| `pigcoder-dark-technical-style-reference.md` | 暗色技术感参考 | 补充用 |
+
+后续让 AI 继续设计或实现页面时，优先使用 `pigcoder-design-language.md` 和 `pigcoder-ui-system-reference.md`。如果要做更强的暗色技术感页面，再额外参考 `pigcoder-dark-technical-style-reference.md`。
+
 ## 页面说明
 
 ### 首页 `pages/index.html`

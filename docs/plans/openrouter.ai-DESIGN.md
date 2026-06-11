@@ -1,5 +1,30 @@
 # Design System Inspired by OpenRouter
 
+## Pigcoder Adaptation Note
+
+This file is a reference capture, not the Pigcoder implementation source of truth.
+
+Use it to study OpenRouter's clarity, information hierarchy, developer-first navigation, model catalog structure, and restrained interface density. Do not copy its purple brand palette, exact component structure, centered landing-page composition, or marketing rhythm directly into Pigcoder.
+
+For Pigcoder, the design read is:
+
+> Developer API platform for AI model routing, aimed at technical users who need endpoints, providers, ratios, model capability, and documentation quickly.
+
+Recommended design-taste dials for Pigcoder:
+
+- `DESIGN_VARIANCE: 5` - structured enough to feel reliable, but not a generic SaaS template.
+- `MOTION_INTENSITY: 3` - hover, focus, copy feedback, and live-status pulse only.
+- `VISUAL_DENSITY: 7` - more data-dense than a normal landing page, but less dense than a trading terminal.
+
+When translating this reference into Pigcoder:
+
+- Prefer asymmetric hero layouts with an endpoint or provider panel instead of a purely centered marketing hero.
+- Replace OpenRouter purple with Pigcoder deep blue, restrained gold, and green status semantics.
+- Use cards only when they represent real information units such as provider, endpoint, model, ratio, capability, or document step.
+- Avoid three identical feature cards as the default section pattern.
+- Avoid decorative gradients, generic glassmorphism, and fake product UI that does not expose real API or model information.
+- Use monospace for endpoint, model ID, ratio, API key placeholder, and request log data.
+
 ## 1. Visual Theme & Atmosphere
 
 OpenRouter's design system embodies a modern, tech-forward aesthetic built for developers and AI practitioners. The interface prioritizes clarity and accessibility through a clean, minimalist approach with strategic use of a vibrant purple accent palette. The design communicates efficiency, reliability, and trustworthiness—essential qualities for a unified LLM aggregation platform. The visual language combines generous whitespace, precise typography, and subtle depth to create an intuitive navigation experience that doesn't distract from content. Dark text on light backgrounds ensures legibility, while the carefully selected purple accent (`#6467F2`) adds energy and draws attention to critical interactions without overwhelming the interface.
