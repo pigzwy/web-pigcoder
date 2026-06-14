@@ -48,14 +48,16 @@
           docs: '查看接入文档',
           launch: '打开控制台',
           console: '立即前往控制台'
-        }
+        },
+        copy: '复制',
+        copied: '已复制'
       },
       index: {
         title: 'Pigcoder - 稳定高速的 AI 编程中转站',
         hero: {
           badge: 'AI Model Router / API Gateway',
           title: '统一模型路由 <span class="brand-emphasis">兼容 AI 编程工具</span>',
-          description: '面向 Claude Code、Codex CLI、Gemini CLI 等开发者工具的统一 API 入口。按协议、模型、倍率和上下文能力选择路由，接入后即可调用多家模型。',
+          description: '面向编程 CLI 的统一 API 入口，替换 Base URL 即可在 Claude、GPT、Gemini 间路由。',
           codeComment: '# 使用统一接口调用顶级模型',
           codePrompt: '"帮我写一个高效的排序算法"',
           metrics: {
@@ -69,6 +71,10 @@
         },
         choose: {
           title: '路由与接入能力'
+        },
+        endpoints: {
+          title: '端点地址',
+          note: '一个 Key，三种协议，替换 Base URL 即可接入。'
         },
         features: {
           response: {
@@ -396,14 +402,16 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
           docs: 'Integration Docs',
           launch: 'Open Console',
           console: 'Open Console'
-        }
+        },
+        copy: 'Copy',
+        copied: 'Copied'
       },
       index: {
         title: 'Pigcoder - Stable High-Speed AI Coding Gateway',
         hero: {
           badge: 'AI Model Router / API Gateway',
           title: 'Unified Model Routing <span class="brand-emphasis">for AI Coding Tools</span>',
-          description: 'A unified API entry for Claude Code, Codex CLI, Gemini CLI, and other developer tools. Route by protocol, model, ratio, and context capability.',
+          description: 'One API entry for your coding CLIs. Swap the Base URL to route across Claude, GPT, and Gemini.',
           codeComment: '# Call top-tier models through one unified interface',
           codePrompt: '"Write an efficient sorting algorithm for me"',
           metrics: {
@@ -417,6 +425,10 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
         },
         choose: {
           title: 'Routing & Integration Capabilities'
+        },
+        endpoints: {
+          title: 'Endpoints',
+          note: 'One key, three protocols. Just swap the Base URL.'
         },
         features: {
           response: {

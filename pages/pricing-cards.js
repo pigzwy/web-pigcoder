@@ -6,173 +6,159 @@
     'zh-CN': [
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Claude Max',
         ratio: '1:1.5',
         rate: '0.67$/元',
         description: 'Claude 高配渠道，适合长上下文与复杂代码任务',
-        dotClass: 'bg-custom-green',
         models: ['claude-opus-4-8', 'claude-sonnet-4-6', 'claude-haiku-4-5'],
         perks: ['支持高级 thinking', '200k 上下文', '支持 1M 上下文', '支持 WebSearch', '仅支持 Claude Code CLI'],
-        perkClass: 'text-custom-green text-xs font-semibold'
+        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'CC-反重力逆向',
         ratio: '1:0.6',
         rate: '1.67$/元',
         description: 'Claude 逆向渠道，倍率与能力均衡',
-        dotClass: 'bg-custom-green',
         models: ['claude-opus-4-8', 'claude-sonnet-4-6', 'claude-haiku-4-5'],
         perks: ['支持 thinking', '200k 上下文', '支持 WebSearch'],
-        perkClass: 'text-custom-green text-xs font-semibold'
+        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Kiro',
         ratio: '1:0.5',
         rate: '1.82$/元',
         description: 'Sonnet / Haiku 渠道，适合日常代码代理',
-        dotClass: 'bg-custom-green',
         models: ['claude-sonnet-4-6', 'claude-haiku-4-5'],
         perks: ['支持内置 thinking', '支持 WebSearch', '200k 上下文', 'OpenClaw 首选'],
-        perkClass: 'text-custom-green text-xs font-semibold'
+        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Codex (GPT FREE)',
         ratio: '1:0.1',
         rate: '10.00$/元',
         description: 'Codex 免费级渠道，倍率最低，适合轻量任务',
-        dotClass: 'bg-blue-500',
         models: ['gpt-5.5', 'gpt-5.4'],
         perks: ['xhigh 等全部支持'],
-        perkClass: 'text-custom-green dark:text-green-400 text-xs font-semibold'
+        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Codex (GPT PLUS)',
         ratio: '1:0.15',
         rate: '6.67$/元',
         description: 'Codex Plus 级渠道，适合高频开发调用',
-        dotClass: 'bg-blue-500',
         models: ['gpt-5.5', 'gpt-5.4'],
         perks: ['xhigh 等全部支持'],
-        perkClass: 'text-custom-green dark:text-green-400 text-xs font-semibold'
+        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Codex (GPT PRO)',
         ratio: '1:0.3',
         rate: '1.67$/元',
         description: 'Codex Pro 级渠道，覆盖最新 Codex 模型',
-        dotClass: 'bg-blue-500',
         models: ['gpt-5.5', 'gpt-5.4'],
         perks: ['xhigh 等全部支持'],
-        perkClass: 'text-custom-green text-xs font-semibold'
+        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Gemini',
-        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Gemini 逆向',
         ratio: '1:0.45',
         rate: '2.22$/元',
         description: 'Gemini 渠道，覆盖多模态与图片生成能力',
-        dotClass: 'bg-blue-500',
         models: ['gemini-3-pro-preview', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-2.5-pro'],
         perks: ['支持 thinking', '支持 WebSearch'],
-        perkClass: 'text-custom-green text-xs font-semibold'
+        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
       }
     ],
     'en-US': [
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Claude Max',
         ratio: '1:1.5',
         rate: '$0.67 / CNY',
         description: 'Claude high-capability channel for long-context coding tasks',
-        dotClass: 'bg-custom-green',
         models: ['claude-opus-4-8', 'claude-sonnet-4-6', 'claude-haiku-4-5'],
         perks: ['Advanced thinking', '200k context', '1M context', 'WebSearch support', 'Claude Code CLI only'],
-        perkClass: 'text-custom-green text-xs font-semibold'
+        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'CC Anti-Gravity',
         ratio: '1:0.6',
         rate: '$1.67 / CNY',
         description: 'Claude reverse channel with balanced ratio and capabilities',
-        dotClass: 'bg-custom-green',
         models: ['claude-opus-4-8', 'claude-sonnet-4-6', 'claude-haiku-4-5'],
         perks: ['Thinking support', '200k context', 'WebSearch support'],
-        perkClass: 'text-custom-green text-xs font-semibold'
+        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-green/10 text-custom-green text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Kiro',
         ratio: '1:0.5',
         rate: '$1.82 / CNY',
         description: 'Sonnet / Haiku channel for everyday coding agents',
-        dotClass: 'bg-custom-green',
         models: ['claude-sonnet-4-6', 'claude-haiku-4-5'],
         perks: ['Built-in thinking', 'WebSearch support', '200k context', 'Great for OpenClaw'],
-        perkClass: 'text-custom-green text-xs font-semibold'
+        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Codex (GPT FREE)',
         ratio: '1:0.1',
         rate: '$10.00 / CNY',
         description: 'Codex free-tier channel with the lowest ratio for lightweight tasks',
-        dotClass: 'bg-blue-500',
         models: ['gpt-5.5', 'gpt-5.4'],
         perks: ['All xhigh tiers supported'],
-        perkClass: 'text-custom-green dark:text-green-400 text-xs font-semibold'
+        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Codex (GPT PLUS)',
         ratio: '1:0.15',
         rate: '$6.67 / CNY',
         description: 'Codex Plus channel for frequent developer calls',
-        dotClass: 'bg-blue-500',
         models: ['gpt-5.5', 'gpt-5.4'],
         perks: ['All xhigh tiers supported'],
-        perkClass: 'text-custom-green dark:text-green-400 text-xs font-semibold'
+        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Codex (GPT PRO)',
         ratio: '1:0.3',
         rate: '$3.33 / CNY',
         description: 'Codex Pro channel with latest Codex model coverage',
-        dotClass: 'bg-blue-500',
         models: ['gpt-5.5', 'gpt-5.4'],
         perks: ['All xhigh tiers supported'],
-        perkClass: 'text-custom-green text-xs font-semibold'
+        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
       },
       {
         category: 'Gemini',
-        categoryClass: 'px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Gemini Reverse',
         ratio: '1:0.45',
         rate: '$2.22 / CNY',
         description: 'Gemini channel with multimodal and image-generation capabilities',
-        dotClass: 'bg-blue-500',
         models: ['gemini-3-pro-preview', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-2.5-pro'],
         perks: ['Thinking support', 'WebSearch support'],
-        perkClass: 'text-custom-green text-xs font-semibold'
+        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
       }
     ]
   };
@@ -189,9 +175,9 @@
     return catalogs[locale] || catalogs['zh-CN'];
   }
 
-  function renderModel(model, dotClass) {
+  function renderModel(model) {
     return '<span class="inline-flex items-center gap-1 px-2 py-1 bg-custom-wash dark:bg-white/5 text-custom-muted dark:text-slate-300 text-[11px] rounded-full">' +
-      '<span class="w-1.5 h-1.5 rounded-full ' + dotClass + '"></span>' + model +
+      model +
       '</span>';
   }
 
@@ -201,7 +187,7 @@
 
   function renderCard(card) {
     var modelsHtml = card.models.map(function (model) {
-      return renderModel(model, card.dotClass);
+      return renderModel(model);
     }).join('');
 
     var perksHtml = card.perks.map(function (perk) {
@@ -242,7 +228,7 @@
         '<div class="mt-2 flex flex-wrap gap-2">' + perksHtml + '</div>' +
       '</div>' +
       '<div data-partial="partials/recharge-button.html" data-label="' + labels.action + '" data-label-i18n="common.cta.console">' +
-        '<a href="https://sub2.pigcoder.com/login" class="btn-primary btn-shine w-full px-5 py-3 text-sm">' + labels.action + '</a>' +
+        '<a href="https://sub2.pigcoder.com/login" class="btn-primary w-full px-5 py-3 text-sm">' + labels.action + '</a>' +
       '</div>' +
     '</div>';
   }

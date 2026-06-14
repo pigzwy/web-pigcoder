@@ -9,7 +9,7 @@
   var activeNavClass = 'rounded-full px-4 py-2 text-sm font-semibold text-custom-navy dark:text-white bg-slate-100 dark:bg-white/10';
   var inactiveNavClass = 'rounded-full px-4 py-2 text-sm font-medium text-custom-muted dark:text-slate-300 hover:text-custom-navy hover:bg-slate-100 dark:hover:text-white dark:hover:bg-white/10 transition-colors';
   var templateCache = {};
-  var ASSET_VERSION = '20260609-asset-sync';
+  var ASSET_VERSION = '20260613-redesign';
 
   function withAssetVersion(path) {
     if (!path || path.indexOf('data:') === 0 || path.indexOf('blob:') === 0) {

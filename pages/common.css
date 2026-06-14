@@ -1,3 +1,44 @@
+/* ===== 自托管字体（替代 Google Fonts CDN，零外部请求）===== */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(fonts/inter-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(fonts/inter-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(fonts/space-grotesk-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(fonts/space-grotesk-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(fonts/material-symbols-outlined.woff2) format('woff2');
+}
+
 :root {
   color-scheme: light;
   --pc-navy: #18345f;
@@ -6,7 +47,7 @@
   --pc-green: #4f9462;
   --pc-ink: #0f172a;
   --pc-text: #344054;
-  --pc-muted: #667085;
+  --pc-muted: #586273;
   --pc-line: #e4e7ec;
   --pc-line-strong: #d0d5dd;
   --pc-paper: #ffffff;
@@ -84,7 +125,20 @@ button {
 }
 
 .material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
   vertical-align: middle;
 }
 
@@ -141,15 +195,12 @@ button {
 }
 
 .surface-gradient-alt {
-  background:
-    radial-gradient(circle at 85% 20%, rgba(79, 148, 98, 0.08), transparent 24rem),
-    linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
 }
 
 .surface-gradient-hero {
   background:
-    radial-gradient(circle at 12% 12%, rgba(232, 168, 37, 0.18), transparent 24rem),
-    radial-gradient(circle at 88% 18%, rgba(79, 148, 98, 0.12), transparent 26rem),
+    radial-gradient(circle at 12% 12%, rgba(232, 168, 37, 0.16), transparent 26rem),
     linear-gradient(180deg, #ffffff 0%, #f8fafc 56%, #eef3f8 100%);
 }
 
@@ -162,8 +213,7 @@ button {
 
 .dark .surface-gradient-hero {
   background:
-    radial-gradient(circle at 16% 10%, rgba(232, 168, 37, 0.12), transparent 22rem),
-    radial-gradient(circle at 84% 16%, rgba(79, 148, 98, 0.1), transparent 24rem),
+    radial-gradient(circle at 16% 10%, rgba(232, 168, 37, 0.12), transparent 24rem),
     linear-gradient(180deg, #111c2d 0%, #0d1b2a 100%);
 }
 
@@ -758,7 +808,7 @@ button {
 .section-eyebrow {
   display: inline-flex;
   align-items: center;
-  color: var(--pc-green);
+  color: var(--pc-muted);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -1201,4 +1251,354 @@ button {
 .dark .channel-card .btn-primary {
   background: var(--pc-gold);
   color: var(--pc-navy-deep);
+}
+
+/* ===== 首页重设计：克制信任型组件 ===== */
+
+/* Hero 单一真实终端（放大版） */
+.hero-terminal-lg {
+  margin-top: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-terminal-lg p {
+  overflow-wrap: anywhere;
+}
+
+/* 端点带：三协议真实 Base URL */
+.endpoint-band {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.endpoint-chip {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  border: 1px solid var(--pc-line);
+  border-radius: 0.875rem;
+  background: var(--pc-paper);
+  padding: 0.9rem 2.6rem 0.9rem 1rem;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.dark .endpoint-chip {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.endpoint-chip:hover {
+  border-color: rgba(232, 168, 37, 0.4);
+}
+
+.endpoint-copy {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  font-size: 18px;
+  color: var(--pc-muted);
+  transition: color 0.2s ease;
+}
+
+.endpoint-chip:hover .endpoint-copy {
+  color: var(--pc-navy);
+}
+
+.dark .endpoint-chip:hover .endpoint-copy {
+  color: var(--pc-gold);
+}
+
+.endpoint-chip.is-copied {
+  border-color: rgba(79, 148, 98, 0.5);
+}
+
+.endpoint-chip.is-copied .endpoint-copy {
+  color: var(--pc-green);
+}
+
+.terminal-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.terminal-copy:hover {
+  color: #ffffff;
+}
+
+.terminal-copy.is-copied {
+  color: #6ee7a8;
+}
+
+.endpoint-proto {
+  display: block;
+  color: var(--pc-muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.endpoint-chip code {
+  display: block;
+  margin-top: 0.4rem;
+  overflow-wrap: anywhere;
+  color: var(--pc-navy);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.dark .endpoint-chip code {
+  color: #f8fafc;
+}
+
+/* 能力：一个主面板 + 三条支撑行（非等分卡） */
+.cap-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.cap-primary {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--pc-line);
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(232, 168, 37, 0.1), transparent 16rem),
+    var(--pc-paper);
+  padding: 2rem;
+  box-shadow: var(--pc-shadow-sm);
+}
+
+.dark .cap-primary {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.cap-rows {
+  display: grid;
+  gap: 0.85rem;
+  align-content: start;
+}
+
+.cap-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  border: 1px solid var(--pc-line);
+  border-radius: 1rem;
+  background: var(--pc-paper);
+  padding: 1.05rem 1.2rem;
+  box-shadow: var(--pc-shadow-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dark .cap-row {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.cap-row:hover {
+  transform: translateY(-2px);
+  border-color: var(--pc-line-strong);
+  box-shadow: var(--pc-shadow-md);
+}
+
+.cap-row .material-symbols-outlined {
+  color: var(--pc-navy);
+}
+
+.dark .cap-row .material-symbols-outlined {
+  color: var(--pc-gold);
+}
+
+/* Provider 真实 logo 带（内联 SVG，currentColor 自适应） */
+.provider-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem 2.75rem;
+  color: var(--pc-ink);
+}
+
+.dark .provider-logos {
+  color: #e8edf4;
+}
+
+.provider-logo-svg {
+  height: 1.6rem;
+  width: auto;
+  transition: opacity 0.2s ease;
+}
+
+/* 品牌色点缀（含深色安全变体）；OpenAI 本为单色品牌，随主题自适应 */
+.logo-anthropic {
+  fill: #d97757;
+}
+
+.logo-openai {
+  fill: var(--pc-ink);
+}
+
+.dark .logo-openai {
+  fill: #e8edf4;
+}
+
+.logo-gemini {
+  fill: #4285f4;
+}
+
+.dark .logo-gemini {
+  fill: #6ba2ff;
+}
+
+.provider-logo-svg:hover {
+  opacity: 0.82;
+}
+
+.provider-mono {
+  display: inline-flex;
+  align-items: center;
+  color: var(--pc-ink);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.dark .provider-mono {
+  color: #f8fafc;
+}
+
+/* 渠道对比卡（替代横滚表格，移动端友好） */
+.channel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.channel-compare {
+  border: 1px solid var(--pc-line);
+  border-radius: 1.1rem;
+  background: var(--pc-paper);
+  padding: 1.4rem;
+  box-shadow: var(--pc-shadow-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dark .channel-compare {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.channel-compare:hover {
+  transform: translateY(-2px);
+  border-color: var(--pc-line-strong);
+  box-shadow: var(--pc-shadow-md);
+}
+
+.channel-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--pc-line);
+  border-radius: 9999px;
+  background: var(--pc-wash);
+  padding: 0.25rem 0.7rem;
+  color: var(--pc-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.dark .channel-pill {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.channel-specs {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.channel-specs > div {
+  border-top: 1px solid var(--pc-line);
+  padding-top: 0.75rem;
+}
+
+.dark .channel-specs > div {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.channel-specs dt {
+  color: var(--pc-muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.channel-specs dd {
+  margin-top: 0.25rem;
+  color: var(--pc-ink);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.dark .channel-specs dd {
+  color: #f1f5f9;
+}
+
+/* 接入流程：编号 stepper（非等分卡） */
+.flow-stepper {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  counter-reset: none;
+}
+
+.flow-step-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--pc-line);
+}
+
+.dark .flow-step-item {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.flow-step-item:first-child {
+  border-top-color: var(--pc-gold);
+}
+
+@media (max-width: 899px) {
+  .cap-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .channel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-stepper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 639px) {
+  .endpoint-band {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-stepper {
+    grid-template-columns: 1fr;
+  }
 }

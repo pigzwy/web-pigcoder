@@ -46,7 +46,9 @@ Pigcoder 的 UI 体系按以下审美拨盘执行：
 
 - `DESIGN_VARIANCE: 5`：版式允许有变化，但不能牺牲稳定、可信和可扫描。
 - `MOTION_INTENSITY: 3`：微交互为主，避免持续循环动效和强滚动特效。
-- `VISUAL_DENSITY: 7`：以数据和接入信息为中心，不做空泛大留白营销页。
+- `VISUAL_DENSITY`：按页面类型分档——营销 / 着陆页（首页、价格、文档前言）取 `4–5`，
+  保持克制留白；控制台 / 日志 / 计费等数据页可到 `6–7`，以表格和指标为主。
+  当前首页已落地为克制档（约 4–5），**不是** cockpit 式高密度。
 
 这些拨盘意味着：
 
@@ -161,18 +163,17 @@ Pigcoder 仍使用深蓝、金色、绿色，但它们有明确职责。
 --pc-green: #4f9462;
 ```
 
-用途：
+用途（仅语义，不作装饰 accent）：
 
-- Live 状态
-- Success 状态
-- 可用能力
-- 支持标签
-- 请求正常状态
+- Success / 已完成（如复制成功反馈）
+- 可用 / 支持的能力标签（thinking、WebSearch、xhigh、200k 上下文等）
+- 请求正常 / 健康状态
 
 使用方式：
 
-- 作为状态语义色。
-- 不作为主品牌铺色。
+- 仅作状态语义色，且必须满足对比度：浅色文字用 `text-green-700`（`#4f9462` 实测白底仅 3.6:1，小字不达标），深色用 `green-400`。
+- 不作为主品牌铺色；不用于装饰性「Live」徽章，也不用于每行 / 每个 nav 项前的装饰色点（见反模式清单）。
+- 全站**唯一的「装饰性强调色」是金色**；绿色只承担语义。
 
 ### 4.4 中性色
 
@@ -181,7 +182,7 @@ Pigcoder 仍使用深蓝、金色、绿色，但它们有明确职责。
 ```css
 --pc-ink: #0f172a;
 --pc-text: #344054;
---pc-muted: #667085;
+--pc-muted: #586273;
 --pc-line: #e4e7ec;
 --pc-paper: #ffffff;
 --pc-wash: #f7f9fc;
@@ -269,17 +270,15 @@ Header 应保持低干扰。
 
 ### 6.2 Hero
 
-Hero 应该展示平台定位和关键接入信息。
+Hero 应该展示平台定位和关键接入信息，但保持克制（最多 4 个文本元素）。
 
 推荐内容：
 
-- 一句话定位
-- 简短说明
-- 获取 API Key
-- 查看接入文档
-- Endpoint 面板
-- Provider / CLI 状态
-- 简短 terminal 示例
+- kicker 徽章（可选，1 个）
+- 大号标题（≤2 行，可含少量金色 underline 重点）
+- 简短说明（≤20 词 / ≤4 行）
+- 一组 CTA（主：获取 API Key；次：查看接入文档）
+- 右侧单一视觉：一个「真实可执行命令」的终端示例（`.hero-terminal-card`）
 
 推荐标题风格：
 
@@ -288,7 +287,13 @@ Hero 应该展示平台定位和关键接入信息。
 - 少量金色 underline
 - 不使用大面积渐变字
 
-Hero 不应该像传统 SaaS 一样只写抽象卖点。
+注意（旧版做法已废弃）：
+
+- 不要再把 Endpoint 面板 + Provider 状态行 + 终端 + Live 徽章全部堆进 Hero。
+  Endpoint 列表移到 Hero 下方独立「端点带」，Provider / 渠道移到「覆盖区」。
+- 终端只展示真实命令（如 `export ANTHROPIC_BASE_URL=…` 然后 `claude`），
+  不要用 `<div>` 伪造「Live 网关面板 / 假 dashboard」。
+- 装饰仅保留极克制的单个金色微光；不要网格十字线、多层光晕。
 
 ### 6.3 Endpoint Card
 
@@ -310,24 +315,30 @@ Gemini     https://sub2.pigcoder.com/v1beta
 - 长 URL 必须可换行或横向滚动
 - 可选 copy 按钮
 
-### 6.4 Provider Row
+### 6.4 Provider 覆盖与渠道卡（替代旧「带色点状态行」）
 
-Provider Row 用于展示模型渠道或工具适配状态。
+展示「支持哪些 Provider / 工具」时，优先用**真实品牌 logo + 渠道对比卡**，不要用带装饰色点的状态行。
 
-推荐结构：
+厂商识别（`.provider-logos` / `.provider-logo-svg`）：
+
+- 内联**真实品牌 SVG**（Simple Icons 官方路径），按**真实品牌色**着色，作为页面的彩色点缀来源：
+  Anthropic 锈红 `#D97757`（深浅通用）、Gemini Google 蓝 `#4285F4`（深色用更亮的 `#6BA2FF`）；
+  OpenAI 本为单色品牌，随主题在墨黑 / 近白间自适应。**每个品牌色都需深色模式安全变体**。
+- 不要手绘五角星等假 logo。OpenAI 已被 Simple Icons 移除，取其移除前的 `simple-icons@9` 官方单路径自托管。
+- 无对应官方图标的（如智谱）用文字标（中性色），不强凑。
+
+渠道能力（`.channel-grid` / `.channel-compare`）：
 
 ```text
-● Claude Code    200k / 1M context
-● Codex CLI      OpenAI compatible
-● Gemini CLI     v1beta ready
+Claude            [Anthropic]
+上下文 / 能力       200k / 1M · thinking · WebSearch
+适用工具            Claude Code
 ```
 
-设计要求：
+- 每卡 = 渠道名 + 协议 pill + 「上下文 / 能力」「适用工具」规格行。
+- 移动端单列、**不横滚**（旧版横滚路由表已废弃）。
 
-- 左侧使用小色点
-- 中间是名称
-- 右侧是能力或协议标签
-- 适合首页、控制台、模型列表页
+仅当控制台 / 日志页确需状态行时，色点才可表达**真实语义状态**（在线 / 异常），不得作每行装饰。
 
 ### 6.5 Channel Ratio Card
 
@@ -346,7 +357,7 @@ Channel quota
 0.67$/元
 
 Models
-claude-opus-4-6
+claude-opus-4-8
 claude-sonnet-4-6
 
 Capabilities
@@ -357,13 +368,13 @@ WebSearch
 Claude Code only
 ```
 
-设计要求：
+设计要求（与已实现的 `.channel-card` / `.channel-ratio` 一致）：
 
-- Ratio 使用 tabular nums
-- 模型使用 pill 标签
-- 能力使用小标签
-- CTA 可以是“充值”或“查看控制台”
-- 不写成“选择套餐”
+- Ratio 使用 tabular nums，并作为每卡**唯一金色焦点**（`.channel-ratio strong` 金色）。
+- Provider 徽章使用**中性底色**，不按厂商做绿 / 蓝色编码。
+- 模型用 pill 标签，**不加装饰色点**。
+- 能力标签用绿色语义色（浅色 `text-green-700` 保证对比度）。
+- CTA 用「充值 / 立即前往控制台」，不写成「选择套餐」。
 
 ### 6.6 Capability Card
 
@@ -429,6 +440,56 @@ export OPENAI_BASE_URL="https://sub2.pigcoder.com/v1"
 - 数字列使用 tabular nums
 - 长模型名允许换行
 - 移动端允许横向滚动
+
+### 6.9 实际组件类库（与 `common.css` 对应，可直接复用）
+
+下表是首页重设计后已落地、可在其它页面直接复用的类。新页面应优先复用这些类，而不是另造一套。
+
+| 模式 | 类名 | 说明 |
+| --- | --- | --- |
+| Hero 真实终端 | `.hero-terminal-card` `.hero-terminal-lg` | 暗色终端，只放真实可执行命令；深浅色下都是暗色「设备」，非整页主题翻转 |
+| 端点带 | `.endpoint-band` `.endpoint-chip` | 三协议真实 Base URL，整块为 `<button>` 可点击复制 |
+| 能力区 | `.cap-grid` `.cap-primary` `.cap-row` | 1 个主面板 + N 条支撑行，替代等分功能卡 |
+| Provider logo | `.provider-logos` `.provider-logo-svg` + `.logo-anthropic/.logo-openai/.logo-gemini` `.provider-mono` | 内联品牌 SVG + 品牌色点缀 |
+| 渠道对比卡 | `.channel-grid` `.channel-compare` `.channel-pill` `.channel-specs` | 渠道名 + 协议 pill + 规格行；移动端单列、不横滚 |
+| 价格卡 | `.channel-card` `.channel-ratio`（金色 ratio 焦点） | 由 `pricing-cards.js` 数据驱动 |
+| 接入步骤 | `.flow-stepper` `.flow-step-item` | 编号 + 顶边线 stepper，非等分卡 |
+| CTA 面板 | `.api-cta-panel` | 单一 CTA 意图 |
+| 按钮 | `.btn-primary` `.btn-primary-gold` `.btn-secondary` | 已移除 `.btn-shine` 扫光效果 |
+| 进入动效 | `.fade-up`（IntersectionObserver 触发） | 进入视口淡入，遵循 `prefers-reduced-motion` |
+
+### 6.10 单一 accent 锁定与配色铁律
+
+- **唯一的装饰性强调色 = 金色 `#E8A825`**（主 CTA、ratio 焦点、少量关键 icon）。
+- **绿色仅语义**（成功 / 可用 / 已复制），浅色文字用 `text-green-700` 保对比度，深色用 `green-400`。
+- **底色近黑 / 近白，禁纯黑白**：深 `#0D1B2A`、浅 `#F7F9FC` + 白卡；不要 `#000` / `#fff`（损层次、刺眼）。
+- **页面的「彩色」来自真实品牌 logo**（品牌色 + 深色安全变体），不是给功能图标随机上色；功能图标用金色或中性，避免彩虹图标。
+- 中性正文 / 辅助色：`--pc-muted: #586273`（已为 AA 调过，勿退回旧的 `#667085`）。
+
+### 6.11 本轮重设计已移除的反模式（务必避免复活）
+
+- ❌ `<div>` 拼的假终端 / 假 dashboard / `Live` 状态徽章
+- ❌ 装饰性光晕 `.orb-*`、Hero 网格十字线 `.hero-grid-lines`
+- ❌ 6 张等宽等重功能卡（改 1 主 + N 次）
+- ❌ 每个 section 都加 eyebrow（全页上限 ≤ ⌈section 数 / 3⌉，Hero kicker 计 1）
+- ❌ 手绘 SVG 假 logo（用真实品牌 SVG）
+- ❌ `.btn-shine` 对角扫光
+- ❌ 装饰性状态色点（模型 chip 圆点、provider 行 / nav 项前的色点）
+- ❌ 深蓝 + 金 + 绿三色同时抢 accent（金色唯一装饰，绿色仅语义）
+- ❌ 路由表在移动端强制横向滚动（改渠道卡单列）
+- ❌ 重复 CTA 意图（同一「进控制台」意图全站用同一标签）
+
+### 6.12 字体 / 资源 / 复制交互实现约定
+
+- **自托管字体，不引 Google Fonts `<link>`**：Inter、Space Grotesk 取 latin + latin-ext woff2；
+  Material Symbols 图标字体先**实例化**到 `wght 400 / FILL 0`，再按站内实际用到的图标**子集化**
+  （1.1MB → 约 4KB），`@font-face` 写在 `common.css` 顶部。
+- 首屏 `<link rel="preload" as="font" crossorigin>` 预载两个 latin woff2。
+- `logo.jpg` 用 256×256 优化版（兼作 favicon / og:image），不要直出 2048 原图。
+- **资源版本号** `?v=YYYYMMDD-xxx` 做缓存击穿；改动 CSS / JS 后必须同步 bump（含 `components.js` 的 `ASSET_VERSION`）。
+- **复制交互**：元素带 `data-copy`（多行用 `&#10;` 表换行）+ 内部 `[data-copy-icon]` 在 `content_copy` ↔ `check` 间切换；
+  同时把 `aria-label` 在 `common.copy` ↔ `common.copied` 间切换给屏幕阅读器反馈。
+- **滚动相关**一律用 `IntersectionObserver`（滚动监听、scroll-spy、回到顶部哨兵），**禁用 `window.addEventListener('scroll')`**。
 
 ## 7. Typography
 
@@ -636,6 +697,11 @@ Design taste guardrails：
 - 不要把卡片套进卡片；页面区块用留白、分隔线、背景带或表格组织。
 - 不要让所有区块使用同一种卡片布局；模型、价格、文档步骤和日志应有不同的信息形态。
 - 所有 endpoint、model ID、ratio、API key placeholder、request log 使用 monospace。
+- 装饰性强调色只用金色；绿色仅作语义（成功 / 可用 / 已复制）。底色用近黑 #0D1B2A 与近白 #F7F9FC，不要纯黑白。
+- 页面的彩色来自真实品牌 logo（按品牌色 + 深色安全变体），不要给功能图标随机上色，也不要手绘假 logo。
+- 不要假终端 / 假 dashboard / Live 徽章 / 装饰光晕 / 网格十字线 / 装饰状态色点 / 按钮扫光。
+- eyebrow（小号 uppercase 标签）全页上限 ⌈section 数 / 3⌉；同一意图的 CTA 全站只用一个标签。
+- 滚动交互用 IntersectionObserver，不要 `window` scroll 监听。
 ```
 
 ## 14. 快速检查清单
@@ -655,3 +721,9 @@ Design taste guardrails：
 - [ ] 没有 AI 紫色渐变、三张等宽功能卡、泛玻璃拟态或装饰性光球。
 - [ ] 卡片没有无意义套嵌，区块层级清晰。
 - [ ] 数字、倍率、模型 ID、endpoint 和日志使用 monospace。
+- [ ] 装饰性强调色只有金色；绿色仅语义且对比度达标（浅色 `text-green-700`）。
+- [ ] 底色为近黑 / 近白（#0D1B2A / #F7F9FC），无纯黑白。
+- [ ] 彩色来自真实品牌 logo（品牌色 + 深色变体），无手绘假 logo、无彩虹功能图标。
+- [ ] 无假终端 / Live 徽章 / 装饰光晕 / 网格线 / 装饰色点 / 按钮扫光。
+- [ ] eyebrow 总数 ≤ ⌈section 数 / 3⌉；无重复 CTA 意图。
+- [ ] 字体自托管（无 Google Fonts 外链）；滚动交互用 IntersectionObserver。

@@ -5,15 +5,19 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title data-i18n="docs.title">技术文档 - Pigcoder</title>
+  <meta name="description" content="Pigcoder 接入文档：平台开通、API Key 获取，以及 Claude Code、Codex CLI、Gemini CLI、OpenCode、Droid CLI、CC Switch 的配置与常见排查。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pigcoder 接入文档" />
+  <meta property="og:description" content="平台开通、API Key 获取，以及各类 CLI 工具的端点配置与排查。" />
+  <!-- 部署到正式域名后，请把 og:image 改为绝对地址（如 https://your-domain/logo.jpg） -->
+  <meta property="og:image" content="logo.jpg" />
+  <meta name="twitter:card" content="summary" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-    rel="stylesheet" />
   <link href="logo.jpg" rel="icon" type="image/jpeg" />
-  <script src="theme.js?v=20260609-asset-sync"></script>
-  <link href="common.css?v=20260609-asset-sync" rel="stylesheet" />
+  <script src="theme.js?v=20260613-redesign"></script>
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link href="common.css?v=20260613-redesign" rel="stylesheet" />
   <style>
     .code-block {
       position: relative;
@@ -196,8 +200,7 @@
   <main id="main-content">
     <section class="hero-modern relative overflow-hidden border-b border-custom-line/70 dark:border-white/10">
       <div class="surface-gradient-hero"></div>
-      <div class="hero-grid-lines"></div>
-      <div class="orb-gold-top-left-soft"></div>
+      <div class="orb-gold-hero"></div>
       <div class="section-shell-wide py-14 md:py-20">
         <div class="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div class="max-w-3xl text-left">
@@ -957,16 +960,24 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         });
       }
 
-      window.addEventListener('scroll', updateActiveLink);
+      // 用 IntersectionObserver 替代每帧 scroll 监听：仅在 section 跨越顶部判定线时重算
+      var spyObserver = new IntersectionObserver(updateActiveLink, {
+        rootMargin: '-120px 0px 0px 0px',
+        threshold: [0, 1]
+      });
+      sections.forEach(function (s) { spyObserver.observe(s); });
       updateActiveLink();
 
       function enhanceCodeBlocks() {
         document.querySelectorAll('.code-block').forEach(function (block) {
           if (block.querySelector('.copy-btn')) return;
           var btn = document.createElement('button');
+          var i18n = window.PigcoderI18n;
+          var copyLabel = i18n ? i18n.t('common.copy') : '复制';
+          var copiedLabel = i18n ? i18n.t('common.copied') : '已复制';
           btn.className = 'copy-btn';
-          btn.title = '复制代码';
-          btn.setAttribute('aria-label', '复制代码');
+          btn.title = copyLabel;
+          btn.setAttribute('aria-label', copyLabel);
           btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">content_copy</span>';
           block.appendChild(btn);
           btn.addEventListener('click', function () {
@@ -975,9 +986,11 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             var text = code.textContent;
             navigator.clipboard.writeText(text).then(function () {
               btn.classList.add('copied');
+              btn.setAttribute('aria-label', copiedLabel);
               btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">check</span>';
               setTimeout(function () {
                 btn.classList.remove('copied');
+                btn.setAttribute('aria-label', copyLabel);
                 btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">content_copy</span>';
               }, 1500);
             });
@@ -989,13 +1002,14 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
 
       // 回到顶部按钮
       var backBtn = document.getElementById('back-to-top');
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > 400) {
-          backBtn.classList.add('show');
-        } else {
-          backBtn.classList.remove('show');
-        }
-      });
+      // 顶部 400px 哨兵 + IntersectionObserver 替代 scroll 监听
+      var backSentinel = document.createElement('div');
+      backSentinel.setAttribute('aria-hidden', 'true');
+      backSentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:400px;pointer-events:none;';
+      document.body.appendChild(backSentinel);
+      new IntersectionObserver(function (entries) {
+        backBtn.classList.toggle('show', !entries[0].isIntersecting);
+      }, { threshold: 0 }).observe(backSentinel);
       backBtn.addEventListener('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
@@ -1006,9 +1020,9 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
       });
     });
   </script>
-<script src="i18n.js?v=20260609-asset-sync"></script>
-  <script src="components.js?v=20260609-asset-sync"></script>
-  <script src="shared.js?v=20260609-asset-sync"></script>
+<script src="i18n.js?v=20260613-redesign"></script>
+  <script src="components.js?v=20260613-redesign"></script>
+  <script src="shared.js?v=20260613-redesign"></script>
 </body>
 
 </html>
