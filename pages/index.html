@@ -11,9 +11,14 @@
     <meta property="og:description" content="统一模型路由，兼容 AI 编程工具。一个 Key，三种协议，替换 Base URL 即可接入 Claude、GPT、Gemini。" />
     <!-- 部署到正式域名后，请把下面两处改为绝对地址（如 https://your-domain/logo.jpg） -->
     <meta property="og:image" content="logo.jpg" />
+    <meta property="og:url" content="index.html" />
+    <meta property="og:site_name" content="Pigcoder" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Pigcoder - 稳定高速的 AI 编程中转站" />
     <meta name="twitter:description" content="统一模型路由，兼容 AI 编程工具。一个 Key，三种协议，替换 Base URL 即可接入。" />
+    <meta name="twitter:image" content="logo.jpg" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="logo.jpg" rel="icon" type="image/jpeg" />
     <script src="theme.js?v=20260613-redesign"></script>
@@ -23,7 +28,7 @@
 </head>
 
 <body
-    class="bg-custom-wash dark:bg-[#0D1B2A] font-body text-custom-ink dark:text-white selection:bg-custom-gold selection:text-white transition-colors duration-300">
+    class="bg-custom-wash dark:bg-custom-navy-deep font-body text-custom-ink dark:text-white selection:bg-custom-gold selection:text-white transition-colors duration-300">
     <a href="#main-content" class="skip-link" data-i18n="common.skip">跳到主要内容</a>
     <div id="site-header"></div>
 
@@ -57,15 +62,8 @@
                             data-secondary-class="btn-secondary w-full sm:w-auto px-8 py-3.5 text-base"
                             data-secondary-label="查看接入文档"
                             data-secondary-i18n="common.cta.docs">
-                            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                                <a href="https://sub2.pigcoder.com/login"
-                                    class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base">
-                                    获取 API Key
-                                </a>
-                                <a href="docs.html" class="btn-secondary w-full sm:w-auto px-8 py-3.5 text-base">
-                                    查看接入文档
-                                </a>
-                            </div>
+                            <!-- partial 加载失败时的最小降级：仅保留主操作（正常情况下由 partial 覆盖） -->
+                            <a href="https://sub2.pigcoder.com/login" class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base">获取 API Key</a>
                         </div>
                     </div>
 
@@ -133,29 +131,29 @@
                 <div class="cap-grid">
                     <div class="cap-primary">
                         <span class="material-symbols-outlined text-3xl text-custom-gold mb-4" data-icon="hub" aria-hidden="true">hub</span>
-                        <h3 data-i18n="index.features.response.title" class="text-2xl font-semibold mb-3 text-custom-ink dark:text-white">协议兼容</h3>
-                        <p data-i18n="index.features.response.description" class="text-custom-muted dark:text-slate-400 leading-7 max-w-md">兼容 OpenAI / Anthropic / Gemini 常用协议，只需替换 Base URL 即可接入。</p>
+                        <h3 data-i18n="index.features.protocol.title" class="text-2xl font-semibold mb-3 text-custom-ink dark:text-white">协议兼容</h3>
+                        <p data-i18n="index.features.protocol.description" class="text-custom-muted dark:text-slate-400 leading-7 max-w-md">兼容 OpenAI / Anthropic / Gemini 常用协议，只需替换 Base URL 即可接入。</p>
                     </div>
                     <div class="cap-rows">
                         <div class="cap-row">
                             <span class="material-symbols-outlined text-2xl" data-icon="cloud_done" aria-hidden="true">cloud_done</span>
                             <div>
-                                <h3 data-i18n="index.features.availability.title" class="text-base font-semibold mb-1 text-custom-ink dark:text-white">模型渠道</h3>
-                                <p data-i18n="index.features.availability.description" class="text-sm text-custom-muted dark:text-slate-400 leading-6">按 Claude、Codex、Gemini 等模型渠道组织能力，便于按工具选择。</p>
+                                <h3 data-i18n="index.features.channel.title" class="text-base font-semibold mb-1 text-custom-ink dark:text-white">模型渠道</h3>
+                                <p data-i18n="index.features.channel.description" class="text-sm text-custom-muted dark:text-slate-400 leading-6">按 Claude、Codex、Gemini 等模型渠道组织能力，便于按工具选择。</p>
                             </div>
                         </div>
                         <div class="cap-row">
                             <span class="material-symbols-outlined text-2xl" data-icon="memory" aria-hidden="true">memory</span>
                             <div>
-                                <h3 data-i18n="index.features.security.title" class="text-base font-semibold mb-1 text-custom-ink dark:text-white">上下文能力</h3>
-                                <p data-i18n="index.features.security.description" class="text-sm text-custom-muted dark:text-slate-400 leading-6">展示 200k、1M、thinking、WebSearch 等上下文和模型特性。</p>
+                                <h3 data-i18n="index.features.context.title" class="text-base font-semibold mb-1 text-custom-ink dark:text-white">上下文能力</h3>
+                                <p data-i18n="index.features.context.description" class="text-sm text-custom-muted dark:text-slate-400 leading-6">展示 200k、1M、thinking、WebSearch 等上下文和模型特性。</p>
                             </div>
                         </div>
                         <div class="cap-row">
                             <span class="material-symbols-outlined text-2xl" data-icon="account_balance_wallet" aria-hidden="true">account_balance_wallet</span>
                             <div>
-                                <h3 data-i18n="index.features.cost.title" class="text-base font-semibold mb-1 text-custom-ink dark:text-white">倍率透明</h3>
-                                <p data-i18n="index.features.cost.description" class="text-sm text-custom-muted dark:text-slate-400 leading-6">每个渠道直接展示倍率和能力标签，避免包装成传统套餐。</p>
+                                <h3 data-i18n="index.features.ratio.title" class="text-base font-semibold mb-1 text-custom-ink dark:text-white">倍率透明</h3>
+                                <p data-i18n="index.features.ratio.description" class="text-sm text-custom-muted dark:text-slate-400 leading-6">每个渠道直接展示倍率和能力标签，避免包装成传统套餐。</p>
                             </div>
                         </div>
                     </div>
@@ -293,10 +291,8 @@
                             data-secondary-class="btn-secondary w-full px-8 py-3.5 text-base"
                             data-secondary-label="查看接入文档"
                             data-secondary-i18n="common.cta.docs">
-                            <div class="flex flex-col sm:flex-row lg:flex-col items-stretch gap-3">
-                                <a href="https://sub2.pigcoder.com/login" class="btn-primary btn-primary-gold w-full px-8 py-3.5 text-base">获取 API Key</a>
-                                <a href="docs.html" class="btn-secondary w-full px-8 py-3.5 text-base">查看接入文档</a>
-                            </div>
+                            <!-- partial 加载失败时的最小降级：仅保留主操作（正常情况下由 partial 覆盖） -->
+                            <a href="https://sub2.pigcoder.com/login" class="btn-primary btn-primary-gold w-full px-8 py-3.5 text-base">获取 API Key</a>
                         </div>
                     </div>
                 </div>

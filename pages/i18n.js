@@ -77,19 +77,19 @@
           note: '一个 Key，三种协议，替换 Base URL 即可接入。'
         },
         features: {
-          response: {
+          protocol: {
             title: '协议兼容',
             description: '兼容 OpenAI / Anthropic / Gemini 常用协议，只需替换 Base URL 即可接入。'
           },
-          availability: {
+          channel: {
             title: '模型渠道',
             description: '按 Claude、Codex、Gemini 等模型渠道组织能力，便于按工具选择。'
           },
-          security: {
+          context: {
             title: '上下文能力',
             description: '展示 200k、1M、thinking、WebSearch 等上下文和模型特性。'
           },
-          cost: {
+          ratio: {
             title: '倍率透明',
             description: '每个渠道直接展示倍率和能力标签，避免包装成传统套餐。'
           },
@@ -286,7 +286,7 @@
           endpointTitle: 'Step 3 — 确认端点地址',
           endpointLead: '根据不同的 CLI 工具，使用对应的端点地址：',
           endpointHead: `
-            <tr class="bg-slate-50 dark:bg-[#111C2D]">
+            <tr class="bg-slate-50 dark:bg-custom-surface-dark">
               <th class="px-4 py-3 text-sm font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">协议类型</th>
               <th class="px-4 py-3 text-sm font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">端点地址</th>
               <th class="px-4 py-3 text-sm font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">适用工具</th>
@@ -316,7 +316,7 @@
           quickConfig: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 5 — 使用密钥快速配置</h3>
             <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">获取 API Key 后，最快的方式是通过环境变量配置。在终端中执行：</p>
-            <div class="code-block bg-slate-50 dark:bg-[#111C2D] rounded-lg p-4 font-mono text-sm mb-4">
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
               <span class="lang-label">bash</span>
               <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># Anthropic 协议（Claude Code）
 export ANTHROPIC_API_KEY="sk-pig-xxxx"
@@ -336,7 +336,7 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
           ccSwitchImport: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 6 — CC Switch 一键导入</h3>
             <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">如果你使用 CC Switch，可以通过 Deep Link 一键导入服务商配置，无需手动编辑任何文件：</p>
-            <div class="code-block bg-slate-50 dark:bg-[#111C2D] rounded-lg p-4 font-mono text-sm mb-4">
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
               <span class="lang-label">text</span>
               <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>ccswitch://provider/add?name=Pigcoder&apiBaseUrl=https://sub2.pigcoder.com&apiKey=sk-pig-xxxx</code></pre>
             </div>
@@ -351,11 +351,293 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
           droidCli: 'Droid CLI',
           ccSwitch: 'CC Switch'
         },
+        toolGuide: {
+          claudeCode: `
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Claude Code</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">Anthropic 官方推出的 AI 编程助手，运行依赖 Node.js (v18+)。</p>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">安装</h4>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS / Linux
+npm install -g @anthropic-ai/claude-code
+
+# Windows (PowerShell 管理员)
+npm install -g @anthropic-ai/claude-code</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">方式一：通过配置文件（推荐）</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">编辑 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">settings.json</code>：</p>
+            <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 mb-3">
+              <li>macOS / Linux：<code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.claude/settings.json</code></li>
+              <li>Windows：<code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">%USERPROFILE%\\.claude\\settings.json</code></li>
+            </ul>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">json</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
+  "apiKeyHelper": "echo sk-pig-xxxx",
+  "apiBaseUrl": "https://sub2.pigcoder.com"
+}</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">方式二：通过环境变量</h4>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-3">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS / Linux
+export ANTHROPIC_API_KEY="sk-pig-xxxx"
+export ANTHROPIC_BASE_URL="https://sub2.pigcoder.com"</code></pre>
+            </div>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-3">
+              <span class="lang-label">powershell</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># Windows (PowerShell)
+$env:ANTHROPIC_API_KEY = "sk-pig-xxxx"
+$env:ANTHROPIC_BASE_URL = "https://sub2.pigcoder.com"</code></pre>
+            </div>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">cmd</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># Windows (CMD)
+set ANTHROPIC_API_KEY=sk-pig-xxxx
+set ANTHROPIC_BASE_URL=https://sub2.pigcoder.com</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">方式三：VS Code 扩展</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">如果你使用 VS Code 的 Claude Code 扩展，在 VS Code 设置中搜索 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">claude</code>，然后修改以下配置：</p>
+            <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 mb-4">
+              <li><strong>API Key</strong>：填入 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">sk-pig-xxxx</code></li>
+              <li><strong>API Base URL</strong>：填入 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">https://sub2.pigcoder.com</code></li>
+            </ul>
+            <div class="border-l-4 border-custom-gold bg-amber-50 dark:bg-amber-900/20 p-4 rounded-r-lg">
+              <p class="text-sm text-slate-700 dark:text-slate-300"><strong>注意：</strong>Claude Code 使用 Anthropic 原生协议，端点地址不要加 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">/v1</code>。</p>
+            </div>
+          `,
+          codexCli: `
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Codex CLI</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">OpenAI 官方推出的开源命令行编程助手，使用 OpenAI 兼容协议。</p>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">安装</h4>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>npm i -g @openai/codex</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">配置文件</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">编辑 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.codex/config.toml</code>：</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">toml</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>[model]
+name = "claude-sonnet-4-20250514"
+
+[provider]
+name = "openai"
+base_url = "https://sub2.pigcoder.com/v1"</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">API Key 配置</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">编辑 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.codex/auth.json</code>：</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
+              <span class="lang-label">json</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
+  "openai": "sk-pig-xxxx"
+}</code></pre>
+            </div>
+          `,
+          geminiCli: `
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Gemini CLI</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">Google 官方推出的 AI 命令行工具，使用 Gemini 协议。</p>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">安装</h4>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>npm i -g @google/gemini-cli</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">方式一：通过环境变量</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">在 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.gemini/.env</code> 中添加：</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">env</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>GEMINI_API_KEY=sk-pig-xxxx
+GEMINI_API_BASE_URL=https://sub2.pigcoder.com/v1beta</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">方式二：通过配置文件</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">编辑 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.gemini/settings.json</code>：</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
+              <span class="lang-label">json</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
+  "apiKey": "sk-pig-xxxx",
+  "apiBaseUrl": "https://sub2.pigcoder.com/v1beta"
+}</code></pre>
+            </div>
+          `,
+          opencode: `
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">OpenCode</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">Go 语言编写的终端 AI 编程助手，使用 OpenAI 兼容协议。</p>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">安装</h4>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS (Homebrew)
+brew install opencode
+
+# Go 安装
+go install github.com/opencode-ai/opencode@latest</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">配置文件</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">在项目根目录创建 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">opencode.json</code>：</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
+              <span class="lang-label">json</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
+  "providers": {
+    "pigcoder": {
+      "apiKey": "sk-pig-xxxx",
+      "baseURL": "https://sub2.pigcoder.com/v1",
+      "models": {
+        "claude-sonnet-4-20250514": {
+          "maxTokens": 8096,
+          "contextWindow": 200000
+        }
+      }
+    }
+  },
+  "agents": {
+    "coder": {
+      "model": "pigcoder/claude-sonnet-4-20250514",
+      "maxTokens": 8096
+    },
+    "task": {
+      "model": "pigcoder/claude-sonnet-4-20250514",
+      "maxTokens": 8096
+    },
+    "title": {
+      "model": "pigcoder/claude-sonnet-4-20250514",
+      "maxTokens": 200
+    }
+  }
+}</code></pre>
+            </div>
+          `,
+          droidCli: `
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Droid CLI</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">轻量级 AI 终端编程助手，支持多种模型后端，使用 OpenAI 兼容协议。</p>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">安装</h4>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>npm i -g droid-cli</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">配置文件</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">编辑 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.config/droid/config.json</code>：</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
+              <span class="lang-label">json</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
+  "provider": "openai",
+  "model": "claude-sonnet-4-20250514",
+  "apiKey": "sk-pig-xxxx",
+  "baseURL": "https://sub2.pigcoder.com/v1"
+}</code></pre>
+            </div>
+          `,
+          ccSwitch: `
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">CC Switch</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">Claude Code 服务商管理工具，可以在多个 API 服务商之间快速切换，无需手动修改配置文件。</p>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">核心功能</h4>
+            <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 mb-6">
+              <li>一键切换 Claude Code 的 API 服务商</li>
+              <li>支持管理多个服务商配置</li>
+              <li>支持 Deep Link 一键导入服务商</li>
+              <li>自动备份和恢复配置</li>
+            </ul>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">安装</h4>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS
+brew install nicepkg/tap/cc-switch
+
+# npm
+npm i -g cc-switch</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Deep Link 一键导入</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">在浏览器中打开以下链接即可自动导入 Pigcoder 配置：</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">text</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>ccswitch://provider/add?name=Pigcoder&apiBaseUrl=https://sub2.pigcoder.com&apiKey=sk-pig-xxxx</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">手动配置</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">也可以通过命令行手动添加：</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># 添加服务商
+cc-switch provider add Pigcoder --api-base-url https://sub2.pigcoder.com --api-key sk-pig-xxxx
+
+# 切换到 Pigcoder
+cc-switch use Pigcoder
+
+# 查看当前服务商
+cc-switch current</code></pre>
+            </div>
+          `
+        },
         reference: {
           quickRefTitle: '快速对照表',
           commandsTitle: '常用命令',
           commandsLead: '以下是 CLI 工具中常用的内置命令：',
-          troubleshootTitle: '故障排查'
+          troubleshootTitle: '故障排查',
+          quickRefHead: `
+            <tr class="bg-slate-50 dark:bg-custom-surface-dark">
+              <th class="px-4 py-3 font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">工具</th>
+              <th class="px-4 py-3 font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">安装命令</th>
+              <th class="px-4 py-3 font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">配置文件</th>
+              <th class="px-4 py-3 font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">端点地址</th>
+            </tr>
+          `,
+          commandsHead: `
+            <tr class="bg-slate-50 dark:bg-custom-surface-dark">
+              <th class="px-4 py-3 font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">命令</th>
+              <th class="px-4 py-3 font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">说明</th>
+            </tr>
+          `,
+          cmd: {
+            help: '显示帮助信息和可用命令列表',
+            clear: '清空当前对话历史',
+            compact: '压缩对话上下文，释放 Token 额度',
+            cost: '查看当前会话的 Token 消耗和费用',
+            model: '查看或切换当前使用的模型',
+            models: '列出所有可用模型'
+          },
+          ts: {
+            q1: `
+              <h4 class="font-semibold text-custom-ink dark:text-slate-200 mb-2">命令未找到（command not found）</h4>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-3">安装后终端提示命令不存在，通常是因为 npm 全局 bin 目录不在系统 PATH 中。</p>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed"><strong>解决方法：</strong></p>
+              <div class="code-block bg-slate-50 dark:bg-[#0f1922] rounded-lg p-4 font-mono text-sm mt-2">
+                <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># 查看 npm 全局 bin 目录
+npm config get prefix
+
+# 将输出的路径/bin 添加到 PATH
+export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
+              </div>
+            `,
+            q2: `
+              <h4 class="font-semibold text-custom-ink dark:text-slate-200 mb-2">API 连接失败</h4>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-3">请求超时或无法连接到服务端。</p>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed"><strong>解决方法：</strong></p>
+              <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 text-sm mt-2">
+                <li>检查网络连接是否正常</li>
+                <li>确认端点地址是否正确（参考上方端点地址表格）</li>
+                <li>检查是否有代理或 VPN 阻断了连接</li>
+                <li>尝试用 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">curl</code> 测试端点连通性</li>
+              </ul>
+            `,
+            q3: `
+              <h4 class="font-semibold text-custom-ink dark:text-slate-200 mb-2">端点配置错误</h4>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-3">配置了错误的端点地址导致请求失败。</p>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed"><strong>解决方法：</strong></p>
+              <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 text-sm mt-2">
+                <li>Claude Code 使用 Anthropic 协议，端点为 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com</code>，<strong>不要加</strong> <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">/v1</code></li>
+                <li>Codex CLI / OpenCode / Droid CLI 使用 OpenAI 协议，端点为 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com/v1</code></li>
+                <li>Gemini CLI 使用 Gemini 协议，端点为 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com/v1beta</code></li>
+              </ul>
+            `,
+            q4: `
+              <h4 class="font-semibold text-custom-ink dark:text-slate-200 mb-2">API Key 无效</h4>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-3">提示认证失败或 API Key 无效。</p>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed"><strong>解决方法：</strong></p>
+              <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 text-sm mt-2">
+                <li>确认 API Key 是否正确复制（没有多余空格或缺少字符）</li>
+                <li>确认 API Key 的分组与所使用的工具匹配（Anthropic 分组对应 Claude Code，OpenAI 分组对应 Codex CLI 等）</li>
+                <li>登录控制台查看令牌是否仍然有效，未被删除或过期</li>
+                <li>检查账户余额是否充足</li>
+              </ul>
+            `
+          }
         }
       }
     },
@@ -431,19 +713,19 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
           note: 'One key, three protocols. Just swap the Base URL.'
         },
         features: {
-          response: {
+          protocol: {
             title: 'Protocol Compatible',
             description: 'Compatible with common OpenAI, Anthropic, and Gemini protocols. Swap the Base URL to connect.'
           },
-          availability: {
+          channel: {
             title: 'Model Channels',
             description: 'Organize Claude, Codex, Gemini, and other channels by developer tool scenarios.'
           },
-          security: {
+          context: {
             title: 'Context Capabilities',
             description: 'Surface 200k, 1M, thinking, WebSearch, and model-specific capabilities clearly.'
           },
-          cost: {
+          ratio: {
             title: 'Transparent Ratios',
             description: 'Show channel ratios and capability tags directly, without packaging them as traditional plans.'
           },
@@ -640,7 +922,7 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
           endpointTitle: 'Step 3 — Confirm Endpoint URLs',
           endpointLead: 'Use the corresponding endpoint for each CLI tool:',
           endpointHead: `
-            <tr class="bg-slate-50 dark:bg-[#111C2D]">
+            <tr class="bg-slate-50 dark:bg-custom-surface-dark">
               <th class="px-4 py-3 text-sm font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">Protocol</th>
               <th class="px-4 py-3 text-sm font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">Endpoint</th>
               <th class="px-4 py-3 text-sm font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">Tools</th>
@@ -658,7 +940,7 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
           quickConfig: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 5 — Quick Configuration</h3>
             <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">After you get an API key, the fastest setup path is via environment variables:</p>
-            <div class="code-block bg-slate-50 dark:bg-[#111C2D] rounded-lg p-4 font-mono text-sm mb-4"><span class="lang-label">bash</span><pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># Anthropic protocol (Claude Code)
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4"><span class="lang-label">bash</span><pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># Anthropic protocol (Claude Code)
 export ANTHROPIC_API_KEY="sk-pig-xxxx"
 export ANTHROPIC_BASE_URL="https://sub2.pigcoder.com"
 
@@ -673,7 +955,7 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre></div>
           ccSwitchImport: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 6 — One-Click CC Switch Import</h3>
             <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">If you use CC Switch, you can import the provider configuration with a Deep Link instead of editing files manually:</p>
-            <div class="code-block bg-slate-50 dark:bg-[#111C2D] rounded-lg p-4 font-mono text-sm mb-4"><span class="lang-label">text</span><pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>ccswitch://provider/add?name=Pigcoder&apiBaseUrl=https://sub2.pigcoder.com&apiKey=sk-pig-xxxx</code></pre></div>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4"><span class="lang-label">text</span><pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>ccswitch://provider/add?name=Pigcoder&apiBaseUrl=https://sub2.pigcoder.com&apiKey=sk-pig-xxxx</code></pre></div>
             <p class="text-slate-700 dark:text-slate-300 leading-relaxed">Open the link above in your browser and CC Switch will add Pigcoder as a provider automatically. Then paste your API key and you are done.</p>
           `
         },
@@ -685,11 +967,293 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre></div>
           droidCli: 'Droid CLI',
           ccSwitch: 'CC Switch'
         },
+        toolGuide: {
+          claudeCode: `
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Claude Code</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">The official AI coding assistant from Anthropic. Requires Node.js (v18+).</p>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Install</h4>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS / Linux
+npm install -g @anthropic-ai/claude-code
+
+# Windows (PowerShell as administrator)
+npm install -g @anthropic-ai/claude-code</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Option 1: Config file (recommended)</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Edit <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">settings.json</code>:</p>
+            <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 mb-3">
+              <li>macOS / Linux: <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.claude/settings.json</code></li>
+              <li>Windows: <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">%USERPROFILE%\\.claude\\settings.json</code></li>
+            </ul>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">json</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
+  "apiKeyHelper": "echo sk-pig-xxxx",
+  "apiBaseUrl": "https://sub2.pigcoder.com"
+}</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Option 2: Environment variables</h4>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-3">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS / Linux
+export ANTHROPIC_API_KEY="sk-pig-xxxx"
+export ANTHROPIC_BASE_URL="https://sub2.pigcoder.com"</code></pre>
+            </div>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-3">
+              <span class="lang-label">powershell</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># Windows (PowerShell)
+$env:ANTHROPIC_API_KEY = "sk-pig-xxxx"
+$env:ANTHROPIC_BASE_URL = "https://sub2.pigcoder.com"</code></pre>
+            </div>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">cmd</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># Windows (CMD)
+set ANTHROPIC_API_KEY=sk-pig-xxxx
+set ANTHROPIC_BASE_URL=https://sub2.pigcoder.com</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Option 3: VS Code extension</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">If you use the Claude Code extension for VS Code, search for <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">claude</code> in VS Code settings and update the following:</p>
+            <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 mb-4">
+              <li><strong>API Key</strong>: enter <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">sk-pig-xxxx</code></li>
+              <li><strong>API Base URL</strong>: enter <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">https://sub2.pigcoder.com</code></li>
+            </ul>
+            <div class="border-l-4 border-custom-gold bg-amber-50 dark:bg-amber-900/20 p-4 rounded-r-lg">
+              <p class="text-sm text-slate-700 dark:text-slate-300"><strong>Note:</strong> Claude Code uses the native Anthropic protocol — do not append <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">/v1</code> to the endpoint.</p>
+            </div>
+          `,
+          codexCli: `
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Codex CLI</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">The official open-source command-line coding assistant from OpenAI. Uses the OpenAI-compatible protocol.</p>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Install</h4>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>npm i -g @openai/codex</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Config file</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Edit <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.codex/config.toml</code>:</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">toml</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>[model]
+name = "claude-sonnet-4-20250514"
+
+[provider]
+name = "openai"
+base_url = "https://sub2.pigcoder.com/v1"</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">API key configuration</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Edit <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.codex/auth.json</code>:</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
+              <span class="lang-label">json</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
+  "openai": "sk-pig-xxxx"
+}</code></pre>
+            </div>
+          `,
+          geminiCli: `
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Gemini CLI</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">The official AI command-line tool from Google. Uses the Gemini protocol.</p>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Install</h4>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>npm i -g @google/gemini-cli</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Option 1: Environment variables</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Add the following to <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.gemini/.env</code>:</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">env</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>GEMINI_API_KEY=sk-pig-xxxx
+GEMINI_API_BASE_URL=https://sub2.pigcoder.com/v1beta</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Option 2: Config file</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Edit <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.gemini/settings.json</code>:</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
+              <span class="lang-label">json</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
+  "apiKey": "sk-pig-xxxx",
+  "apiBaseUrl": "https://sub2.pigcoder.com/v1beta"
+}</code></pre>
+            </div>
+          `,
+          opencode: `
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">OpenCode</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">A terminal AI coding assistant written in Go. Uses the OpenAI-compatible protocol.</p>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Install</h4>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS (Homebrew)
+brew install opencode
+
+# Install via Go
+go install github.com/opencode-ai/opencode@latest</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Config file</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Create <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">opencode.json</code> in your project root:</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
+              <span class="lang-label">json</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
+  "providers": {
+    "pigcoder": {
+      "apiKey": "sk-pig-xxxx",
+      "baseURL": "https://sub2.pigcoder.com/v1",
+      "models": {
+        "claude-sonnet-4-20250514": {
+          "maxTokens": 8096,
+          "contextWindow": 200000
+        }
+      }
+    }
+  },
+  "agents": {
+    "coder": {
+      "model": "pigcoder/claude-sonnet-4-20250514",
+      "maxTokens": 8096
+    },
+    "task": {
+      "model": "pigcoder/claude-sonnet-4-20250514",
+      "maxTokens": 8096
+    },
+    "title": {
+      "model": "pigcoder/claude-sonnet-4-20250514",
+      "maxTokens": 200
+    }
+  }
+}</code></pre>
+            </div>
+          `,
+          droidCli: `
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Droid CLI</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">A lightweight AI terminal coding assistant that supports multiple model backends. Uses the OpenAI-compatible protocol.</p>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Install</h4>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>npm i -g droid-cli</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Config file</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Edit <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.config/droid/config.json</code>:</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
+              <span class="lang-label">json</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
+  "provider": "openai",
+  "model": "claude-sonnet-4-20250514",
+  "apiKey": "sk-pig-xxxx",
+  "baseURL": "https://sub2.pigcoder.com/v1"
+}</code></pre>
+            </div>
+          `,
+          ccSwitch: `
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">CC Switch</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">A Claude Code provider manager that lets you quickly switch between multiple API providers without editing config files by hand.</p>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Core features</h4>
+            <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 mb-6">
+              <li>Switch the Claude Code API provider with one click</li>
+              <li>Manage multiple provider configurations</li>
+              <li>Import a provider via a Deep Link in one click</li>
+              <li>Automatically back up and restore configurations</li>
+            </ul>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Install</h4>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS
+brew install nicepkg/tap/cc-switch
+
+# npm
+npm i -g cc-switch</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">One-click Deep Link import</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Open the following link in your browser to import the Pigcoder configuration automatically:</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
+              <span class="lang-label">text</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>ccswitch://provider/add?name=Pigcoder&apiBaseUrl=https://sub2.pigcoder.com&apiKey=sk-pig-xxxx</code></pre>
+            </div>
+            <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Manual configuration</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">You can also add it manually from the command line:</p>
+            <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
+              <span class="lang-label">bash</span>
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># Add a provider
+cc-switch provider add Pigcoder --api-base-url https://sub2.pigcoder.com --api-key sk-pig-xxxx
+
+# Switch to Pigcoder
+cc-switch use Pigcoder
+
+# Show the current provider
+cc-switch current</code></pre>
+            </div>
+          `
+        },
         reference: {
           quickRefTitle: 'Quick Reference',
           commandsTitle: 'Common Commands',
           commandsLead: 'These are the built-in commands you will use most often in CLI tools:',
-          troubleshootTitle: 'Troubleshooting'
+          troubleshootTitle: 'Troubleshooting',
+          quickRefHead: `
+            <tr class="bg-slate-50 dark:bg-custom-surface-dark">
+              <th class="px-4 py-3 font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">Tool</th>
+              <th class="px-4 py-3 font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">Install command</th>
+              <th class="px-4 py-3 font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">Config file</th>
+              <th class="px-4 py-3 font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">Endpoint</th>
+            </tr>
+          `,
+          commandsHead: `
+            <tr class="bg-slate-50 dark:bg-custom-surface-dark">
+              <th class="px-4 py-3 font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">Command</th>
+              <th class="px-4 py-3 font-semibold text-custom-ink dark:text-slate-300 border-b border-slate-200 dark:border-white/10">Description</th>
+            </tr>
+          `,
+          cmd: {
+            help: 'Show help and the list of available commands',
+            clear: 'Clear the current conversation history',
+            compact: 'Compact the conversation context to free up token quota',
+            cost: 'Show the token usage and cost of the current session',
+            model: 'View or switch the active model',
+            models: 'List all available models'
+          },
+          ts: {
+            q1: `
+              <h4 class="font-semibold text-custom-ink dark:text-slate-200 mb-2">Command not found</h4>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-3">After installing, the terminal reports the command does not exist. This usually means the npm global bin directory is not on your PATH.</p>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed"><strong>Fix:</strong></p>
+              <div class="code-block bg-slate-50 dark:bg-[#0f1922] rounded-lg p-4 font-mono text-sm mt-2">
+                <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># Show the npm global bin directory
+npm config get prefix
+
+# Add the printed path/bin to PATH
+export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
+              </div>
+            `,
+            q2: `
+              <h4 class="font-semibold text-custom-ink dark:text-slate-200 mb-2">API connection failed</h4>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-3">Requests time out or cannot reach the server.</p>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed"><strong>Fix:</strong></p>
+              <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 text-sm mt-2">
+                <li>Check that your network connection is working</li>
+                <li>Confirm the endpoint is correct (see the endpoint table above)</li>
+                <li>Check whether a proxy or VPN is blocking the connection</li>
+                <li>Try testing endpoint reachability with <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">curl</code></li>
+              </ul>
+            `,
+            q3: `
+              <h4 class="font-semibold text-custom-ink dark:text-slate-200 mb-2">Wrong endpoint configuration</h4>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-3">Requests fail because the endpoint is configured incorrectly.</p>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed"><strong>Fix:</strong></p>
+              <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 text-sm mt-2">
+                <li>Claude Code uses the Anthropic protocol. Endpoint: <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com</code> — do <strong>not</strong> append <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">/v1</code></li>
+                <li>Codex CLI / OpenCode / Droid CLI use the OpenAI protocol. Endpoint: <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com/v1</code></li>
+                <li>Gemini CLI uses the Gemini protocol. Endpoint: <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com/v1beta</code></li>
+              </ul>
+            `,
+            q4: `
+              <h4 class="font-semibold text-custom-ink dark:text-slate-200 mb-2">Invalid API key</h4>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-3">Authentication fails or the API key is reported invalid.</p>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed"><strong>Fix:</strong></p>
+              <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 text-sm mt-2">
+                <li>Make sure the API key was copied correctly (no extra spaces or missing characters)</li>
+                <li>Make sure the key group matches the tool you are using (Anthropic group for Claude Code, OpenAI group for Codex CLI, etc.)</li>
+                <li>Sign in to the console and check whether the token is still valid — not deleted or expired</li>
+                <li>Check that your account balance is sufficient</li>
+              </ul>
+            `
+          }
         }
       }
     }

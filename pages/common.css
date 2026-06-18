@@ -208,13 +208,13 @@ button {
 .dark .surface-gradient-alt {
   background:
     radial-gradient(circle at 20% 0%, rgba(232, 168, 37, 0.08), transparent 26rem),
-    linear-gradient(180deg, #0d1b2a 0%, #101f33 100%);
+    linear-gradient(180deg, var(--pc-navy-deep) 0%, #101f33 100%);
 }
 
 .dark .surface-gradient-hero {
   background:
     radial-gradient(circle at 16% 10%, rgba(232, 168, 37, 0.12), transparent 24rem),
-    linear-gradient(180deg, #111c2d 0%, #0d1b2a 100%);
+    linear-gradient(180deg, var(--pc-paper) 0%, var(--pc-navy-deep) 100%);
 }
 
 .hero-glass-overlay {
@@ -319,7 +319,7 @@ button {
 }
 
 .dark .hero-modern {
-  background: #0d1b2a;
+  background: var(--pc-navy-deep);
 }
 
 .hero-grid-lines {
@@ -578,7 +578,7 @@ button {
   margin-top: 1rem;
   overflow: hidden;
   border-radius: 1rem;
-  background: #0d1b2a;
+  background: var(--pc-navy-deep);
   color: #f8fafc;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
@@ -645,9 +645,9 @@ button {
 }
 
 .fade-up {
-  opacity: 1;
-  transform: none;
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 .fade-up.visible {
