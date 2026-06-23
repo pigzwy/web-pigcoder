@@ -1141,6 +1141,27 @@ button {
   }
 }
 
+/* 顶栏背景写在 common.css 而非 Tailwind 颜色 token：避免 theme.js 缓存旧版时
+   dark:bg-custom-navy-deep 解析失败导致深色模式顶栏回退成白色 */
+.header-surface {
+  background-color: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+}
+
+.dark .header-surface {
+  background-color: rgba(13, 27, 42, 0.95);
+}
+
+/* 移动端导航面板背景同理写死，不依赖 Tailwind surface token */
+.panel-surface {
+  background-color: #ffffff;
+}
+
+.dark .panel-surface {
+  background-color: #111c2d;
+}
+
 #site-header {
   position: sticky;
   top: 0;
