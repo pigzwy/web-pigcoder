@@ -31,7 +31,7 @@
         categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Kiro',
         ratio: '1:0.5',
-        rate: '1.82$/元',
+        rate: '2.00$/元',
         description: 'Sonnet / Haiku 渠道，适合日常代码代理',
         models: ['claude-sonnet-4-6', 'claude-haiku-4-5'],
         perks: ['支持内置 thinking', '支持 WebSearch', '200k 上下文', 'OpenClaw 首选'],
@@ -64,7 +64,7 @@
         categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Codex (GPT PRO)',
         ratio: '1:0.3',
-        rate: '1.67$/元',
+        rate: '3.33$/元',
         description: 'Codex Pro 级渠道，覆盖最新 Codex 模型',
         models: ['gpt-5.5', 'gpt-5.4'],
         perks: ['xhigh 等全部支持'],
@@ -110,7 +110,7 @@
         categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
         title: 'Kiro',
         ratio: '1:0.5',
-        rate: '$1.82 / CNY',
+        rate: '$2.00 / CNY',
         description: 'Sonnet / Haiku channel for everyday coding agents',
         models: ['claude-sonnet-4-6', 'claude-haiku-4-5'],
         perks: ['Built-in thinking', 'WebSearch support', '200k context', 'Great for OpenClaw'],
@@ -185,16 +185,8 @@
     return '<span class="' + perkClass + '">' + perk + '</span>';
   }
 
-  function renderCard(card) {
-    var modelsHtml = card.models.map(function (model) {
-      return renderModel(model);
-    }).join('');
-
-    var perksHtml = card.perks.map(function (perk) {
-      return renderPerk(perk, card.perkClass);
-    }).join('');
-
-    var labels = window.PigcoderI18n ? {
+  function getLabels() {
+    return window.PigcoderI18n ? {
       ratio: window.PigcoderI18n.t('pricing.card.ratio'),
       models: window.PigcoderI18n.t('pricing.card.models'),
       capabilities: window.PigcoderI18n.t('pricing.card.capabilities'),
@@ -205,13 +197,20 @@
       capabilities: '能力',
       action: '立即前往控制台'
     };
+  }
+
+  function renderCard(card, labels) {
+    var modelsHtml = card.models.map(function (model) {
+      return renderModel(model);
+    }).join('');
+
+    var perksHtml = card.perks.map(function (perk) {
+      return renderPerk(perk, card.perkClass);
+    }).join('');
 
     return '<div class="pricing-card channel-card rounded-xl p-5 flex flex-col">' +
       '<div class="channel-card-head mb-4">' +
-        '<div class="min-w-0">' +
-          '<span class="' + card.categoryClass + '">' + card.category + '</span>' +
-          '<h3 class="mt-3 truncate text-custom-ink dark:text-white font-semibold text-base">' + card.title + '</h3>' +
-        '</div>' +
+        '<h3 class="min-w-0 truncate text-custom-ink dark:text-white font-semibold text-base">' + card.title + '</h3>' +
         '<div class="channel-ratio">' +
           '<span class="channel-ratio-label">' + labels.ratio + '</span>' +
           '<strong>' + card.ratio + '</strong>' +
@@ -223,16 +222,52 @@
         '<span class="channel-label">' + labels.models + '</span>' +
         '<div class="mt-2 flex flex-wrap gap-1.5">' + modelsHtml + '</div>' +
       '</div>' +
-      '<div class="mb-6 flex-grow">' +
+      '<div class="mb-5 flex-grow">' +
         '<span class="channel-label">' + labels.capabilities + '</span>' +
         '<div class="mt-2 flex flex-wrap gap-2">' + perksHtml + '</div>' +
       '</div>' +
       '<div data-partial="partials/recharge-button.html" data-label="' + labels.action + '" data-label-i18n="common.cta.console">' +
-        '<a href="https://sub2.pigcoder.com/login" class="btn-primary w-full px-5 py-3 text-sm">' + labels.action + '</a>' +
+        '<a href="https://sub2.pigcoder.com/login" class="btn-ghost w-full px-5 py-2.5 text-sm border border-custom-line dark:border-white/10 rounded-lg">' + labels.action + '</a>' +
       '</div>' +
     '</div>';
   }
 
+  // 按 Provider 分组渲染：分组标题 + 组内网格，替代 7 卡平铺
+  function render() {
+    var labels = getLabels();
+    var cards = getCards();
+    var order = [];
+    var groups = {};
+
+    cards.forEach(function (card) {
+      if (!groups[card.category]) {
+        groups[card.category] = [];
+        order.push(card.category);
+      }
+      groups[card.category].push(card);
+    });
+
+    grid.innerHTML = order.map(function (category) {
+      var cardsHtml = groups[category].map(function (card) {
+        return renderCard(card, labels);
+      }).join('');
+      return '<section>' +
+        '<h3 class="mb-4 flex items-center gap-3 text-lg font-bold font-headline text-custom-ink dark:text-white">' +
+          category +
+          '<span class="h-px flex-1 bg-custom-line dark:bg-white/10" aria-hidden="true"></span>' +
+        '</h3>' +
+        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">' + cardsHtml + '</div>' +
+      '</section>';
+    }).join('');
+
+    if (window.PigcoderPartials && typeof window.PigcoderPartials.hydrateWithin === 'function') {
+      window.PigcoderPartials.hydrateWithin(grid);
+    }
+
+    animateCards(Array.prototype.slice.call(grid.querySelectorAll('.pricing-card')));
+  }
+
+  // 滚动进场：渲染完成后为价格卡挂淡入动画
   function animateCards(elements) {
     elements.forEach(function (el) {
       el.classList.add('fade-up');
@@ -250,16 +285,6 @@
     elements.forEach(function (el) {
       observer.observe(el);
     });
-  }
-
-  function render() {
-    grid.innerHTML = getCards().map(renderCard).join('');
-
-    if (window.PigcoderPartials && typeof window.PigcoderPartials.hydrateWithin === 'function') {
-      window.PigcoderPartials.hydrateWithin(grid);
-    }
-
-    animateCards(Array.prototype.slice.call(grid.querySelectorAll('.pricing-card')));
   }
 
   render();

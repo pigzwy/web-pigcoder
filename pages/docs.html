@@ -10,7 +10,7 @@
   <meta property="og:title" content="Pigcoder 接入文档" />
   <meta property="og:description" content="平台开通、API Key 获取，以及各类 CLI 工具的端点配置与排查。" />
   <!-- 部署到正式域名后，请把 og:image 改为绝对地址（如 https://your-domain/logo.jpg） -->
-  <meta property="og:image" content="logo.jpg?v=20260623-dark-tokens" />
+  <meta property="og:image" content="logo.jpg?v=20260703-docs-fix" />
   <meta property="og:url" content="docs.html" />
   <meta property="og:site_name" content="Pigcoder" />
   <meta property="og:locale" content="zh_CN" />
@@ -18,13 +18,13 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Pigcoder 接入文档" />
   <meta name="twitter:description" content="平台开通、API Key 获取，以及各类 CLI 工具的端点配置与排查。" />
-  <meta name="twitter:image" content="logo.jpg?v=20260623-dark-tokens" />
+  <meta name="twitter:image" content="logo.jpg?v=20260703-docs-fix" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="logo.jpg?v=20260623-dark-tokens" rel="icon" type="image/jpeg" />
-  <script src="theme.js?v=20260623-dark-tokens"></script>
+  <link href="logo.jpg?v=20260703-docs-fix" rel="icon" type="image/jpeg" />
+  <script src="theme.js?v=20260703-docs-fix"></script>
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link href="common.css?v=20260623-dark-tokens" rel="stylesheet" />
+  <link href="common.css?v=20260703-docs-fix" rel="stylesheet" />
   <style>
     .code-block {
       position: relative;
@@ -152,7 +152,7 @@
     }
 
     .doc-table-shell {
-      border-radius: 0.875rem;
+      border-radius: 0.75rem;
       overflow: hidden;
       border: 1px solid var(--pc-line);
       background: var(--pc-paper);
@@ -197,7 +197,7 @@
 </head>
 
 <body
-  class="bg-custom-wash dark:bg-custom-navy-deep font-body text-custom-ink dark:text-white selection:bg-custom-gold selection:text-white transition-colors duration-300">
+  class="bg-custom-wash dark:bg-custom-navy-deep font-body text-custom-ink dark:text-white selection:bg-custom-navy selection:text-white transition-colors duration-300">
 
   <a href="#main-content" class="skip-link" data-i18n="common.skip">跳到主要内容</a>
 
@@ -207,7 +207,6 @@
   <main id="main-content">
     <section class="hero-modern relative overflow-hidden border-b border-custom-line/70 dark:border-white/10">
       <div class="surface-gradient-hero"></div>
-      <div class="orb-gold-hero"></div>
       <div class="section-shell-wide py-14 md:py-20">
         <div class="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div class="max-w-3xl text-left">
@@ -226,17 +225,17 @@
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <a href="#platform" class="doc-metric-card rounded-xl px-5 py-4 transition-transform hover:-translate-y-0.5">
-              <div class="text-xs font-semibold uppercase tracking-[0.18em] text-custom-muted dark:text-slate-400 mb-2">
+              <div class="text-xs font-semibold uppercase tracking-[0.12em] text-custom-muted dark:text-slate-400 mb-2">
                 <span data-i18n="docs.hero.cards.startLabel">Getting Started</span></div>
               <div data-i18n="docs.hero.cards.startTitle" class="text-lg font-semibold text-custom-ink dark:text-white">平台开通与密钥</div>
             </a>
             <a href="#claude-code" class="doc-metric-card rounded-xl px-5 py-4 transition-transform hover:-translate-y-0.5">
-              <div class="text-xs font-semibold uppercase tracking-[0.18em] text-custom-muted dark:text-slate-400 mb-2">
+              <div class="text-xs font-semibold uppercase tracking-[0.12em] text-custom-muted dark:text-slate-400 mb-2">
                 <span data-i18n="docs.hero.cards.toolingLabel">Tooling</span></div>
               <div data-i18n="docs.hero.cards.toolingTitle" class="text-lg font-semibold text-custom-ink dark:text-white">CLI 配置入口</div>
             </a>
             <a href="#quick-ref" class="doc-metric-card rounded-xl px-5 py-4 transition-transform hover:-translate-y-0.5">
-              <div class="text-xs font-semibold uppercase tracking-[0.18em] text-custom-muted dark:text-slate-400 mb-2">
+              <div class="text-xs font-semibold uppercase tracking-[0.12em] text-custom-muted dark:text-slate-400 mb-2">
                 <span data-i18n="docs.hero.cards.referenceLabel">Reference</span></div>
               <div data-i18n="docs.hero.cards.referenceTitle" class="text-lg font-semibold text-custom-ink dark:text-white">快速对照与排查</div>
             </a>
@@ -250,6 +249,26 @@
         <div class="surface-gradient-main"></div>
       </div>
       <div class="section-shell-wide">
+        <!-- 移动端目录：lg 以下侧栏隐藏时的导航入口 -->
+        <details class="lg:hidden mb-6 doc-surface-panel rounded-2xl px-5 py-4">
+          <summary class="cursor-pointer font-semibold text-custom-ink dark:text-white" data-i18n="docs.sidebar.toc">本页目录</summary>
+          <nav class="mt-3 grid gap-1 sm:grid-cols-2">
+            <a href="#register" data-i18n="docs.sidebar.links.register" class="sidebar-link">注册与登录</a>
+            <a href="#apikey" data-i18n="docs.sidebar.links.apikey" class="sidebar-link">获取 API Key</a>
+            <a href="#endpoint" data-i18n="docs.sidebar.links.endpoint" class="sidebar-link">确认端点地址</a>
+            <a href="#usage" data-i18n="docs.sidebar.links.usage" class="sidebar-link">查看用量</a>
+            <a href="#quick-config" data-i18n="docs.sidebar.links.quickConfig" class="sidebar-link">快速配置</a>
+            <a href="#claude-code" data-i18n="docs.sidebar.links.claudeCode" class="sidebar-link">Claude Code</a>
+            <a href="#codex-cli" data-i18n="docs.sidebar.links.codexCli" class="sidebar-link">Codex CLI</a>
+            <a href="#gemini-cli" data-i18n="docs.sidebar.links.geminiCli" class="sidebar-link">Gemini CLI</a>
+            <a href="#opencode" data-i18n="docs.sidebar.links.opencode" class="sidebar-link">OpenCode</a>
+            <a href="#droid-cli" data-i18n="docs.sidebar.links.droidCli" class="sidebar-link">Droid CLI</a>
+            <a href="#cc-switch" data-i18n="docs.sidebar.links.ccSwitch" class="sidebar-link">CC Switch</a>
+            <a href="#quick-ref" data-i18n="docs.sidebar.links.quickRef" class="sidebar-link">快速对照表</a>
+            <a href="#commands" data-i18n="docs.sidebar.links.commands" class="sidebar-link">常用命令</a>
+            <a href="#troubleshoot" data-i18n="docs.sidebar.links.troubleshoot" class="sidebar-link">故障排查</a>
+          </nav>
+        </details>
         <div class="flex gap-6 min-h-screen">
 
           <!-- 主内容区 -->
@@ -279,7 +298,7 @@
                   <li>进入控制台后，点击左侧菜单「令牌」。</li>
                   <li>点击「创建令牌」按钮。</li>
                   <li>为令牌填写一个名称（如 <code
-                      class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">my-cli-key</code>）。</li>
+                      class="code-chip">my-cli-key</code>）。</li>
                   <li>根据需要选择令牌分组：
                     <ul class="list-disc ml-6 mt-2 space-y-1">
                       <li><strong>Anthropic 分组</strong> — 用于 Claude Code 等 Anthropic 协议工具</li>
@@ -320,21 +339,21 @@
                       <tr class="border-b border-slate-100 dark:border-white/5">
                         <td class="px-4 py-3 font-medium">Anthropic</td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">https://sub2.pigcoder.com</code>
+                            class="code-chip">https://sub2.pigcoder.com</code>
                         </td>
                         <td class="px-4 py-3">Claude Code</td>
                       </tr>
                       <tr class="border-b border-slate-100 dark:border-white/5">
                         <td class="px-4 py-3 font-medium">OpenAI</td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">https://sub2.pigcoder.com/v1</code>
+                            class="code-chip">https://sub2.pigcoder.com/v1</code>
                         </td>
                         <td class="px-4 py-3">Codex CLI, OpenCode, Droid CLI</td>
                       </tr>
                       <tr>
                         <td class="px-4 py-3 font-medium">Gemini</td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">https://sub2.pigcoder.com/v1beta</code>
+                            class="code-chip">https://sub2.pigcoder.com/v1beta</code>
                         </td>
                         <td class="px-4 py-3">Gemini CLI</td>
                       </tr>
@@ -370,24 +389,10 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
                 <!-- 提示框 -->
                 <div class="border-l-4 border-custom-green bg-green-50 dark:bg-green-900/20 p-4 rounded-r-lg">
                   <p class="text-sm text-slate-700 dark:text-slate-300"><strong>提示：</strong>建议将环境变量写入 <code
-                      class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.bashrc</code> 或 <code
-                      class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.zshrc</code>，这样每次打开终端都会自动加载。
+                      class="code-chip">~/.bashrc</code> 或 <code
+                      class="code-chip">~/.zshrc</code>，这样每次打开终端都会自动加载。
                   </p>
                 </div>
-              </div>
-
-              <!-- Step 6: CC Switch 一键导入 -->
-              <div id="cc-switch-import" data-i18n-html="docs.platform.ccSwitchImport" class="mb-12 scroll-mt-20">
-                <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 6 — CC Switch 一键导入</h3>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">如果你使用 CC Switch，可以通过 Deep Link
-                  一键导入服务商配置，无需手动编辑任何文件：</p>
-                <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
-                  <span class="lang-label">text</span>
-                  <pre
-                    class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>ccswitch://provider/add?name=Pigcoder&apiBaseUrl=https://sub2.pigcoder.com&apiKey=sk-pig-xxxx</code></pre>
-                </div>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">在浏览器中打开上述链接，CC Switch 将自动添加 Pigcoder
-                  作为服务商，填入你的 API Key 即可。</p>
               </div>
             </section>
 
@@ -415,20 +420,22 @@ npm install -g @anthropic-ai/claude-code</code></pre>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">方式一：通过配置文件（推荐）</h4>
                 <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">编辑 <code
-                    class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">settings.json</code>：</p>
+                    class="code-chip">settings.json</code>：</p>
                 <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 mb-3">
                   <li>macOS / Linux：<code
-                      class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.claude/settings.json</code>
+                      class="code-chip">~/.claude/settings.json</code>
                   </li>
                   <li>Windows：<code
-                      class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">%USERPROFILE%\.claude\settings.json</code>
+                      class="code-chip">%USERPROFILE%\.claude\settings.json</code>
                   </li>
                 </ul>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
                   <span class="lang-label">json</span>
                   <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
-  "apiKeyHelper": "echo sk-pig-xxxx",
-  "apiBaseUrl": "https://sub2.pigcoder.com"
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://sub2.pigcoder.com",
+    "ANTHROPIC_API_KEY": "sk-pig-xxxx"
+  }
 }</code></pre>
                 </div>
 
@@ -455,17 +462,17 @@ set ANTHROPIC_BASE_URL=https://sub2.pigcoder.com</code></pre>
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">方式三：VS Code 扩展</h4>
                 <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">如果你使用 VS Code 的 Claude Code 扩展，在 VS
                   Code 设置中搜索 <code
-                    class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">claude</code>，然后修改以下配置：</p>
+                    class="code-chip">claude</code>，然后修改以下配置：</p>
                 <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 mb-4">
                   <li><strong>API Key</strong>：填入 <code
-                      class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">sk-pig-xxxx</code></li>
+                      class="code-chip">sk-pig-xxxx</code></li>
                   <li><strong>API Base URL</strong>：填入 <code
-                      class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">https://sub2.pigcoder.com</code>
+                      class="code-chip">https://sub2.pigcoder.com</code>
                   </li>
                 </ul>
                 <div class="border-l-4 border-custom-gold bg-amber-50 dark:bg-amber-900/20 p-4 rounded-r-lg">
                   <p class="text-sm text-slate-700 dark:text-slate-300"><strong>注意：</strong>Claude Code 使用 Anthropic
-                    原生协议，端点地址不要加 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">/v1</code>。
+                    原生协议，端点地址不要加 <code class="code-chip">/v1</code>。
                   </p>
                 </div>
               </div>
@@ -485,26 +492,25 @@ set ANTHROPIC_BASE_URL=https://sub2.pigcoder.com</code></pre>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">配置文件</h4>
                 <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">编辑 <code
-                    class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.codex/config.toml</code>：
+                    class="code-chip">~/.codex/config.toml</code>：
                 </p>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
                   <span class="lang-label">toml</span>
-                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>[model]
-name = "claude-sonnet-4-20250514"
+                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>model = "gpt-5.5"
+model_provider = "pigcoder"
 
-[provider]
-name = "openai"
-base_url = "https://sub2.pigcoder.com/v1"</code></pre>
+[model_providers.pigcoder]
+name = "Pigcoder"
+base_url = "https://sub2.pigcoder.com/v1"
+env_key = "PIGCODER_API_KEY"</code></pre>
                 </div>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">API Key 配置</h4>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">编辑 <code
-                    class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.codex/auth.json</code>：</p>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Codex 会从 <code
+                    class="code-chip">env_key</code> 指定的环境变量读取密钥：</p>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
-                  <span class="lang-label">json</span>
-                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
-  "openai": "sk-pig-xxxx"
-}</code></pre>
+                  <span class="lang-label">bash</span>
+                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>export PIGCODER_API_KEY="sk-pig-xxxx"</code></pre>
                 </div>
               </div>
 
@@ -520,151 +526,154 @@ base_url = "https://sub2.pigcoder.com/v1"</code></pre>
                     class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>npm i -g @google/gemini-cli</code></pre>
                 </div>
 
-                <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">方式一：通过环境变量</h4>
+                <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">方式一：通过 .env 文件</h4>
                 <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">在 <code
-                    class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.gemini/.env</code> 中添加：</p>
+                    class="code-chip">~/.gemini/.env</code> 中添加：</p>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
                   <span class="lang-label">env</span>
                   <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>GEMINI_API_KEY=sk-pig-xxxx
-GEMINI_API_BASE_URL=https://sub2.pigcoder.com/v1beta</code></pre>
+GOOGLE_GEMINI_BASE_URL=https://sub2.pigcoder.com/v1beta</code></pre>
                 </div>
 
-                <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">方式二：通过配置文件</h4>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">编辑 <code
-                    class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.gemini/settings.json</code>：
-                </p>
+                <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">方式二：通过 shell 环境变量</h4>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">也可以写入 <code
+                    class="code-chip">~/.bashrc</code> 或 <code
+                    class="code-chip">~/.zshrc</code>：</p>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
-                  <span class="lang-label">json</span>
-                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
-  "apiKey": "sk-pig-xxxx",
-  "apiBaseUrl": "https://sub2.pigcoder.com/v1beta"
-}</code></pre>
+                  <span class="lang-label">bash</span>
+                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>export GEMINI_API_KEY="sk-pig-xxxx"
+export GOOGLE_GEMINI_BASE_URL="https://sub2.pigcoder.com/v1beta"</code></pre>
                 </div>
               </div>
 
               <!-- OpenCode -->
               <div id="opencode" data-i18n-html="docs.toolGuide.opencode" class="mb-16 scroll-mt-20">
                 <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">OpenCode</h3>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">Go 语言编写的终端 AI 编程助手。使用 OpenAI 兼容协议。</p>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">开源终端 AI 编程助手，支持自定义 OpenAI 兼容 Provider。</p>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">安装</h4>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
                   <span class="lang-label">bash</span>
-                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS (Homebrew)
-brew install opencode
+                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># 安装脚本
+curl -fsSL https://opencode.ai/install | bash
 
-# Go 安装
-go install github.com/opencode-ai/opencode@latest</code></pre>
+# npm
+npm install -g opencode-ai</code></pre>
                 </div>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">配置文件</h4>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">在项目根目录创建 <code
-                    class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">opencode.json</code>：</p>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">编辑 <code
+                    class="code-chip">~/.config/opencode/opencode.json</code>（或项目根目录的 <code
+                    class="code-chip">opencode.json</code>）：</p>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
                   <span class="lang-label">json</span>
                   <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
-  "providers": {
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
     "pigcoder": {
-      "apiKey": "sk-pig-xxxx",
-      "baseURL": "https://sub2.pigcoder.com/v1",
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Pigcoder",
+      "options": {
+        "baseURL": "https://sub2.pigcoder.com/v1",
+        "apiKey": "{env:PIGCODER_API_KEY}"
+      },
       "models": {
-        "claude-sonnet-4-20250514": {
-          "maxTokens": 8096,
-          "contextWindow": 200000
+        "gpt-5.5": {
+          "name": "GPT-5.5"
         }
       }
     }
   },
-  "agents": {
-    "coder": {
-      "model": "pigcoder/claude-sonnet-4-20250514",
-      "maxTokens": 8096
-    },
-    "task": {
-      "model": "pigcoder/claude-sonnet-4-20250514",
-      "maxTokens": 8096
-    },
-    "title": {
-      "model": "pigcoder/claude-sonnet-4-20250514",
-      "maxTokens": 200
-    }
-  }
+  "model": "pigcoder/gpt-5.5"
 }</code></pre>
                 </div>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">然后设置环境变量 <code
+                    class="code-chip">export PIGCODER_API_KEY="sk-pig-xxxx"</code>，或在 OpenCode 内使用 <code
+                    class="code-chip">/connect</code> 保存密钥。</p>
               </div>
 
               <!-- Droid CLI -->
               <div id="droid-cli" data-i18n-html="docs.toolGuide.droidCli" class="mb-16 scroll-mt-20">
                 <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Droid CLI</h3>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">轻量级 AI 终端编程助手，支持多种模型后端。使用 OpenAI 兼容协议。
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">Factory 推出的 AI 终端编程助手，支持通过 BYOK（自带密钥）接入自定义模型。
                 </p>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">安装</h4>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
                   <span class="lang-label">bash</span>
-                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>npm i -g droid-cli</code></pre>
+                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS / Linux
+curl -fsSL https://app.factory.ai/cli | sh
+
+# Windows (PowerShell)
+irm https://app.factory.ai/cli/windows | iex
+
+# npm
+npm install -g droid</code></pre>
                 </div>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">配置文件</h4>
                 <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">编辑 <code
-                    class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-sm">~/.config/droid/config.json</code>：
+                    class="code-chip">~/.factory/settings.json</code>，在 <code
+                    class="code-chip">customModels</code> 中添加：
                 </p>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
                   <span class="lang-label">json</span>
                   <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
-  "provider": "openai",
-  "model": "claude-sonnet-4-20250514",
-  "apiKey": "sk-pig-xxxx",
-  "baseURL": "https://sub2.pigcoder.com/v1"
+  "customModels": [
+    {
+      "model": "gpt-5.5",
+      "displayName": "Pigcoder GPT-5.5",
+      "baseUrl": "https://sub2.pigcoder.com/v1",
+      "apiKey": "sk-pig-xxxx",
+      "provider": "generic-chat-completion-api",
+      "maxOutputTokens": 16384
+    }
+  ]
 }</code></pre>
                 </div>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">配置后在 Droid 中使用 <code
+                    class="code-chip">/model</code> 命令切换到自定义模型。</p>
               </div>
 
               <!-- CC Switch -->
               <div id="cc-switch" data-i18n-html="docs.toolGuide.ccSwitch" class="mb-16 scroll-mt-20">
                 <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">CC Switch</h3>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">Claude Code 服务商管理工具，可以在多个 API
-                  服务商之间快速切换，无需手动修改配置文件。</p>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">开源的 AI CLI 服务商管理桌面应用（支持 Claude Code、Codex、Gemini CLI、OpenCode
+                  等），可以在多个 API 服务商之间一键切换，无需手动修改配置文件。</p>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">核心功能</h4>
                 <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 mb-6">
-                  <li>一键切换 Claude Code 的 API 服务商</li>
+                  <li>一键切换 Claude Code / Codex / Gemini CLI 等工具的 API 服务商</li>
                   <li>支持管理多个服务商配置</li>
                   <li>支持 Deep Link 一键导入服务商</li>
                   <li>自动备份和恢复配置</li>
                 </ul>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">安装</h4>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Windows / Linux 用户从 <a
+                    href="https://github.com/farion1231/cc-switch/releases" target="_blank" rel="noopener"
+                    class="text-custom-gold hover:underline font-bold">GitHub Releases</a> 下载安装包；macOS 也可以用 Homebrew：</p>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
                   <span class="lang-label">bash</span>
-                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS
-brew install nicepkg/tap/cc-switch
-
-# npm
-npm i -g cc-switch</code></pre>
+                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS (Homebrew)
+brew install --cask cc-switch</code></pre>
                 </div>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Deep Link 一键导入</h4>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">在浏览器中打开以下链接即可自动导入 Pigcoder 配置：</p>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">安装后在浏览器中打开以下链接（把 <code
+                    class="code-chip">sk-pig-xxxx</code> 替换为你的
+                  API Key），即可自动导入 Pigcoder 配置：</p>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
                   <span class="lang-label">text</span>
                   <pre
-                    class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>ccswitch://provider/add?name=Pigcoder&apiBaseUrl=https://sub2.pigcoder.com&apiKey=sk-pig-xxxx</code></pre>
+                    class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>ccswitch://v1/import?resource=provider&amp;app=claude&amp;name=Pigcoder&amp;endpoint=https%3A%2F%2Fsub2.pigcoder.com&amp;apiKey=sk-pig-xxxx</code></pre>
                 </div>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">手动配置</h4>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">也可以通过命令行手动添加：</p>
-                <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
-                  <span class="lang-label">bash</span>
-                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># 添加服务商
-cc-switch provider add Pigcoder --api-base-url https://sub2.pigcoder.com --api-key sk-pig-xxxx
-
-# 切换到 Pigcoder
-cc-switch use Pigcoder
-
-# 查看当前服务商
-cc-switch current</code></pre>
-                </div>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">也可以打开 CC Switch，在「服务商」页点击「添加」，填入名称
+                  <code class="code-chip">Pigcoder</code>、端点
+                  <code class="code-chip">https://sub2.pigcoder.com</code>
+                  和 API Key，保存后一键切换即可生效。</p>
               </div>
             </section>
 
@@ -699,73 +708,73 @@ cc-switch current</code></pre>
                       <tr class="border-b border-slate-100 dark:border-white/5">
                         <td class="px-4 py-3 font-medium">Claude Code</td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">npm i -g @anthropic-ai/claude-code</code>
+                            class="code-chip code-chip-xs">npm i -g @anthropic-ai/claude-code</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">~/.claude/settings.json</code>
+                            class="code-chip code-chip-xs">~/.claude/settings.json</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com</code>
+                            class="code-chip code-chip-xs">https://sub2.pigcoder.com</code>
                         </td>
                       </tr>
                       <tr class="border-b border-slate-100 dark:border-white/5">
                         <td class="px-4 py-3 font-medium">Codex CLI</td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">npm i -g @openai/codex</code>
+                            class="code-chip code-chip-xs">npm i -g @openai/codex</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">~/.codex/config.toml</code>
+                            class="code-chip code-chip-xs">~/.codex/config.toml</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com/v1</code>
+                            class="code-chip code-chip-xs">https://sub2.pigcoder.com/v1</code>
                         </td>
                       </tr>
                       <tr class="border-b border-slate-100 dark:border-white/5">
                         <td class="px-4 py-3 font-medium">Gemini CLI</td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">npm i -g @google/gemini-cli</code>
+                            class="code-chip code-chip-xs">npm i -g @google/gemini-cli</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">~/.gemini/settings.json</code>
+                            class="code-chip code-chip-xs">~/.gemini/settings.json</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com/v1beta</code>
+                            class="code-chip code-chip-xs">https://sub2.pigcoder.com/v1beta</code>
                         </td>
                       </tr>
                       <tr class="border-b border-slate-100 dark:border-white/5">
                         <td class="px-4 py-3 font-medium">OpenCode</td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">brew install opencode</code>
+                            class="code-chip code-chip-xs">npm i -g opencode-ai</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">opencode.json</code>
+                            class="code-chip code-chip-xs">~/.config/opencode/opencode.json</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com/v1</code>
+                            class="code-chip code-chip-xs">https://sub2.pigcoder.com/v1</code>
                         </td>
                       </tr>
                       <tr class="border-b border-slate-100 dark:border-white/5">
                         <td class="px-4 py-3 font-medium">Droid CLI</td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">npm i -g droid-cli</code>
+                            class="code-chip code-chip-xs">curl -fsSL https://app.factory.ai/cli | sh</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">~/.config/droid/config.json</code>
+                            class="code-chip code-chip-xs">~/.factory/settings.json</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com/v1</code>
+                            class="code-chip code-chip-xs">https://sub2.pigcoder.com/v1</code>
                         </td>
                       </tr>
                       <tr>
                         <td class="px-4 py-3 font-medium">CC Switch</td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">npm i -g cc-switch</code>
+                            class="code-chip code-chip-xs">brew install --cask cc-switch</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">~/.claude/settings.json</code>
+                            class="code-chip code-chip-xs">GUI 应用（托管 ~/.claude/settings.json）</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com</code>
+                            class="code-chip code-chip-xs">https://sub2.pigcoder.com</code>
                         </td>
                       </tr>
                     </tbody>
@@ -792,32 +801,32 @@ cc-switch current</code></pre>
                     <tbody class="text-slate-700 dark:text-slate-300">
                       <tr class="border-b border-slate-100 dark:border-white/5">
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded">/help</code></td>
+                            class="code-chip">/help</code></td>
                         <td data-i18n="docs.reference.cmd.help" class="px-4 py-3">显示帮助信息和可用命令列表</td>
                       </tr>
                       <tr class="border-b border-slate-100 dark:border-white/5">
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded">/clear</code></td>
+                            class="code-chip">/clear</code></td>
                         <td data-i18n="docs.reference.cmd.clear" class="px-4 py-3">清空当前对话历史</td>
                       </tr>
                       <tr class="border-b border-slate-100 dark:border-white/5">
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded">/compact</code></td>
+                            class="code-chip">/compact</code></td>
                         <td data-i18n="docs.reference.cmd.compact" class="px-4 py-3">压缩对话上下文，释放 Token 额度</td>
                       </tr>
                       <tr class="border-b border-slate-100 dark:border-white/5">
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded">/cost</code></td>
+                            class="code-chip">/cost</code></td>
                         <td data-i18n="docs.reference.cmd.cost" class="px-4 py-3">查看当前会话的 Token 消耗和费用</td>
                       </tr>
                       <tr class="border-b border-slate-100 dark:border-white/5">
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded">/model</code></td>
+                            class="code-chip">/model</code></td>
                         <td data-i18n="docs.reference.cmd.model" class="px-4 py-3">查看或切换当前使用的模型</td>
                       </tr>
                       <tr>
                         <td class="px-4 py-3"><code
-                            class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded">/models</code></td>
+                            class="code-chip">/models</code></td>
                         <td data-i18n="docs.reference.cmd.models" class="px-4 py-3">列出所有可用模型</td>
                       </tr>
                     </tbody>
@@ -835,7 +844,7 @@ cc-switch current</code></pre>
                   <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-3">安装后终端提示命令不存在，通常是因为 npm 全局 bin
                     目录不在系统 PATH 中。</p>
                   <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed"><strong>解决方法：</strong></p>
-                  <div class="code-block bg-slate-50 dark:bg-[#0f1922] rounded-lg p-4 font-mono text-sm mt-2">
+                  <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mt-2">
                     <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># 查看 npm 全局 bin 目录
 npm config get prefix
 
@@ -853,7 +862,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
                     <li>检查网络连接是否正常</li>
                     <li>确认端点地址是否正确（参考上方端点地址表格）</li>
                     <li>检查是否有代理或 VPN 阻断了连接</li>
-                    <li>尝试用 <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">curl</code>
+                    <li>尝试用 <code class="code-chip code-chip-xs">curl</code>
                       测试端点连通性</li>
                   </ul>
                 </div>
@@ -865,13 +874,13 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
                   <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed"><strong>解决方法：</strong></p>
                   <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 text-sm mt-2">
                     <li>Claude Code 使用 Anthropic 协议，端点为 <code
-                        class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com</code>，<strong>不要加</strong>
-                      <code class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">/v1</code></li>
+                        class="code-chip code-chip-xs">https://sub2.pigcoder.com</code>，<strong>不要加</strong>
+                      <code class="code-chip code-chip-xs">/v1</code></li>
                     <li>Codex CLI / OpenCode / Droid CLI 使用 OpenAI 协议，端点为 <code
-                        class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com/v1</code>
+                        class="code-chip code-chip-xs">https://sub2.pigcoder.com/v1</code>
                     </li>
                     <li>Gemini CLI 使用 Gemini 协议，端点为 <code
-                        class="bg-slate-100 dark:bg-slate-700 px-1.5 py-0.5 rounded text-xs">https://sub2.pigcoder.com/v1beta</code>
+                        class="code-chip code-chip-xs">https://sub2.pigcoder.com/v1beta</code>
                     </li>
                   </ul>
                 </div>
@@ -895,10 +904,10 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
 
           <!-- 右侧边栏 -->
           <aside
-            class="w-64 shrink-0 self-start doc-surface-panel rounded-[28px] p-6 sticky top-[80px] h-[calc(100vh-104px)] overflow-y-auto hidden md:block">
+            class="w-64 shrink-0 self-start doc-surface-panel rounded-2xl p-6 sticky top-[80px] h-[calc(100vh-104px)] overflow-y-auto hidden lg:block">
             <div class="mb-6 pb-5 border-b border-slate-200 dark:border-white/10">
               <div data-i18n="docs.sidebar.title"
-                class="text-[11px] font-semibold uppercase tracking-[0.22em] text-custom-muted dark:text-slate-400 mb-2">
+                class="text-[11px] font-semibold uppercase tracking-[0.18em] text-custom-muted dark:text-slate-400 mb-2">
                 Docs Index</div>
               <p data-i18n="docs.sidebar.description" class="text-sm leading-relaxed text-custom-muted dark:text-slate-300">快速定位接入步骤、工具配置与常见问题。</p>
             </div>
@@ -1027,9 +1036,9 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
       });
     });
   </script>
-<script src="i18n.js?v=20260623-dark-tokens"></script>
-  <script src="components.js?v=20260623-dark-tokens"></script>
-  <script src="shared.js?v=20260623-dark-tokens"></script>
+<script src="i18n.js?v=20260703-docs-fix"></script>
+  <script src="components.js?v=20260703-docs-fix"></script>
+  <script src="shared.js?v=20260703-docs-fix"></script>
 </body>
 
 </html>

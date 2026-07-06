@@ -78,7 +78,7 @@ Pigcoder 和 OpenRouter 类似，核心不是“销售一套企业软件”，�
 推荐拨盘：
 
 - `DESIGN_VARIANCE: 5`：保持结构化和可信度，避免模板化，但不做实验性视觉。
-- `MOTION_INTENSITY: 3`：只保留 hover、focus 和复制反馈，不做持续漂浮、Live 脉冲或大规模滚动动效。
+- `MOTION_INTENSITY: 3`：保留 hover、focus、复制反馈，以及卡片滚动进场的轻量淡入上浮（fade-up，≤12px / 0.4s，一次性触发）；不做持续漂浮、Live 脉冲、视差或循环类滚动动效。
 - `VISUAL_DENSITY`：营销 / 着陆页（首页、价格、文档前言）取 `4–5` 的克制留白，控制台 / 日志等数据页可到 `6–7`。当前首页已落地为克制档，非 cockpit 高密度。
 
 硬规则：

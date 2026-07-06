@@ -10,7 +10,7 @@
   <meta property="og:title" content="Pigcoder 模型渠道与倍率" />
   <meta property="og:description" content="按 Provider 与工具场景查看渠道倍率、可用模型与能力标签。充值后按实际调用消耗。" />
   <!-- 部署到正式域名后，请把 og:image 改为绝对地址（如 https://your-domain/logo.jpg） -->
-  <meta property="og:image" content="logo.jpg?v=20260623-dark-tokens" />
+  <meta property="og:image" content="logo.jpg?v=20260703-docs-fix" />
   <meta property="og:url" content="pricing.html" />
   <meta property="og:site_name" content="Pigcoder" />
   <meta property="og:locale" content="zh_CN" />
@@ -18,13 +18,13 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Pigcoder 模型渠道与倍率" />
   <meta name="twitter:description" content="按 Provider 与工具场景查看渠道倍率、可用模型与能力标签。充值后按实际调用消耗。" />
-  <meta name="twitter:image" content="logo.jpg?v=20260623-dark-tokens" />
+  <meta name="twitter:image" content="logo.jpg?v=20260703-docs-fix" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="logo.jpg?v=20260623-dark-tokens" rel="icon" type="image/jpeg" />
-  <script src="theme.js?v=20260623-dark-tokens"></script>
+  <link href="logo.jpg?v=20260703-docs-fix" rel="icon" type="image/jpeg" />
+  <script src="theme.js?v=20260703-docs-fix"></script>
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link href="common.css?v=20260623-dark-tokens" rel="stylesheet" />
+  <link href="common.css?v=20260703-docs-fix" rel="stylesheet" />
   <style>
     .faq-answer {
       max-height: 0;
@@ -47,14 +47,13 @@
 </head>
 
 <body
-  class="bg-custom-wash dark:bg-custom-navy-deep font-body text-custom-ink dark:text-white selection:bg-custom-gold selection:text-white transition-colors duration-300">
+  class="bg-custom-wash dark:bg-custom-navy-deep font-body text-custom-ink dark:text-white selection:bg-custom-navy selection:text-white transition-colors duration-300">
   <a href="#main-content" class="skip-link" data-i18n="common.skip">跳到主要内容</a>
   <div id="site-header"></div>
 
   <main id="main-content">
     <section class="hero-modern relative overflow-hidden border-b border-custom-line/70 dark:border-white/10">
       <div class="surface-gradient-hero"></div>
-      <div class="orb-gold-hero"></div>
       <div class="section-shell-wide py-14 md:py-20">
         <div class="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div class="text-left">
@@ -103,13 +102,15 @@
           <p data-i18n="pricing.catalog.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">按 Provider 和工具场景查看渠道倍率、可用模型和能力标签。充值后按实际调用消耗，最终权益以控制台实时展示为准。</p>
         </div>
 
-        <div id="pricing-card-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          <div class="pricing-card-skeleton partial-loading"></div>
-          <div class="pricing-card-skeleton partial-loading"></div>
-          <div class="pricing-card-skeleton partial-loading"></div>
-          <div class="pricing-card-skeleton partial-loading"></div>
-          <div class="pricing-card-skeleton partial-loading"></div>
-          <div class="pricing-card-skeleton partial-loading"></div>
+        <div id="pricing-card-grid" class="space-y-10">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="pricing-card-skeleton partial-loading"></div>
+            <div class="pricing-card-skeleton partial-loading"></div>
+            <div class="pricing-card-skeleton partial-loading"></div>
+            <div class="pricing-card-skeleton partial-loading"></div>
+            <div class="pricing-card-skeleton partial-loading"></div>
+            <div class="pricing-card-skeleton partial-loading"></div>
+          </div>
         </div>
 
         <p data-i18n="pricing.note" class="text-center text-custom-muted dark:text-slate-500 text-sm mt-8">* 页面展示为模型渠道与倍率说明，最终可用模型、倍率和权益以控制台实时配置为准。</p>
@@ -161,7 +162,8 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var targets = document.querySelectorAll('.pricing-card, .surface-card');
+      // 滚动进场：FAQ 卡片淡入上浮（价格卡由 pricing-cards.js 渲染后自行处理）
+      var targets = document.querySelectorAll('.surface-card');
       targets.forEach(function (el) {
         el.classList.add('fade-up');
       });
@@ -195,10 +197,10 @@
     }
   </script>
 
-  <script src="i18n.js?v=20260623-dark-tokens"></script>
-  <script src="components.js?v=20260623-dark-tokens"></script>
-  <script src="pricing-cards.js?v=20260623-dark-tokens"></script>
-  <script src="shared.js?v=20260623-dark-tokens"></script>
+  <script src="i18n.js?v=20260703-docs-fix"></script>
+  <script src="components.js?v=20260703-docs-fix"></script>
+  <script src="pricing-cards.js?v=20260703-docs-fix"></script>
+  <script src="shared.js?v=20260703-docs-fix"></script>
 </body>
 
 </html>
