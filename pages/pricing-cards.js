@@ -6,7 +6,7 @@
     'zh-CN': [
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
         title: 'Claude Max',
         ratio: '1:1.5',
         rate: '0.67$/元',
@@ -17,7 +17,7 @@
       },
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
         title: 'CC-反重力逆向',
         ratio: '1:0.6',
         rate: '1.67$/元',
@@ -28,7 +28,7 @@
       },
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
         title: 'Kiro',
         ratio: '1:0.5',
         rate: '2.00$/元',
@@ -39,7 +39,7 @@
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
         title: 'Codex (GPT FREE)',
         ratio: '1:0.1',
         rate: '10.00$/元',
@@ -50,7 +50,7 @@
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
         title: 'Codex (GPT PLUS)',
         ratio: '1:0.15',
         rate: '6.67$/元',
@@ -61,7 +61,7 @@
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
         title: 'Codex (GPT PRO)',
         ratio: '1:0.3',
         rate: '3.33$/元',
@@ -72,7 +72,7 @@
       },
       {
         category: 'Gemini',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
         title: 'Gemini 逆向',
         ratio: '1:0.45',
         rate: '2.22$/元',
@@ -85,7 +85,7 @@
     'en-US': [
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
         title: 'Claude Max',
         ratio: '1:1.5',
         rate: '$0.67 / CNY',
@@ -96,7 +96,7 @@
       },
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
         title: 'CC Anti-Gravity',
         ratio: '1:0.6',
         rate: '$1.67 / CNY',
@@ -107,7 +107,7 @@
       },
       {
         category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
         title: 'Kiro',
         ratio: '1:0.5',
         rate: '$2.00 / CNY',
@@ -118,7 +118,7 @@
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
         title: 'Codex (GPT FREE)',
         ratio: '1:0.1',
         rate: '$10.00 / CNY',
@@ -129,7 +129,7 @@
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
         title: 'Codex (GPT PLUS)',
         ratio: '1:0.15',
         rate: '$6.67 / CNY',
@@ -140,7 +140,7 @@
       },
       {
         category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
         title: 'Codex (GPT PRO)',
         ratio: '1:0.3',
         rate: '$3.33 / CNY',
@@ -151,7 +151,7 @@
       },
       {
         category: 'Gemini',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-bold rounded-full',
+        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
         title: 'Gemini Reverse',
         ratio: '1:0.45',
         rate: '$2.22 / CNY',
@@ -252,11 +252,11 @@
         return renderCard(card, labels);
       }).join('');
       return '<section>' +
-        '<h3 class="mb-4 flex items-center gap-3 text-lg font-bold font-headline text-custom-ink dark:text-white">' +
+        '<h3 class="mb-4 flex items-center gap-3 text-lg font-semibold font-headline text-custom-ink dark:text-white">' +
           category +
           '<span class="h-px flex-1 bg-custom-line dark:bg-white/10" aria-hidden="true"></span>' +
         '</h3>' +
-        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">' + cardsHtml + '</div>' +
+        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">' + cardsHtml + '</div>' +
       '</section>';
     }).join('');
 

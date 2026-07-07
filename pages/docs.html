@@ -10,7 +10,7 @@
   <meta property="og:title" content="Pigcoder 接入文档" />
   <meta property="og:description" content="平台开通、API Key 获取，以及各类 CLI 工具的端点配置与排查。" />
   <!-- 部署到正式域名后，请把 og:image 改为绝对地址（如 https://your-domain/logo.jpg） -->
-  <meta property="og:image" content="logo.jpg?v=20260703-docs-fix" />
+  <meta property="og:image" content="logo-mark.jpg?v=20260707-design-warm" />
   <meta property="og:url" content="docs.html" />
   <meta property="og:site_name" content="Pigcoder" />
   <meta property="og:locale" content="zh_CN" />
@@ -18,13 +18,12 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Pigcoder 接入文档" />
   <meta name="twitter:description" content="平台开通、API Key 获取，以及各类 CLI 工具的端点配置与排查。" />
-  <meta name="twitter:image" content="logo.jpg?v=20260703-docs-fix" />
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="logo.jpg?v=20260703-docs-fix" rel="icon" type="image/jpeg" />
-  <script src="theme.js?v=20260703-docs-fix"></script>
+  <meta name="twitter:image" content="logo-mark.jpg?v=20260707-design-warm" />
+  <link href="tailwind.css?v=20260707-design-warm" rel="stylesheet" />
+  <link href="logo-mark.jpg?v=20260707-design-warm" rel="icon" type="image/jpeg" />
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link href="common.css?v=20260703-docs-fix" rel="stylesheet" />
+  <link href="common.css?v=20260707-design-warm" rel="stylesheet" />
   <style>
     .code-block {
       position: relative;
@@ -205,25 +204,25 @@
   <div id="site-header"></div>
 
   <main id="main-content">
-    <section class="hero-modern relative overflow-hidden border-b border-custom-line/70 dark:border-white/10">
+    <section class="hero-modern relative overflow-hidden">
       <div class="surface-gradient-hero"></div>
-      <div class="section-shell-wide py-14 md:py-20">
+      <div class="section-shell-wide py-20 md:py-28">
         <div class="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div class="max-w-3xl text-left">
-            <span class="doc-kicker mb-5">
+            <span class="doc-kicker mb-5 hero-rise">
               <span class="material-symbols-outlined text-sm text-custom-gold" aria-hidden="true">menu_book</span>
               <span data-i18n="docs.hero.badge">Documentation</span>
             </span>
             <h1
               data-i18n="docs.hero.title"
-              class="text-4xl md:text-6xl font-bold font-headline text-custom-ink dark:text-white tracking-[-0.045em] leading-[1.04] mb-5 text-balance">
+              class="hero-rise hero-rise-2 text-4xl md:text-6xl font-semibold font-headline text-custom-ink dark:text-white tracking-[-0.045em] leading-[1.04] mb-5 text-balance">
               Pigcoder 接入文档
             </h1>
-            <p data-i18n="docs.hero.description" class="text-custom-muted dark:text-slate-300 text-base md:text-lg leading-relaxed max-w-2xl">
+            <p data-i18n="docs.hero.description" class="hero-rise hero-rise-3 text-custom-muted dark:text-slate-300 text-base md:text-lg leading-relaxed max-w-2xl">
               这里汇总平台开通、API Key 获取、各类 CLI 工具配置和常见排查方式。
             </p>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 hero-rise hero-rise-4">
             <a href="#platform" class="doc-metric-card rounded-xl px-5 py-4 transition-transform hover:-translate-y-0.5">
               <div class="text-xs font-semibold uppercase tracking-[0.12em] text-custom-muted dark:text-slate-400 mb-2">
                 <span data-i18n="docs.hero.cards.startLabel">Getting Started</span></div>
@@ -277,7 +276,7 @@
             <!-- ==================== 第一部分：平台操作 ==================== -->
             <section id="platform" class="mb-16">
               <h2 data-i18n="docs.sections.platform"
-                class="doc-section-heading text-2xl md:text-3xl font-bold text-custom-ink dark:text-white mb-8 pb-4 border-b border-slate-200 dark:border-white/10">
+                class="doc-section-heading text-2xl md:text-3xl font-semibold text-custom-ink dark:text-white mb-8 pb-4 border-b border-slate-200 dark:border-white/10">
                 平台操作</h2>
 
               <!-- Step 1: 注册与登录 -->
@@ -285,7 +284,7 @@
                 <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 1 — 注册与登录</h3>
                 <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
                   <li>访问 <a href="https://sub2.pigcoder.com" target="_blank"
-                      class="text-custom-gold hover:underline font-bold">控制台</a>。</li>
+                      class="text-custom-gold hover:underline font-semibold">控制台</a>。</li>
                   <li>使用邮箱或第三方账号（GitHub / Google）完成注册。</li>
                   <li>登录后进入个人仪表盘。</li>
                 </ol>
@@ -399,7 +398,7 @@ export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
             <!-- ==================== 第二部分：CLI 工具配置 ==================== -->
             <section class="mb-16">
               <h2 data-i18n="docs.sections.tools"
-                class="doc-section-heading text-2xl md:text-3xl font-bold text-custom-ink dark:text-white mb-8 pb-4 border-b border-slate-200 dark:border-white/10">
+                class="doc-section-heading text-2xl md:text-3xl font-semibold text-custom-ink dark:text-white mb-8 pb-4 border-b border-slate-200 dark:border-white/10">
                 CLI 工具配置</h2>
 
               <!-- Claude Code -->
@@ -652,7 +651,7 @@ npm install -g droid</code></pre>
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">安装</h4>
                 <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Windows / Linux 用户从 <a
                     href="https://github.com/farion1231/cc-switch/releases" target="_blank" rel="noopener"
-                    class="text-custom-gold hover:underline font-bold">GitHub Releases</a> 下载安装包；macOS 也可以用 Homebrew：</p>
+                    class="text-custom-gold hover:underline font-semibold">GitHub Releases</a> 下载安装包；macOS 也可以用 Homebrew：</p>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
                   <span class="lang-label">bash</span>
                   <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS (Homebrew)
@@ -680,7 +679,7 @@ brew install --cask cc-switch</code></pre>
             <!-- ==================== 第三部分：参考 ==================== -->
             <section class="mb-16">
               <h2 data-i18n="docs.sections.reference"
-                class="doc-section-heading text-2xl md:text-3xl font-bold text-custom-ink dark:text-white mb-8 pb-4 border-b border-slate-200 dark:border-white/10">
+                class="doc-section-heading text-2xl md:text-3xl font-semibold text-custom-ink dark:text-white mb-8 pb-4 border-b border-slate-200 dark:border-white/10">
                 参考</h2>
 
               <!-- 快速对照表 -->
@@ -913,7 +912,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             </div>
 
             <!-- 开始使用 -->
-            <h3 data-i18n="docs.sidebar.gettingStarted" class="text-xs font-bold text-custom-ink dark:text-slate-300 uppercase tracking-widest mb-3">开始使用</h3>
+            <h3 data-i18n="docs.sidebar.gettingStarted" class="text-xs font-semibold text-custom-ink dark:text-slate-300 uppercase tracking-widest mb-3">开始使用</h3>
             <div class="space-y-1 mb-6">
               <a href="#register" data-i18n="docs.sidebar.links.register" class="sidebar-link">注册与登录</a>
               <a href="#apikey" data-i18n="docs.sidebar.links.apikey" class="sidebar-link">获取 API Key</a>
@@ -923,7 +922,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             </div>
 
             <!-- CLI 工具配置 -->
-            <h3 data-i18n="docs.sidebar.tools" class="text-xs font-bold text-custom-ink dark:text-slate-300 uppercase tracking-widest mb-3">CLI 工具配置
+            <h3 data-i18n="docs.sidebar.tools" class="text-xs font-semibold text-custom-ink dark:text-slate-300 uppercase tracking-widest mb-3">CLI 工具配置
             </h3>
             <div class="space-y-1 mb-6">
               <a href="#claude-code" data-i18n="docs.sidebar.links.claudeCode" class="sidebar-link">Claude Code</a>
@@ -935,7 +934,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             </div>
 
             <!-- 参考 -->
-            <h3 data-i18n="docs.sidebar.reference" class="text-xs font-bold text-custom-ink dark:text-slate-300 uppercase tracking-widest mb-3">参考</h3>
+            <h3 data-i18n="docs.sidebar.reference" class="text-xs font-semibold text-custom-ink dark:text-slate-300 uppercase tracking-widest mb-3">参考</h3>
             <div class="space-y-1">
               <a href="#quick-ref" data-i18n="docs.sidebar.links.quickRef" class="sidebar-link">快速对照表</a>
               <a href="#commands" data-i18n="docs.sidebar.links.commands" class="sidebar-link">常用命令</a>
@@ -1036,9 +1035,9 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
       });
     });
   </script>
-<script src="i18n.js?v=20260703-docs-fix"></script>
-  <script src="components.js?v=20260703-docs-fix"></script>
-  <script src="shared.js?v=20260703-docs-fix"></script>
+<script src="i18n.js?v=20260707-design-warm"></script>
+  <script src="components.js?v=20260707-design-warm"></script>
+  <script src="shared.js?v=20260707-design-warm"></script>
 </body>
 
 </html>

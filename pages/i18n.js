@@ -70,11 +70,26 @@
           }
         },
         choose: {
-          title: '路由与接入能力'
+          title: '一个 Key，路由到最合适的模型'
         },
         endpoints: {
-          title: '端点地址',
-          note: '一个 Key，三种协议，替换 Base URL 即可接入。'
+          title: '替换一个 Base URL，接入三种协议',
+          note: '复制对应协议的端点地址，工具原有配置保持不变。'
+        },
+        stats: {
+          protocols: '协议兼容 OpenAI / Anthropic / Gemini',
+          key: '一个密钥通行全部模型渠道',
+          channels: '模型渠道，倍率透明可选',
+          context: '最大上下文，支持 thinking'
+        },
+        routing: {
+          eyebrow: 'Request Routing',
+          badge: '一个 Key · 统一路由',
+          checks: {
+            channels: '按 Claude、Codex、Gemini 渠道组织，按工具选择路由',
+            context: '200k / 1M 上下文，thinking 与 WebSearch 能力标签',
+            ratio: '倍率透明直接展示，充值余额按实际调用消耗'
+          }
         },
         features: {
           protocol: {
@@ -103,7 +118,7 @@
           }
         },
         models: {
-          title: 'Provider 与模型覆盖',
+          title: '主流模型，一个入口全部覆盖',
           description: '聚合 Claude、GPT、Gemini、智谱等模型能力，按协议和工具场景提供统一路由。',
           zhipu: '智谱'
         },
@@ -161,6 +176,29 @@
             ratio: '倍率',
             context: '上下文 / 能力',
             tools: '适用工具'
+          }
+        },
+        faq: {
+          title: '接入前，你可能想知道',
+          tools: {
+            q: '支持哪些编程工具？',
+            a: 'Claude Code、Codex CLI、Gemini CLI、OpenCode、Droid CLI 等。替换 Base URL 和 API Key 即可接入，工具原有用法保持不变。'
+          },
+          ratio: {
+            q: '倍率是什么意思？',
+            a: '倍率是各渠道的兑换比例。每个渠道直接展示倍率与能力标签，充值余额按实际调用消耗，不做套餐包装。'
+          },
+          start: {
+            q: '如何开始接入？',
+            a: '在控制台创建 API Key，选择协议分组，把工具的 Base URL 替换成对应端点即可。文档页提供每个工具的完整接入示例。'
+          },
+          balance: {
+            q: '余额可以在不同渠道通用吗？',
+            a: '可以。充值余额在 Claude、Codex、Gemini 等渠道间通用，按实际调用消耗。'
+          },
+          support: {
+            q: '遇到问题怎么获取支持？',
+            a: '先查阅文档页的故障排查章节，也可以加入用户群或通过工单联系客服。'
           }
         },
         bottom: {
@@ -261,7 +299,7 @@
           register: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 1 — 注册与登录</h3>
             <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
-              <li>访问 <a href="https://sub2.pigcoder.com" target="_blank" class="text-custom-gold hover:underline font-bold">控制台</a>。</li>
+              <li>访问 <a href="https://sub2.pigcoder.com" target="_blank" class="text-custom-gold hover:underline font-semibold">控制台</a>。</li>
               <li>使用邮箱或第三方账号（GitHub / Google）完成注册。</li>
               <li>登录后进入个人仪表盘。</li>
             </ol>
@@ -535,7 +573,7 @@ npm install -g droid</code></pre>
               <li>自动备份和恢复配置</li>
             </ul>
             <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">安装</h4>
-            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Windows / Linux 用户从 <a href="https://github.com/farion1231/cc-switch/releases" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-bold">GitHub Releases</a> 下载安装包；macOS 也可以用 Homebrew：</p>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Windows / Linux 用户从 <a href="https://github.com/farion1231/cc-switch/releases" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">GitHub Releases</a> 下载安装包；macOS 也可以用 Homebrew：</p>
             <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
               <span class="lang-label">bash</span>
               <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS (Homebrew)
@@ -692,11 +730,26 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           }
         },
         choose: {
-          title: 'Routing & Integration Capabilities'
+          title: 'One key, routed to the right model'
         },
         endpoints: {
-          title: 'Endpoints',
-          note: 'One key, three protocols. Just swap the Base URL.'
+          title: 'Swap one Base URL, get three protocols',
+          note: 'Copy the endpoint for your protocol — your tool config stays the same.'
+        },
+        stats: {
+          protocols: 'Protocols: OpenAI, Anthropic & Gemini',
+          key: 'One key across every model channel',
+          channels: 'Model channels with transparent ratios',
+          context: 'Max context, thinking supported'
+        },
+        routing: {
+          eyebrow: 'Request Routing',
+          badge: 'one key · unified routing',
+          checks: {
+            channels: 'Channels organized by Claude, Codex, and Gemini — pick routes by tool',
+            context: '200k / 1M context with thinking and WebSearch capability tags',
+            ratio: 'Transparent ratios — balance consumed by actual usage'
+          }
         },
         features: {
           protocol: {
@@ -725,7 +778,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           }
         },
         models: {
-          title: 'Provider & Model Coverage',
+          title: 'Every major model behind one entry point',
           description: 'Aggregate Claude, GPT, Gemini, Zhipu, and other models behind one routing layer for protocol-specific tools.',
           zhipu: 'Zhipu AI'
         },
@@ -783,6 +836,29 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             ratio: 'Ratio',
             context: 'Context / Capability',
             tools: 'Tools'
+          }
+        },
+        faq: {
+          title: 'Before you connect',
+          tools: {
+            q: 'Which coding tools are supported?',
+            a: 'Claude Code, Codex CLI, Gemini CLI, OpenCode, Droid CLI, and more. Swap the Base URL and API key — everything else about your tool stays the same.'
+          },
+          ratio: {
+            q: 'What do the ratios mean?',
+            a: 'Ratios are each channel\'s exchange rate. Every channel shows its ratio and capability tags directly, and your balance is consumed by actual usage — no plan packaging.'
+          },
+          start: {
+            q: 'How do I get started?',
+            a: 'Create an API key in the console, pick a protocol group, and point your tool at the matching endpoint. The docs page has full examples for every tool.'
+          },
+          balance: {
+            q: 'Does my balance work across channels?',
+            a: 'Yes. Your balance is shared across Claude, Codex, and Gemini channels and consumed by actual usage.'
+          },
+          support: {
+            q: 'How do I get support?',
+            a: 'Check the troubleshooting section in the docs, join the user group, or open a ticket.'
           }
         },
         bottom: {
@@ -883,7 +959,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           register: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 1 — Register and Sign In</h3>
             <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
-              <li>Open the <a href="https://sub2.pigcoder.com" target="_blank" class="text-custom-gold hover:underline font-bold">console</a>.</li>
+              <li>Open the <a href="https://sub2.pigcoder.com" target="_blank" class="text-custom-gold hover:underline font-semibold">console</a>.</li>
               <li>Create an account with email or a third-party login such as GitHub or Google.</li>
               <li>After signing in, enter your personal dashboard.</li>
             </ol>
@@ -1140,7 +1216,7 @@ npm install -g droid</code></pre>
               <li>Automatically back up and restore configurations</li>
             </ul>
             <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Install</h4>
-            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Windows / Linux users can download the installer from <a href="https://github.com/farion1231/cc-switch/releases" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-bold">GitHub Releases</a>; on macOS you can also use Homebrew:</p>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Windows / Linux users can download the installer from <a href="https://github.com/farion1231/cc-switch/releases" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">GitHub Releases</a>; on macOS you can also use Homebrew:</p>
             <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
               <span class="lang-label">bash</span>
               <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS (Homebrew)

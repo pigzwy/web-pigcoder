@@ -10,7 +10,7 @@
     <meta property="og:title" content="Pigcoder - 稳定高速的 AI 编程中转站" />
     <meta property="og:description" content="统一模型路由，兼容 AI 编程工具。一个 Key，三种协议，替换 Base URL 即可接入 Claude、GPT、Gemini。" />
     <!-- 部署到正式域名后，请把下面两处改为绝对地址（如 https://your-domain/logo.jpg） -->
-    <meta property="og:image" content="logo.jpg?v=20260703-docs-fix" />
+    <meta property="og:image" content="logo-mark.jpg?v=20260707-design-warm" />
     <meta property="og:url" content="index.html" />
     <meta property="og:site_name" content="Pigcoder" />
     <meta property="og:locale" content="zh_CN" />
@@ -18,13 +18,12 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Pigcoder - 稳定高速的 AI 编程中转站" />
     <meta name="twitter:description" content="统一模型路由，兼容 AI 编程工具。一个 Key，三种协议，替换 Base URL 即可接入。" />
-    <meta name="twitter:image" content="logo.jpg?v=20260703-docs-fix" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="logo.jpg?v=20260703-docs-fix" rel="icon" type="image/jpeg" />
-    <script src="theme.js?v=20260703-docs-fix"></script>
+    <meta name="twitter:image" content="logo-mark.jpg?v=20260707-design-warm" />
+    <link href="tailwind.css?v=20260707-design-warm" rel="stylesheet" />
+    <link href="logo-mark.jpg?v=20260707-design-warm" rel="icon" type="image/jpeg" />
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link href="common.css?v=20260703-docs-fix" rel="stylesheet" />
+    <link href="common.css?v=20260707-design-warm" rel="stylesheet" />
 </head>
 
 <body
@@ -33,55 +32,106 @@
     <div id="site-header"></div>
 
     <main id="main-content">
-        <!-- Hero：非对称分栏，左文案 + 右单一真实终端 -->
-        <section class="hero-modern relative overflow-hidden border-b border-custom-line/70 dark:border-white/10">
+        <!-- Hero：居中极简，标题 → 描述 → CTA 缓慢浮现 -->
+        <section class="hero-modern relative overflow-hidden">
             <div class="surface-gradient-hero"></div>
-            <div class="section-shell-wide py-16 md:py-24">
-                <div class="grid gap-10 lg:grid-cols-[1fr_0.92fr] lg:items-center">
-                    <div class="text-left">
-                        <span class="kicker mb-5">
-                            <span class="material-symbols-outlined text-sm text-custom-gold" data-icon="bolt" aria-hidden="true">bolt</span>
-                            <span data-i18n="index.hero.badge">AI Model Router / API Gateway</span>
-                        </span>
-                        <h1 data-i18n-html="index.hero.title"
-                            class="text-[2.3rem] sm:text-4xl md:text-5xl xl:text-6xl font-bold font-headline tracking-[-0.045em] text-custom-ink dark:text-white mb-6 leading-[1.05] text-balance">
-                            统一模型路由 <span class="brand-emphasis">兼容 AI 编程工具</span>
-                        </h1>
-                        <p data-i18n="index.hero.description"
-                            class="text-custom-muted dark:text-slate-300 text-base md:text-lg max-w-xl mb-8 leading-relaxed text-pretty">
-                            面向编程 CLI 的统一 API 入口，替换 Base URL 即可在 Claude、GPT、Gemini 间路由。
-                        </p>
-                        <div data-partial="partials/cta-actions.html"
-                            data-wrapper-class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
-                            data-primary-href="https://sub2.pigcoder.com/login"
-                            data-primary-class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base"
-                            data-primary-label="获取 API Key"
-                            data-primary-i18n="common.cta.start"
-                            data-secondary-href="docs.html"
-                            data-secondary-class="btn-secondary w-full sm:w-auto px-8 py-3.5 text-base"
-                            data-secondary-label="查看接入文档"
-                            data-secondary-i18n="common.cta.docs">
-                            <!-- partial 加载失败时的最小降级：仅保留主操作（正常情况下由 partial 覆盖） -->
-                            <a href="https://sub2.pigcoder.com/login" class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base">获取 API Key</a>
-                        </div>
+            <div class="section-shell py-24 md:py-36">
+                <div class="mx-auto max-w-3xl text-center">
+                    <h1 data-i18n-html="index.hero.title"
+                        class="hero-rise text-[2.3rem] sm:text-4xl md:text-5xl xl:text-6xl font-semibold font-headline tracking-[-0.045em] text-custom-ink dark:text-white mb-6 leading-[1.05] text-balance">
+                        统一模型路由 <span class="brand-emphasis">兼容 AI 编程工具</span>
+                    </h1>
+                    <p data-i18n="index.hero.description"
+                        class="hero-rise hero-rise-2 mx-auto text-custom-muted dark:text-slate-300 text-base md:text-lg max-w-xl mb-9 leading-relaxed text-pretty">
+                        面向编程 CLI 的统一 API 入口，替换 Base URL 即可在 Claude、GPT、Gemini 间路由。
+                    </p>
+                    <div class="hero-rise hero-rise-3" data-partial="partials/cta-actions.html"
+                        data-wrapper-class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3"
+                        data-primary-href="https://sub2.pigcoder.com/login"
+                        data-primary-class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base"
+                        data-primary-label="获取 API Key"
+                        data-primary-i18n="common.cta.start"
+                        data-secondary-href="docs.html"
+                        data-secondary-class="btn-secondary w-full sm:w-auto px-8 py-3.5 text-base"
+                        data-secondary-label="查看接入文档"
+                        data-secondary-i18n="common.cta.docs">
+                        <!-- partial 加载失败时的最小降级：仅保留主操作（正常情况下由 partial 覆盖） -->
+                        <a href="https://sub2.pigcoder.com/login" class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base">获取 API Key</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 数据带：关键数字一览 -->
+        <section class="relative overflow-hidden">
+            <div class="section-shell pb-4">
+                <dl class="stats-band">
+                    <div class="stat-item" data-reveal>
+                        <dd><strong>3</strong></dd>
+                        <dt><span data-i18n="index.stats.protocols">协议兼容 OpenAI / Anthropic / Gemini</span></dt>
+                    </div>
+                    <div class="stat-item" data-reveal>
+                        <dd><strong>1 Key</strong></dd>
+                        <dt><span data-i18n="index.stats.key">一个密钥通行全部模型渠道</span></dt>
+                    </div>
+                    <div class="stat-item" data-reveal>
+                        <dd><strong>10+</strong></dd>
+                        <dt><span data-i18n="index.stats.channels">模型渠道，倍率透明可选</span></dt>
+                    </div>
+                    <div class="stat-item" data-reveal>
+                        <dd><strong>1M</strong></dd>
+                        <dt><span data-i18n="index.stats.context">最大上下文，支持 thinking</span></dt>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- 端点带：三协议真实 Base URL + 终端演示 -->
+        <section class="section-block relative overflow-hidden">
+            <div class="section-shell">
+                <div class="mb-10 max-w-2xl" data-reveal>
+                    <h2 data-i18n="index.endpoints.title" class="text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">替换一个 Base URL，接入三种协议</h2>
+                    <p data-i18n="index.endpoints.note" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">复制对应协议的端点地址，工具原有配置保持不变。</p>
+                </div>
+                <div class="endpoint-duo">
+                    <div class="endpoint-band">
+                        <button type="button" class="endpoint-chip" data-copy="https://sub2.pigcoder.com/v1" data-i18n-attr="aria-label:common.copy" aria-label="复制">
+                            <span class="endpoint-proto">OpenAI</span>
+                            <code>https://sub2.pigcoder.com/v1</code>
+                            <span class="endpoint-copy material-symbols-outlined" data-copy-icon aria-hidden="true">content_copy</span>
+                        </button>
+                        <button type="button" class="endpoint-chip" data-copy="https://sub2.pigcoder.com" data-i18n-attr="aria-label:common.copy" aria-label="复制">
+                            <span class="endpoint-proto">Anthropic</span>
+                            <code>https://sub2.pigcoder.com</code>
+                            <span class="endpoint-copy material-symbols-outlined" data-copy-icon aria-hidden="true">content_copy</span>
+                        </button>
+                        <button type="button" class="endpoint-chip" data-copy="https://sub2.pigcoder.com/v1beta" data-i18n-attr="aria-label:common.copy" aria-label="复制">
+                            <span class="endpoint-proto">Gemini</span>
+                            <code>https://sub2.pigcoder.com/v1beta</code>
+                            <span class="endpoint-copy material-symbols-outlined" data-copy-icon aria-hidden="true">content_copy</span>
+                        </button>
                     </div>
 
-                    <!-- 单一真实终端：实际可执行的接入命令 -->
-                    <div class="hero-terminal-card hero-terminal-lg" aria-label="Pigcoder 接入命令示例">
+                    <!-- 终端演示：三工具 tab + 打字机 -->
+                    <div class="hero-terminal-card hero-terminal-lg" data-reveal aria-label="Pigcoder 接入命令示例">
                         <div class="flex items-center justify-between border-b border-white/10 px-4 py-3">
                             <div class="flex gap-1.5" aria-hidden="true">
                                 <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
                                 <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
                                 <span class="h-2.5 w-2.5 rounded-full bg-green-400"></span>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <span class="font-mono text-xs text-white/45">bash</span>
+                            <div class="flex items-center gap-2">
+                                <div class="flex items-center gap-1" role="tablist" aria-label="选择接入工具">
+                                    <button type="button" class="term-tab active" data-term-tab="claude" role="tab" aria-selected="true">Claude Code</button>
+                                    <button type="button" class="term-tab" data-term-tab="codex" role="tab" aria-selected="false">Codex</button>
+                                    <button type="button" class="term-tab" data-term-tab="gemini" role="tab" aria-selected="false">Gemini</button>
+                                </div>
                                 <button type="button" class="terminal-copy" data-copy="export ANTHROPIC_BASE_URL=https://sub2.pigcoder.com&#10;export ANTHROPIC_API_KEY=sk-pig-xxxx&#10;claude" data-i18n-attr="aria-label:common.copy" aria-label="复制">
                                     <span class="material-symbols-outlined text-[18px]" data-copy-icon aria-hidden="true">content_copy</span>
                                 </button>
                             </div>
                         </div>
-                        <div class="space-y-2.5 p-5 font-mono text-sm leading-6">
+                        <div class="term-body space-y-2.5 p-5 font-mono text-sm leading-6">
                             <p><span class="text-custom-gold">$</span> export ANTHROPIC_BASE_URL=<span class="text-green-300">https://sub2.pigcoder.com</span></p>
                             <p><span class="text-custom-gold">$</span> export ANTHROPIC_API_KEY=<span class="text-green-300">sk-pig-••••</span></p>
                             <p><span class="text-custom-gold">$</span> claude</p>
@@ -92,67 +142,74 @@
             </div>
         </section>
 
-        <!-- 端点带：三协议真实 Base URL -->
-        <section class="section-block-tight relative overflow-hidden border-b border-custom-line/60 dark:border-white/10">
-            <div class="section-shell">
-                <div class="mb-6 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-                    <h2 data-i18n="index.endpoints.title" class="section-eyebrow text-custom-ink dark:text-white">端点地址</h2>
-                    <p data-i18n="index.endpoints.note" class="text-sm text-custom-muted dark:text-slate-400">一个 Key，三种协议，替换 Base URL 即可接入。</p>
-                </div>
-                <div class="endpoint-band">
-                    <button type="button" class="endpoint-chip" data-copy="https://sub2.pigcoder.com/v1" data-i18n-attr="aria-label:common.copy" aria-label="复制">
-                        <span class="endpoint-proto">OpenAI</span>
-                        <code>https://sub2.pigcoder.com/v1</code>
-                        <span class="endpoint-copy material-symbols-outlined" data-copy-icon aria-hidden="true">content_copy</span>
-                    </button>
-                    <button type="button" class="endpoint-chip" data-copy="https://sub2.pigcoder.com" data-i18n-attr="aria-label:common.copy" aria-label="复制">
-                        <span class="endpoint-proto">Anthropic</span>
-                        <code>https://sub2.pigcoder.com</code>
-                        <span class="endpoint-copy material-symbols-outlined" data-copy-icon aria-hidden="true">content_copy</span>
-                    </button>
-                    <button type="button" class="endpoint-chip" data-copy="https://sub2.pigcoder.com/v1beta" data-i18n-attr="aria-label:common.copy" aria-label="复制">
-                        <span class="endpoint-proto">Gemini</span>
-                        <code>https://sub2.pigcoder.com/v1beta</code>
-                        <span class="endpoint-copy material-symbols-outlined" data-copy-icon aria-hidden="true">content_copy</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- 能力区：一个主面板 + 三条支撑行 -->
+        <!-- 能力区：左文案 + 右路由示意卡（工具 → Pigcoder → Provider） -->
         <section class="section-block relative overflow-hidden">
             <div class="surface-gradient-main"></div>
             <div class="section-shell">
-                <div class="mb-10 max-w-2xl">
-                    <h2 data-i18n="index.choose.title"
-                        class="text-2xl md:text-3xl lg:text-4xl font-bold font-headline text-custom-ink dark:text-white">路由与接入能力</h2>
-                </div>
-                <div class="cap-grid">
-                    <div class="cap-primary">
-                        <span class="material-symbols-outlined text-3xl text-custom-gold mb-4" data-icon="hub" aria-hidden="true">hub</span>
-                        <h3 data-i18n="index.features.protocol.title" class="text-2xl font-semibold mb-3 text-custom-ink dark:text-white">协议兼容</h3>
-                        <p data-i18n="index.features.protocol.description" class="text-custom-muted dark:text-slate-400 leading-7 max-w-md">兼容 OpenAI / Anthropic / Gemini 常用协议，只需替换 Base URL 即可接入。</p>
+                <div class="feature-split">
+                    <div data-reveal>
+                        <span class="section-eyebrow" data-i18n="index.routing.eyebrow">Request Routing</span>
+                        <h2 data-i18n="index.choose.title"
+                            class="mt-3 text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">一个 Key，路由到最合适的模型</h2>
+                        <p data-i18n="index.features.protocol.description" class="mt-4 text-custom-muted dark:text-slate-400 leading-7">兼容 OpenAI / Anthropic / Gemini 常用协议，只需替换 Base URL 即可接入。</p>
+                        <ul class="feature-checks">
+                            <li>
+                                <span class="material-symbols-outlined" aria-hidden="true">check</span>
+                                <span data-i18n="index.routing.checks.channels">按 Claude、Codex、Gemini 渠道组织，按工具选择路由</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined" aria-hidden="true">check</span>
+                                <span data-i18n="index.routing.checks.context">200k / 1M 上下文，thinking 与 WebSearch 能力标签</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined" aria-hidden="true">check</span>
+                                <span data-i18n="index.routing.checks.ratio">倍率透明直接展示，充值余额按实际调用消耗</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="cap-rows">
-                        <div class="cap-row">
-                            <span class="material-symbols-outlined text-2xl" data-icon="cloud_done" aria-hidden="true">cloud_done</span>
-                            <div>
-                                <h3 data-i18n="index.features.channel.title" class="text-base font-semibold mb-1 text-custom-ink dark:text-white">模型渠道</h3>
-                                <p data-i18n="index.features.channel.description" class="text-sm text-custom-muted dark:text-slate-400 leading-6">按 Claude、Codex、Gemini 等模型渠道组织能力，便于按工具选择。</p>
+                    <div class="diagram-card" data-reveal>
+                        <div class="router-diagram" role="img" aria-label="路由示意：编程工具通过 Pigcoder 一个 Key 路由到各模型厂商">
+                            <div class="router-col">
+                                <div class="router-pill">
+                                    <strong>Claude Code</strong>
+                                    <span>ANTHROPIC_BASE_URL</span>
+                                </div>
+                                <div class="router-pill">
+                                    <strong>Codex CLI</strong>
+                                    <span>OPENAI_BASE_URL</span>
+                                </div>
+                                <div class="router-pill">
+                                    <strong>Gemini CLI</strong>
+                                    <span>GEMINI_BASE_URL</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="cap-row">
-                            <span class="material-symbols-outlined text-2xl" data-icon="memory" aria-hidden="true">memory</span>
-                            <div>
-                                <h3 data-i18n="index.features.context.title" class="text-base font-semibold mb-1 text-custom-ink dark:text-white">上下文能力</h3>
-                                <p data-i18n="index.features.context.description" class="text-sm text-custom-muted dark:text-slate-400 leading-6">展示 200k、1M、thinking、WebSearch 等上下文和模型特性。</p>
+                            <svg class="router-link" viewBox="0 0 44 150" aria-hidden="true">
+                                <path d="M2 22 C 26 22, 24 75, 42 75" />
+                                <path d="M2 75 H 42" />
+                                <path d="M2 128 C 26 128, 24 75, 42 75" />
+                            </svg>
+                            <div class="router-node">
+                                <img src="logo-mark.jpg?v=20260707-design-warm" alt="" width="56" height="56" loading="lazy" />
+                                <span class="router-badge" data-i18n="index.routing.badge">一个 Key · 统一路由</span>
                             </div>
-                        </div>
-                        <div class="cap-row">
-                            <span class="material-symbols-outlined text-2xl" data-icon="account_balance_wallet" aria-hidden="true">account_balance_wallet</span>
-                            <div>
-                                <h3 data-i18n="index.features.ratio.title" class="text-base font-semibold mb-1 text-custom-ink dark:text-white">倍率透明</h3>
-                                <p data-i18n="index.features.ratio.description" class="text-sm text-custom-muted dark:text-slate-400 leading-6">每个渠道直接展示倍率和能力标签，避免包装成传统套餐。</p>
+                            <svg class="router-link router-link-flip" viewBox="0 0 44 150" aria-hidden="true">
+                                <path d="M2 22 C 26 22, 24 75, 42 75" />
+                                <path d="M2 75 H 42" />
+                                <path d="M2 128 C 26 128, 24 75, 42 75" />
+                            </svg>
+                            <div class="router-col">
+                                <div class="router-pill">
+                                    <strong>Anthropic</strong>
+                                    <span>Messages</span>
+                                </div>
+                                <div class="router-pill">
+                                    <strong>OpenAI</strong>
+                                    <span>Chat Completions</span>
+                                </div>
+                                <div class="router-pill">
+                                    <strong>Gemini</strong>
+                                    <span>generateContent</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -164,23 +221,33 @@
         <section id="models" class="section-block relative overflow-hidden">
             <div class="surface-gradient-alt"></div>
             <div class="section-shell">
-                <div class="mb-8 max-w-2xl">
+                <div class="mb-8 max-w-2xl" data-reveal>
                     <span class="section-eyebrow" data-i18n="index.matrix.eyebrow">Routing Matrix</span>
-                    <h2 data-i18n="index.models.title" class="mt-3 text-2xl md:text-3xl lg:text-4xl font-bold font-headline text-custom-ink dark:text-white">Provider 与模型覆盖</h2>
+                    <h2 data-i18n="index.models.title" class="mt-3 text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">主流模型，一个入口全部覆盖</h2>
                     <p data-i18n="index.matrix.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Pigcoder 强调模型渠道、协议、上下文和能力标签，方便开发者判断该走哪条路由。</p>
                     <a href="pricing.html#plans" data-i18n="index.matrix.pricingLink" class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-custom-navy hover:underline dark:text-custom-gold">查看完整倍率表 →</a>
                 </div>
                 <!-- 真实品牌 logo（内联 Simple Icons 官方路径，currentColor 自适应深浅色） -->
-                <div class="provider-logos mb-9" aria-label="支持的模型厂商">
+                <div class="provider-logos mb-6" aria-label="支持的模型厂商">
                     <svg class="provider-logo-svg logo-anthropic" viewBox="0 0 24 24" role="img" aria-label="Anthropic" xmlns="http://www.w3.org/2000/svg"><title>Anthropic</title><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg>
                     <svg class="provider-logo-svg logo-openai" viewBox="0 0 24 24" role="img" aria-label="OpenAI" xmlns="http://www.w3.org/2000/svg"><title>OpenAI</title><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>
                     <svg class="provider-logo-svg logo-gemini" viewBox="0 0 24 24" role="img" aria-label="Google Gemini" xmlns="http://www.w3.org/2000/svg"><title>Google Gemini</title><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg>
                     <span class="provider-mono" data-i18n="index.models.zhipu">智谱</span>
                 </div>
+                <!-- 常用模型：与价格页渠道目录保持一致 -->
+                <div class="model-chips mb-10" data-reveal aria-label="常用模型">
+                    <span class="model-chip">claude-opus-4-8</span>
+                    <span class="model-chip">claude-sonnet-4-6</span>
+                    <span class="model-chip">claude-haiku-4-5</span>
+                    <span class="model-chip">gpt-5.5</span>
+                    <span class="model-chip">gpt-5.4</span>
+                    <span class="model-chip">gemini-3-pro-preview</span>
+                    <span class="model-chip">gemini-2.5-pro</span>
+                </div>
                 <div class="channel-grid">
                     <article class="channel-compare">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-custom-ink dark:text-white">Claude</h3>
+                            <h3 class="text-xl font-semibold text-custom-ink dark:text-white">Claude</h3>
                             <span class="channel-pill">Anthropic</span>
                         </div>
                         <dl class="channel-specs">
@@ -200,7 +267,7 @@
                     </article>
                     <article class="channel-compare">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-custom-ink dark:text-white">Codex</h3>
+                            <h3 class="text-xl font-semibold text-custom-ink dark:text-white">Codex</h3>
                             <span class="channel-pill">OpenAI</span>
                         </div>
                         <dl class="channel-specs">
@@ -220,7 +287,7 @@
                     </article>
                     <article class="channel-compare">
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-custom-ink dark:text-white">Gemini</h3>
+                            <h3 class="text-xl font-semibold text-custom-ink dark:text-white">Gemini</h3>
                             <span class="channel-pill">Gemini v1beta</span>
                         </div>
                         <dl class="channel-specs">
@@ -246,8 +313,8 @@
         <section class="section-block relative overflow-hidden">
             <div class="surface-gradient-main"></div>
             <div class="section-shell">
-                <div class="mb-10 max-w-2xl">
-                    <h2 data-i18n="index.integration.title" class="text-2xl md:text-3xl lg:text-4xl font-bold font-headline text-custom-ink dark:text-white">从 API Key 到模型路由</h2>
+                <div class="mb-10 max-w-2xl" data-reveal>
+                    <h2 data-i18n="index.integration.title" class="text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">从 API Key 到模型路由</h2>
                     <p data-i18n="index.integration.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Pigcoder 的页面信息围绕开发者接入路径组织：创建密钥、选择协议、替换 Endpoint、观察请求日志。</p>
                 </div>
                 <ol class="flow-stepper">
@@ -283,6 +350,65 @@
             </div>
         </section>
 
+        <!-- FAQ：接入前的常见疑问 -->
+        <section id="faq" class="section-block-tight relative overflow-hidden">
+            <div class="surface-gradient-alt"></div>
+            <div class="section-shell-narrow">
+                <div class="mb-8 text-center" data-reveal>
+                    <h2 data-i18n="index.faq.title" class="text-2xl md:text-3xl font-semibold font-headline text-custom-ink dark:text-white">接入前，你可能想知道</h2>
+                </div>
+                <div class="surface-card rounded-2xl p-6 md:p-8" data-reveal>
+                    <div class="space-y-2">
+                        <div class="faq-item border-b border-custom-line dark:border-white/10 pb-2">
+                            <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 py-3 text-left" aria-expanded="false">
+                                <span data-i18n="index.faq.tools.q" class="font-semibold text-custom-ink dark:text-white text-sm">支持哪些编程工具？</span>
+                                <span class="material-symbols-outlined faq-chevron text-custom-muted dark:text-slate-400 text-xl" aria-hidden="true">expand_more</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p data-i18n="index.faq.tools.a" class="text-custom-muted dark:text-slate-400 text-sm pb-4 leading-relaxed">Claude Code、Codex CLI、Gemini CLI、OpenCode、Droid CLI 等。替换 Base URL 和 API Key 即可接入，工具原有用法保持不变。</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-b border-custom-line dark:border-white/10 pb-2">
+                            <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 py-3 text-left" aria-expanded="false">
+                                <span data-i18n="index.faq.ratio.q" class="font-semibold text-custom-ink dark:text-white text-sm">倍率是什么意思？</span>
+                                <span class="material-symbols-outlined faq-chevron text-custom-muted dark:text-slate-400 text-xl" aria-hidden="true">expand_more</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p data-i18n="index.faq.ratio.a" class="text-custom-muted dark:text-slate-400 text-sm pb-4 leading-relaxed">倍率是各渠道的兑换比例。每个渠道直接展示倍率与能力标签，充值余额按实际调用消耗，不做套餐包装。</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-b border-custom-line dark:border-white/10 pb-2">
+                            <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 py-3 text-left" aria-expanded="false">
+                                <span data-i18n="index.faq.start.q" class="font-semibold text-custom-ink dark:text-white text-sm">如何开始接入？</span>
+                                <span class="material-symbols-outlined faq-chevron text-custom-muted dark:text-slate-400 text-xl" aria-hidden="true">expand_more</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p data-i18n="index.faq.start.a" class="text-custom-muted dark:text-slate-400 text-sm pb-4 leading-relaxed">在控制台创建 API Key，选择协议分组，把工具的 Base URL 替换成对应端点即可。文档页提供每个工具的完整接入示例。</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-b border-custom-line dark:border-white/10 pb-2">
+                            <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 py-3 text-left" aria-expanded="false">
+                                <span data-i18n="index.faq.balance.q" class="font-semibold text-custom-ink dark:text-white text-sm">余额可以在不同渠道通用吗？</span>
+                                <span class="material-symbols-outlined faq-chevron text-custom-muted dark:text-slate-400 text-xl" aria-hidden="true">expand_more</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p data-i18n="index.faq.balance.a" class="text-custom-muted dark:text-slate-400 text-sm pb-4 leading-relaxed">可以。充值余额在 Claude、Codex、Gemini 等渠道间通用，按实际调用消耗。</p>
+                            </div>
+                        </div>
+                        <div class="faq-item pb-2">
+                            <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 py-3 text-left" aria-expanded="false">
+                                <span data-i18n="index.faq.support.q" class="font-semibold text-custom-ink dark:text-white text-sm">遇到问题怎么获取支持？</span>
+                                <span class="material-symbols-outlined faq-chevron text-custom-muted dark:text-slate-400 text-xl" aria-hidden="true">expand_more</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p data-i18n="index.faq.support.a" class="text-custom-muted dark:text-slate-400 text-sm pb-4 leading-relaxed">先查阅文档页的故障排查章节，也可以加入用户群或通过工单联系客服。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 底部 CTA：单一意图 -->
         <section class="section-block-tight relative overflow-hidden">
             <div class="surface-gradient-main"></div>
@@ -290,7 +416,7 @@
                 <div class="api-cta-panel rounded-2xl p-6 md:p-8">
                     <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
                         <div>
-                            <h2 data-i18n="index.bottom.title" class="text-2xl md:text-3xl lg:text-4xl font-bold font-headline text-custom-ink dark:text-white">准备接入 Pigcoder API？</h2>
+                            <h2 data-i18n="index.bottom.title" class="text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">准备接入 Pigcoder API？</h2>
                             <p data-i18n="index.bottom.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">先创建 API Key，再按工具复制对应 Endpoint。文档页提供 Claude Code、Codex CLI、Gemini CLI 和 OpenCode 的接入示例。</p>
                         </div>
                         <div data-partial="partials/cta-actions.html"
@@ -315,10 +441,20 @@
     <div id="site-footer"></div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // 滚动进场：卡片淡入上浮
-            var targets = document.querySelectorAll('.cap-primary, .cap-row, .channel-compare, .flow-step-item, .api-cta-panel, .endpoint-chip');
+            // 滚动进场：卡片与区块标题淡入上浮，同组兄弟元素按序错峰（80ms 递增）
+            var targets = document.querySelectorAll('.cap-primary, .cap-row, .channel-compare, .flow-step-item, .api-cta-panel, .endpoint-chip, [data-reveal]');
             targets.forEach(function (el) {
                 el.classList.add('fade-up');
+            });
+            targets.forEach(function (el) {
+                if (!el.parentElement) return;
+                var siblings = Array.prototype.filter.call(el.parentElement.children, function (child) {
+                    return child.classList.contains('fade-up');
+                });
+                var index = siblings.indexOf(el);
+                if (index > 0) {
+                    el.style.setProperty('--fade-delay', Math.min(index, 5) * 80 + 'ms');
+                }
             });
             var observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
@@ -330,6 +466,142 @@
             }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
             targets.forEach(function (el) {
                 observer.observe(el);
+            });
+
+            // 终端三工具 tab + 打字机：切换 tab 重新“敲出”对应接入命令
+            (function () {
+                var term = document.querySelector('.hero-terminal-lg');
+                if (!term) return;
+                var body = term.querySelector('.term-body');
+                var copyBtn = term.querySelector('.terminal-copy');
+                if (!body) return;
+                var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                // 命令与 docs 页 Step 5 保持一致；lines 里数组为命令行 [前缀, 高亮值]，字符串为输出行
+                var TABS = {
+                    claude: {
+                        copy: 'export ANTHROPIC_BASE_URL=https://sub2.pigcoder.com\nexport ANTHROPIC_API_KEY=sk-pig-xxxx\nclaude',
+                        lines: [
+                            ['export ANTHROPIC_BASE_URL=', 'https://sub2.pigcoder.com'],
+                            ['export ANTHROPIC_API_KEY=', 'sk-pig-••••'],
+                            ['claude', ''],
+                            '→ routed to Anthropic · 200k ctx · thinking'
+                        ]
+                    },
+                    codex: {
+                        copy: 'export OPENAI_BASE_URL=https://sub2.pigcoder.com/v1\nexport OPENAI_API_KEY=sk-pig-xxxx\ncodex',
+                        lines: [
+                            ['export OPENAI_BASE_URL=', 'https://sub2.pigcoder.com/v1'],
+                            ['export OPENAI_API_KEY=', 'sk-pig-••••'],
+                            ['codex', ''],
+                            '→ routed to OpenAI · gpt-5.x · xhigh'
+                        ]
+                    },
+                    gemini: {
+                        copy: 'export GOOGLE_GEMINI_BASE_URL=https://sub2.pigcoder.com/v1beta\nexport GEMINI_API_KEY=sk-pig-xxxx\ngemini',
+                        lines: [
+                            ['export GOOGLE_GEMINI_BASE_URL=', 'https://sub2.pigcoder.com/v1beta'],
+                            ['export GEMINI_API_KEY=', 'sk-pig-••••'],
+                            ['gemini', ''],
+                            '→ routed to Gemini · thinking · WebSearch'
+                        ]
+                    }
+                };
+
+                function lineHtml(line) {
+                    if (typeof line === 'string') {
+                        return '<p class="text-white/55">' + line + '</p>';
+                    }
+                    var val = line[1] ? '<span class="text-green-300">' + line[1] + '</span>' : '';
+                    return '<p><span class="text-custom-gold">$</span> ' + line[0] + val + '</p>';
+                }
+
+                function render(tabKey) {
+                    body.innerHTML = TABS[tabKey].lines.map(lineHtml).join('');
+                    if (copyBtn) copyBtn.setAttribute('data-copy', TABS[tabKey].copy);
+                }
+
+                // session 令牌：tab 快速切换时作废上一轮未完成的打字
+                var session = 0;
+                function playTyping(tabKey) {
+                    session += 1;
+                    var token = session;
+                    render(tabKey);
+                    if (reduceMotion) return;
+                    var ps = Array.prototype.slice.call(body.querySelectorAll('p'));
+                    var finals = ps.map(function (p) { return p.innerHTML; });
+                    var texts = ps.map(function (p) { return p.textContent; });
+                    ps.forEach(function (p) {
+                        p.style.visibility = 'hidden';
+                        p.innerHTML = '&nbsp;';
+                    });
+                    (function typeLine(i) {
+                        if (token !== session || i >= ps.length) return;
+                        var p = ps[i];
+                        p.style.visibility = '';
+                        if (texts[i].charAt(0) !== '$') {
+                            // 输出行不打字：延迟后整体淡入，模拟命令返回
+                            p.style.opacity = '0';
+                            p.style.transition = 'opacity 0.45s ease';
+                            setTimeout(function () {
+                                if (token !== session) return;
+                                p.innerHTML = finals[i];
+                                requestAnimationFrame(function () { p.style.opacity = '1'; });
+                                setTimeout(function () { typeLine(i + 1); }, 300);
+                            }, 420);
+                            return;
+                        }
+                        var text = texts[i];
+                        var pos = 0;
+                        (function step() {
+                            if (token !== session) return;
+                            pos += 1;
+                            p.textContent = text.slice(0, pos);
+                            p.insertAdjacentHTML('beforeend', '<span class="type-caret" aria-hidden="true"></span>');
+                            if (pos < text.length) {
+                                setTimeout(step, 12 + Math.random() * 20);
+                            } else {
+                                p.innerHTML = finals[i];
+                                setTimeout(function () { typeLine(i + 1); }, 220);
+                            }
+                        })();
+                    })(0);
+                }
+
+                var tabButtons = Array.prototype.slice.call(term.querySelectorAll('[data-term-tab]'));
+                tabButtons.forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        if (btn.classList.contains('active')) return;
+                        tabButtons.forEach(function (b) {
+                            b.classList.toggle('active', b === btn);
+                            b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+                        });
+                        playTyping(btn.getAttribute('data-term-tab'));
+                    });
+                });
+
+                // 首次进入视口后开始打字（等 Hero 入场动画基本落定）
+                var started = false;
+                var termObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting && !started) {
+                            started = true;
+                            termObserver.disconnect();
+                            setTimeout(function () { playTyping('claude'); }, 900);
+                        }
+                    });
+                }, { threshold: 0.35 });
+                termObserver.observe(term);
+            })();
+
+            // FAQ 手风琴
+            document.querySelectorAll('.faq-trigger').forEach(function (trigger) {
+                trigger.addEventListener('click', function () {
+                    var item = trigger.closest('.faq-item');
+                    if (!item) return;
+                    var isOpen = item.classList.toggle('open');
+                    trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                });
             });
 
             // 一键复制：端点地址与终端命令
@@ -362,9 +634,9 @@
             });
         });
     </script>
-    <script src="i18n.js?v=20260703-docs-fix"></script>
-    <script src="components.js?v=20260703-docs-fix"></script>
-    <script src="shared.js?v=20260703-docs-fix"></script>
+    <script src="i18n.js?v=20260707-design-warm"></script>
+    <script src="components.js?v=20260707-design-warm"></script>
+    <script src="shared.js?v=20260707-design-warm"></script>
 </body>
 
 </html>
