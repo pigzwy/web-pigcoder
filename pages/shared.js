@@ -60,4 +60,16 @@
   document.addEventListener('pigcoder:locale-changed', function () {
     applyTheme(html.classList.contains('dark'));
   });
+
+  // 鼠标跟随高亮：把光标在卡片内的坐标写入 --spot-x/--spot-y，供 CSS 径向渐变定位。
+  // 用事件委托，动态渲染的价格卡也能生效；触屏设备无 hover，样式自然不触发。
+  var SPOT_SELECTOR = '.endpoint-chip, .channel-compare, .surface-card, .doc-metric-card, ' +
+    '.pricing-card, .pricing-hero-row, .api-cta-panel, .diagram-card';
+  document.addEventListener('pointermove', function (e) {
+    var card = e.target && e.target.closest ? e.target.closest(SPOT_SELECTOR) : null;
+    if (!card) return;
+    var rect = card.getBoundingClientRect();
+    card.style.setProperty('--spot-x', (e.clientX - rect.left) + 'px');
+    card.style.setProperty('--spot-y', (e.clientY - rect.top) + 'px');
+  }, { passive: true });
 })();

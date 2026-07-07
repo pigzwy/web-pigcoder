@@ -609,6 +609,86 @@ html[lang^="zh"] .doc-section-heading {
   text-transform: uppercase;
 }
 
+/* ===== 毛玻璃卡片 + 鼠标跟随高亮（spot-x/spot-y 由 shared.js 写入）===== */
+.endpoint-chip,
+.channel-compare,
+.surface-card,
+.doc-metric-card,
+.pricing-card,
+.pricing-hero-row {
+  background: rgba(255, 255, 255, 0.62);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.dark .endpoint-chip,
+.dark .channel-compare,
+.dark .surface-card,
+.dark .doc-metric-card,
+.dark .pricing-card,
+.dark .pricing-hero-row {
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.api-cta-panel,
+.dark .api-cta-panel {
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.endpoint-chip,
+.channel-compare,
+.surface-card,
+.doc-metric-card,
+.pricing-card,
+.pricing-hero-row,
+.api-cta-panel,
+.diagram-card,
+.stat-item {
+  position: relative;
+}
+
+.endpoint-chip::after,
+.channel-compare::after,
+.surface-card::after,
+.doc-metric-card::after,
+.pricing-card::after,
+.pricing-hero-row::after,
+.api-cta-panel::after,
+.diagram-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: radial-gradient(260px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(232, 168, 37, 0.16), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.dark .endpoint-chip::after,
+.dark .channel-compare::after,
+.dark .surface-card::after,
+.dark .doc-metric-card::after,
+.dark .pricing-card::after,
+.dark .pricing-hero-row::after,
+.dark .api-cta-panel::after,
+.dark .diagram-card::after {
+  background: radial-gradient(260px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(232, 168, 37, 0.12), transparent 65%);
+}
+
+.endpoint-chip:hover::after,
+.channel-compare:hover::after,
+.surface-card:hover::after,
+.doc-metric-card:hover::after,
+.pricing-card:hover::after,
+.pricing-hero-row:hover::after,
+.api-cta-panel:hover::after,
+.diagram-card:hover::after {
+  opacity: 1;
+}
+
 /* FAQ 手风琴：首页与价格页共用 */
 .faq-answer {
   max-height: 0;
@@ -739,6 +819,19 @@ html[lang^="zh"] .doc-section-heading {
 .hero-modern {
   padding-top: 80px;
 }
+
+/* 满屏 Hero：内容垂直居中，占满首屏（80px 为顶栏补偿） */
+.hero-full-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  min-height: calc(100svh - 80px);
+  padding-top: 2rem;
+  padding-bottom: 5.5rem;
+}
+
 
 #site-header > header {
   position: relative;
