@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="light" lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title data-i18n="models.title">模型目录 - Pigcoder</title>
+  <meta name="description" content="Pigcoder 模型目录：汇聚各大厂商 4400+ 模型的元数据——上下文、能力标签与模态支持，支持按类型、厂商与能力检索对比。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pigcoder 模型目录" />
+  <meta property="og:description" content="汇聚各大厂商 4400+ 模型的上下文、能力标签与模态支持，一站检索对比。" />
+  <!-- 部署到正式域名后，请把 og:image 改为绝对地址（如 https://your-domain/logo.jpg） -->
+  <meta property="og:image" content="logo.jpg?v=20260708-icons" />
+  <meta property="og:url" content="models.html" />
+  <meta property="og:site_name" content="Pigcoder" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Pigcoder 模型目录" />
+  <meta name="twitter:description" content="汇聚各大厂商 4400+ 模型的上下文、能力标签与模态支持，一站检索对比。" />
+  <meta name="twitter:image" content="logo.jpg?v=20260708-icons" />
+  <link href="tailwind.css?v=20260708-icons" rel="stylesheet" />
+  <link href="logo.jpg?v=20260708-icons" rel="icon" type="image/jpeg" />
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link href="common.css?v=20260708-icons" rel="stylesheet" />
+</head>
+
+<body
+  class="bg-custom-wash dark:bg-custom-navy-deep font-body text-custom-ink dark:text-white selection:bg-custom-navy selection:text-white transition-colors duration-300">
+  <a href="#main-content" class="skip-link" data-i18n="common.skip">跳到主要内容</a>
+  <div id="site-header"></div>
+
+  <main id="main-content">
+    <section class="hero-modern relative overflow-hidden">
+      <div class="surface-gradient-hero"></div>
+      <div class="deco-dots" aria-hidden="true"></div>
+      <div class="deco-orb deco-orb-gold -top-24 -left-24" aria-hidden="true"></div>
+      <div class="deco-orb deco-orb-navy top-1/3 -right-32" aria-hidden="true"></div>
+      <div class="section-shell-wide py-24 md:py-32">
+        <div class="max-w-3xl text-left">
+          <span class="kicker mb-5 hero-rise">
+            <span class="material-symbols-outlined text-sm text-custom-gold" aria-hidden="true">hub</span>
+            <span data-i18n="models.hero.badge">模型目录</span>
+          </span>
+          <h1 data-i18n-html="models.hero.title"
+            class="hero-rise hero-rise-2 text-3xl sm:text-4xl md:text-5xl font-semibold font-headline tracking-[-0.035em] text-custom-ink dark:text-white mb-5 leading-[1.12] text-balance">
+            <span>全球模型元数据</span>
+            <span class="brand-emphasis">一览无余</span>
+          </h1>
+          <p data-i18n="models.hero.description"
+            class="hero-rise hero-rise-3 text-custom-muted dark:text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">
+            汇聚各大厂商模型的上下文、能力标签与模态支持，每日更新，一站检索对比，让模型选型不再费力。</p>
+          <dl class="hero-rise hero-rise-4 mt-10 grid max-w-xl grid-cols-3 gap-6">
+            <div class="stat-item">
+              <dd><strong id="stat-models">4,430</strong></dd>
+              <dt><span data-i18n="models.hero.stats.models">收录模型</span></dt>
+            </div>
+            <div class="stat-item">
+              <dd><strong id="stat-vendors">60</strong></dd>
+              <dt><span data-i18n="models.hero.stats.vendors">模型厂商</span></dt>
+            </div>
+            <div class="stat-item">
+              <dd><strong id="stat-types">18</strong></dd>
+              <dt><span data-i18n="models.hero.stats.types">模型类型</span></dt>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative overflow-hidden section-block-tight">
+      <div class="surface-gradient-main"></div>
+      <div class="section-shell-wide">
+        <div class="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
+
+          <aside>
+            <details id="model-filters" class="model-filter-panel rounded-xl">
+              <summary class="model-filter-summary lg:hidden">
+                <span data-i18n="models.filters.title">筛选</span>
+                <span class="material-symbols-outlined text-lg ml-auto" aria-hidden="true">expand_more</span>
+              </summary>
+              <div class="model-filter-body">
+                <label class="block">
+                  <span class="sr-only" data-i18n="models.filters.search">搜索模型</span>
+                  <input id="model-search" type="search" data-i18n-attr="placeholder:models.filters.searchPlaceholder"
+                    placeholder="搜索模型名或 ID…"
+                    class="w-full rounded-lg border-custom-line dark:border-white/15 bg-white/70 dark:bg-white/5 text-sm text-custom-ink dark:text-white placeholder:text-custom-muted dark:placeholder:text-slate-500 focus:border-custom-gold focus:ring-custom-gold/40" />
+                </label>
+                <div>
+                  <p class="model-filter-heading" data-i18n="models.filters.type">类型</p>
+                  <div id="filter-types" class="grid gap-1.5"></div>
+                </div>
+                <div>
+                  <p class="model-filter-heading" data-i18n="models.filters.vendor">厂商</p>
+                  <input id="vendor-search" type="search" data-i18n-attr="placeholder:models.filters.vendorSearchPlaceholder"
+                    placeholder="搜索厂商…"
+                    class="mb-2 w-full rounded-lg border-custom-line dark:border-white/15 bg-white/70 dark:bg-white/5 text-xs text-custom-ink dark:text-white placeholder:text-custom-muted dark:placeholder:text-slate-500 focus:border-custom-gold focus:ring-custom-gold/40" />
+                  <div id="filter-vendors" class="model-filter-scroll grid gap-1"></div>
+                </div>
+                <div>
+                  <p class="model-filter-heading" data-i18n="models.filters.capability">能力</p>
+                  <div id="filter-caps" class="grid gap-1"></div>
+                </div>
+                <div>
+                  <p class="model-filter-heading" data-i18n="models.filters.context">上下文</p>
+                  <div id="filter-ctx" class="grid gap-1"></div>
+                </div>
+                <label class="model-filter-option">
+                  <input id="filter-dep" type="checkbox" checked
+                    class="rounded border-custom-line dark:border-white/20 text-custom-gold focus:ring-custom-gold/40" />
+                  <span data-i18n="models.filters.hideDeprecated">隐藏已弃用模型</span>
+                </label>
+                <button type="button" id="filter-reset"
+                  class="w-full rounded-lg border border-custom-line dark:border-white/15 px-3 py-2 text-sm font-semibold text-custom-muted dark:text-slate-300 hover:border-custom-gold/50 hover:text-custom-ink dark:hover:text-white transition-colors"
+                  data-i18n="models.filters.reset">重置筛选</button>
+              </div>
+            </details>
+          </aside>
+
+          <div>
+            <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
+              <p id="model-count" class="text-sm font-semibold text-custom-muted dark:text-slate-400"></p>
+              <label class="flex items-center gap-2 text-sm text-custom-muted dark:text-slate-400">
+                <span data-i18n="models.toolbar.sort">排序</span>
+                <select id="model-sort"
+                  class="rounded-lg border-custom-line dark:border-white/15 bg-white/70 dark:bg-custom-surface-dark text-sm text-custom-ink dark:text-white focus:border-custom-gold focus:ring-custom-gold/40">
+                  <option value="newest" data-i18n="models.toolbar.sortNewest">最新优先</option>
+                  <option value="context" data-i18n="models.toolbar.sortContext">上下文从大到小</option>
+                  <option value="name" data-i18n="models.toolbar.sortName">名称 A→Z</option>
+                </select>
+              </label>
+            </div>
+            <div id="model-card-grid" class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              <div class="pricing-card-skeleton partial-loading"></div>
+              <div class="pricing-card-skeleton partial-loading"></div>
+              <div class="pricing-card-skeleton partial-loading"></div>
+              <div class="pricing-card-skeleton partial-loading"></div>
+              <div class="pricing-card-skeleton partial-loading"></div>
+              <div class="pricing-card-skeleton partial-loading"></div>
+            </div>
+            <div id="model-empty" class="hidden rounded-xl border border-dashed border-custom-line dark:border-white/15 px-6 py-16 text-center text-custom-muted dark:text-slate-400">
+              <p data-i18n="models.empty">没有匹配的模型，试试放宽筛选条件。</p>
+            </div>
+            <div class="mt-8 text-center">
+              <button type="button" id="model-more"
+                class="btn-secondary hidden rounded-full px-8 py-2.5 text-sm font-semibold"
+                data-i18n="models.loadMore">加载更多</button>
+            </div>
+            <p class="mt-8 text-sm text-custom-muted dark:text-slate-500">
+              <span data-i18n="models.note">* 本站实际可用模型与倍率以控制台实时配置为准，详见</span>
+              <a href="pricing.html" class="font-semibold text-custom-navy dark:text-custom-gold underline decoration-custom-gold/60 underline-offset-2"
+                data-i18n="models.noteLink">价格页</a>
+              <span class="mx-1">·</span>
+              <span id="data-updated"></span>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="i18n.js?v=20260708-icons"></script>
+  <script src="components.js?v=20260708-icons"></script>
+  <script src="models-catalog.js?v=20260708-icons"></script>
+  <script src="shared.js?v=20260708-icons"></script>
+</body>
+
+</html>

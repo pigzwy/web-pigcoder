@@ -10,7 +10,7 @@
     <meta property="og:title" content="Pigcoder - 稳定高速的 AI 编程中转站" />
     <meta property="og:description" content="统一模型路由，兼容 AI 编程工具。一个 Key，三种协议，替换 Base URL 即可接入 Claude、GPT、Gemini。" />
     <!-- 部署到正式域名后，请把下面两处改为绝对地址（如 https://your-domain/logo.jpg） -->
-    <meta property="og:image" content="logo.jpg?v=20260707-design-warm" />
+    <meta property="og:image" content="logo.jpg?v=20260708-icons" />
     <meta property="og:url" content="index.html" />
     <meta property="og:site_name" content="Pigcoder" />
     <meta property="og:locale" content="zh_CN" />
@@ -18,12 +18,12 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Pigcoder - 稳定高速的 AI 编程中转站" />
     <meta name="twitter:description" content="统一模型路由，兼容 AI 编程工具。一个 Key，三种协议，替换 Base URL 即可接入。" />
-    <meta name="twitter:image" content="logo.jpg?v=20260707-design-warm" />
-    <link href="tailwind.css?v=20260707-design-warm" rel="stylesheet" />
-    <link href="logo.jpg?v=20260707-design-warm" rel="icon" type="image/jpeg" />
+    <meta name="twitter:image" content="logo.jpg?v=20260708-icons" />
+    <link href="tailwind.css?v=20260708-icons" rel="stylesheet" />
+    <link href="logo.jpg?v=20260708-icons" rel="icon" type="image/jpeg" />
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link href="common.css?v=20260707-design-warm" rel="stylesheet" />
+    <link href="common.css?v=20260708-icons" rel="stylesheet" />
 </head>
 
 <body
@@ -35,6 +35,9 @@
         <!-- Hero：居中极简，标题 → 描述 → CTA 缓慢浮现 -->
         <section class="hero-modern relative overflow-hidden">
             <div class="surface-gradient-hero"></div>
+            <div class="deco-dots" aria-hidden="true"></div>
+            <div class="deco-orb deco-orb-gold -top-24 -left-24" aria-hidden="true"></div>
+            <div class="deco-orb deco-orb-navy top-1/3 -right-32" aria-hidden="true"></div>
             <div class="section-shell hero-full-shell">
                 <div class="mx-auto max-w-4xl text-center">
                     <h1 data-i18n-html="index.hero.title"
@@ -64,6 +67,7 @@
 
         <!-- 数据带：关键数字一览 -->
         <section class="relative overflow-hidden">
+            <div class="surface-gradient-alt"></div>
             <div class="section-shell pb-4">
                 <dl class="stats-band">
                     <div class="stat-item" data-reveal>
@@ -88,6 +92,7 @@
 
         <!-- 端点带：三协议真实 Base URL + 终端演示 -->
         <section class="section-block relative overflow-hidden">
+            <div class="surface-gradient-main"></div>
             <div class="section-shell">
                 <div class="mb-10 max-w-2xl" data-reveal>
                     <h2 data-i18n="index.endpoints.title" class="text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">替换一个 Base URL，接入三种协议</h2>
@@ -189,7 +194,7 @@
                                 <path d="M2 128 C 26 128, 24 75, 42 75" />
                             </svg>
                             <div class="router-node">
-                                <img src="logo.jpg?v=20260707-design-warm" alt="" width="56" height="56" loading="lazy" />
+                                <img src="logo.jpg?v=20260708-icons" alt="" width="56" height="56" loading="lazy" />
                                 <span class="router-badge" data-i18n="index.routing.badge">一个 Key · 统一路由</span>
                             </div>
                             <svg class="router-link router-link-flip" viewBox="0 0 44 150" aria-hidden="true">
@@ -412,6 +417,7 @@
         <!-- 底部 CTA：单一意图 -->
         <section class="section-block-tight relative overflow-hidden">
             <div class="surface-gradient-main"></div>
+            <div class="deco-orb deco-orb-green -bottom-24 -left-16" aria-hidden="true"></div>
             <div class="section-shell">
                 <div class="api-cta-panel rounded-2xl p-6 md:p-8">
                     <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
@@ -604,39 +610,12 @@
                 });
             });
 
-            // 一键复制：端点地址与终端命令
-            document.querySelectorAll('[data-copy]').forEach(function (el) {
-                el.addEventListener('click', function () {
-                    var text = el.getAttribute('data-copy');
-                    var icon = el.querySelector('[data-copy-icon]');
-                    var i18n = window.PigcoderI18n;
-                    var done = function () {
-                        if (icon) { icon.textContent = 'check'; }
-                        el.classList.add('is-copied');
-                        if (i18n) { el.setAttribute('aria-label', i18n.t('common.copied')); }
-                        setTimeout(function () {
-                            if (icon) { icon.textContent = 'content_copy'; }
-                            el.classList.remove('is-copied');
-                            if (i18n) { el.setAttribute('aria-label', i18n.t('common.copy')); }
-                        }, 1400);
-                    };
-                    if (navigator.clipboard && navigator.clipboard.writeText) {
-                        navigator.clipboard.writeText(text).then(done).catch(function () {});
-                    } else {
-                        var ta = document.createElement('textarea');
-                        ta.value = text;
-                        document.body.appendChild(ta);
-                        ta.select();
-                        try { document.execCommand('copy'); done(); } catch (e) {}
-                        document.body.removeChild(ta);
-                    }
-                });
-            });
+            // 一键复制由 shared.js 的 [data-copy] 全局委托处理
         });
     </script>
-    <script src="i18n.js?v=20260707-design-warm"></script>
-    <script src="components.js?v=20260707-design-warm"></script>
-    <script src="shared.js?v=20260707-design-warm"></script>
+    <script src="i18n.js?v=20260708-icons"></script>
+    <script src="components.js?v=20260708-icons"></script>
+    <script src="shared.js?v=20260708-icons"></script>
 </body>
 
 </html>

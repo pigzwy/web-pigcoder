@@ -11,7 +11,8 @@
         nav: {
           index: '首页',
           docs: '文档',
-          pricing: '价格'
+          pricing: '价格',
+          models: '模型'
         },
         header: {
           console: '控制台',
@@ -663,6 +664,55 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             `
           }
         }
+      },
+      models: {
+        title: '模型目录 - Pigcoder',
+        hero: {
+          badge: '模型目录',
+          title: '<span>全球模型元数据</span> <span class="brand-emphasis">一览无余</span>',
+          description: '汇聚各大厂商模型的上下文、能力标签与模态支持，每日更新，一站检索对比，让模型选型不再费力。',
+          stats: {
+            models: '收录模型',
+            vendors: '模型厂商',
+            types: '模型类型'
+          }
+        },
+        filters: {
+          title: '筛选',
+          search: '搜索模型',
+          searchPlaceholder: '搜索模型名或 ID…',
+          type: '类型',
+          vendor: '厂商',
+          vendorSearchPlaceholder: '搜索厂商…',
+          noVendor: '没有匹配的厂商',
+          capability: '能力',
+          context: '上下文',
+          hideDeprecated: '隐藏已弃用模型',
+          reset: '重置筛选'
+        },
+        toolbar: {
+          count: '{n} 个模型',
+          sort: '排序',
+          sortNewest: '最新优先',
+          sortContext: '上下文从大到小',
+          sortName: '名称 A→Z'
+        },
+        card: {
+          context: '上下文',
+          copy: '复制模型 ID',
+          deprecated: '已弃用',
+          official: '官方',
+          reference: '参考',
+          priceSource: '价格来源',
+          priceIn: 'In',
+          priceOut: 'Out'
+        },
+        loadMore: '加载更多',
+        updated: '数据更新于',
+        loadError: '目录数据加载失败，请刷新重试。',
+        empty: '没有匹配的模型，试试放宽筛选条件。',
+        note: '* 本站实际可用模型与倍率以控制台实时配置为准，详见',
+        noteLink: '价格页'
       }
     },
     'en-US': {
@@ -671,7 +721,8 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         nav: {
           index: 'Home',
           docs: 'Docs',
-          pricing: 'Pricing'
+          pricing: 'Pricing',
+          models: 'Models'
         },
         header: {
           console: 'Console',
@@ -871,7 +922,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         title: 'Pricing - Pigcoder',
         hero: {
           badge: 'Model Channels & Ratios',
-          title: '<span>Transparent Model Ratios</span><span class="brand-emphasis">and Channel Capabilities</span>',
+          title: '<span>Transparent Model Ratios </span><span class="brand-emphasis">and Channel Capabilities</span>',
           description: 'Compare ratios, models, context, thinking, WebSearch, and compatible tools by provider and tool scenario. Consumption follows actual usage, and final entitlements follow the live console.',
           cards: {
             rechargeTitle: 'Shared balance',
@@ -1306,6 +1357,55 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             `
           }
         }
+      },
+      models: {
+        title: 'Model Catalog - Pigcoder',
+        hero: {
+          badge: 'Model Catalog',
+          title: '<span>Every model in the world, </span><span class="brand-emphasis">at a glance</span>',
+          description: 'Context windows, capability tags, and modality support for models from every major vendor — refreshed daily, searchable in one place, so model selection finally feels effortless.',
+          stats: {
+            models: 'Models',
+            vendors: 'Vendors',
+            types: 'Model types'
+          }
+        },
+        filters: {
+          title: 'Filters',
+          search: 'Search models',
+          searchPlaceholder: 'Search name or model ID…',
+          type: 'Modality',
+          vendor: 'Vendor',
+          vendorSearchPlaceholder: 'Search vendor…',
+          noVendor: 'No matching vendor',
+          capability: 'Capabilities',
+          context: 'Context window',
+          hideDeprecated: 'Hide deprecated models',
+          reset: 'Reset filters'
+        },
+        toolbar: {
+          count: '{n} models',
+          sort: 'Sort',
+          sortNewest: 'Newest first',
+          sortContext: 'Longest context',
+          sortName: 'Name A→Z'
+        },
+        card: {
+          context: 'Context',
+          copy: 'Copy model ID',
+          deprecated: 'Deprecated',
+          official: 'Official',
+          reference: 'Ref',
+          priceSource: 'Price source',
+          priceIn: 'In',
+          priceOut: 'Out'
+        },
+        loadMore: 'Load more',
+        updated: 'Data updated',
+        loadError: 'Failed to load catalog data. Please refresh.',
+        empty: 'No matching models. Try relaxing the filters.',
+        note: '* Models and ratios actually available on this site follow the live console. See the',
+        noteLink: 'pricing page'
       }
     }
   };
