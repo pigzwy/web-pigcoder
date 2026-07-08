@@ -227,7 +227,7 @@
         '<div class="mt-2 flex flex-wrap gap-2">' + perksHtml + '</div>' +
       '</div>' +
       '<div data-partial="partials/recharge-button.html" data-label="' + labels.action + '" data-label-i18n="common.cta.console">' +
-        '<a href="https://sub2.pigcoder.com/login" class="btn-ghost w-full px-5 py-2.5 text-sm border border-custom-line dark:border-white/10 rounded-lg">' + labels.action + '</a>' +
+        '<a href="https://sub2.pigcoder.com/login" target="_top" class="btn-ghost w-full px-5 py-2.5 text-sm border border-custom-line dark:border-white/10 rounded-lg">' + labels.action + '</a>' +
       '</div>' +
     '</div>';
   }

@@ -300,7 +300,7 @@
           register: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 1 — 注册与登录</h3>
             <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
-              <li>访问 <a href="https://sub2.pigcoder.com" target="_blank" class="text-custom-gold hover:underline font-semibold">控制台</a>。</li>
+              <li>访问 <a href="https://sub2.pigcoder.com" target="_top" class="text-custom-gold hover:underline font-semibold">控制台</a>。</li>
               <li>使用邮箱或第三方账号（GitHub / Google）完成注册。</li>
               <li>登录后进入个人仪表盘。</li>
             </ol>
@@ -1010,7 +1010,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           register: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 1 — Register and Sign In</h3>
             <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
-              <li>Open the <a href="https://sub2.pigcoder.com" target="_blank" class="text-custom-gold hover:underline font-semibold">console</a>.</li>
+              <li>Open the <a href="https://sub2.pigcoder.com" target="_top" class="text-custom-gold hover:underline font-semibold">console</a>.</li>
               <li>Create an account with email or a third-party login such as GitHub or Google.</li>
               <li>After signing in, enter your personal dashboard.</li>
             </ol>
