@@ -1620,6 +1620,50 @@ details.model-filter-panel:not([open]) .model-filter-body {
   font-variant-numeric: tabular-nums;
 }
 
+/* 类型/能力图标：筛选栏内 16px、随文字色（卡片里的 .model-cap-icon 仍用 0.8rem） */
+.model-filter-option .model-cap-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--pc-muted);
+}
+
+/* 选中态：图标跟着高亮成金色 */
+.model-filter-option:has(input:checked) .model-cap-icon {
+  color: var(--pc-gold);
+}
+
+/* checkbox 深色下强制透明，避免 forms 插件默认白底突兀 */
+.model-filter-option input[type="checkbox"],
+.model-filter-option input[type="radio"] {
+  background-color: transparent;
+}
+
+/* 无选中框类型项：隐藏方框，靠整体高亮表示选中 */
+.model-filter-option.is-bare {
+  border: 1px solid transparent;
+}
+
+.model-filter-option.is-bare input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.model-filter-option.is-bare:has(input:checked) {
+  background: rgba(232, 168, 37, 0.12);
+  border-color: rgba(232, 168, 37, 0.35);
+  color: var(--pc-navy);
+}
+
+.dark .model-filter-option.is-bare:has(input:checked) {
+  background: rgba(232, 168, 37, 0.14);
+  border-color: rgba(232, 168, 37, 0.32);
+  color: var(--pc-gold);
+}
+
 .model-id-chip {
   display: inline-flex;
   align-items: center;

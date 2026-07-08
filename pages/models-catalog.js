@@ -84,6 +84,34 @@
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="model-cap-icon" aria-hidden="true">' + p + '</svg>';
   }
 
+  /* 类型图标（lucide 线性，与能力图标同风格） */
+  var TYPE_SVG = {
+    text_generation: '<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+    deep_thinking: '<path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>',
+    text_understanding: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/>',
+    vision_understanding: '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',
+    image_generation: '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L9 20"/>',
+    video_generation: '<path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/>',
+    speech_recognition: '<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="19" x2="12" y2="22"/>',
+    speech_synthesis: '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>',
+    music_generation: '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
+    text_embedding: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>',
+    multimodal_embedding: '<rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/>',
+    text_rerank: '<line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><path d="M4 6h1v4"/><path d="M4 10h2"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/>',
+    omni: '<path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>',
+    realtime_omni: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
+    realtime_speech_recognition: '<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="19" x2="12" y2="22"/>',
+    realtime_speech_translation: '<path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/>',
+    realtime_speech_synthesis: '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>',
+    safety_detection: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/>'
+  };
+
+  function typeIcon(tp) {
+    var p = TYPE_SVG[tp];
+    if (!p) return '';
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="model-cap-icon" aria-hidden="true">' + p + '</svg>';
+  }
+
   function logoHtml(vendor, small) {
     return '<span class="model-logo' + (small ? ' model-logo-sm' : '') + '" data-letter="' + esc(vendor.charAt(0).toUpperCase()) + '" aria-hidden="true">' +
       '<img src="model-icons/' + encodeURIComponent(vendor) + '.svg" alt="" loading="lazy" onerror="this.remove()" />' +
@@ -233,10 +261,14 @@
       '</article>';
   }
 
-  function optionHtml(kind, value, label, count, checked, iconHtml) {
-    return '<label class="model-filter-option">' +
+  function optionHtml(kind, value, label, count, checked, iconHtml, showCheck) {
+    var bare = showCheck === false;
+    var inputClass = bare
+      ? 'sr-only'
+      : 'rounded border-custom-line dark:border-white/20 text-custom-gold focus:ring-custom-gold/40';
+    return '<label class="model-filter-option' + (bare ? ' is-bare' : '') + '">' +
       '<input type="checkbox" data-filter="' + kind + '" value="' + esc(value) + '"' + (checked ? ' checked' : '') +
-      ' class="rounded border-custom-line dark:border-white/20 text-custom-gold focus:ring-custom-gold/40" />' +
+      ' class="' + inputClass + '" />' +
       (iconHtml || '') +
       '<span>' + esc(label) + '</span><em>' + count + '</em></label>';
   }
@@ -265,7 +297,7 @@
     if (typeBox) {
       typeBox.innerHTML = TYPE_GROUPS.map(function (g) {
         var rows = g.types.filter(function (tp) { return COUNTS.types[tp]; }).map(function (tp) {
-          return optionHtml('type', tp, L.types[tp] || tp, COUNTS.types[tp], state.types[tp]);
+          return optionHtml('type', tp, L.types[tp] || tp, COUNTS.types[tp], state.types[tp], typeIcon(tp), false);
         }).join('');
         if (!rows) return '';
         return '<p class="model-filter-subhead">' + esc(L.groups[g.key]) + '</p>' + rows;
