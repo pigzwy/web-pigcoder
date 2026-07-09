@@ -1104,7 +1104,9 @@ html[lang^="zh"] .doc-section-heading {
 
 .stat-item {
   border-top: 2px solid var(--pc-line);
-  padding-top: 1rem;
+  min-height: 7rem;
+  padding: 1.25rem 1rem 0.5rem;
+  border-radius: 0 0 1rem 1rem;
   transition: transform 0.22s ease, border-color 0.22s ease;
 }
 
@@ -2039,8 +2041,10 @@ details.model-filter-panel:not([open]) .model-filter-body {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-  padding-top: 1.25rem;
+  gap: 1.1rem;
+  min-height: 12rem;
+  padding: 1.5rem 1rem 0.5rem;
+  border-radius: 0 0 1.25rem 1.25rem;
   border-top: 2px solid var(--pc-line);
 }
 
@@ -2063,6 +2067,7 @@ details.model-filter-panel:not([open]) .model-filter-body {
 
   .flow-stepper {
     grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
   }
 }
 
@@ -2073,5 +2078,12 @@ details.model-filter-panel:not([open]) .model-filter-body {
 
   .flow-stepper {
     grid-template-columns: 1fr;
+  }
+
+  .stat-item,
+  .flow-step-item {
+    min-height: auto;
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
   }
 }
