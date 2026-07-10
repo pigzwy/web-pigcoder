@@ -3,17 +3,29 @@
   let toggle = null;
   let toggleIcon = null;
 
+  function getStoredTheme() {
+    try {
+      return localStorage.getItem('pigcoder-theme');
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function storeTheme(theme) {
+    try {
+      localStorage.setItem('pigcoder-theme', theme);
+    } catch (error) {
+      // 第三方 iframe 中本地存储可能不可用。
+    }
+  }
+
   function isDarkPreferred() {
-    var storedTheme = localStorage.getItem('pigcoder-theme');
+    var storedTheme = getStoredTheme();
     if (storedTheme) {
       return storedTheme === 'dark';
     }
 
-    if (window.matchMedia) {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
-
-    return false;
+    return true;
   }
 
   function applyTheme(dark) {
@@ -50,7 +62,7 @@
     toggle.addEventListener('click', function() {
       var isDark = html.classList.contains('dark');
       applyTheme(!isDark);
-      localStorage.setItem('pigcoder-theme', isDark ? 'light' : 'dark');
+      storeTheme(isDark ? 'light' : 'dark');
     });
   }
 
@@ -61,6 +73,30 @@
     applyTheme(html.classList.contains('dark'));
   });
 
+  function legacyCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    var copied = false;
+    try { copied = document.execCommand('copy'); } catch (error) {}
+    document.body.removeChild(ta);
+    return copied;
+  }
+
+  function copyText(text) {
+    var fallback = function () {
+      return legacyCopy(text) ? Promise.resolve() : Promise.reject(new Error('Copy failed'));
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).catch(fallback);
+    }
+    return fallback();
+  }
+
   // 一键复制：全站统一的 [data-copy] 委托，动态渲染的按钮（如模型卡）无需单独绑定
   document.addEventListener('click', function (e) {
     var el = e.target && e.target.closest ? e.target.closest('[data-copy]') : null;
@@ -68,6 +104,7 @@
     var text = el.getAttribute('data-copy');
     var icon = el.querySelector('[data-copy-icon]');
     var i18n = window.PigcoderI18n;
+    var originalLabel = el.getAttribute('aria-label');
     var done = function () {
       if (icon) { icon.textContent = 'check'; }
       el.classList.add('is-copied');
@@ -75,19 +112,21 @@
       setTimeout(function () {
         if (icon) { icon.textContent = 'content_copy'; }
         el.classList.remove('is-copied');
-        if (i18n) { el.setAttribute('aria-label', i18n.t('common.copy')); }
+        if (originalLabel) { el.setAttribute('aria-label', originalLabel); }
       }, 1400);
     };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done).catch(function () {});
-    } else {
-      var ta = document.createElement('textarea');
-      ta.value = text;
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand('copy'); done(); } catch (err) {}
-      document.body.removeChild(ta);
-    }
+    var failed = function () {
+      if (icon) { icon.textContent = 'error'; }
+      el.classList.add('is-copy-failed');
+      var label = i18n ? i18n.t('common.copyFailed') : '复制失败，请手动复制';
+      el.setAttribute('aria-label', label);
+      setTimeout(function () {
+        if (icon) { icon.textContent = 'content_copy'; }
+        el.classList.remove('is-copy-failed');
+        if (originalLabel) { el.setAttribute('aria-label', originalLabel); }
+      }, 1800);
+    };
+    copyText(text).then(done).catch(failed);
   });
 
   // 鼠标跟随高亮：把光标在卡片内的坐标写入 --spot-x/--spot-y，供 CSS 径向渐变定位。

@@ -1808,6 +1808,15 @@ details.model-filter-panel:not([open]) .model-filter-body {
   color: #6ee7a8;
 }
 
+[data-copy].is-copy-failed {
+  border-color: rgba(220, 38, 38, 0.65) !important;
+  color: #dc2626;
+}
+
+.dark [data-copy].is-copy-failed {
+  color: #fca5a5;
+}
+
 .endpoint-proto {
   display: block;
   color: var(--pc-muted);

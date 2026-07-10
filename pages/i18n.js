@@ -51,7 +51,8 @@
           console: '立即前往控制台'
         },
         copy: '复制',
-        copied: '已复制'
+        copied: '已复制',
+        copyFailed: '复制失败，请手动复制'
       },
       index: {
         title: 'Pigcoder - 稳定高速的 AI 编程中转站',
@@ -670,7 +671,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         hero: {
           badge: '模型目录',
           title: '<span>全球模型元数据</span> <span class="brand-emphasis">一览无余</span>',
-          description: '汇聚各大厂商模型的上下文、能力标签与模态支持，每日更新，一站检索对比，让模型选型不再费力。',
+          description: '汇聚各大厂商模型的上下文、能力标签与模态支持，并标注数据更新时间，支持一站检索对比。',
           stats: {
             models: '收录模型',
             vendors: '模型厂商',
@@ -761,7 +762,8 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           console: 'Open Console'
         },
         copy: 'Copy',
-        copied: 'Copied'
+        copied: 'Copied',
+        copyFailed: 'Copy failed. Please copy manually.'
       },
       index: {
         title: 'Pigcoder - Stable High-Speed AI Coding Gateway',
@@ -1363,7 +1365,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         hero: {
           badge: 'Model Catalog',
           title: '<span>Every model in the world, </span><span class="brand-emphasis">at a glance</span>',
-          description: 'Context windows, capability tags, and modality support for models from every major vendor — refreshed daily, searchable in one place, so model selection finally feels effortless.',
+          description: 'Context windows, capability tags, and modality support for models from major vendors, with the data timestamp shown for each catalog snapshot.',
           stats: {
             models: 'Models',
             vendors: 'Vendors',

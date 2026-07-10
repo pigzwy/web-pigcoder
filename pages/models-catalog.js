@@ -178,6 +178,20 @@
     return Object.keys(obj).filter(function (k) { return obj[k]; });
   }
 
+  function dedupeById(models) {
+    var positions = {};
+    var result = [];
+    models.forEach(function (m) {
+      if (!m.id || positions[m.id] === undefined) {
+        if (m.id) positions[m.id] = result.length;
+        result.push(m);
+      } else if (result[positions[m.id]].dep && !m.dep) {
+        result[positions[m.id]] = m;
+      }
+    });
+    return result;
+  }
+
   function filtered() {
     if (!DATA) return [];
     var types = activeSet(state.types);
@@ -201,6 +215,7 @@
       }
       return true;
     });
+    list = dedupeById(list);
     if (state.sort === 'newest') {
       list = list.slice().sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
     } else if (state.sort === 'context') {
