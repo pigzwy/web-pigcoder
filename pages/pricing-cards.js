@@ -281,6 +281,19 @@
         }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    function revealByPosition() {
+      var vh = window.innerHeight;
+      var allVisible = true;
+      elements.forEach(function (el) {
+        if (!el.classList.contains('visible')) {
+          if (el.getBoundingClientRect().top < vh - 40) el.classList.add('visible');
+          else allVisible = false;
+        }
+      });
+      if (allVisible) window.removeEventListener('scroll', revealByPosition);
+    }
+    window.addEventListener('scroll', revealByPosition, { passive: true });
+    revealByPosition();
 
     elements.forEach(function (el) {
       observer.observe(el);

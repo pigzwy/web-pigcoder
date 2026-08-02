@@ -2096,3 +2096,50 @@ details.model-filter-panel:not([open]) .model-filter-body {
     padding-right: 0.875rem;
   }
 }
+
+/* ===== Review fixes (2026-08): 防止关键短语折行 ===== */
+.btn-primary,
+.btn-secondary,
+.channel-pill,
+.model-chip {
+  white-space: nowrap;
+}
+
+/* 路由图内的协议/环境变量文字：单行省略，避免窄列下挤成多行 */
+.router-pill span {
+  overflow-wrap: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* ===== Review fixes v2 ===== */
+.kicker,
+.doc-kicker {
+  white-space: nowrap;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 560px;
+}
+
+/* 浅色模式：深色画布卡与按钮的边界感 */
+html:not(.dark) .diagram-card {
+  border-color: rgba(24, 52, 95, 0.30);
+  box-shadow: 0 18px 44px rgba(24, 52, 95, 0.18);
+}
+
+html:not(.dark) .btn-secondary {
+  border-color: rgba(24, 52, 95, 0.22);
+}
+
+.provider-logo-img {
+  height: 1.6rem;
+  width: auto;
+  opacity: 0.92;
+}
+
+.provider-logo-img:hover {
+  opacity: 0.82;
+}
