@@ -1,6 +1,6 @@
-# Pigcoder Web
+# Pigcode Web
 
-`Pigcoder Web` 是 `Pigcoder` 的静态官网与接入文档站点，用来承载 AI 模型路由 / API Gateway 定位、CLI/SDK 接入说明、模型目录、渠道倍率与常见问题。
+`Pigcode Web` 是 `Pigcode` 的静态官网与接入文档站点，用来承载 AI 模型路由 / API Gateway 定位、CLI/SDK 接入说明、模型目录、渠道倍率与常见问题。
 
 当前站点包含 4 个核心页面：
 
@@ -140,6 +140,6 @@ pnpm run watch:css    # 或开发时开启监听，自动重编译
 
 ## 注意事项
 
-- 这是静态站点仓库，默认不包含后端逻辑（控制台在 `sub2.pigcoder.com`，官网只做展示与文档）
+- 这是静态站点仓库，默认不包含后端逻辑（控制台在 `pigcode.ai`，官网只做展示与文档）
 - Tailwind 已预编译为本地 `tailwind.css`，字体自托管，**无外部 CDN 依赖**，可部署到受限网络环境
 - `pages/models-data.json` 是静态数据文件，不会自动更新；若页面宣称「每日更新」，需要有流程定期重新生成该文件（可配合 `scripts/fetch-model-icons.js` 补新厂商图标）

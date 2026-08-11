@@ -4,28 +4,28 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title data-i18n="docs.title">技术文档 - Pigcoder</title>
-  <meta name="description" content="Pigcoder 接入文档：平台开通、API Key 获取，以及 Claude Code、Codex CLI、Gemini CLI、OpenCode、Droid CLI、CC Switch 的配置与常见排查。" />
+  <title data-i18n="docs.title">技术文档 - Pigcode</title>
+  <meta name="description" content="Pigcode 接入文档：平台开通、API Key 获取，以及 Claude Code、Codex CLI、Gemini CLI、OpenCode、Droid CLI、CC Switch 的配置与常见排查。" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Pigcoder 接入文档" />
+  <meta property="og:title" content="Pigcode 接入文档" />
   <meta property="og:description" content="平台开通、API Key 获取，以及各类 CLI 工具的端点配置与排查。" />
-  <meta property="og:image" content="https://www.pigcoder.com/logo.jpg" />
-  <meta property="og:url" content="https://www.pigcoder.com/docs.html" />
-  <meta property="og:site_name" content="Pigcoder" />
+  <meta property="og:image" content="https://pigcode.ai/logo.jpg" />
+  <meta property="og:url" content="https://pigcode.ai/docs.html" />
+  <meta property="og:site_name" content="Pigcode" />
   <meta property="og:locale" content="zh_CN" />
   <meta property="og:locale:alternate" content="en_US" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Pigcoder 接入文档" />
+  <meta name="twitter:title" content="Pigcode 接入文档" />
   <meta name="twitter:description" content="平台开通、API Key 获取，以及各类 CLI 工具的端点配置与排查。" />
-  <meta name="twitter:image" content="https://www.pigcoder.com/logo.jpg" />
-  <link href="tailwind.css?v=20260710-review-fixes" rel="stylesheet" />
-  <link href="logo.jpg?v=20260710-review-fixes" rel="icon" type="image/jpeg" />
+  <meta name="twitter:image" content="https://pigcode.ai/logo.jpg" />
+  <link href="tailwind.css?v=20260811-domain-migration" rel="stylesheet" />
+  <link href="logo.jpg?v=20260811-domain-migration" rel="icon" type="image/jpeg" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="canonical" href="https://www.pigcoder.com/docs.html" />
+  <link rel="canonical" href="https://pigcode.ai/docs.html" />
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link href="common.css?v=20260710-review-fixes" rel="stylesheet" />
+  <link href="common.css?v=20260811-domain-migration" rel="stylesheet" />
   <style>
     .code-block {
       position: relative;
@@ -220,7 +220,7 @@
             <h1
               data-i18n="docs.hero.title"
               class="hero-rise hero-rise-2 text-4xl md:text-6xl font-semibold font-headline text-custom-ink dark:text-white tracking-[-0.045em] leading-[1.04] mb-5 text-balance">
-              Pigcoder 接入文档
+              Pigcode 接入文档
             </h1>
             <p data-i18n="docs.hero.description" class="hero-rise hero-rise-3 text-custom-muted dark:text-slate-300 text-base md:text-lg leading-relaxed max-w-2xl">
               这里汇总平台开通、API Key 获取、各类 CLI 工具配置和常见排查方式。
@@ -287,7 +287,7 @@
               <div id="register" data-i18n-html="docs.platform.register" class="mb-12 scroll-mt-20">
                 <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 1 — 注册与登录</h3>
                 <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
-                  <li>访问 <a href="https://sub2.pigcoder.com" target="_top"
+                  <li>访问 <a href="https://pigcode.ai" target="_top"
                       class="text-custom-gold hover:underline font-semibold">控制台</a>。</li>
                   <li>使用邮箱或第三方账号（GitHub / Google）完成注册。</li>
                   <li>登录后进入个人仪表盘。</li>
@@ -342,21 +342,21 @@
                       <tr class="border-b border-slate-100 dark:border-white/5">
                         <td class="px-4 py-3 font-medium">Anthropic</td>
                         <td class="px-4 py-3"><code
-                            class="code-chip">https://sub2.pigcoder.com</code>
+                            class="code-chip">https://pigcode.ai</code>
                         </td>
                         <td class="px-4 py-3">Claude Code</td>
                       </tr>
                       <tr class="border-b border-slate-100 dark:border-white/5">
                         <td class="px-4 py-3 font-medium">OpenAI</td>
                         <td class="px-4 py-3"><code
-                            class="code-chip">https://sub2.pigcoder.com/v1</code>
+                            class="code-chip">https://pigcode.ai/v1</code>
                         </td>
                         <td class="px-4 py-3">Codex CLI, OpenCode, Droid CLI</td>
                       </tr>
                       <tr>
                         <td class="px-4 py-3 font-medium">Gemini</td>
                         <td class="px-4 py-3"><code
-                            class="code-chip">https://sub2.pigcoder.com/v1beta</code>
+                            class="code-chip">https://pigcode.ai/v1beta</code>
                         </td>
                         <td class="px-4 py-3">Gemini CLI</td>
                       </tr>
@@ -380,11 +380,11 @@
                   <span class="lang-label">bash</span>
                   <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># Anthropic 协议（Claude Code）
 export ANTHROPIC_API_KEY="sk-pig-xxxx"
-export ANTHROPIC_BASE_URL="https://sub2.pigcoder.com"
+export ANTHROPIC_BASE_URL="https://pigcode.ai"
 
 # OpenAI 协议（Codex CLI / OpenCode / Droid CLI）
 export OPENAI_API_KEY="sk-pig-xxxx"
-export OPENAI_BASE_URL="https://sub2.pigcoder.com/v1"
+export OPENAI_BASE_URL="https://pigcode.ai/v1"
 
 # Gemini 协议（Gemini CLI）
 export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
@@ -436,7 +436,7 @@ npm install -g @anthropic-ai/claude-code</code></pre>
                   <span class="lang-label">json</span>
                   <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
   "env": {
-    "ANTHROPIC_BASE_URL": "https://sub2.pigcoder.com",
+    "ANTHROPIC_BASE_URL": "https://pigcode.ai",
     "ANTHROPIC_API_KEY": "sk-pig-xxxx"
   }
 }</code></pre>
@@ -447,19 +447,19 @@ npm install -g @anthropic-ai/claude-code</code></pre>
                   <span class="lang-label">bash</span>
                   <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># macOS / Linux
 export ANTHROPIC_API_KEY="sk-pig-xxxx"
-export ANTHROPIC_BASE_URL="https://sub2.pigcoder.com"</code></pre>
+export ANTHROPIC_BASE_URL="https://pigcode.ai"</code></pre>
                 </div>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-3">
                   <span class="lang-label">powershell</span>
                   <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># Windows (PowerShell)
 $env:ANTHROPIC_API_KEY = "sk-pig-xxxx"
-$env:ANTHROPIC_BASE_URL = "https://sub2.pigcoder.com"</code></pre>
+$env:ANTHROPIC_BASE_URL = "https://pigcode.ai"</code></pre>
                 </div>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
                   <span class="lang-label">cmd</span>
                   <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code># Windows (CMD)
 set ANTHROPIC_API_KEY=sk-pig-xxxx
-set ANTHROPIC_BASE_URL=https://sub2.pigcoder.com</code></pre>
+set ANTHROPIC_BASE_URL=https://pigcode.ai</code></pre>
                 </div>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">方式三：VS Code 扩展</h4>
@@ -470,7 +470,7 @@ set ANTHROPIC_BASE_URL=https://sub2.pigcoder.com</code></pre>
                   <li><strong>API Key</strong>：填入 <code
                       class="code-chip">sk-pig-xxxx</code></li>
                   <li><strong>API Base URL</strong>：填入 <code
-                      class="code-chip">https://sub2.pigcoder.com</code>
+                      class="code-chip">https://pigcode.ai</code>
                   </li>
                 </ul>
                 <div class="border-l-4 border-custom-gold bg-amber-50 dark:bg-amber-900/20 p-4 rounded-r-lg">
@@ -500,12 +500,12 @@ set ANTHROPIC_BASE_URL=https://sub2.pigcoder.com</code></pre>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
                   <span class="lang-label">toml</span>
                   <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>model = "gpt-5.5"
-model_provider = "pigcoder"
+model_provider = "pigcode"
 
-[model_providers.pigcoder]
-name = "Pigcoder"
-base_url = "https://sub2.pigcoder.com/v1"
-env_key = "PIGCODER_API_KEY"</code></pre>
+[model_providers.pigcode]
+name = "Pigcode"
+base_url = "https://pigcode.ai/v1"
+env_key = "PIGCODE_API_KEY"</code></pre>
                 </div>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">API Key 配置</h4>
@@ -513,7 +513,7 @@ env_key = "PIGCODER_API_KEY"</code></pre>
                     class="code-chip">env_key</code> 指定的环境变量读取密钥：</p>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
                   <span class="lang-label">bash</span>
-                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>export PIGCODER_API_KEY="sk-pig-xxxx"</code></pre>
+                  <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>export PIGCODE_API_KEY="sk-pig-xxxx"</code></pre>
                 </div>
               </div>
 
@@ -535,7 +535,7 @@ env_key = "PIGCODER_API_KEY"</code></pre>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
                   <span class="lang-label">env</span>
                   <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>GEMINI_API_KEY=sk-pig-xxxx
-GOOGLE_GEMINI_BASE_URL=https://sub2.pigcoder.com/v1beta</code></pre>
+GOOGLE_GEMINI_BASE_URL=https://pigcode.ai/v1beta</code></pre>
                 </div>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">方式二：通过 shell 环境变量</h4>
@@ -545,7 +545,7 @@ GOOGLE_GEMINI_BASE_URL=https://sub2.pigcoder.com/v1beta</code></pre>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-4">
                   <span class="lang-label">bash</span>
                   <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>export GEMINI_API_KEY="sk-pig-xxxx"
-export GOOGLE_GEMINI_BASE_URL="https://sub2.pigcoder.com/v1beta"</code></pre>
+export GOOGLE_GEMINI_BASE_URL="https://pigcode.ai/v1beta"</code></pre>
                 </div>
               </div>
 
@@ -573,12 +573,12 @@ npm install -g opencode-ai</code></pre>
                   <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
   "$schema": "https://opencode.ai/config.json",
   "provider": {
-    "pigcoder": {
+    "pigcode": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "Pigcoder",
+      "name": "Pigcode",
       "options": {
-        "baseURL": "https://sub2.pigcoder.com/v1",
-        "apiKey": "{env:PIGCODER_API_KEY}"
+        "baseURL": "https://pigcode.ai/v1",
+        "apiKey": "{env:PIGCODE_API_KEY}"
       },
       "models": {
         "gpt-5.5": {
@@ -587,11 +587,11 @@ npm install -g opencode-ai</code></pre>
       }
     }
   },
-  "model": "pigcoder/gpt-5.5"
+  "model": "pigcode/gpt-5.5"
 }</code></pre>
                 </div>
                 <p class="text-slate-700 dark:text-slate-300 leading-relaxed">然后设置环境变量 <code
-                    class="code-chip">export PIGCODER_API_KEY="sk-pig-xxxx"</code>，或在 OpenCode 内使用 <code
+                    class="code-chip">export PIGCODE_API_KEY="sk-pig-xxxx"</code>，或在 OpenCode 内使用 <code
                     class="code-chip">/connect</code> 保存密钥。</p>
               </div>
 
@@ -625,8 +625,8 @@ npm install -g droid</code></pre>
   "customModels": [
     {
       "model": "gpt-5.5",
-      "displayName": "Pigcoder GPT-5.5",
-      "baseUrl": "https://sub2.pigcoder.com/v1",
+      "displayName": "Pigcode GPT-5.5",
+      "baseUrl": "https://pigcode.ai/v1",
       "apiKey": "sk-pig-xxxx",
       "provider": "generic-chat-completion-api",
       "maxOutputTokens": 16384
@@ -665,17 +665,17 @@ brew install --cask cc-switch</code></pre>
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">Deep Link 一键导入</h4>
                 <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">安装后在浏览器中打开以下链接（把 <code
                     class="code-chip">sk-pig-xxxx</code> 替换为你的
-                  API Key），即可自动导入 Pigcoder 配置：</p>
+                  API Key），即可自动导入 Pigcode 配置：</p>
                 <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
                   <span class="lang-label">text</span>
                   <pre
-                    class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>ccswitch://v1/import?resource=provider&amp;app=claude&amp;name=Pigcoder&amp;endpoint=https%3A%2F%2Fsub2.pigcoder.com&amp;apiKey=sk-pig-xxxx</code></pre>
+                    class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>ccswitch://v1/import?resource=provider&amp;app=claude&amp;name=Pigcode&amp;endpoint=https%3A%2F%2Fpigcode.ai&amp;apiKey=sk-pig-xxxx</code></pre>
                 </div>
 
                 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mb-3">手动配置</h4>
                 <p class="text-slate-700 dark:text-slate-300 leading-relaxed">也可以打开 CC Switch，在「服务商」页点击「添加」，填入名称
-                  <code class="code-chip">Pigcoder</code>、端点
-                  <code class="code-chip">https://sub2.pigcoder.com</code>
+                  <code class="code-chip">Pigcode</code>、端点
+                  <code class="code-chip">https://pigcode.ai</code>
                   和 API Key，保存后一键切换即可生效。</p>
               </div>
             </section>
@@ -717,7 +717,7 @@ brew install --cask cc-switch</code></pre>
                             class="code-chip code-chip-xs">~/.claude/settings.json</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="code-chip code-chip-xs">https://sub2.pigcoder.com</code>
+                            class="code-chip code-chip-xs">https://pigcode.ai</code>
                         </td>
                       </tr>
                       <tr class="border-b border-slate-100 dark:border-white/5">
@@ -729,7 +729,7 @@ brew install --cask cc-switch</code></pre>
                             class="code-chip code-chip-xs">~/.codex/config.toml</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="code-chip code-chip-xs">https://sub2.pigcoder.com/v1</code>
+                            class="code-chip code-chip-xs">https://pigcode.ai/v1</code>
                         </td>
                       </tr>
                       <tr class="border-b border-slate-100 dark:border-white/5">
@@ -741,7 +741,7 @@ brew install --cask cc-switch</code></pre>
                             class="code-chip code-chip-xs">~/.gemini/settings.json</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="code-chip code-chip-xs">https://sub2.pigcoder.com/v1beta</code>
+                            class="code-chip code-chip-xs">https://pigcode.ai/v1beta</code>
                         </td>
                       </tr>
                       <tr class="border-b border-slate-100 dark:border-white/5">
@@ -753,7 +753,7 @@ brew install --cask cc-switch</code></pre>
                             class="code-chip code-chip-xs">~/.config/opencode/opencode.json</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="code-chip code-chip-xs">https://sub2.pigcoder.com/v1</code>
+                            class="code-chip code-chip-xs">https://pigcode.ai/v1</code>
                         </td>
                       </tr>
                       <tr class="border-b border-slate-100 dark:border-white/5">
@@ -765,7 +765,7 @@ brew install --cask cc-switch</code></pre>
                             class="code-chip code-chip-xs">~/.factory/settings.json</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="code-chip code-chip-xs">https://sub2.pigcoder.com/v1</code>
+                            class="code-chip code-chip-xs">https://pigcode.ai/v1</code>
                         </td>
                       </tr>
                       <tr>
@@ -777,7 +777,7 @@ brew install --cask cc-switch</code></pre>
                             class="code-chip code-chip-xs">GUI 应用（托管 ~/.claude/settings.json）</code>
                         </td>
                         <td class="px-4 py-3"><code
-                            class="code-chip code-chip-xs">https://sub2.pigcoder.com</code>
+                            class="code-chip code-chip-xs">https://pigcode.ai</code>
                         </td>
                       </tr>
                     </tbody>
@@ -877,13 +877,13 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
                   <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed"><strong>解决方法：</strong></p>
                   <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 text-sm mt-2">
                     <li>Claude Code 使用 Anthropic 协议，端点为 <code
-                        class="code-chip code-chip-xs">https://sub2.pigcoder.com</code>，<strong>不要加</strong>
+                        class="code-chip code-chip-xs">https://pigcode.ai</code>，<strong>不要加</strong>
                       <code class="code-chip code-chip-xs">/v1</code></li>
                     <li>Codex CLI / OpenCode / Droid CLI 使用 OpenAI 协议，端点为 <code
-                        class="code-chip code-chip-xs">https://sub2.pigcoder.com/v1</code>
+                        class="code-chip code-chip-xs">https://pigcode.ai/v1</code>
                     </li>
                     <li>Gemini CLI 使用 Gemini 协议，端点为 <code
-                        class="code-chip code-chip-xs">https://sub2.pigcoder.com/v1beta</code>
+                        class="code-chip code-chip-xs">https://pigcode.ai/v1beta</code>
                     </li>
                   </ul>
                 </div>
@@ -991,7 +991,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         document.querySelectorAll('.code-block').forEach(function (block) {
           if (block.querySelector('.copy-btn')) return;
           var btn = document.createElement('button');
-          var i18n = window.PigcoderI18n;
+          var i18n = window.PigcodeI18n;
           var copyLabel = i18n ? i18n.t('common.copy') : '复制';
           var copiedLabel = i18n ? i18n.t('common.copied') : '已复制';
           btn.className = 'copy-btn';
@@ -1039,9 +1039,9 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
       });
     });
   </script>
-<script src="i18n.js?v=20260710-review-fixes"></script>
-  <script src="components.js?v=20260710-review-fixes"></script>
-  <script src="shared.js?v=20260710-review-fixes"></script>
+<script src="i18n.js?v=20260811-domain-migration"></script>
+  <script src="components.js?v=20260811-domain-migration"></script>
+  <script src="shared.js?v=20260811-domain-migration"></script>
 </body>
 
 </html>

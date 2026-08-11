@@ -1,7 +1,7 @@
 {
   "name": "web-pigcoder",
   "private": true,
-  "description": "Pigcoder 官网静态页面，Tailwind 预编译产物输出到 pages/tailwind.css",
+  "description": "Pigcode 官网静态页面，Tailwind 预编译产物输出到 pages/tailwind.css",
   "scripts": {
     "build:css": "tailwindcss -i tailwind.input.css -o pages/tailwind.css --minify",
     "watch:css": "tailwindcss -i tailwind.input.css -o pages/tailwind.css --watch"

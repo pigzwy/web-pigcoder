@@ -1,6 +1,6 @@
-# Pigcoder 风格迁移完整包（完全自包含版）
+# Pigcode 风格迁移完整包（完全自包含版）
 
-> **一个文件搞定。** 把本文档整个发给 AI，AI 即获得 Pigcoder 首页风格的全部设计原则、配色 token、组件代码（完整）与版式范本（完整），可据此改造任意现有项目。
+> **一个文件搞定。** 把本文档整个发给 AI，AI 即获得 Pigcode 首页风格的全部设计原则、配色 token、组件代码（完整）与版式范本（完整），可据此改造任意现有项目。
 >
 > **无需再单独附 `index.html` 或 `common.css`——它们已完整收录在附录 D / E。**
 >
@@ -22,9 +22,9 @@
 ## 执行提示词（直接复制，填空后发送）
 
 ```
-我刚发给你一份《Pigcoder 风格迁移完整包》文档，请先通读全文。
+我刚发给你一份《Pigcode 风格迁移完整包》文档，请先通读全文。
 
-我要把一个现有项目的 UI 改造成与 Pigcoder 首页一致的风格
+我要把一个现有项目的 UI 改造成与 Pigcode 首页一致的风格
 （克制、信息密度高、开发者 API 平台美学，刻意避开 SaaS 落地页套路）。
 
 文档第三部分（附录）包含了完整的设计原则、配色 token、组件 CSS 与版式范本，
@@ -101,22 +101,22 @@
 
 # 第三部分：参考文件完整内容（附录 A–E）
 
-> 以下是 Pigcoder 实际使用的 5 个文件**完整原文**。它们是风格的「事实依据」。
+> 以下是 Pigcode 实际使用的 5 个文件**完整原文**。它们是风格的「事实依据」。
 
 ## 附录 A：设计语言（`docs/plans/pigcoder-design-language.md`）
 
 ```markdown
-# Pigcoder 前台设计语言
+# Pigcode 前台设计语言
 
 ## 1. 产品定位
 
-Pigcoder 不是传统 SaaS 官网，也不是普通订阅软件落地页。
+Pigcode 不是传统 SaaS 官网，也不是普通订阅软件落地页。
 
 更准确的定位是：
 
 > 面向开发者的 AI Model Router / API Gateway / 模型聚合平台。
 
-Pigcoder 和 OpenRouter 类似，核心不是“销售一套企业软件”，而是为开发者提供统一模型入口：
+Pigcode 和 OpenRouter 类似，核心不是“销售一套企业软件”，而是为开发者提供统一模型入口：
 
 - 多模型统一接入
 - 多协议兼容
@@ -159,8 +159,8 @@ Pigcoder 和 OpenRouter 类似，核心不是“销售一套企业软件”，�
 - 不直接复制 OpenRouter 的紫色品牌
 - 不照搬 OpenRouter 的组件结构
 - 不照搬 OpenRouter 的页面文案
-- 不把 Pigcoder 做成 OpenRouter 镜像站
-- 不丢掉 Pigcoder 原本的蓝 / 金 / 绿品牌识别
+- 不把 Pigcode 做成 OpenRouter 镜像站
+- 不丢掉 Pigcode 原本的蓝 / 金 / 绿品牌识别
 
 ## 3. 整体风格
 
@@ -181,7 +181,7 @@ Pigcoder 和 OpenRouter 类似，核心不是“销售一套企业软件”，�
 
 ### Design Taste 校准
 
-按照 `design-taste-frontend` 审查后，Pigcoder 不应走普通 landing page 的默认审美。
+按照 `design-taste-frontend` 审查后，Pigcode 不应走普通 landing page 的默认审美。
 
 推荐拨盘：
 
@@ -203,7 +203,7 @@ Pigcoder 和 OpenRouter 类似，核心不是“销售一套企业软件”，�
 
 ## 4. 色调策略
 
-Pigcoder 保留现有品牌色，但需要克制使用。
+Pigcode 保留现有品牌色，但需要克制使用。
 
 - **深蓝**：品牌主色、Header active 状态、主标题重点、深色代码块、结构性强调。感觉：稳定、基础设施、技术可信。注意：不要大面积铺满整页。
 - **金色**：主 CTA、标题重点 underline、少量高价值提示、价格 / 倍率强调。感觉：重点、价值、行动入口。注意：金色不能太多；避免“蓝金营销风”。
@@ -254,21 +254,21 @@ Pigcoder 保留现有品牌色，但需要克制使用。
 
 后续实现应优先对照本文档。出现以下倾向需纠偏：文案变成 SaaS 营销话术、价格页变成套餐销售页、大面积深蓝 / 金色造成强营销感、只有视觉效果缺少模型 / 协议 / 倍率 / Endpoint 信息、模块漂亮但开发者无法快速判断怎么接入。
 
-> Pigcoder 前台应该像一个清晰、可信、有信息密度的 AI 模型路由平台，而不是传统 SaaS 官网。
+> Pigcode 前台应该像一个清晰、可信、有信息密度的 AI 模型路由平台，而不是传统 SaaS 官网。
 ```
 
 ## 附录 B：UI 体系参考（`docs/plans/pigcoder-ui-system-reference.md`）
 
 ```markdown
-# Pigcoder UI System Reference
+# Pigcode UI System Reference
 
-这份文档用于指导其它 AI 或开发者按照 Pigcoder 官网首页的设计语言，继续设计体系内的其它页面、控制台、文档、后台或工具站页面。它是一份可复用的视觉与交互参考。使用时优先保持同一套产品气质：清晰、克制、有数据感、开发者优先。
+这份文档用于指导其它 AI 或开发者按照 Pigcode 官网首页的设计语言，继续设计体系内的其它页面、控制台、文档、后台或工具站页面。它是一份可复用的视觉与交互参考。使用时优先保持同一套产品气质：清晰、克制、有数据感、开发者优先。
 
 ## 1. 核心定位
 服务于一个 AI Model Router / API Gateway / Developer Infrastructure 平台。设计时必须围绕：Model routing、Provider aggregation、API endpoint、API key、Protocol compatibility、Model ratio、Context capability、CLI integration、Request logs、Transparent billing。不要做成传统 SaaS 营销站，体验应更接近 OpenRouter 一类开发者 API 平台。
 
 ## 2. 一句话风格定义
-> Pigcoder 是一个清爽、克制、有信息密度的 AI 模型路由平台界面系统。
+> Pigcode 是一个清爽、克制、有信息密度的 AI 模型路由平台界面系统。
 关键词：Developer-first、Infrastructure、API-native、Data-dense、Clean surface、Transparent ratios、Documentation-first、Low marketing。
 
 ## 3. 设计原则
@@ -288,7 +288,7 @@ Pigcoder 保留现有品牌色，但需要克制使用。
 使用：明确分区、浅边框、轻阴影、数据卡片、代码块、表格、能力标签。
 避免：大面积玻璃拟态、多层强光晕、大面积深蓝渐变、过度动画、大段营销文案。
 
-### 3.3 Pigcoder 品牌保留但克制
+### 3.3 Pigcode 品牌保留但克制
 仍使用深蓝、金色、绿色，但它们有明确职责。不要直接复制 OpenRouter 的紫色品牌，也不要做成蓝金强营销风。
 
 ## 4. 色彩系统
@@ -348,9 +348,9 @@ Pigcoder 保留现有品牌色，但需要克制使用。
 ### 6.3 Endpoint Card
 ```text
 Endpoints
-OpenAI     https://sub2.pigcoder.com/v1
-Anthropic  https://sub2.pigcoder.com
-Gemini     https://sub2.pigcoder.com/v1beta
+OpenAI     https://pigcode.ai/v1
+Anthropic  https://pigcode.ai
+Gemini     https://pigcode.ai/v1beta
 ```
 monospace 显示 URL、协议 label 小号 uppercase、长 URL 可换行或横向滚动、可选 copy。
 
@@ -367,7 +367,7 @@ monospace 显示 URL、协议 label 小号 uppercase、长 URL 可换行或横�
 ### 6.7 Code Block
 ```bash
 export OPENAI_API_KEY="sk-pig-xxxx"
-export OPENAI_BASE_URL="https://sub2.pigcoder.com/v1"
+export OPENAI_BASE_URL="https://pigcode.ai/v1"
 ```
 深色背景、monospace、横向滚动、复制按钮、复制状态反馈。
 
@@ -435,8 +435,8 @@ skip link；交互元素用 `button` / `a`；icon-only button 有 `aria-label`�
 
 ## 13. 给其它 AI 的简短提示词
 ```text
-请按照 Pigcoder 的统一 UI 设计语言设计页面。
-Pigcoder 是一个 AI Model Router / API Gateway / Developer Infrastructure 平台。页面要像 OpenRouter 一类开发者 API 平台：清爽、克制、有信息密度、文档优先、价格透明。
+请按照 Pigcode 的统一 UI 设计语言设计页面。
+Pigcode 是一个 AI Model Router / API Gateway / Developer Infrastructure 平台。页面要像 OpenRouter 一类开发者 API 平台：清爽、克制、有信息密度、文档优先、价格透明。
 保留品牌色但克制：深蓝用于品牌、结构和代码块；金色用于少量 CTA、标题 underline、倍率重点；绿色用于成功 / 可用状态；主体用白色、浅灰、浅蓝灰、低饱和边框。
 内容优先展示 Endpoint、Provider、Model、Ratio、Context、Capability、API Key、Base URL、CLI、Request logs。
 组件用浅边框、轻阴影、小圆角、清晰标签、代码块、表格和数据卡片。
@@ -485,7 +485,7 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        // Pigcoder 品牌主色（浅色场景）
+        // Pigcode 品牌主色（浅色场景）
         "custom-navy": "#18345F",
         "custom-gold": "#E8A825",
         "custom-green": "#4F9462",
@@ -2158,19 +2158,19 @@ button {
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title data-i18n="index.title">Pigcoder - 稳定高速的 AI 编程中转站</title>
-    <meta name="description" content="Pigcoder 是面向 Claude Code、Codex CLI、Gemini CLI 的统一 AI 模型路由与 API 网关：替换 Base URL 即可在 Claude、GPT、Gemini 间路由，渠道倍率透明。" />
+    <title data-i18n="index.title">Pigcode - 稳定高速的 AI 编程中转站</title>
+    <meta name="description" content="Pigcode 是面向 Claude Code、Codex CLI、Gemini CLI 的统一 AI 模型路由与 API 网关：替换 Base URL 即可在 Claude、GPT、Gemini 间路由，渠道倍率透明。" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Pigcoder - 稳定高速的 AI 编程中转站" />
+    <meta property="og:title" content="Pigcode - 稳定高速的 AI 编程中转站" />
     <meta property="og:description" content="统一模型路由，兼容 AI 编程工具。一个 Key，三种协议，替换 Base URL 即可接入 Claude、GPT、Gemini。" />
     <!-- 部署到正式域名后，请把下面两处改为绝对地址（如 https://your-domain/logo.jpg） -->
     <meta property="og:image" content="logo.jpg" />
     <meta property="og:url" content="index.html" />
-    <meta property="og:site_name" content="Pigcoder" />
+    <meta property="og:site_name" content="Pigcode" />
     <meta property="og:locale" content="zh_CN" />
     <meta property="og:locale:alternate" content="en_US" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Pigcoder - 稳定高速的 AI 编程中转站" />
+    <meta name="twitter:title" content="Pigcode - 稳定高速的 AI 编程中转站" />
     <meta name="twitter:description" content="统一模型路由，兼容 AI 编程工具。一个 Key，三种协议，替换 Base URL 即可接入。" />
     <meta name="twitter:image" content="logo.jpg" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -2208,7 +2208,7 @@ button {
                         </p>
                         <div data-partial="partials/cta-actions.html"
                             data-wrapper-class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
-                            data-primary-href="https://sub2.pigcoder.com/login"
+                            data-primary-href="https://pigcode.ai/login"
                             data-primary-class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base"
                             data-primary-label="获取 API Key"
                             data-primary-i18n="common.cta.start"
@@ -2217,12 +2217,12 @@ button {
                             data-secondary-label="查看接入文档"
                             data-secondary-i18n="common.cta.docs">
                             <!-- partial 加载失败时的最小降级：仅保留主操作（正常情况下由 partial 覆盖） -->
-                            <a href="https://sub2.pigcoder.com/login" class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base">获取 API Key</a>
+                            <a href="https://pigcode.ai/login" class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base">获取 API Key</a>
                         </div>
                     </div>
 
                     <!-- 单一真实终端：实际可执行的接入命令 -->
-                    <div class="hero-terminal-card hero-terminal-lg" aria-label="Pigcoder 接入命令示例">
+                    <div class="hero-terminal-card hero-terminal-lg" aria-label="Pigcode 接入命令示例">
                         <div class="flex items-center justify-between border-b border-white/10 px-4 py-3">
                             <div class="flex gap-1.5" aria-hidden="true">
                                 <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
@@ -2231,13 +2231,13 @@ button {
                             </div>
                             <div class="flex items-center gap-3">
                                 <span class="font-mono text-xs text-white/45">bash</span>
-                                <button type="button" class="terminal-copy" data-copy="export ANTHROPIC_BASE_URL=https://sub2.pigcoder.com&#10;export ANTHROPIC_API_KEY=sk-pig-xxxx&#10;claude" data-i18n-attr="aria-label:common.copy" aria-label="复制">
+                                <button type="button" class="terminal-copy" data-copy="export ANTHROPIC_BASE_URL=https://pigcode.ai&#10;export ANTHROPIC_API_KEY=sk-pig-xxxx&#10;claude" data-i18n-attr="aria-label:common.copy" aria-label="复制">
                                     <span class="material-symbols-outlined text-[18px]" data-copy-icon aria-hidden="true">content_copy</span>
                                 </button>
                             </div>
                         </div>
                         <div class="space-y-2.5 p-5 font-mono text-sm leading-6">
-                            <p><span class="text-custom-gold">$</span> export ANTHROPIC_BASE_URL=<span class="text-green-300">https://sub2.pigcoder.com</span></p>
+                            <p><span class="text-custom-gold">$</span> export ANTHROPIC_BASE_URL=<span class="text-green-300">https://pigcode.ai</span></p>
                             <p><span class="text-custom-gold">$</span> export ANTHROPIC_API_KEY=<span class="text-green-300">sk-pig-••••</span></p>
                             <p><span class="text-custom-gold">$</span> claude</p>
                             <p class="text-white/55">→ routed to Anthropic · 200k ctx · thinking</p>
@@ -2255,19 +2255,19 @@ button {
                     <p data-i18n="index.endpoints.note" class="text-sm text-custom-muted dark:text-slate-400">一个 Key，三种协议，替换 Base URL 即可接入。</p>
                 </div>
                 <div class="endpoint-band">
-                    <button type="button" class="endpoint-chip" data-copy="https://sub2.pigcoder.com/v1" data-i18n-attr="aria-label:common.copy" aria-label="复制">
+                    <button type="button" class="endpoint-chip" data-copy="https://pigcode.ai/v1" data-i18n-attr="aria-label:common.copy" aria-label="复制">
                         <span class="endpoint-proto">OpenAI</span>
-                        <code>https://sub2.pigcoder.com/v1</code>
+                        <code>https://pigcode.ai/v1</code>
                         <span class="endpoint-copy material-symbols-outlined" data-copy-icon aria-hidden="true">content_copy</span>
                     </button>
-                    <button type="button" class="endpoint-chip" data-copy="https://sub2.pigcoder.com" data-i18n-attr="aria-label:common.copy" aria-label="复制">
+                    <button type="button" class="endpoint-chip" data-copy="https://pigcode.ai" data-i18n-attr="aria-label:common.copy" aria-label="复制">
                         <span class="endpoint-proto">Anthropic</span>
-                        <code>https://sub2.pigcoder.com</code>
+                        <code>https://pigcode.ai</code>
                         <span class="endpoint-copy material-symbols-outlined" data-copy-icon aria-hidden="true">content_copy</span>
                     </button>
-                    <button type="button" class="endpoint-chip" data-copy="https://sub2.pigcoder.com/v1beta" data-i18n-attr="aria-label:common.copy" aria-label="复制">
+                    <button type="button" class="endpoint-chip" data-copy="https://pigcode.ai/v1beta" data-i18n-attr="aria-label:common.copy" aria-label="复制">
                         <span class="endpoint-proto">Gemini</span>
-                        <code>https://sub2.pigcoder.com/v1beta</code>
+                        <code>https://pigcode.ai/v1beta</code>
                         <span class="endpoint-copy material-symbols-outlined" data-copy-icon aria-hidden="true">content_copy</span>
                     </button>
                 </div>
@@ -2322,7 +2322,7 @@ button {
                 <div class="mb-8 max-w-2xl">
                     <span class="section-eyebrow" data-i18n="index.matrix.eyebrow">Routing Matrix</span>
                     <h2 data-i18n="index.models.title" class="mt-3 text-2xl md:text-3xl lg:text-4xl font-bold font-headline text-custom-ink dark:text-white">Provider 与模型覆盖</h2>
-                    <p data-i18n="index.matrix.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Pigcoder 强调模型渠道、协议、上下文和能力标签，方便开发者判断该走哪条路由。</p>
+                    <p data-i18n="index.matrix.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Pigcode 强调模型渠道、协议、上下文和能力标签，方便开发者判断该走哪条路由。</p>
                 </div>
                 <!-- 真实品牌 logo（内联 Simple Icons 官方路径，currentColor 自适应深浅色） -->
                 <div class="provider-logos mb-9" aria-label="支持的模型厂商">
@@ -2390,7 +2390,7 @@ button {
             <div class="section-shell">
                 <div class="mb-10 max-w-2xl">
                     <h2 data-i18n="index.integration.title" class="text-2xl md:text-3xl lg:text-4xl font-bold font-headline text-custom-ink dark:text-white">从 API Key 到模型路由</h2>
-                    <p data-i18n="index.integration.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Pigcoder 的页面信息围绕开发者接入路径组织：创建密钥、选择协议、替换 Endpoint、观察请求日志。</p>
+                    <p data-i18n="index.integration.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Pigcode 的页面信息围绕开发者接入路径组织：创建密钥、选择协议、替换 Endpoint、观察请求日志。</p>
                 </div>
                 <ol class="flow-stepper">
                     <li class="flow-step-item">
@@ -2432,12 +2432,12 @@ button {
                 <div class="api-cta-panel rounded-2xl p-6 md:p-8">
                     <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
                         <div>
-                            <h2 data-i18n="index.bottom.title" class="text-2xl md:text-3xl lg:text-4xl font-bold font-headline text-custom-ink dark:text-white">准备接入 Pigcoder API？</h2>
+                            <h2 data-i18n="index.bottom.title" class="text-2xl md:text-3xl lg:text-4xl font-bold font-headline text-custom-ink dark:text-white">准备接入 Pigcode API？</h2>
                             <p data-i18n="index.bottom.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">先创建 API Key，再按工具复制对应 Endpoint。文档页提供 Claude Code、Codex CLI、Gemini CLI 和 OpenCode 的接入示例。</p>
                         </div>
                         <div data-partial="partials/cta-actions.html"
                             data-wrapper-class="flex flex-col sm:flex-row lg:flex-col items-stretch gap-3"
-                            data-primary-href="https://sub2.pigcoder.com/login"
+                            data-primary-href="https://pigcode.ai/login"
                             data-primary-class="btn-primary btn-primary-gold w-full px-8 py-3.5 text-base"
                             data-primary-label="获取 API Key"
                             data-primary-i18n="common.cta.start"
@@ -2446,7 +2446,7 @@ button {
                             data-secondary-label="查看接入文档"
                             data-secondary-i18n="common.cta.docs">
                             <!-- partial 加载失败时的最小降级：仅保留主操作（正常情况下由 partial 覆盖） -->
-                            <a href="https://sub2.pigcoder.com/login" class="btn-primary btn-primary-gold w-full px-8 py-3.5 text-base">获取 API Key</a>
+                            <a href="https://pigcode.ai/login" class="btn-primary btn-primary-gold w-full px-8 py-3.5 text-base">获取 API Key</a>
                         </div>
                     </div>
                 </div>
@@ -2478,7 +2478,7 @@ button {
                 el.addEventListener('click', function () {
                     var text = el.getAttribute('data-copy');
                     var icon = el.querySelector('[data-copy-icon]');
-                    var i18n = window.PigcoderI18n;
+                    var i18n = window.PigcodeI18n;
                     var done = function () {
                         if (icon) { icon.textContent = 'check'; }
                         el.classList.add('is-copied');
@@ -2517,4 +2517,4 @@ button {
 
 1. **不要只给 AI 抽象描述**——本文档附录已提供具体 hex 值、CSS 变量、组件类、HTML 结构，让 AI 直接照着落地。
 2. **不要让 AI 一次全改**——按「执行提示词」里的三阶段（评估映射 → 设计层 → 页面层），每阶段确认。
-3. **不要照抄 OpenRouter 的紫色**——只学它的信息架构和克制方法；Pigcoder 的彩色来自深蓝主色 + 金色点睛 + 真实品牌 logo。
+3. **不要照抄 OpenRouter 的紫色**——只学它的信息架构和克制方法；Pigcode 的彩色来自深蓝主色 + 金色点睛 + 真实品牌 logo。

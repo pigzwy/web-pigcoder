@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Pigcoder 品牌主色（浅色场景）
+        // Pigcode 品牌主色（浅色场景）
         'custom-navy': '#18345F',
         'custom-gold': '#E8A825',
         'custom-green': '#4F9462',

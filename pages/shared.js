@@ -43,7 +43,7 @@
 
     if (toggle) {
       var labelKey = dark ? 'common.header.switchToLight' : 'common.header.switchToDark';
-      var label = window.PigcoderI18n ? window.PigcoderI18n.t(labelKey) : (dark ? '切换到浅色模式' : '切换到深色模式');
+      var label = window.PigcodeI18n ? window.PigcodeI18n.t(labelKey) : (dark ? '切换到浅色模式' : '切换到深色模式');
       toggle.setAttribute('aria-label', label);
       toggle.setAttribute('title', label);
     }
@@ -103,7 +103,7 @@
     if (!el) return;
     var text = el.getAttribute('data-copy');
     var icon = el.querySelector('[data-copy-icon]');
-    var i18n = window.PigcoderI18n;
+    var i18n = window.PigcodeI18n;
     var originalLabel = el.getAttribute('aria-label');
     var done = function () {
       if (icon) { icon.textContent = 'check'; }

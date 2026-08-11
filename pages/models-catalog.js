@@ -145,8 +145,8 @@
   }
 
   function getLocale() {
-    if (window.PigcoderI18n && typeof window.PigcoderI18n.getLocale === 'function') {
-      return window.PigcoderI18n.getLocale();
+    if (window.PigcodeI18n && typeof window.PigcodeI18n.getLocale === 'function') {
+      return window.PigcodeI18n.getLocale();
     }
     return document.documentElement.lang === 'en' ? 'en-US' : 'zh-CN';
   }
@@ -156,8 +156,8 @@
   }
 
   function t(key, fallback) {
-    if (window.PigcoderI18n && typeof window.PigcoderI18n.t === 'function') {
-      var v = window.PigcoderI18n.t(key);
+    if (window.PigcodeI18n && typeof window.PigcodeI18n.t === 'function') {
+      var v = window.PigcodeI18n.t(key);
       if (v && v !== key) return v;
     }
     return fallback;

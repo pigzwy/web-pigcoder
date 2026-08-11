@@ -164,8 +164,8 @@
   };
 
   function getLocale() {
-    if (window.PigcoderI18n && typeof window.PigcoderI18n.getLocale === 'function') {
-      return window.PigcoderI18n.getLocale();
+    if (window.PigcodeI18n && typeof window.PigcodeI18n.getLocale === 'function') {
+      return window.PigcodeI18n.getLocale();
     }
     return 'zh-CN';
   }
@@ -186,11 +186,11 @@
   }
 
   function getLabels() {
-    return window.PigcoderI18n ? {
-      ratio: window.PigcoderI18n.t('pricing.card.ratio'),
-      models: window.PigcoderI18n.t('pricing.card.models'),
-      capabilities: window.PigcoderI18n.t('pricing.card.capabilities'),
-      action: window.PigcoderI18n.t('common.cta.console')
+    return window.PigcodeI18n ? {
+      ratio: window.PigcodeI18n.t('pricing.card.ratio'),
+      models: window.PigcodeI18n.t('pricing.card.models'),
+      capabilities: window.PigcodeI18n.t('pricing.card.capabilities'),
+      action: window.PigcodeI18n.t('common.cta.console')
     } : {
       ratio: '倍率',
       models: '模型',
@@ -227,7 +227,7 @@
         '<div class="mt-2 flex flex-wrap gap-2">' + perksHtml + '</div>' +
       '</div>' +
       '<div data-partial="partials/recharge-button.html" data-label="' + labels.action + '" data-label-i18n="common.cta.console">' +
-        '<a href="https://sub2.pigcoder.com/login" target="_top" class="btn-ghost w-full px-5 py-2.5 text-sm border border-custom-line dark:border-white/10 rounded-lg">' + labels.action + '</a>' +
+        '<a href="https://pigcode.ai/login" target="_top" class="btn-ghost w-full px-5 py-2.5 text-sm border border-custom-line dark:border-white/10 rounded-lg">' + labels.action + '</a>' +
       '</div>' +
     '</div>';
   }
@@ -260,8 +260,8 @@
       '</section>';
     }).join('');
 
-    if (window.PigcoderPartials && typeof window.PigcoderPartials.hydrateWithin === 'function') {
-      window.PigcoderPartials.hydrateWithin(grid);
+    if (window.PigcodePartials && typeof window.PigcodePartials.hydrateWithin === 'function') {
+      window.PigcodePartials.hydrateWithin(grid);
     }
 
     animateCards(Array.prototype.slice.call(grid.querySelectorAll('.pricing-card')));

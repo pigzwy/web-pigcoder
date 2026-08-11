@@ -10,7 +10,7 @@
   var activeNavClass = 'rounded-full px-4 py-2 text-sm font-semibold text-custom-navy dark:text-white bg-slate-100 dark:bg-white/10';
   var inactiveNavClass = 'rounded-full px-4 py-2 text-sm font-medium text-custom-muted dark:text-slate-300 hover:text-custom-navy hover:bg-slate-100 dark:hover:text-white dark:hover:bg-white/10 transition-colors';
   var templateCache = {};
-  var ASSET_VERSION = '20260710-review-fixes';
+  var ASSET_VERSION = '20260811-domain-migration';
 
   function withAssetVersion(path) {
     if (!path || path.indexOf('data:') === 0 || path.indexOf('blob:') === 0) {
@@ -42,8 +42,8 @@
     }
 
     function getHeaderLabel(key, fallback) {
-      if (window.PigcoderI18n && typeof window.PigcoderI18n.t === 'function') {
-        return window.PigcoderI18n.t(key);
+      if (window.PigcodeI18n && typeof window.PigcodeI18n.t === 'function') {
+        return window.PigcodeI18n.t(key);
       }
       return fallback;
     }
@@ -183,7 +183,7 @@
     });
   }
 
-  window.PigcoderPartials = {
+  window.PigcodePartials = {
     hydrateInlinePartials: hydrateInlinePartials,
     hydrateWithin: hydrateInlinePartials
   };
