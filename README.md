@@ -57,7 +57,7 @@
    ├─ pricing-cards.js         # 价格卡片数据驱动渲染
    ├─ models-catalog.js        # 模型目录筛选与渲染
    ├─ models-data.json         # 模型元数据（运行时 fetch）
-   ├─ logo.jpg                 # 站点 Logo
+   ├─ logo.png                 # 站点 Logo
    ├─ fonts/                   # 自托管字体（woff2）
    ├─ model-icons/             # 厂商 logo（SVG）
    └─ partials/
