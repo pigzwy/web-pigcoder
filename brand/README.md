@@ -29,10 +29,13 @@ brand/
 | 文件 | 用途 |
 |---|---|
 | `favicon.ico` | 浏览器标签页，内含 16/32/48 三种尺寸 |
-| `icon-180.png` | iOS 添加到主屏幕（apple-touch-icon） |
-| `icon-80.png` `icon-64.png` `icon-32.png` `icon-16.png` | 各类小图标 |
+| `apple-touch-180.png` | iOS 添加到主屏幕，**不透明白底** |
+| `icon-180.png` | 180×180 透明版，供其他场景用 |
+| `icon-80.png` `icon-64.png` `icon-32.png` `icon-16.png` | 各类小图标，透明 |
 
 和 `logo/` 是**同一图形的不同框取**：这组做过重新裁切居中，图形填满画框。小尺寸下能多占几个像素，更清楚。**不要用于圆形裁切**，会切掉耳朵尖。
+
+**iOS 主屏图标必须用 `apple-touch-180.png` 这个不透明版**。iOS 不支持主屏图标透明，透明区域会被渲染成黑色。这个文件是 RGB 模式、不含 alpha 通道，并留了 8% 边距防止 iOS 的圆角方形遮罩切掉耳朵尖。别拿 `icon-180.png` 当 apple-touch-icon 用。
 
 ## social/ —— 社交分享图
 
