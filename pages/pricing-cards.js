@@ -14,11 +14,11 @@
   /* 平台级模型与能力：只在分组标题下展示一次，卡片保持精简 */
   var PLATFORM_DEFAULTS = {
     OpenAI: {
-      models: ['gpt-5.6', 'gpt-5.6-terra', 'gpt-5.3-codex'],
+      models: ['gpt-5.6-sol', 'gpt-5.6-terra', 'gpt-5.6-luna'],
       perks: { 'zh-CN': ['xhigh 全推理档', '流式输出'], 'en-US': ['All xhigh tiers', 'Streaming'] }
     },
     Anthropic: {
-      models: ['claude-opus-5', 'claude-sonnet-5', 'claude-haiku-4-5'],
+      models: ['claude-fable-5', 'claude-opus-5', 'claude-sonnet-5'],
       perks: { 'zh-CN': ['支持 thinking', '200k / 1M 上下文', '联网搜索'], 'en-US': ['Thinking support', '200k / 1M context', 'Web search'] }
     },
     Grok: {

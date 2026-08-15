@@ -457,7 +457,7 @@ set ANTHROPIC_BASE_URL=https://pigcode.ai</code></pre>
             <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">编辑 <code class="code-chip">~/.codex/config.toml</code>：</p>
             <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
               <span class="lang-label">toml</span>
-              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>model = "gpt-5.6"
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>model = "gpt-5.6-sol"
 model_provider = "pigcode"
 
 [model_providers.pigcode]
@@ -522,13 +522,13 @@ npm install -g opencode-ai</code></pre>
         "apiKey": "{env:PIGCODE_API_KEY}"
       },
       "models": {
-        "gpt-5.6": {
+        "gpt-5.6-sol": {
           "name": "GPT-5.5"
         }
       }
     }
   },
-  "model": "pigcode/gpt-5.6"
+  "model": "pigcode/gpt-5.6-sol"
 }</code></pre>
             </div>
             <p class="text-slate-700 dark:text-slate-300 leading-relaxed">然后设置环境变量 <code class="code-chip">export PIGCODE_API_KEY="sk-pig-xxxx"</code>，或在 OpenCode 内使用 <code class="code-chip">/connect</code> 保存密钥。</p>
@@ -555,7 +555,7 @@ npm install -g droid</code></pre>
               <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
   "customModels": [
     {
-      "model": "gpt-5.6",
+      "model": "gpt-5.6-sol",
       "displayName": "Pigcode GPT-5.5",
       "baseUrl": "https://pigcode.ai/v1",
       "apiKey": "sk-pig-xxxx",
@@ -1154,7 +1154,7 @@ set ANTHROPIC_BASE_URL=https://pigcode.ai</code></pre>
             <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Edit <code class="code-chip">~/.codex/config.toml</code>:</p>
             <div class="code-block bg-slate-50 dark:bg-custom-surface-dark rounded-lg p-4 font-mono text-sm mb-6">
               <span class="lang-label">toml</span>
-              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>model = "gpt-5.6"
+              <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>model = "gpt-5.6-sol"
 model_provider = "pigcode"
 
 [model_providers.pigcode]
@@ -1219,13 +1219,13 @@ npm install -g opencode-ai</code></pre>
         "apiKey": "{env:PIGCODE_API_KEY}"
       },
       "models": {
-        "gpt-5.6": {
+        "gpt-5.6-sol": {
           "name": "GPT-5.5"
         }
       }
     }
   },
-  "model": "pigcode/gpt-5.6"
+  "model": "pigcode/gpt-5.6-sol"
 }</code></pre>
             </div>
             <p class="text-slate-700 dark:text-slate-300 leading-relaxed">Then set <code class="code-chip">export PIGCODE_API_KEY="sk-pig-xxxx"</code>, or store the key with the <code class="code-chip">/connect</code> command inside OpenCode.</p>
@@ -1252,7 +1252,7 @@ npm install -g droid</code></pre>
               <pre class="text-slate-800 dark:text-slate-200 overflow-x-auto"><code>{
   "customModels": [
     {
-      "model": "gpt-5.6",
+      "model": "gpt-5.6-sol",
       "displayName": "Pigcode GPT-5.5",
       "baseUrl": "https://pigcode.ai/v1",
       "apiKey": "sk-pig-xxxx",
