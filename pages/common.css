@@ -503,6 +503,62 @@ html[lang^="zh"] h3.font-headline {
 
 /* 扫光动效退役：按钮反馈只用亮度/阴影变化 */
 
+/* ===== 首页标题文字动效：逐字符入场 + 金色流光 ===== */
+.char-rise {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.45em);
+  filter: blur(6px);
+  animation: charRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--ci, 0) * 36ms);
+}
+
+@keyframes charRise {
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* 金色强调词：一道高光每几秒缓缓扫过（background-clip: text） */
+.brand-emphasis.is-shimmer {
+  background-image: linear-gradient(105deg, #8a5f0a 0%, #8a5f0a 38%, #e8b13d 50%, #8a5f0a 62%, #8a5f0a 100%);
+  background-size: 250% 100%;
+  background-position: 120% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: goldSweep 6s ease-in-out 2s infinite;
+}
+
+.dark .brand-emphasis.is-shimmer {
+  background-image: linear-gradient(105deg, var(--pc-gold) 0%, var(--pc-gold) 38%, #ffd987 50%, var(--pc-gold) 62%, var(--pc-gold) 100%);
+}
+
+@keyframes goldSweep {
+  0% {
+    background-position: 120% 0;
+  }
+  40%,
+  100% {
+    background-position: -130% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .char-rise {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .brand-emphasis.is-shimmer {
+    color: #8a5f0a;
+    background-image: none;
+  }
+}
+
 .surface-card,
 .doc-surface-panel,
 .doc-metric-card,
