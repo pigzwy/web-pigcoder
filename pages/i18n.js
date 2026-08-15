@@ -153,7 +153,7 @@
           description: 'Pigcode 的页面信息围绕开发者接入路径组织：创建密钥、选择协议、替换 Endpoint、观察请求日志。',
           keys: {
             title: '创建 API Key',
-            description: '在控制台创建令牌，并按工具选择 OpenAI、Anthropic 或 Gemini 分组。'
+            description: '在控制台创建令牌，并按工具与倍率档选择令牌分组（Codex / CC-MAX / Gemini / Grok）。'
           },
           protocol: {
             title: '选择协议',
@@ -313,11 +313,12 @@
               <li>进入控制台后，点击左侧菜单「令牌」。</li>
               <li>点击「创建令牌」按钮。</li>
               <li>为令牌填写一个名称（如 <code class="code-chip">my-cli-key</code>）。</li>
-              <li>根据需要选择令牌分组：
+              <li>根据需要选择令牌分组（不同分组对应不同渠道与倍率，详见<a href="pricing.html#plans" class="text-custom-gold hover:underline font-semibold">价格页</a>）：
                 <ul class="list-disc ml-6 mt-2 space-y-1">
-                  <li><strong>Anthropic 分组</strong> — 用于 Claude Code 等 Anthropic 协议工具</li>
-                  <li><strong>OpenAI 分组</strong> — 用于 Codex CLI、OpenCode 等 OpenAI 兼容工具</li>
-                  <li><strong>Gemini 分组</strong> — 用于 Gemini CLI</li>
+                  <li><strong>Codex 分组（专线 / 企业 / 官渠）</strong> — 用于 Codex CLI、OpenCode 等 OpenAI 协议工具，倍率 0.08x 起</li>
+                  <li><strong>CC-MAX 分组（企业 / 官渠）</strong> — 用于 Claude Code 等 Anthropic 协议工具，倍率 0.8x 起</li>
+                  <li><strong>Gemini 分组</strong> — 用于 Gemini CLI，多模态与图像生成</li>
+                  <li><strong>Grok 分组</strong> — Grok Pro / Heavy 模型渠道</li>
                 </ul>
               </li>
               <li>点击「提交」创建令牌。</li>
@@ -371,9 +372,10 @@ export OPENAI_API_KEY="sk-pig-xxxx"
 export OPENAI_BASE_URL="https://pigcode.ai/v1"
 
 # Gemini 协议（Gemini CLI）
-export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
+export GEMINI_API_KEY="sk-pig-xxxx"
+export GOOGLE_GEMINI_BASE_URL="https://pigcode.ai/v1beta"</code></pre>
             </div>
-            <div class="border-l-4 border-custom-green bg-green-50 dark:bg-green-900/20 p-4 rounded-r-lg">
+            <div class="border-l-4 border-custom-gold bg-custom-gold/[0.07] dark:bg-custom-gold/10 p-4 rounded-r-lg">
               <p class="text-sm text-slate-700 dark:text-slate-300"><strong>提示：</strong>建议将环境变量写入 <code class="code-chip">~/.bashrc</code> 或 <code class="code-chip">~/.zshrc</code>，这样每次打开终端都会自动加载。</p>
             </div>
           `
@@ -659,7 +661,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
               <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed"><strong>解决方法：</strong></p>
               <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 text-sm mt-2">
                 <li>确认 API Key 是否正确复制（没有多余空格或缺少字符）</li>
-                <li>确认 API Key 的分组与所使用的工具匹配（Anthropic 分组对应 Claude Code，OpenAI 分组对应 Codex CLI 等）</li>
+                <li>确认 API Key 的分组与所使用的工具匹配（CC-MAX 分组对应 Claude Code，Codex 分组对应 Codex CLI 等）</li>
                 <li>登录控制台查看令牌是否仍然有效，未被删除或过期</li>
                 <li>检查账户余额是否充足</li>
               </ul>
@@ -865,7 +867,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           description: 'Pigcode organizes the integration path around keys, protocol selection, endpoint replacement, and request logs.',
           keys: {
             title: 'Create API Key',
-            description: 'Create a token in the console and choose an OpenAI, Anthropic, or Gemini group for your tool.'
+            description: 'Create a token in the console and pick a token group (Codex / CC-MAX / Gemini / Grok) by tool and ratio tier.'
           },
           protocol: {
             title: 'Choose Protocol',
@@ -1025,11 +1027,12 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
               <li>Open the console and click the <strong>Tokens</strong> menu.</li>
               <li>Click the <strong>Create Token</strong> button.</li>
               <li>Give the token a name, for example <code class="code-chip">my-cli-key</code>.</li>
-              <li>Choose a token group based on the tool you want to use:
+              <li>Choose a token group (each group maps to a channel and ratio — see the <a href="pricing.html#plans" class="text-custom-gold hover:underline font-semibold">pricing page</a>):
                 <ul class="list-disc ml-6 mt-2 space-y-1">
-                  <li><strong>Anthropic Group</strong> — for Claude Code and other Anthropic-protocol tools</li>
-                  <li><strong>OpenAI Group</strong> — for Codex CLI, OpenCode, and other OpenAI-compatible tools</li>
-                  <li><strong>Gemini Group</strong> — for Gemini CLI</li>
+                  <li><strong>Codex groups (Dedicated / Enterprise / Official)</strong> — for Codex CLI, OpenCode, and other OpenAI-protocol tools, ratios from 0.08x</li>
+                  <li><strong>CC-MAX groups (Enterprise / Official)</strong> — for Claude Code and other Anthropic-protocol tools, ratios from 0.8x</li>
+                  <li><strong>Gemini group</strong> — for Gemini CLI, multimodal and image generation</li>
+                  <li><strong>Grok group</strong> — Grok Pro / Heavy model channel</li>
                 </ul>
               </li>
               <li>Submit the form to create the token.</li>
@@ -1069,8 +1072,9 @@ export OPENAI_API_KEY="sk-pig-xxxx"
 export OPENAI_BASE_URL="https://pigcode.ai/v1"
 
 # Gemini protocol (Gemini CLI)
-export GEMINI_API_KEY="sk-pig-xxxx"</code></pre></div>
-            <div class="border-l-4 border-custom-green bg-green-50 dark:bg-green-900/20 p-4 rounded-r-lg"><p class="text-sm text-slate-700 dark:text-slate-300"><strong>Tip:</strong> Save these values in <code class="code-chip">~/.bashrc</code> or <code class="code-chip">~/.zshrc</code> so every new terminal session loads them automatically.</p></div>
+export GEMINI_API_KEY="sk-pig-xxxx"
+export GOOGLE_GEMINI_BASE_URL="https://pigcode.ai/v1beta"</code></pre></div>
+            <div class="border-l-4 border-custom-gold bg-custom-gold/[0.07] dark:bg-custom-gold/10 p-4 rounded-r-lg"><p class="text-sm text-slate-700 dark:text-slate-300"><strong>Tip:</strong> Save these values in <code class="code-chip">~/.bashrc</code> or <code class="code-chip">~/.zshrc</code> so every new terminal session loads them automatically.</p></div>
           `
         },
         tools: {
@@ -1354,7 +1358,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
               <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed"><strong>Fix:</strong></p>
               <ul class="list-disc ml-6 space-y-1 text-slate-700 dark:text-slate-300 text-sm mt-2">
                 <li>Make sure the API key was copied correctly (no extra spaces or missing characters)</li>
-                <li>Make sure the key group matches the tool you are using (Anthropic group for Claude Code, OpenAI group for Codex CLI, etc.)</li>
+                <li>Make sure the key group matches the tool you are using (CC-MAX groups for Claude Code, Codex groups for Codex CLI, etc.)</li>
                 <li>Sign in to the console and check whether the token is still valid — not deleted or expired</li>
                 <li>Check that your account balance is sufficient</li>
               </ul>

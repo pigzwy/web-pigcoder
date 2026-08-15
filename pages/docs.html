@@ -296,11 +296,13 @@
                   <li>点击「创建令牌」按钮。</li>
                   <li>为令牌填写一个名称（如 <code
                       class="code-chip">my-cli-key</code>）。</li>
-                  <li>根据需要选择令牌分组：
+                  <li>根据需要选择令牌分组（不同分组对应不同渠道与倍率，详见<a href="pricing.html#plans"
+                      class="text-custom-gold hover:underline font-semibold">价格页</a>）：
                     <ul class="list-disc ml-6 mt-2 space-y-1">
-                      <li><strong>Anthropic 分组</strong> — 用于 Claude Code 等 Anthropic 协议工具</li>
-                      <li><strong>OpenAI 分组</strong> — 用于 Codex CLI、OpenCode 等 OpenAI 兼容工具</li>
-                      <li><strong>Gemini 分组</strong> — 用于 Gemini CLI</li>
+                      <li><strong>Codex 分组（专线 / 企业 / 官渠）</strong> — 用于 Codex CLI、OpenCode 等 OpenAI 协议工具，倍率 0.08x 起</li>
+                      <li><strong>CC-MAX 分组（企业 / 官渠）</strong> — 用于 Claude Code 等 Anthropic 协议工具，倍率 0.8x 起</li>
+                      <li><strong>Gemini 分组</strong> — 用于 Gemini CLI，多模态与图像生成</li>
+                      <li><strong>Grok 分组</strong> — Grok Pro / Heavy 模型渠道</li>
                     </ul>
                   </li>
                   <li>点击「提交」创建令牌。</li>
@@ -381,7 +383,8 @@ export OPENAI_API_KEY="sk-pig-xxxx"
 export OPENAI_BASE_URL="https://pigcode.ai/v1"
 
 # Gemini 协议（Gemini CLI）
-export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
+export GEMINI_API_KEY="sk-pig-xxxx"
+export GOOGLE_GEMINI_BASE_URL="https://pigcode.ai/v1beta"</code></pre>
                 </div>
                 <!-- 提示框 -->
                 <div class="border-l-4 border-custom-gold bg-custom-gold/[0.07] dark:bg-custom-gold/10 p-4 rounded-r-lg">

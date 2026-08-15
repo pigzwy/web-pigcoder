@@ -761,6 +761,15 @@ html[lang^="zh"] h3.font-headline {
   text-transform: uppercase;
 }
 
+/* 文档右侧目录：粘性悬浮。doc-surface-panel 共享样式里的
+   position:relative / overflow:hidden 会覆盖 Tailwind 工具类，这里显式恢复 */
+aside.doc-surface-panel {
+  position: sticky;
+  top: 96px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 /* 实体纸面：毛玻璃只保留顶栏一处（"模糊最多一处"），卡片一律实底 */
 .endpoint-chip,
 .channel-compare,
