@@ -19,6 +19,48 @@
 - 通过域名访问，为用户提供接入文档、模型目录与渠道价格说明
 - 改动 HTML/JS 中的 Tailwind 类名后，本地重新编译 CSS 即可上线
 
+## 日常更新手册
+
+### 1. 更新模型目录数据（最常用）
+
+```bash
+node scripts/sync-models.js        # 从开放数据集拉取最新 5000+ 模型并转换写入 pages/models-data.json
+```
+
+跑完后按第 4 步升级资源版本号再提交，否则用户浏览器会命中旧数据缓存。
+
+### 2. 改文案 / 页面结构
+
+- 中文文案大多在各 HTML 内联 + `pages/i18n.js`（`data-i18n` 的键以 i18n.js 为准，**两边都要改**）
+- 英文文案只在 `pages/i18n.js`
+- 价格页分组/倍率：`pages/pricing-cards.js` 顶部 `catalogs`（静态快照）与 `PLATFORM_DEFAULTS`（平台模型/能力行）；线上会自动尝试 `/api/pricing`、`/api/groups` 实时数据，拉到则覆盖静态值
+
+### 3. 改样式
+
+```bash
+pnpm build:css                     # 改了 HTML 里的 Tailwind 类名或 tailwind.config.js 后必须重建
+```
+
+`pages/common.css` 是手写样式（token、组件、星轨、动效），直接改即生效，无需编译。设计规则见 `docs/DESIGN_DIRECTION.md`（纸·墨·金六条自检）。
+
+### 4. 升级资源版本号（发布前必做）
+
+所有 CSS/JS/JSON 通过 `?v=版本号` 破缓存。发布前全局替换为新值：
+
+```bash
+grep -rl "20260816-model-lineup" pages/ | xargs sed -i 's/20260816-model-lineup/新版本号/g'
+```
+
+（当前版本号以 `grep -o '?v=[^"]*' pages/index.html | head -1` 查询为准）
+
+### 5. 本地预览
+
+```bash
+cd pages && python3 -m http.server 18091   # 服务器公网预览端口，nftables 已放行
+```
+
+预览 serve 的是工作区文件，改完刷新即见（改 Tailwind 记得先 build:css）。
+
 ## 技术实现
 
 项目当前采用以下实现方式：
