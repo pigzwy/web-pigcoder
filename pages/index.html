@@ -245,6 +245,7 @@
                     <span class="model-chip">claude-sonnet-4-6</span>
                     <span class="model-chip">claude-haiku-4-5</span>
                     <span class="model-chip">gpt-5.5</span>
+                    <span class="model-chip">gpt-5-codex</span>
                     <span class="model-chip">gpt-5.4</span>
                     <span class="model-chip">gemini-3-pro-preview</span>
                     <span class="model-chip">gemini-2.5-pro</span>
@@ -682,9 +683,15 @@
                 if (!reduce) {
                     Array.prototype.slice.call(h1.childNodes).forEach(processNode);
                 }
-                var em = h1.querySelector('.brand-emphasis');
-                if (em) em.classList.add('is-shimmer');
             }
+
+            // 入场动画结束 → 打 char-in 标记，切换到"悬停弹跳"模式
+            h1.addEventListener('animationend', function (e) {
+                var t = e.target;
+                if (t && t.classList && t.classList.contains('char-rise')) {
+                    t.classList.add('char-in');
+                }
+            });
 
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', function () { requestAnimationFrame(splitChars); });

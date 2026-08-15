@@ -521,28 +521,29 @@ html[lang^="zh"] h3.font-headline {
   }
 }
 
-/* 金色强调词：一道高光每几秒缓缓扫过（background-clip: text） */
-.brand-emphasis.is-shimmer {
-  background-image: linear-gradient(105deg, #8a5f0a 0%, #8a5f0a 38%, #e8b13d 50%, #8a5f0a 62%, #8a5f0a 100%);
-  background-size: 250% 100%;
-  background-position: 120% 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: goldSweep 6s ease-in-out 2s infinite;
+/* 入场完成后的静止态（由 animationend 打标）——腾出 animation 通道给悬停弹跳 */
+.char-rise.char-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  animation: none;
 }
 
-.dark .brand-emphasis.is-shimmer {
-  background-image: linear-gradient(105deg, var(--pc-gold) 0%, var(--pc-gold) 38%, #ffd987 50%, var(--pc-gold) 62%, var(--pc-gold) 100%);
+/* 鼠标划过：字符轻轻弹一下再落回 */
+.char-rise.char-in:hover {
+  animation: charJiggle 0.45s ease;
 }
 
-@keyframes goldSweep {
-  0% {
-    background-position: 120% 0;
-  }
-  40%,
+@keyframes charJiggle {
+  0%,
   100% {
-    background-position: -130% 0;
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-0.16em);
+  }
+  70% {
+    transform: translateY(0.05em);
   }
 }
 
@@ -551,11 +552,6 @@ html[lang^="zh"] h3.font-headline {
     opacity: 1;
     transform: none;
     filter: none;
-  }
-
-  .brand-emphasis.is-shimmer {
-    color: #8a5f0a;
-    background-image: none;
   }
 }
 
@@ -1017,6 +1013,40 @@ aside.doc-surface-panel {
 .dark .channel-ratio {
   border-color: rgba(232, 168, 37, 0.22);
   background: rgba(232, 168, 37, 0.08);
+}
+
+/* 精简价格卡：倍率数字是主角 */
+.channel-ratio-slim strong {
+  display: block;
+  color: var(--pc-ink);
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+}
+
+.dark .channel-ratio-slim strong {
+  color: #ffffff;
+}
+
+.channel-ratio-slim span {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--pc-muted);
+  font-size: 0.68rem;
+}
+
+/* 每个平台的最低倍率卡：金色点亮 */
+.pricing-card.is-best {
+  border-color: rgba(232, 168, 37, 0.55);
+  background:
+    linear-gradient(180deg, rgba(232, 168, 37, 0.06), rgba(232, 168, 37, 0)) ,
+    var(--pc-paper);
+}
+
+.dark .pricing-card.is-best {
+  border-color: rgba(232, 168, 37, 0.4);
 }
 
 .channel-ratio-label {
