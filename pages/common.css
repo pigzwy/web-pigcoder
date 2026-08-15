@@ -1400,15 +1400,67 @@ html[lang^="zh"] h3.font-headline {
   height: 1.2rem;
 }
 
-.constellation-dot:nth-child(3n) .constellation-tile {
+/* 等宽文本药丸：工具名 / 倍率 / 命令（与图标块共用漂浮与视差系统） */
+.constellation-pill {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  background: #ffffff;
+  border: 1px solid var(--pc-line);
+  border-radius: 9999px;
+  box-shadow: var(--pc-shadow-sm);
+  padding: 0.4rem 0.85rem;
+  color: var(--pc-text);
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  animation: tileFloat 7s ease-in-out infinite;
+}
+
+/* 每张图允许一枚金色点睛（1 Key / 密钥 / 中心 %） */
+.constellation-pill.is-gold {
+  background: rgba(232, 168, 37, 0.16);
+  border-color: rgba(232, 168, 37, 0.4);
+  color: #8a5f0a;
+  font-weight: 600;
+}
+
+/* 字符块：squircle 里放一个等宽字符（$ / ¥ 等） */
+.constellation-glyph {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--pc-text);
+}
+
+.constellation-center.is-glyph {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-weight: 600;
+  font-size: 1.55rem;
+  color: var(--pc-ink);
+}
+
+.constellation-center.is-gold {
+  background: rgba(250, 243, 224, 1);
+  border-color: rgba(232, 168, 37, 0.45);
+  color: #8a5f0a;
+}
+
+.dark .constellation-pill {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.constellation-dot:nth-child(3n) .constellation-tile,
+.constellation-dot:nth-child(3n) .constellation-pill {
   animation-delay: -2.3s;
 }
 
-.constellation-dot:nth-child(3n + 1) .constellation-tile {
+.constellation-dot:nth-child(3n + 1) .constellation-tile,
+.constellation-dot:nth-child(3n + 1) .constellation-pill {
   animation-delay: -4.6s;
 }
 
-.constellation-dot:nth-child(4n) .constellation-tile {
+.constellation-dot:nth-child(4n) .constellation-tile,
+.constellation-dot:nth-child(4n) .constellation-pill {
   animation-duration: 9s;
 }
 

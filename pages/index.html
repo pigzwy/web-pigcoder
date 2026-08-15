@@ -38,28 +38,45 @@
         <!-- Hero：居中极简，标题 → 描述 → CTA 缓慢浮现 -->
         <section class="hero-modern relative overflow-hidden">
             <div class="surface-gradient-hero"></div>
-            <div class="section-shell hero-full-shell">
-                <div class="mx-auto max-w-4xl text-center">
-                    <h1 data-i18n-html="index.hero.title"
-                        class="hero-rise text-[2.6rem] sm:text-5xl md:text-6xl xl:text-7xl font-medium font-headline tracking-[-0.03em] text-custom-ink dark:text-white mb-7 leading-[1.06] text-balance">
-                        统一模型路由，兼容 <span class="brand-emphasis">AI 编程工具</span>
-                    </h1>
-                    <p data-i18n="index.hero.description"
-                        class="hero-rise hero-rise-2 mx-auto text-custom-muted dark:text-slate-300 text-base md:text-xl max-w-2xl mb-10 leading-relaxed text-pretty">
-                        面向编程 CLI 的统一 API 入口，替换 Base URL 即可在 Claude、GPT、Gemini 间路由。
-                    </p>
-                    <div class="hero-rise hero-rise-3" data-partial="partials/cta-actions.html"
-                        data-wrapper-class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3"
-                        data-primary-href="https://pigcode.ai/login"
-                        data-primary-class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base"
-                        data-primary-label="获取 API Key"
-                        data-primary-i18n="common.cta.start"
-                        data-secondary-href="docs.html"
-                        data-secondary-class="btn-secondary w-full sm:w-auto px-8 py-3.5 text-base"
-                        data-secondary-label="查看接入文档"
-                        data-secondary-i18n="common.cta.docs">
-                        <!-- partial 加载失败时的最小降级：仅保留主操作（正常情况下由 partial 覆盖） -->
-                        <a href="https://pigcode.ai/login" target="_top" class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base">获取 API Key</a>
+            <div class="section-shell-wide hero-full-shell">
+                <div class="relative w-full">
+                    <!-- 路由环：左弧工具、右弧厂商、顶部 1 Key，中心猪标 -->
+                    <div class="hero-constellation" aria-hidden="true">
+                        <svg class="constellation-orbits" viewBox="0 0 560 560" fill="none">
+                            <circle cx="280" cy="280" r="190" />
+                        </svg>
+                        <span class="constellation-center"><img src="logo.png" alt="" loading="lazy" /></span>
+                        <span class="constellation-dot" style="left:50%;top:16%;--d:1.4"><span class="constellation-pill is-gold">1 Key</span></span>
+                        <span class="constellation-dot" style="left:24%;top:28.1%;--d:1.1"><span class="constellation-pill">Claude Code</span></span>
+                        <span class="constellation-dot" style="left:16%;top:50%;--d:1.1"><span class="constellation-pill">Codex CLI</span></span>
+                        <span class="constellation-dot" style="left:24%;top:71.9%;--d:1.1"><span class="constellation-pill">Gemini CLI</span></span>
+                        <span class="constellation-dot" style="left:76%;top:28.1%;--d:0.85"><span class="constellation-tile"><img src="model-icons/anthropic.svg" alt="" loading="lazy" /></span></span>
+                        <span class="constellation-dot" style="left:84%;top:50%;--d:0.85"><span class="constellation-tile"><img src="model-icons/openai.svg" alt="" loading="lazy" /></span></span>
+                        <span class="constellation-dot" style="left:76%;top:71.9%;--d:0.85"><span class="constellation-tile"><img src="model-icons/google.svg" alt="" loading="lazy" /></span></span>
+                        <span class="constellation-dot" style="left:50%;top:84%;--d:1.5"><span class="constellation-tile is-sm"><img src="model-icons/deepseek.svg" alt="" loading="lazy" /></span></span>
+                    </div>
+                    <div class="max-w-2xl text-left">
+                        <h1 data-i18n-html="index.hero.title"
+                            class="hero-rise text-4xl sm:text-5xl md:text-6xl font-medium font-headline tracking-[-0.03em] text-custom-ink dark:text-white mb-7 leading-[1.08] text-balance">
+                            统一模型路由，兼容 <span class="brand-emphasis">AI 编程工具</span>
+                        </h1>
+                        <p data-i18n="index.hero.description"
+                            class="hero-rise hero-rise-2 text-custom-muted dark:text-slate-300 text-base md:text-xl max-w-xl mb-10 leading-relaxed text-pretty">
+                            面向编程 CLI 的统一 API 入口，替换 Base URL 即可在 Claude、GPT、Gemini 间路由。
+                        </p>
+                        <div class="hero-rise hero-rise-3" data-partial="partials/cta-actions.html"
+                            data-wrapper-class="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3"
+                            data-primary-href="https://pigcode.ai/login"
+                            data-primary-class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base"
+                            data-primary-label="获取 API Key"
+                            data-primary-i18n="common.cta.start"
+                            data-secondary-href="docs.html"
+                            data-secondary-class="btn-secondary w-full sm:w-auto px-8 py-3.5 text-base"
+                            data-secondary-label="查看接入文档"
+                            data-secondary-i18n="common.cta.docs">
+                            <!-- partial 加载失败时的最小降级：仅保留主操作（正常情况下由 partial 覆盖） -->
+                            <a href="https://pigcode.ai/login" target="_top" class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base">获取 API Key</a>
+                        </div>
                     </div>
                 </div>
             </div>

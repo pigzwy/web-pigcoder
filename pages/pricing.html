@@ -38,40 +38,30 @@
     <section class="hero-modern relative overflow-hidden">
       <div class="surface-gradient-hero"></div>
       <div class="section-shell-wide py-24 md:py-32">
-        <div class="grid gap-10 xl:gap-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div class="text-left">
-            <span class="kicker mb-5 hero-rise">
-              <span class="material-symbols-outlined text-sm text-custom-gold" aria-hidden="true">payments</span>
-              <span data-i18n="pricing.hero.badge">模型渠道与倍率</span>
-            </span>
-            <h1 data-i18n-html="pricing.hero.title" class="hero-rise hero-rise-2 text-3xl sm:text-4xl md:text-5xl font-medium font-headline tracking-[-0.03em] text-custom-ink dark:text-white mb-5 leading-[1.1] text-balance">
-              透明模型倍率与渠道能力
-            </h1>
-            <p data-i18n="pricing.hero.description" class="hero-rise hero-rise-3 text-custom-muted dark:text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">按 Provider 和工具场景查看倍率、模型、上下文、thinking、WebSearch 与适用工具。充值后按实际调用消耗，最终权益以控制台实时展示为准。</p>
-          </div>
-          <div class="pricing-hero-panel hero-rise hero-rise-4">
-            <div class="pricing-hero-row">
-              <span class="material-symbols-outlined text-custom-ink dark:text-slate-200" aria-hidden="true">account_balance_wallet</span>
-              <div>
-                <strong data-i18n="pricing.hero.cards.rechargeTitle">余额通用</strong>
-                <p data-i18n="pricing.hero.cards.rechargeDescription">充值余额可在不同模型渠道间使用，按实际调用消耗。</p>
-              </div>
-            </div>
-            <div class="pricing-hero-row">
-              <span class="material-symbols-outlined text-custom-gold" aria-hidden="true">percent</span>
-              <div>
-                <strong data-i18n="pricing.hero.cards.ratioTitle">倍率透明</strong>
-                <p data-i18n="pricing.hero.cards.ratioDescription">每个渠道直接展示兑换倍率和能力标签。</p>
-              </div>
-            </div>
-            <div class="pricing-hero-row">
-              <span class="material-symbols-outlined text-custom-ink dark:text-slate-200" aria-hidden="true">hub</span>
-              <div>
-                <strong data-i18n="pricing.hero.cards.modelTitle">能力标签</strong>
-                <p data-i18n="pricing.hero.cards.modelDescription">上下文、thinking、WebSearch、CLI 适配一眼可见。</p>
-              </div>
-            </div>
-          </div>
+        <!-- 倍率环：等宽倍率药丸与厂商 logo 相间，中心金色 % -->
+        <div class="hero-constellation" aria-hidden="true">
+          <svg class="constellation-orbits" viewBox="0 0 560 560" fill="none">
+            <circle cx="280" cy="280" r="190" />
+          </svg>
+          <span class="constellation-center is-glyph is-gold">%</span>
+          <span class="constellation-dot" style="left:84%;top:50%;--d:1.1"><span class="constellation-pill">1:0.45</span></span>
+          <span class="constellation-dot" style="left:74%;top:26%;--d:0.85"><span class="constellation-tile"><img src="model-icons/google.svg" alt="" loading="lazy" /></span></span>
+          <span class="constellation-dot" style="left:50%;top:16%;--d:1.1"><span class="constellation-pill">1:1.5</span></span>
+          <span class="constellation-dot" style="left:26%;top:26%;--d:0.85"><span class="constellation-tile"><img src="model-icons/anthropic.svg" alt="" loading="lazy" /></span></span>
+          <span class="constellation-dot" style="left:16%;top:50%;--d:1.1"><span class="constellation-pill">1:0.1</span></span>
+          <span class="constellation-dot" style="left:26%;top:74%;--d:0.85"><span class="constellation-tile"><img src="model-icons/openai.svg" alt="" loading="lazy" /></span></span>
+          <span class="constellation-dot" style="left:50%;top:84%;--d:1.1"><span class="constellation-pill">1:0.15</span></span>
+          <span class="constellation-dot" style="left:74%;top:74%;--d:1.5"><span class="constellation-tile is-sm"><span class="constellation-glyph">$</span></span></span>
+        </div>
+        <div class="max-w-3xl text-left">
+          <span class="kicker mb-5 hero-rise">
+            <span class="material-symbols-outlined text-sm text-custom-gold" aria-hidden="true">payments</span>
+            <span data-i18n="pricing.hero.badge">模型渠道与倍率</span>
+          </span>
+          <h1 data-i18n-html="pricing.hero.title" class="hero-rise hero-rise-2 text-4xl sm:text-5xl md:text-5xl font-medium font-headline tracking-[-0.03em] text-custom-ink dark:text-white mb-5 leading-[1.1] text-balance">
+            透明模型倍率与渠道能力
+          </h1>
+          <p data-i18n="pricing.hero.description" class="hero-rise hero-rise-3 text-custom-muted dark:text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">按 Provider 和工具场景查看倍率、模型、上下文、thinking、WebSearch 与适用工具。充值后按实际调用消耗，最终权益以控制台实时展示为准。</p>
         </div>
       </div>
     </section>
