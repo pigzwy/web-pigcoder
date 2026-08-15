@@ -2,166 +2,129 @@
   var grid = document.getElementById('pricing-card-grid');
   if (!grid) return;
 
+  /* 平台元信息：分组标题图标（真实厂牌，来自 model-icons/） */
+  var PLATFORM_META = {
+    OpenAI: { icon: 'openai' },
+    Anthropic: { icon: 'anthropic' },
+    Gemini: { icon: 'google' },
+    Grok: { icon: 'xai' }
+  };
+  var PLATFORM_ORDER = ['OpenAI', 'Anthropic', 'Grok', 'Gemini'];
+
+  /* 各平台默认可用模型与能力标签（实时数据只有分组/倍率时按平台补齐） */
+  var PLATFORM_DEFAULTS = {
+    OpenAI: {
+      models: ['gpt-5.5', 'gpt-5.4'],
+      perks: { 'zh-CN': ['xhigh 全推理档', '流式输出'], 'en-US': ['All xhigh tiers', 'Streaming'] }
+    },
+    Anthropic: {
+      models: ['claude-opus-4-8', 'claude-sonnet-4-6', 'claude-haiku-4-5'],
+      perks: { 'zh-CN': ['支持 thinking', '200k / 1M 上下文', '联网搜索'], 'en-US': ['Thinking support', '200k / 1M context', 'Web search'] }
+    },
+    Grok: {
+      models: ['grok-4', 'grok-4-fast'],
+      perks: { 'zh-CN': ['Pro / Heavy 双档', '推理模式'], 'en-US': ['Pro / Heavy tiers', 'Reasoning'] }
+    },
+    Gemini: {
+      models: ['gemini-3-pro-preview', 'gemini-3-flash-preview', 'gemini-2.5-pro'],
+      perks: { 'zh-CN': ['支持 thinking', '联网搜索', '图像生成'], 'en-US': ['Thinking support', 'Web search', 'Image generation'] }
+    }
+  };
+
+  /* 静态快照：与 sub2api 控制台分组一致（实时接口不可达时的兜底展示） */
   var catalogs = {
     'zh-CN': [
-      {
-        category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
-        title: 'Claude Max',
-        ratio: '1:1.5',
-        rate: '0.67$/元',
-        description: 'Claude 高配渠道，适合长上下文与复杂代码任务',
-        models: ['claude-opus-4-8', 'claude-sonnet-4-6', 'claude-haiku-4-5'],
-        perks: ['支持高级 thinking', '200k 上下文', '支持 1M 上下文', '支持 WebSearch', '仅支持 Claude Code CLI'],
-        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
-      },
-      {
-        category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
-        title: 'CC-反重力逆向',
-        ratio: '1:0.6',
-        rate: '1.67$/元',
-        description: 'Claude 逆向渠道，倍率与能力均衡',
-        models: ['claude-opus-4-8', 'claude-sonnet-4-6', 'claude-haiku-4-5'],
-        perks: ['支持 thinking', '200k 上下文', '支持 WebSearch'],
-        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
-      },
-      {
-        category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
-        title: 'Kiro',
-        ratio: '1:0.5',
-        rate: '2.00$/元',
-        description: 'Sonnet / Haiku 渠道，适合日常代码代理',
-        models: ['claude-sonnet-4-6', 'claude-haiku-4-5'],
-        perks: ['支持内置 thinking', '支持 WebSearch', '200k 上下文', 'OpenClaw 首选'],
-        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
-      },
-      {
-        category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
-        title: 'Codex (GPT FREE)',
-        ratio: '1:0.1',
-        rate: '10.00$/元',
-        description: 'Codex 免费级渠道，倍率最低，适合轻量任务',
-        models: ['gpt-5.5', 'gpt-5.4'],
-        perks: ['xhigh 等全部支持'],
-        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
-      },
-      {
-        category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
-        title: 'Codex (GPT PLUS)',
-        ratio: '1:0.15',
-        rate: '6.67$/元',
-        description: 'Codex Plus 级渠道，适合高频开发调用',
-        models: ['gpt-5.5', 'gpt-5.4'],
-        perks: ['xhigh 等全部支持'],
-        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
-      },
-      {
-        category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
-        title: 'Codex (GPT PRO)',
-        ratio: '1:0.3',
-        rate: '3.33$/元',
-        description: 'Codex Pro 级渠道，覆盖最新 Codex 模型',
-        models: ['gpt-5.5', 'gpt-5.4'],
-        perks: ['xhigh 等全部支持'],
-        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
-      },
-      {
-        category: 'Gemini',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
-        title: 'Gemini 逆向',
-        ratio: '1:0.45',
-        rate: '2.22$/元',
-        description: 'Gemini 渠道，覆盖多模态与图片生成能力',
-        models: ['gemini-3-pro-preview', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-2.5-pro'],
-        perks: ['支持 thinking', '支持 WebSearch'],
-        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
-      }
+      { platform: 'OpenAI', title: '专线 Codex | Plus / Team', ratio: '0.12x', billing: '标准（余额）', description: '专线接入的 Codex Plus / Team 渠道，日常开发主力' },
+      { platform: 'OpenAI', title: '专线 Codex | Pro', ratio: '0.2x', billing: '标准（余额）', description: '专线接入的 Codex Pro 渠道，覆盖最新 Codex 模型' },
+      { platform: 'OpenAI', title: '企业 Codex | Plus / Team', ratio: '0.08x', billing: '标准（余额）', description: '企业渠道 Codex Plus / Team，倍率最低' },
+      { platform: 'OpenAI', title: '企业 Codex | Pro', ratio: '0.15x', billing: '标准（余额）', description: '企业渠道 Codex Pro，高频调用性价比之选' },
+      { platform: 'OpenAI', title: '官渠 | Azure GPT', ratio: '2x', billing: '标准（余额）', description: 'Azure 官方渠道 GPT，企业级稳定性' },
+      { platform: 'OpenAI', title: '官渠 | GPT 官 Key 直连', ratio: '3.5x', billing: '标准（余额）', description: 'OpenAI 官方 Key 直连，原汁原味' },
+      { platform: 'Anthropic', title: '企业 CC-MAX | 限制客户端', ratio: '0.8x', billing: '标准（余额）', description: '企业 CC-MAX 渠道，仅限 Claude Code 客户端' },
+      { platform: 'Anthropic', title: '企业 CC-MAX | 可外接', ratio: '1x', billing: '标准（余额）', description: '企业 CC-MAX 渠道，可外接任意客户端' },
+      { platform: 'Anthropic', title: '官渠 | AWS Bedrock', ratio: '3x', billing: '标准（余额）', description: 'AWS Bedrock 官方渠道，企业级合规' },
+      { platform: 'Anthropic', title: '官渠 | Anthropic 官 Key 直连', ratio: '4.5x', billing: '标准（余额）', description: 'Anthropic 官方 Key 直连，完整能力' },
+      { platform: 'Grok', title: '企业 Grok | Pro / Heavy', ratio: '0.35x', billing: '标准（余额）', description: '企业 Grok 渠道，Pro 与 Heavy 双档' },
+      { platform: 'Gemini', title: '企业 | Gemini', ratio: '1x', billing: '标准（余额）', description: '企业 Gemini 渠道，多模态与图像生成' }
     ],
     'en-US': [
-      {
-        category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
-        title: 'Claude Max',
-        ratio: '1:1.5',
-        rate: '$0.67 / CNY',
-        description: 'Claude high-capability channel for long-context coding tasks',
-        models: ['claude-opus-4-8', 'claude-sonnet-4-6', 'claude-haiku-4-5'],
-        perks: ['Advanced thinking', '200k context', '1M context', 'WebSearch support', 'Claude Code CLI only'],
-        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
-      },
-      {
-        category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
-        title: 'CC Anti-Gravity',
-        ratio: '1:0.6',
-        rate: '$1.67 / CNY',
-        description: 'Claude reverse channel with balanced ratio and capabilities',
-        models: ['claude-opus-4-8', 'claude-sonnet-4-6', 'claude-haiku-4-5'],
-        perks: ['Thinking support', '200k context', 'WebSearch support'],
-        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
-      },
-      {
-        category: 'Claude',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
-        title: 'Kiro',
-        ratio: '1:0.5',
-        rate: '$2.00 / CNY',
-        description: 'Sonnet / Haiku channel for everyday coding agents',
-        models: ['claude-sonnet-4-6', 'claude-haiku-4-5'],
-        perks: ['Built-in thinking', 'WebSearch support', '200k context', 'Great for OpenClaw'],
-        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
-      },
-      {
-        category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
-        title: 'Codex (GPT FREE)',
-        ratio: '1:0.1',
-        rate: '$10.00 / CNY',
-        description: 'Codex free-tier channel with the lowest ratio for lightweight tasks',
-        models: ['gpt-5.5', 'gpt-5.4'],
-        perks: ['All xhigh tiers supported'],
-        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
-      },
-      {
-        category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
-        title: 'Codex (GPT PLUS)',
-        ratio: '1:0.15',
-        rate: '$6.67 / CNY',
-        description: 'Codex Plus channel for frequent developer calls',
-        models: ['gpt-5.5', 'gpt-5.4'],
-        perks: ['All xhigh tiers supported'],
-        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
-      },
-      {
-        category: 'Codex',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
-        title: 'Codex (GPT PRO)',
-        ratio: '1:0.3',
-        rate: '$3.33 / CNY',
-        description: 'Codex Pro channel with latest Codex model coverage',
-        models: ['gpt-5.5', 'gpt-5.4'],
-        perks: ['All xhigh tiers supported'],
-        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
-      },
-      {
-        category: 'Gemini',
-        categoryClass: 'px-2.5 py-1 bg-custom-wash dark:bg-white/5 text-custom-navy dark:text-slate-200 text-xs font-semibold rounded-full',
-        title: 'Gemini Reverse',
-        ratio: '1:0.45',
-        rate: '$2.22 / CNY',
-        description: 'Gemini channel with multimodal and image-generation capabilities',
-        models: ['gemini-3-pro-preview', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-2.5-pro'],
-        perks: ['Thinking support', 'WebSearch support'],
-        perkClass: 'text-green-700 dark:text-green-400 text-xs font-semibold'
-      }
+      { platform: 'OpenAI', title: 'Dedicated Codex | Plus / Team', ratio: '0.12x', billing: 'Standard (balance)', description: 'Dedicated Codex Plus / Team channel for everyday coding' },
+      { platform: 'OpenAI', title: 'Dedicated Codex | Pro', ratio: '0.2x', billing: 'Standard (balance)', description: 'Dedicated Codex Pro channel with the latest Codex models' },
+      { platform: 'OpenAI', title: 'Enterprise Codex | Plus / Team', ratio: '0.08x', billing: 'Standard (balance)', description: 'Enterprise Codex Plus / Team, the lowest ratio' },
+      { platform: 'OpenAI', title: 'Enterprise Codex | Pro', ratio: '0.15x', billing: 'Standard (balance)', description: 'Enterprise Codex Pro, best value for frequent calls' },
+      { platform: 'OpenAI', title: 'Official | Azure GPT', ratio: '2x', billing: 'Standard (balance)', description: 'Official Azure GPT channel with enterprise stability' },
+      { platform: 'OpenAI', title: 'Official | GPT direct (official key)', ratio: '3.5x', billing: 'Standard (balance)', description: 'Direct OpenAI official-key channel' },
+      { platform: 'Anthropic', title: 'Enterprise CC-MAX | Restricted client', ratio: '0.8x', billing: 'Standard (balance)', description: 'Enterprise CC-MAX, Claude Code client only' },
+      { platform: 'Anthropic', title: 'Enterprise CC-MAX | BYO client', ratio: '1x', billing: 'Standard (balance)', description: 'Enterprise CC-MAX, works with any client' },
+      { platform: 'Anthropic', title: 'Official | AWS Bedrock', ratio: '3x', billing: 'Standard (balance)', description: 'Official AWS Bedrock channel, enterprise compliance' },
+      { platform: 'Anthropic', title: 'Official | Anthropic direct (official key)', ratio: '4.5x', billing: 'Standard (balance)', description: 'Direct Anthropic official-key channel, full capability' },
+      { platform: 'Grok', title: 'Enterprise Grok | Pro / Heavy', ratio: '0.35x', billing: 'Standard (balance)', description: 'Enterprise Grok channel with Pro and Heavy tiers' },
+      { platform: 'Gemini', title: 'Enterprise | Gemini', ratio: '1x', billing: 'Standard (balance)', description: 'Enterprise Gemini channel with multimodal and image generation' }
     ]
   };
+
+  /* 实时数据：生产环境与 sub2api 同域，运行时尝试拉取分组倍率；
+     预览/跨域/接口变动时静默回退到上面的静态快照 */
+  var LIVE_ENDPOINTS = ['/api/pricing', '/api/groups'];
+  var liveGroups = null;
+
+  function normalizePlatform(p) {
+    var s = String(p || '').toLowerCase();
+    if (s.indexOf('openai') !== -1 || s.indexOf('azure') !== -1 || s.indexOf('gpt') !== -1) return 'OpenAI';
+    if (s.indexOf('anthropic') !== -1 || s.indexOf('claude') !== -1) return 'Anthropic';
+    if (s.indexOf('grok') !== -1 || s.indexOf('xai') !== -1) return 'Grok';
+    if (s.indexOf('gemini') !== -1 || s.indexOf('google') !== -1) return 'Gemini';
+    return null;
+  }
+
+  function formatRatio(v) {
+    var n = Number(v);
+    if (!isFinite(n) || n <= 0) return null;
+    return (n % 1 === 0 ? String(n) : String(parseFloat(n.toFixed(3)))) + 'x';
+  }
+
+  function adaptLive(json) {
+    var arr = null;
+    if (Array.isArray(json)) arr = json;
+    else if (json && Array.isArray(json.data)) arr = json.data;
+    else if (json && Array.isArray(json.groups)) arr = json.groups;
+    if (!arr || !arr.length) return null;
+    var out = [];
+    arr.forEach(function (item) {
+      if (!item || typeof item !== 'object') return;
+      var name = item.name || item['名称'] || item.group_name || item.display_name;
+      var platform = normalizePlatform(item.platform || item['平台'] || item.channel_type || item.provider || name);
+      var ratio = formatRatio(item.rate_multiplier != null ? item.rate_multiplier : (item.ratio != null ? item.ratio : (item['费率倍数'] != null ? item['费率倍数'] : item.group_ratio)));
+      if (!name || !platform || !ratio) return;
+      out.push({
+        platform: platform,
+        title: String(name),
+        ratio: ratio,
+        billing: item.billing_type || item['计费类型'] || null,
+        description: item.description || item['描述'] || ''
+      });
+    });
+    return out.length ? out : null;
+  }
+
+  function tryLive() {
+    if (!window.fetch || !window.Promise) return Promise.resolve(null);
+    var chain = Promise.resolve(null);
+    LIVE_ENDPOINTS.forEach(function (ep) {
+      chain = chain.then(function (found) {
+        if (found) return found;
+        return fetch(ep, { headers: { Accept: 'application/json' } })
+          .then(function (res) {
+            if (!res.ok) return null;
+            var ct = res.headers.get('content-type') || '';
+            if (ct.indexOf('json') === -1) return null;
+            return res.json().then(adaptLive);
+          })
+          .catch(function () { return null; });
+      });
+    });
+    return chain;
+  }
 
   function getLocale() {
     if (window.PigcodeI18n && typeof window.PigcodeI18n.getLocale === 'function') {
@@ -170,90 +133,111 @@
     return 'zh-CN';
   }
 
+  function isZh() {
+    return getLocale() === 'zh-CN';
+  }
+
   function getCards() {
-    var locale = getLocale();
-    return catalogs[locale] || catalogs['zh-CN'];
-  }
-
-  /* 模型 ID 统一走 .model-chip（等宽药丸），与首页"常用模型"一致 */
-  function renderModel(model) {
-    return '<span class="model-chip">' + model + '</span>';
-  }
-
-  /* 能力标签统一走 .model-tag 中性药丸——绿色文字清单退役（绿仅语义） */
-  function renderPerk(perk) {
-    return '<span class="model-tag">' + perk + '</span>';
+    if (liveGroups) {
+      /* 实时分组：名称/倍率来自接口，模型与能力按平台补齐 */
+      return liveGroups.map(function (g) {
+        return {
+          platform: g.platform,
+          title: g.title,
+          ratio: g.ratio,
+          billing: g.billing || (isZh() ? '标准（余额）' : 'Standard (balance)'),
+          description: g.description || ''
+        };
+      });
+    }
+    return catalogs[getLocale()] || catalogs['zh-CN'];
   }
 
   function getLabels() {
-    return window.PigcodeI18n ? {
-      ratio: window.PigcodeI18n.t('pricing.card.ratio'),
-      models: window.PigcodeI18n.t('pricing.card.models'),
-      capabilities: window.PigcodeI18n.t('pricing.card.capabilities'),
-      action: window.PigcodeI18n.t('common.cta.console')
-    } : {
-      ratio: '倍率',
-      models: '模型',
-      capabilities: '能力',
-      action: '立即前往控制台'
+    return {
+      ratio: window.PigcodeI18n ? window.PigcodeI18n.t('pricing.card.ratio') : '倍率',
+      ratioNote: isZh() ? '相对官方价' : 'vs official price',
+      models: window.PigcodeI18n ? window.PigcodeI18n.t('pricing.card.models') : '模型',
+      capabilities: window.PigcodeI18n ? window.PigcodeI18n.t('pricing.card.capabilities') : '能力',
+      action: window.PigcodeI18n ? window.PigcodeI18n.t('common.cta.console') : '立即前往控制台',
+      live: isZh() ? '实时数据' : 'Live data'
     };
   }
 
-  function renderCard(card, labels) {
-    var modelsHtml = card.models.map(function (model) {
-      return renderModel(model);
-    }).join('');
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
 
-    var perksHtml = card.perks.map(function (perk) {
-      return renderPerk(perk);
-    }).join('');
+  function renderModel(model) {
+    return '<span class="model-chip">' + esc(model) + '</span>';
+  }
+
+  function renderPerk(perk) {
+    return '<span class="model-tag">' + esc(perk) + '</span>';
+  }
+
+  function platformIcon(platform, size) {
+    var meta = PLATFORM_META[platform];
+    if (!meta) return '';
+    return '<img src="model-icons/' + meta.icon + '.svg" alt="" loading="lazy" class="' + (size === 'sm' ? 'h-4 w-4' : 'h-5 w-5') + ' shrink-0" />';
+  }
+
+  function renderCard(card, labels) {
+    var defaults = PLATFORM_DEFAULTS[card.platform] || { models: [], perks: {} };
+    var models = defaults.models;
+    var perks = defaults.perks[getLocale()] || defaults.perks['zh-CN'] || [];
 
     return '<div class="pricing-card channel-card rounded-2xl p-6 flex flex-col">' +
       '<div class="channel-card-head mb-4">' +
-        '<h3 class="min-w-0 truncate text-custom-ink dark:text-white font-semibold text-base">' + card.title + '</h3>' +
+        '<div class="min-w-0">' +
+          '<h3 class="truncate text-custom-ink dark:text-white font-semibold text-base" title="' + esc(card.title) + '">' + esc(card.title) + '</h3>' +
+          (card.billing ? '<span class="model-tag mt-2">' + esc(card.billing) + '</span>' : '') +
+        '</div>' +
         '<div class="channel-ratio">' +
-          '<span class="channel-ratio-label">' + labels.ratio + '</span>' +
-          '<strong>' + card.ratio + '</strong>' +
-          '<span>' + card.rate + '</span>' +
+          '<span class="channel-ratio-label">' + esc(labels.ratio) + '</span>' +
+          '<strong>' + esc(card.ratio) + '</strong>' +
+          '<span>' + esc(labels.ratioNote) + '</span>' +
         '</div>' +
       '</div>' +
-      '<p class="text-custom-muted dark:text-slate-400 text-sm mb-4 leading-6">' + card.description + '</p>' +
-      '<div class="mb-4">' +
-        '<span class="channel-label">' + labels.models + '</span>' +
-        '<div class="mt-2 flex flex-wrap gap-1.5">' + modelsHtml + '</div>' +
-      '</div>' +
+      (card.description ? '<p class="text-custom-muted dark:text-slate-400 text-sm mb-4 leading-6">' + esc(card.description) + '</p>' : '') +
+      (models.length ? '<div class="mb-4">' +
+        '<span class="channel-label">' + esc(labels.models) + '</span>' +
+        '<div class="mt-2 flex flex-wrap gap-1.5">' + models.map(renderModel).join('') + '</div>' +
+      '</div>' : '') +
       '<div class="mb-5 flex-grow">' +
-        '<span class="channel-label">' + labels.capabilities + '</span>' +
-        '<div class="mt-2 flex flex-wrap gap-2">' + perksHtml + '</div>' +
+        '<span class="channel-label">' + esc(labels.capabilities) + '</span>' +
+        '<div class="mt-2 flex flex-wrap gap-2">' + perks.map(renderPerk).join('') + '</div>' +
       '</div>' +
-      '<div data-partial="partials/recharge-button.html" data-label="' + labels.action + '" data-label-i18n="common.cta.console">' +
-        '<a href="https://pigcode.ai/login" target="_top" class="btn-ghost w-full px-5 py-2.5 text-sm border border-custom-line dark:border-white/10">' + labels.action + '</a>' +
+      '<div data-partial="partials/recharge-button.html" data-label="' + esc(labels.action) + '" data-label-i18n="common.cta.console">' +
+        '<a href="https://pigcode.ai/login" target="_top" class="btn-ghost w-full px-5 py-2.5 text-sm border border-custom-line dark:border-white/10">' + esc(labels.action) + '</a>' +
       '</div>' +
     '</div>';
   }
 
-  // 按 Provider 分组渲染：分组标题 + 组内网格，替代 7 卡平铺
+  /* 按平台分组渲染：厂牌图标 + 平台名 + 细线 */
   function render() {
     var labels = getLabels();
     var cards = getCards();
-    var order = [];
     var groups = {};
 
     cards.forEach(function (card) {
-      if (!groups[card.category]) {
-        groups[card.category] = [];
-        order.push(card.category);
-      }
-      groups[card.category].push(card);
+      (groups[card.platform] = groups[card.platform] || []).push(card);
     });
 
-    grid.innerHTML = order.map(function (category) {
-      var cardsHtml = groups[category].map(function (card) {
+    var order = PLATFORM_ORDER.filter(function (p) { return groups[p]; });
+    Object.keys(groups).forEach(function (p) {
+      if (order.indexOf(p) === -1) order.push(p);
+    });
+
+    grid.innerHTML = order.map(function (platform) {
+      var cardsHtml = groups[platform].map(function (card) {
         return renderCard(card, labels);
       }).join('');
       return '<section>' +
-        '<h3 class="mb-4 flex items-center gap-3 text-lg font-semibold font-headline text-custom-ink dark:text-white">' +
-          category +
+        '<h3 class="mb-4 flex items-center gap-2.5 text-lg font-semibold font-headline text-custom-ink dark:text-white">' +
+          platformIcon(platform) +
+          '<span>' + esc(platform) + '</span>' +
+          (liveGroups ? '<span class="model-thinking">' + esc(labels.live) + '</span>' : '') +
           '<span class="h-px flex-1 bg-custom-line dark:bg-white/10" aria-hidden="true"></span>' +
         '</h3>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">' + cardsHtml + '</div>' +
@@ -267,7 +251,7 @@
     animateCards(Array.prototype.slice.call(grid.querySelectorAll('.pricing-card')));
   }
 
-  // 滚动进场：渲染完成后为价格卡挂淡入动画
+  /* 滚动进场：渲染完成后为价格卡挂淡入动画 */
   function animateCards(elements) {
     elements.forEach(function (el) {
       el.classList.add('fade-up');
@@ -301,5 +285,11 @@
   }
 
   render();
+  tryLive().then(function (groups) {
+    if (groups) {
+      liveGroups = groups;
+      render();
+    }
+  });
   document.addEventListener('pigcoder:locale-changed', render);
 })();
