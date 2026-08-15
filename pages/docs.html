@@ -18,14 +18,14 @@
   <meta name="twitter:title" content="Pigcode 接入文档" />
   <meta name="twitter:description" content="平台开通、API Key 获取，以及各类 CLI 工具的端点配置与排查。" />
   <meta name="twitter:image" content="https://pigcode.ai/logo.png" />
-  <link href="tailwind.css?v=20260814-transparent-logo" rel="stylesheet" />
-  <link href="logo.png?v=20260814-transparent-logo" rel="icon" type="image/png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260814-transparent-logo" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260814-transparent-logo" />
+  <link href="tailwind.css?v=20260815-paper-ink-gold" rel="stylesheet" />
+  <link href="logo.png?v=20260815-paper-ink-gold" rel="icon" type="image/png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260815-paper-ink-gold" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260815-paper-ink-gold" />
   <link rel="canonical" href="https://pigcode.ai/docs.html" />
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link href="common.css?v=20260814-transparent-logo" rel="stylesheet" />
+  <link href="common.css?v=20260815-paper-ink-gold" rel="stylesheet" />
   <style>
     .code-block {
       position: relative;
@@ -62,7 +62,7 @@
 
     .code-block .copy-btn:hover,
     .code-block .copy-btn.copied {
-      color: var(--pc-navy);
+      color: var(--pc-ink);
       background: rgba(232, 168, 37, 0.12);
     }
 
@@ -93,8 +93,8 @@
     }
 
     .sidebar-link:hover {
-      color: var(--pc-navy);
-      background: rgba(24, 52, 95, 0.05);
+      color: var(--pc-ink);
+      background: rgba(32, 31, 26, 0.04);
     }
 
     .dark .sidebar-link {
@@ -107,7 +107,7 @@
     }
 
     .sidebar-link.active {
-      color: var(--pc-navy);
+      color: var(--pc-ink);
       font-weight: 700;
       border-left-color: var(--pc-gold);
       background: rgba(232, 168, 37, 0.1);
@@ -128,7 +128,7 @@
     }
 
     .toc-link:hover {
-      color: var(--pc-navy);
+      color: var(--pc-ink);
       border-left-color: var(--pc-gold);
     }
 
@@ -137,7 +137,7 @@
     }
 
     .doc-section-heading {
-      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-family: "Space Grotesk", "Inter", "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei UI", sans-serif;
       letter-spacing: -0.02em;
     }
 
@@ -174,7 +174,7 @@
       gap: 6px;
       background: var(--pc-paper);
       border: 1px solid var(--pc-line);
-      color: var(--pc-navy);
+      color: var(--pc-ink);
       cursor: pointer;
       box-shadow: var(--pc-shadow-md);
       font-size: 13px;
@@ -198,7 +198,7 @@
 </head>
 
 <body
-  class="bg-custom-wash dark:bg-custom-navy-deep font-body text-custom-ink dark:text-white selection:bg-custom-navy selection:text-white transition-colors duration-300">
+  class="bg-custom-wash dark:bg-custom-navy-deep font-body text-custom-ink dark:text-white selection:bg-custom-gold/30 selection:text-custom-ink dark:selection:text-white transition-colors duration-300">
 
   <a href="#main-content" class="skip-link" data-i18n="common.skip">跳到主要内容</a>
 
@@ -208,8 +208,6 @@
   <main id="main-content">
     <section class="hero-modern relative overflow-hidden">
       <div class="surface-gradient-hero"></div>
-      <div class="deco-dots" aria-hidden="true"></div>
-      <div class="deco-orb deco-orb-navy -top-24 -right-24" aria-hidden="true"></div>
       <div class="section-shell-wide py-24 md:py-32">
         <div class="grid gap-10 xl:gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div class="max-w-3xl text-left">
@@ -219,7 +217,7 @@
             </span>
             <h1
               data-i18n="docs.hero.title"
-              class="hero-rise hero-rise-2 text-4xl md:text-6xl font-semibold font-headline text-custom-ink dark:text-white tracking-[-0.045em] leading-[1.04] mb-5 text-balance">
+              class="hero-rise hero-rise-2 text-4xl md:text-6xl font-medium font-headline text-custom-ink dark:text-white tracking-[-0.03em] leading-[1.06] mb-5 text-balance">
               Pigcode 接入文档
             </h1>
             <p data-i18n="docs.hero.description" class="hero-rise hero-rise-3 text-custom-muted dark:text-slate-300 text-base md:text-lg leading-relaxed max-w-2xl">
@@ -390,7 +388,7 @@ export OPENAI_BASE_URL="https://pigcode.ai/v1"
 export GEMINI_API_KEY="sk-pig-xxxx"</code></pre>
                 </div>
                 <!-- 提示框 -->
-                <div class="border-l-4 border-custom-green bg-green-50 dark:bg-green-900/20 p-4 rounded-r-lg">
+                <div class="border-l-4 border-custom-gold bg-custom-gold/[0.07] dark:bg-custom-gold/10 p-4 rounded-r-lg">
                   <p class="text-sm text-slate-700 dark:text-slate-300"><strong>提示：</strong>建议将环境变量写入 <code
                       class="code-chip">~/.bashrc</code> 或 <code
                       class="code-chip">~/.zshrc</code>，这样每次打开终端都会自动加载。
@@ -1039,9 +1037,9 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
       });
     });
   </script>
-<script src="i18n.js?v=20260814-transparent-logo"></script>
-  <script src="components.js?v=20260814-transparent-logo"></script>
-  <script src="shared.js?v=20260814-transparent-logo"></script>
+<script src="i18n.js?v=20260815-paper-ink-gold"></script>
+  <script src="components.js?v=20260815-paper-ink-gold"></script>
+  <script src="shared.js?v=20260815-paper-ink-gold"></script>
 </body>
 
 </html>

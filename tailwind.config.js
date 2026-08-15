@@ -9,8 +9,8 @@ module.exports = {
         'custom-navy': '#18345F',
         'custom-gold': '#E8A825',
         'custom-green': '#4F9462',
-        'custom-ink': '#0F172A',
-        'custom-muted': '#667085',
+        'custom-ink': '#201F1A',
+        'custom-muted': '#6E6B62',
         'custom-line': '#E7E5E0',
         'custom-paper': '#FFFFFF',
         'custom-wash': '#FAFAF8',
@@ -27,9 +27,11 @@ module.exports = {
         full: '9999px'
       },
       fontFamily: {
-        headline: ['Space Grotesk', 'Inter', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
-        label: ['Inter', 'sans-serif']
+        /* CJK 栈显式声明：中文不再掉进未知系统字体（伪粗体/随机字形是"不细腻"的元凶之一） */
+        headline: ['Space Grotesk', 'Inter', 'PingFang SC', 'HarmonyOS Sans SC', 'MiSans', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Noto Sans CJK SC', 'sans-serif'],
+        body: ['Inter', 'PingFang SC', 'HarmonyOS Sans SC', 'MiSans', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Noto Sans CJK SC', 'sans-serif'],
+        label: ['Inter', 'PingFang SC', 'HarmonyOS Sans SC', 'MiSans', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Noto Sans CJK SC', 'sans-serif'],
+        mono: ['ui-monospace', 'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'monospace']
       }
     }
   },

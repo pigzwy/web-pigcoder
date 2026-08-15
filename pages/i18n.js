@@ -59,7 +59,7 @@
         title: 'Pigcode - 稳定高速的 AI 编程中转站',
         hero: {
           badge: 'AI Model Router / API Gateway',
-          title: '统一模型路由 <span class="brand-emphasis">兼容 AI 编程工具</span>',
+          title: '统一模型路由，兼容 <span class="brand-emphasis">AI 编程工具</span>',
           description: '面向编程 CLI 的统一 API 入口，替换 Base URL 即可在 Claude、GPT、Gemini 间路由。',
           codeComment: '# 使用统一接口调用顶级模型',
           codePrompt: '"帮我写一个高效的排序算法"',
@@ -214,7 +214,7 @@
         title: '价格 - Pigcode',
         hero: {
           badge: '模型渠道与倍率',
-          title: '<span>透明模型倍率</span><span class="brand-emphasis">与渠道能力</span>',
+          title: '透明模型倍率与渠道能力',
           description: '按 Provider 和工具场景查看倍率、模型、上下文、thinking、WebSearch 与适用工具。充值后按实际调用消耗，最终权益以控制台实时展示为准。',
           cards: {
             rechargeTitle: '余额通用',
@@ -671,8 +671,8 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         title: '模型目录 - Pigcode',
         hero: {
           badge: '模型目录',
-          title: '<span>全球模型元数据</span> <span class="brand-emphasis">一览无余</span>',
-          description: '汇聚各大厂商模型的上下文、能力标签与模态支持，并标注数据更新时间，支持一站检索对比。',
+          title: '<span>主流模型元数据</span> <span class="brand-emphasis">一览无余</span>',
+          description: '汇聚主流厂商模型的上下文、能力标签与模态支持，并标注数据更新时间，支持一站检索对比。',
           stats: {
             models: '收录模型',
             vendors: '模型厂商',
@@ -771,7 +771,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         title: 'Pigcode - Stable High-Speed AI Coding Gateway',
         hero: {
           badge: 'AI Model Router / API Gateway',
-          title: 'Unified Model Routing <span class="brand-emphasis">for AI Coding Tools</span>',
+          title: 'Unified model routing for <span class="brand-emphasis">AI coding tools</span>',
           description: 'One API entry for your coding CLIs. Swap the Base URL to route across Claude, GPT, and Gemini.',
           codeComment: '# Call top-tier models through one unified interface',
           codePrompt: '"Write an efficient sorting algorithm for me"',
@@ -926,7 +926,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         title: 'Pricing - Pigcode',
         hero: {
           badge: 'Model Channels & Ratios',
-          title: '<span>Transparent Model Ratios </span><span class="brand-emphasis">and Channel Capabilities</span>',
+          title: 'Transparent model ratios and channel capabilities',
           description: 'Compare ratios, models, context, thinking, WebSearch, and compatible tools by provider and tool scenario. Consumption follows actual usage, and final entitlements follow the live console.',
           cards: {
             rechargeTitle: 'Shared balance',
@@ -1366,7 +1366,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         title: 'Model Catalog - Pigcode',
         hero: {
           badge: 'Model Catalog',
-          title: '<span>Every model in the world, </span><span class="brand-emphasis">at a glance</span>',
+          title: '<span>Every major model, </span><span class="brand-emphasis">at a glance</span>',
           description: 'Context windows, capability tags, and modality support for models from major vendors, with the data timestamp shown for each catalog snapshot.',
           stats: {
             models: 'Models',

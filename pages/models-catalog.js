@@ -27,13 +27,15 @@
         realtime_speech_translation: '实时语音翻译', realtime_speech_synthesis: '实时语音合成',
         safety_detection: '安全检测'
       },
+      /* 中文态标签全部译齐：中英混杂是"参差感"的来源之一 */
       caps: {
-        function_calling: 'Function Calling', vision: '视觉输入', reasoning: '推理', pdf_input: 'PDF 输入',
+        function_calling: '函数调用', vision: '视觉输入', reasoning: '推理', pdf_input: 'PDF 输入',
         prompt_caching: '提示词缓存', structured_output: '结构化输出', open_weights: '开放权重',
-        stream: '流式输出', image_output: '图片输出', video_input: '视频输入', web_search: 'WebSearch',
+        stream: '流式输出', image_output: '图片输出', video_input: '视频输入', web_search: '联网搜索',
         parallel_function_calling: '并行调用', audio_input: '音频输入', assistant_prefill: '回复预填',
-        audio_output: '音频输出', computer_use: 'Computer Use'
+        audio_output: '音频输出', computer_use: '计算机操作'
       },
+      thinking: '深度思考',
       ctx: { any: '不限', c128: '128K+', c200: '200K+', c1m: '1M+' }
     },
     'en-US': {
@@ -54,6 +56,7 @@
         parallel_function_calling: 'Parallel calls', audio_input: 'Audio input', assistant_prefill: 'Assistant prefill',
         audio_output: 'Audio output', computer_use: 'Computer use'
       },
+      thinking: 'Thinking',
       ctx: { any: 'Any', c128: '128K+', c200: '200K+', c1m: '1M+' }
     }
   };
@@ -81,7 +84,7 @@
   function capIcon(cap) {
     var p = SVG_PATHS[cap];
     if (!p) return '';
-    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="model-cap-icon" aria-hidden="true">' + p + '</svg>';
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="model-cap-icon" aria-hidden="true">' + p + '</svg>';
   }
 
   /* 类型图标（lucide 线性，与能力图标同风格） */
@@ -109,7 +112,7 @@
   function typeIcon(tp) {
     var p = TYPE_SVG[tp];
     if (!p) return '';
-    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="model-cap-icon" aria-hidden="true">' + p + '</svg>';
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="model-cap-icon" aria-hidden="true">' + p + '</svg>';
   }
 
   function logoHtml(vendor, small) {
@@ -174,6 +177,19 @@
     return String(n);
   }
 
+  var MONTHS_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  /* 裸 ISO 日期本地化：2026-07-10 → 2026年7月10日 / Jul 10, 2026 */
+  function formatDate(iso) {
+    if (!iso) return '';
+    var parts = String(iso).slice(0, 10).split('-');
+    if (parts.length !== 3) return String(iso);
+    var y = parts[0], mo = parseInt(parts[1], 10), d = parseInt(parts[2], 10);
+    if (!mo || !d) return String(iso);
+    if (getLocale() === 'zh-CN') return y + '年' + mo + '月' + d + '日';
+    return MONTHS_EN[mo - 1] + ' ' + d + ', ' + y;
+  }
+
   function activeSet(obj) {
     return Object.keys(obj).filter(function (k) { return obj[k]; });
   }
@@ -229,39 +245,48 @@
   function footHtml(m) {
     var cells = [];
     if (m.price) {
-      var label = m.price.o ? t('models.card.official', '官方') : t('models.card.reference', '参考');
+      /* 大写"官方/参考"标签退役：官方价直接展示，参考价用 ≈ 前缀 + title 注明来源 */
+      var approx = m.price.o ? '' : '≈';
       var title = m.price.o ? '' : (m.price.p ? ' title="' + esc(t('models.card.priceSource', '价格来源') + ': ' + m.price.p) + '"' : '');
-      if (m.price['in'] != null) cells.push('<span' + title + '>' + t('models.card.priceIn', 'In') + ' <strong>$' + esc(m.price['in']) + '</strong>/M</span>');
-      if (m.price.out != null) cells.push('<span' + title + '>' + t('models.card.priceOut', 'Out') + ' <strong>$' + esc(m.price.out) + '</strong>/M</span>');
-      if (cells.length) cells[0] = '<span class="model-foot-label">' + label + '</span>' + cells[0];
+      if (m.price['in'] != null) cells.push('<span' + title + '>' + t('models.card.priceIn', 'In') + ' <strong>' + approx + '$' + esc(m.price['in']) + '</strong>/M</span>');
+      if (m.price.out != null) cells.push('<span' + title + '>' + t('models.card.priceOut', 'Out') + ' <strong>' + approx + '$' + esc(m.price.out) + '</strong>/M</span>');
     }
     if (m.ctx) cells.push('<span>Ctx <strong>' + formatCtx(m.ctx) + '</strong></span>');
     if (!cells.length && !m.date) return '';
     return '<div class="model-card-foot">' +
       '<div class="model-foot-cells">' + cells.join('') + '</div>' +
-      (m.date ? '<span class="model-foot-date">' + esc(m.date) + '</span>' : '') +
+      (m.date ? '<span class="model-foot-date">' + esc(formatDate(m.date)) + '</span>' : '') +
       '</div>';
   }
+
+  /* 通用文本类型不出类型徽章：能力标签已表达其内涵，避免"深度思考/推理/Thinking"三连冗余 */
+  var GENERIC_TYPES = ['text_generation', 'deep_thinking', 'text_understanding'];
 
   function cardHtml(m) {
     var L = labels();
     var isZh = getLocale() === 'zh-CN';
     var intro = m.intro ? (isZh ? (m.intro.zh || m.intro.en) : (m.intro.en || m.intro.zh)) : '';
-    var caps = (m.caps || []).slice(0, 4).map(function (c) {
+    var hasThinking = (m.caps || []).indexOf('reasoning') !== -1 || m.type === 'deep_thinking';
+    /* 金色 Thinking 位已表达推理能力，能力标签里不再重复 */
+    var capList = (m.caps || []).filter(function (c) { return !(hasThinking && c === 'reasoning'); });
+    var caps = capList.slice(0, 4).map(function (c) {
       return '<span class="model-tag">' + capIcon(c) + esc(L.caps[c] || c.replace(/_/g, ' ')) + '</span>';
     }).join('');
-    var extra = (m.caps || []).length > 4 ? '<span class="model-tag">+' + ((m.caps || []).length - 4) + '</span>' : '';
-    var thinking = ((m.caps || []).indexOf('reasoning') !== -1 || m.type === 'deep_thinking')
-      ? '<span class="model-thinking">' + capIcon('reasoning') + 'Thinking</span>'
+    var extra = capList.length > 4 ? '<span class="model-tag">+' + (capList.length - 4) + '</span>' : '';
+    var thinking = hasThinking
+      ? '<span class="model-thinking">' + capIcon('reasoning') + esc(L.thinking) + '</span>'
       : '';
-    return '<article class="pricing-card model-card rounded-xl p-5 flex flex-col">' +
+    var typeBadge = GENERIC_TYPES.indexOf(m.type) === -1
+      ? '<span class="model-type-badge">' + typeIcon(m.type) + esc(L.types[m.type] || m.type) + '</span>'
+      : '';
+    return '<article class="pricing-card model-card rounded-2xl p-6 flex flex-col">' +
       '<div class="model-card-head">' +
       logoHtml(m.vendor, false) +
-      '<div class="min-w-0">' +
-      '<h3 class="text-base font-semibold font-headline text-custom-ink dark:text-white break-words">' + esc(m.name) +
+      '<div class="min-w-0 flex-1">' +
+      '<h3 class="text-base font-semibold font-headline text-custom-ink dark:text-white truncate" title="' + esc(m.name) + '">' + esc(m.name) +
       (m.dep ? ' <span class="model-dep-badge">' + t('models.card.deprecated', '已弃用') + '</span>' : '') +
       '</h3>' +
-      '<button type="button" class="model-id-chip mt-1" data-copy="' + esc(m.id) + '" aria-label="' + t('models.card.copy', '复制模型 ID') + ' ' + esc(m.id) + '">' +
+      '<button type="button" class="model-id-chip mt-1.5" data-copy="' + esc(m.id) + '" aria-label="' + t('models.card.copy', '复制模型 ID') + ' ' + esc(m.id) + '">' +
       '<code>' + esc(m.id) + '</code>' +
       '<span class="material-symbols-outlined text-sm" data-copy-icon aria-hidden="true">content_copy</span>' +
       '</button>' +
@@ -269,8 +294,8 @@
       '</div>' +
       '</div>' +
       (intro ? '<p class="mt-3 text-sm leading-6 text-custom-muted dark:text-slate-400 model-intro">' + esc(intro) + '</p>' : '') +
-      '<div class="mt-auto pt-3 flex flex-wrap items-center gap-1.5">' +
-      '<span class="model-type-badge">' + esc(L.types[m.type] || m.type) + '</span>' + caps + extra +
+      '<div class="mt-auto pt-4 flex flex-wrap items-center gap-1.5">' +
+      typeBadge + caps + extra +
       '</div>' +
       footHtml(m) +
       '</article>';
@@ -300,7 +325,7 @@
     });
     var list = checked.concat(rest);
     vendorBox.innerHTML = list.map(function (v) {
-      return optionHtml('vendor', v, v, COUNTS.vendors[v], state.vendors[v], logoHtml(v, true));
+      return optionHtml('vendor', v, v, COUNTS.vendors[v], state.vendors[v], logoHtml(v, true), false);
     }).join('') || '<p class="px-2 py-1 text-xs text-custom-muted dark:text-slate-500">' + t('models.filters.noVendor', '没有匹配的厂商') + '</p>';
   }
 
@@ -324,16 +349,16 @@
     var capBox = document.getElementById('filter-caps');
     if (capBox) {
       capBox.innerHTML = FILTER_CAPS.map(function (c) {
-        return optionHtml('cap', c, L.caps[c] || c, COUNTS.caps[c] || 0, state.caps[c], capIcon(c));
+        return optionHtml('cap', c, L.caps[c] || c, COUNTS.caps[c] || 0, state.caps[c], capIcon(c), false);
       }).join('');
     }
 
     var ctxBox = document.getElementById('filter-ctx');
     if (ctxBox) {
       ctxBox.innerHTML = CTX_OPTIONS.map(function (o) {
-        return '<label class="model-filter-option">' +
+        return '<label class="model-filter-option is-bare">' +
           '<input type="radio" name="ctx-filter" data-filter="ctx" value="' + o.key + '"' + (state.ctx === o.key ? ' checked' : '') +
-          ' class="border-custom-line dark:border-white/20 text-custom-gold focus:ring-custom-gold/40" />' +
+          ' class="sr-only" />' +
           '<span>' + esc(L.ctx[o.key]) + '</span></label>';
       }).join('');
     }
@@ -363,7 +388,7 @@
     if ((el = document.getElementById('stat-vendors'))) el.textContent = COUNTS.vendorOrder.length;
     if ((el = document.getElementById('stat-types'))) el.textContent = Object.keys(COUNTS.types).length;
     if ((el = document.getElementById('data-updated'))) {
-      el.textContent = t('models.updated', '数据更新于') + ' ' + String(DATA.refreshed_at || '').slice(0, 10);
+      el.textContent = t('models.updated', '数据更新于') + ' ' + formatDate(DATA.refreshed_at);
     }
   }
 

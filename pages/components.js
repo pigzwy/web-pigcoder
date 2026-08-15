@@ -7,8 +7,8 @@
   else if (path.includes('pricing.html')) page = 'pricing';
   else if (path.includes('models.html')) page = 'models';
 
-  var activeNavClass = 'rounded-full px-4 py-2 text-sm font-semibold text-custom-navy dark:text-white bg-slate-100 dark:bg-white/10';
-  var inactiveNavClass = 'rounded-full px-4 py-2 text-sm font-medium text-custom-muted dark:text-slate-300 hover:text-custom-navy hover:bg-slate-100 dark:hover:text-white dark:hover:bg-white/10 transition-colors';
+  var activeNavClass = 'rounded-full px-4 py-2 text-sm font-semibold text-custom-ink dark:text-white bg-custom-ink/[0.06] dark:bg-white/10';
+  var inactiveNavClass = 'rounded-full px-4 py-2 text-sm font-medium text-custom-muted dark:text-slate-300 hover:text-custom-ink hover:bg-custom-ink/[0.04] dark:hover:text-white dark:hover:bg-white/10 transition-colors';
   var templateCache = {};
   var ASSET_VERSION = '20260814-transparent-logo';
 

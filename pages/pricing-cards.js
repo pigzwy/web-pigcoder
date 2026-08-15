@@ -175,14 +175,14 @@
     return catalogs[locale] || catalogs['zh-CN'];
   }
 
+  /* 模型 ID 统一走 .model-chip（等宽药丸），与首页"常用模型"一致 */
   function renderModel(model) {
-    return '<span class="inline-flex items-center gap-1 px-2 py-1 bg-custom-wash dark:bg-white/5 text-custom-muted dark:text-slate-300 text-[11px] rounded-full">' +
-      model +
-      '</span>';
+    return '<span class="model-chip">' + model + '</span>';
   }
 
-  function renderPerk(perk, perkClass) {
-    return '<span class="' + perkClass + '">' + perk + '</span>';
+  /* 能力标签统一走 .model-tag 中性药丸——绿色文字清单退役（绿仅语义） */
+  function renderPerk(perk) {
+    return '<span class="model-tag">' + perk + '</span>';
   }
 
   function getLabels() {
@@ -205,10 +205,10 @@
     }).join('');
 
     var perksHtml = card.perks.map(function (perk) {
-      return renderPerk(perk, card.perkClass);
+      return renderPerk(perk);
     }).join('');
 
-    return '<div class="pricing-card channel-card rounded-xl p-5 flex flex-col">' +
+    return '<div class="pricing-card channel-card rounded-2xl p-6 flex flex-col">' +
       '<div class="channel-card-head mb-4">' +
         '<h3 class="min-w-0 truncate text-custom-ink dark:text-white font-semibold text-base">' + card.title + '</h3>' +
         '<div class="channel-ratio">' +
@@ -227,7 +227,7 @@
         '<div class="mt-2 flex flex-wrap gap-2">' + perksHtml + '</div>' +
       '</div>' +
       '<div data-partial="partials/recharge-button.html" data-label="' + labels.action + '" data-label-i18n="common.cta.console">' +
-        '<a href="https://pigcode.ai/login" target="_top" class="btn-ghost w-full px-5 py-2.5 text-sm border border-custom-line dark:border-white/10 rounded-lg">' + labels.action + '</a>' +
+        '<a href="https://pigcode.ai/login" target="_top" class="btn-ghost w-full px-5 py-2.5 text-sm border border-custom-line dark:border-white/10">' + labels.action + '</a>' +
       '</div>' +
     '</div>';
   }
