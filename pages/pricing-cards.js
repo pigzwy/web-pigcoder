@@ -14,19 +14,19 @@
   /* 平台级模型与能力：只在分组标题下展示一次，卡片保持精简 */
   var PLATFORM_DEFAULTS = {
     OpenAI: {
-      models: ['gpt-5.5', 'gpt-5-codex', 'gpt-5.4'],
+      models: ['gpt-5.6', 'gpt-5.6-terra', 'gpt-5.3-codex'],
       perks: { 'zh-CN': ['xhigh 全推理档', '流式输出'], 'en-US': ['All xhigh tiers', 'Streaming'] }
     },
     Anthropic: {
-      models: ['claude-opus-4-8', 'claude-sonnet-4-6', 'claude-haiku-4-5'],
+      models: ['claude-opus-5', 'claude-sonnet-5', 'claude-haiku-4-5'],
       perks: { 'zh-CN': ['支持 thinking', '200k / 1M 上下文', '联网搜索'], 'en-US': ['Thinking support', '200k / 1M context', 'Web search'] }
     },
     Grok: {
-      models: ['grok-4', 'grok-4-fast'],
+      models: ['grok-4.6', 'grok-4.5'],
       perks: { 'zh-CN': ['Pro / Heavy 双档', '推理模式'], 'en-US': ['Pro / Heavy tiers', 'Reasoning'] }
     },
     Gemini: {
-      models: ['gemini-3-pro-preview', 'gemini-3-flash-preview', 'gemini-2.5-pro'],
+      models: ['gemini-3.7-flash', 'gemini-3.1-pro-preview', 'gemini-2.5-pro'],
       perks: { 'zh-CN': ['支持 thinking', '联网搜索', '图像生成'], 'en-US': ['Thinking support', 'Web search', 'Image generation'] }
     }
   };
