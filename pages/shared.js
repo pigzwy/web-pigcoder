@@ -129,13 +129,33 @@
     copyText(text).then(done).catch(failed);
   });
 
-  // 鼠标跟随柔光：只保留 hero 一处（卡片级光斑已随改版退役），
-  // 把光标坐标写入 --spot-x/--spot-y 供 hero-modern::after 的径向渐变定位。
+  // 鼠标跟随柔光 + 星轨视差：只作用于 hero（卡片级光斑已随改版退役）。
+  // 柔光：--spot-x/--spot-y 供 hero-modern::after 径向渐变定位；
+  // 视差：--par-x/--par-y 写入 .hero-constellation，元素按 --d 深度系数跟随（参考 cch）。
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var activeConstellation = null;
   document.addEventListener('pointermove', function (e) {
     var hero = e.target && e.target.closest ? e.target.closest('.hero-modern') : null;
-    if (!hero) return;
+    if (!hero) {
+      // 离开 hero：星轨缓动归位
+      if (activeConstellation) {
+        activeConstellation.style.setProperty('--par-x', '0px');
+        activeConstellation.style.setProperty('--par-y', '0px');
+        activeConstellation = null;
+      }
+      return;
+    }
     var rect = hero.getBoundingClientRect();
     hero.style.setProperty('--spot-x', (e.clientX - rect.left) + 'px');
     hero.style.setProperty('--spot-y', (e.clientY - rect.top) + 'px');
+    if (reduceMotion) return;
+    var cons = hero.querySelector('.hero-constellation');
+    if (cons) {
+      var nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      var ny = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+      cons.style.setProperty('--par-x', (nx * 12).toFixed(1) + 'px');
+      cons.style.setProperty('--par-y', (ny * 9).toFixed(1) + 'px');
+      activeConstellation = cons;
+    }
   }, { passive: true });
 })();

@@ -186,12 +186,14 @@ html[lang^="zh"] h3.font-headline {
   vertical-align: middle;
 }
 
+/* 只设横向内边距：padding 简写会把 Tailwind 的 py-* 垂直内边距覆盖成 0（曾把 hero 压扁） */
 .section-shell,
 .section-shell-wide,
 .section-shell-narrow {
   width: 100%;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   position: relative;
   z-index: 10;
 }
@@ -787,7 +789,8 @@ html[lang^="zh"] h3.font-headline {
   .section-shell,
   .section-shell-wide,
   .section-shell-narrow {
-    padding: 0 1.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 }
 
@@ -795,7 +798,8 @@ html[lang^="zh"] h3.font-headline {
   .section-shell,
   .section-shell-wide,
   .section-shell-narrow {
-    padding: 0 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
@@ -1317,11 +1321,15 @@ html[lang^="zh"] h3.font-headline {
   }
 }
 
+/* 鼠标视差（参考 cch）：--par-x/--par-y 由 shared.js 写入容器，
+   各元素按 --d 深度系数跟随——内圈浅、外圈中、小块深，形成层次 */
 .constellation-orbits {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  transform: translate(calc(var(--par-x, 0px) * 0.35), calc(var(--par-y, 0px) * 0.35));
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .constellation-orbits circle {
@@ -1333,19 +1341,25 @@ html[lang^="zh"] h3.font-headline {
   stroke: rgba(255, 255, 255, 0.16);
 }
 
+.constellation-dot {
+  position: absolute;
+  transform: translate(calc(-50% + var(--par-x, 0px) * var(--d, 1)), calc(-50% + var(--par-y, 0px) * var(--d, 1)));
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
 .constellation-center,
 .constellation-tile {
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translate(-50%, -50%);
   background: #ffffff;
   border: 1px solid var(--pc-line);
   box-shadow: var(--pc-shadow-sm);
 }
 
 .constellation-center {
+  position: absolute;
   left: 50%;
   top: 50%;
   z-index: 2;
@@ -1353,6 +1367,8 @@ html[lang^="zh"] h3.font-headline {
   height: 4.5rem;
   border-radius: 1.35rem;
   box-shadow: var(--pc-shadow-md);
+  transform: translate(calc(-50% + var(--par-x, 0px) * 0.2), calc(-50% + var(--par-y, 0px) * 0.2));
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .constellation-center img {
@@ -1384,25 +1400,25 @@ html[lang^="zh"] h3.font-headline {
   height: 1.2rem;
 }
 
-.constellation-tile:nth-child(3n) {
+.constellation-dot:nth-child(3n) .constellation-tile {
   animation-delay: -2.3s;
 }
 
-.constellation-tile:nth-child(3n + 1) {
+.constellation-dot:nth-child(3n + 1) .constellation-tile {
   animation-delay: -4.6s;
 }
 
-.constellation-tile:nth-child(4n) {
+.constellation-dot:nth-child(4n) .constellation-tile {
   animation-duration: 9s;
 }
 
 @keyframes tileFloat {
   0%,
   100% {
-    transform: translate(-50%, -50%);
+    transform: translateY(0);
   }
   50% {
-    transform: translate(-50%, calc(-50% - 6px));
+    transform: translateY(-6px);
   }
 }
 
