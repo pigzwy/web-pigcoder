@@ -129,6 +129,13 @@
     copyText(text).then(done).catch(failed);
   });
 
-  // 鼠标跟随光斑已随设计改版退役（消费它的 CSS 已全部移除），
-  // 不再挂 document 级 pointermove 监听。
+  // 鼠标跟随柔光：只保留 hero 一处（卡片级光斑已随改版退役），
+  // 把光标坐标写入 --spot-x/--spot-y 供 hero-modern::after 的径向渐变定位。
+  document.addEventListener('pointermove', function (e) {
+    var hero = e.target && e.target.closest ? e.target.closest('.hero-modern') : null;
+    if (!hero) return;
+    var rect = hero.getBoundingClientRect();
+    hero.style.setProperty('--spot-x', (e.clientX - rect.left) + 'px');
+    hero.style.setProperty('--spot-y', (e.clientY - rect.top) + 'px');
+  }, { passive: true });
 })();

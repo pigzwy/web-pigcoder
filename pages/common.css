@@ -269,7 +269,26 @@ html[lang^="zh"] h3.font-headline {
   background: var(--pc-navy-deep);
 }
 
-/* hero 鼠标跟随光圈已退役：静态柔和渐变即可，装饰不追手 */
+/* hero 大光圈跟随：整个 hero 区域内跟随鼠标的柔光（保留的互动彩蛋，
+   也是页面唯一的鼠标跟随装置——卡片级光斑仍然退役） */
+.hero-modern::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(560px circle at var(--spot-x, 50%) var(--spot-y, 30%), rgba(232, 168, 37, 0.2), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.dark .hero-modern::after {
+  background: radial-gradient(560px circle at var(--spot-x, 50%) var(--spot-y, 30%), rgba(232, 168, 37, 0.14), transparent 60%);
+}
+
+.hero-modern:hover::after {
+  opacity: 1;
+}
 
 /* ===== 背景氛围装饰：点阵网格 + 漂浮光球（参考 cch-plus）===== */
 /* 点阵背景退役：装饰预算＝每屏最多一个装置（docs/DESIGN_DIRECTION.md §3） */
