@@ -18,14 +18,14 @@
   <meta name="twitter:title" content="Pigcode 接入文档" />
   <meta name="twitter:description" content="平台开通、API Key 获取，以及各类 CLI 工具的端点配置与排查。" />
   <meta name="twitter:image" content="https://pigcode.ai/logo.png" />
-  <link href="tailwind.css?v=20260818-one-key" rel="stylesheet" />
-  <link href="logo.png?v=20260818-one-key" rel="icon" type="image/png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260818-one-key" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260818-one-key" />
+  <link href="tailwind.css?v=20260818-studio-story" rel="stylesheet" />
+  <link href="logo.png?v=20260818-studio-story" rel="icon" type="image/png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260818-studio-story" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260818-studio-story" />
   <link rel="canonical" href="https://pigcode.ai/docs.html" />
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link href="common.css?v=20260818-one-key" rel="stylesheet" />
+  <link href="common.css?v=20260818-studio-story" rel="stylesheet" />
   <style>
     .code-block {
       position: relative;
@@ -255,6 +255,9 @@
             <a href="#endpoint" data-i18n="docs.sidebar.links.endpoint" class="sidebar-link">确认端点地址</a>
             <a href="#usage" data-i18n="docs.sidebar.links.usage" class="sidebar-link">查看用量</a>
             <a href="#quick-config" data-i18n="docs.sidebar.links.quickConfig" class="sidebar-link">快速配置</a>
+            <a href="#studio-enter" data-i18n="docs.sidebar.links.studioEnter" class="sidebar-link">进入 Studio</a>
+            <a href="#studio-image" data-i18n="docs.sidebar.links.studioImage" class="sidebar-link">图片生成</a>
+            <a href="#studio-video" data-i18n="docs.sidebar.links.studioVideo" class="sidebar-link">视频生成</a>
             <a href="#claude-code" data-i18n="docs.sidebar.links.claudeCode" class="sidebar-link">Claude Code</a>
             <a href="#codex-cli" data-i18n="docs.sidebar.links.codexCli" class="sidebar-link">Codex CLI</a>
             <a href="#gemini-cli" data-i18n="docs.sidebar.links.geminiCli" class="sidebar-link">Gemini CLI</a>
@@ -393,6 +396,54 @@ export GOOGLE_GEMINI_BASE_URL="https://pigcode.ai/v1beta"</code></pre>
                       class="code-chip">~/.zshrc</code>，这样每次打开终端都会自动加载。
                   </p>
                 </div>
+              </div>
+            </section>
+
+            <!-- ==================== Studio 使用 ==================== -->
+            <section id="studio-guide" class="mb-16">
+              <h2 data-i18n="docs.sections.studio"
+                class="doc-section-heading text-2xl md:text-3xl font-semibold text-custom-ink dark:text-white mb-8 pb-4 border-b border-slate-200 dark:border-white/10">
+                Studio 使用</h2>
+
+              <div id="studio-enter" data-i18n-html="docs.studio.enter" class="mb-12 scroll-mt-20">
+                <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">进入 Studio</h3>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">访问 <a href="https://pigcode.ai/connect/studio" target="_top" class="text-custom-gold hover:underline font-semibold">pigcode.ai/connect/studio</a>，使用与控制台相同的账号登录即可，无需任何配置。对话、图片与视频创作和 API 共用同一份余额，消费明细可在控制台「日志」中查看。</p>
+              </div>
+
+              <div id="studio-chat" data-i18n-html="docs.studio.chat" class="mb-12 scroll-mt-20">
+                <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">对话</h3>
+                <ul class="list-disc ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
+                  <li>顶部选择<strong>分组</strong>与<strong>模型</strong>——分组对应价格页的渠道倍率，模型来自该分组的可用列表。</li>
+                  <li>回复为流式输出，支持推理过程（reasoning）展示与消息级操作（重试、复制等）。</li>
+                  <li>聊天记录保存在浏览器本地（localStorage），按浏览器隔离——换设备或清缓存不会同步，重要内容请自行留存。</li>
+                </ul>
+              </div>
+
+              <div id="studio-image" data-i18n-html="docs.studio.image" class="mb-12 scroll-mt-20">
+                <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">图片生成</h3>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">进入创作台（Studio 页内「创作」入口），计费 <strong>¥0.2 / 张</strong>：</p>
+                <ul class="list-disc ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+                  <li><strong>GPT Image 2</strong>——文生图、以图生图与编辑链，支持多张参考图连续编辑。</li>
+                  <li><strong>Grok Imagine 系列</strong>——文生图（暂不支持尺寸/质量参数，画幅用提示词约束）。</li>
+                  <li>生成记录保存在浏览器本地（IndexedDB），支持批量下载与删除；刷新页面任务自动恢复。</li>
+                </ul>
+              </div>
+
+              <div id="studio-video" data-i18n-html="docs.studio.video" class="mb-12 scroll-mt-20">
+                <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">视频生成</h3>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">当前提供 <strong>Grok Imagine 视频</strong>（更多视频模型陆续接入），支持文生视频与图生视频，时长可选 <strong>5 / 10 / 15 秒</strong>，计费 <strong>¥0.05 / 秒</strong>（约 ¥0.25–¥0.75 一条）：</p>
+                <ul class="list-disc ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+                  <li>视频为异步生成，创建任务后可离开页面，回来自动恢复进度。</li>
+                  <li>图生视频：上传一张图作为首帧，配合提示词控制运动方向。</li>
+                </ul>
+                <div class="border-l-4 border-custom-gold bg-amber-50 dark:bg-amber-900/20 p-4 rounded-r-lg">
+                  <p class="text-sm text-slate-700 dark:text-slate-300"><strong>注意：</strong>生成完成的视频链接约 2 小时后过期，请及时下载保存。</p>
+                </div>
+              </div>
+
+              <div id="studio-gallery" data-i18n-html="docs.studio.gallery" class="mb-12 scroll-mt-20">
+                <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">灵感墙</h3>
+                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">Studio 内置公开案例库「灵感墙」：浏览各类风格的生成案例，看到喜欢的效果，一键把 Prompt 带入创作台，在此基础上改出自己的版本。</p>
               </div>
             </section>
 
@@ -922,6 +973,16 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
               <a href="#quick-config" data-i18n="docs.sidebar.links.quickConfig" class="sidebar-link">快速配置</a>
             </div>
 
+            <!-- Studio 使用 -->
+            <h3 data-i18n="docs.sidebar.studio" class="text-xs font-semibold text-custom-ink dark:text-slate-300 uppercase tracking-widest mb-3">Studio 使用</h3>
+            <div class="space-y-1 mb-6">
+              <a href="#studio-enter" data-i18n="docs.sidebar.links.studioEnter" class="sidebar-link">进入 Studio</a>
+              <a href="#studio-chat" data-i18n="docs.sidebar.links.studioChat" class="sidebar-link">对话</a>
+              <a href="#studio-image" data-i18n="docs.sidebar.links.studioImage" class="sidebar-link">图片生成</a>
+              <a href="#studio-video" data-i18n="docs.sidebar.links.studioVideo" class="sidebar-link">视频生成</a>
+              <a href="#studio-gallery" data-i18n="docs.sidebar.links.studioGallery" class="sidebar-link">灵感墙</a>
+            </div>
+
             <!-- CLI 工具配置 -->
             <h3 data-i18n="docs.sidebar.tools" class="text-xs font-semibold text-custom-ink dark:text-slate-300 uppercase tracking-widest mb-3">CLI 工具配置
             </h3>
@@ -1036,9 +1097,9 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
       });
     });
   </script>
-<script src="i18n.js?v=20260818-one-key"></script>
-  <script src="components.js?v=20260818-one-key"></script>
-  <script src="shared.js?v=20260818-one-key"></script>
+<script src="i18n.js?v=20260818-studio-story"></script>
+  <script src="components.js?v=20260818-studio-story"></script>
+  <script src="shared.js?v=20260818-studio-story"></script>
 </body>
 
 </html>

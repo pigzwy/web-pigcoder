@@ -36,6 +36,7 @@
         audio_output: '音频输出', computer_use: '计算机操作'
       },
       thinking: '深度思考',
+      tabs: { all: '全部', chat: '对话', image: '图像', video: '视频', audio: '语音' },
       ctx: { any: '不限', c128: '128K+', c200: '200K+', c1m: '1M+' }
     },
     'en-US': {
@@ -57,6 +58,7 @@
         audio_output: 'Audio output', computer_use: 'Computer use'
       },
       thinking: 'Thinking',
+      tabs: { all: 'All', chat: 'Chat', image: 'Image', video: 'Video', audio: 'Audio' },
       ctx: { any: 'Any', c128: '128K+', c200: '200K+', c1m: '1M+' }
     }
   };
@@ -122,6 +124,15 @@
   }
 
   var FILTER_CAPS = ['function_calling', 'vision', 'reasoning', 'structured_output', 'web_search', 'prompt_caching', 'open_weights', 'image_output', 'audio_input', 'video_input'];
+
+  /* 模态快捷筛选：与首页五大业务对应，支持 ?m= 参数直达 */
+  var MODAL_TABS = [
+    { key: 'all', types: null },
+    { key: 'chat', types: ['text_generation', 'deep_thinking', 'text_understanding', 'omni'] },
+    { key: 'image', types: ['image_generation'] },
+    { key: 'video', types: ['video_generation'] },
+    { key: 'audio', types: ['speech_synthesis', 'speech_recognition', 'music_generation', 'realtime_speech_synthesis', 'realtime_speech_recognition', 'realtime_omni'] }
+  ];
   var CTX_OPTIONS = [{ key: 'any', min: 0 }, { key: 'c128', min: 128000 }, { key: 'c200', min: 200000 }, { key: 'c1m', min: 1000000 }];
 
   var DATA = null;
@@ -132,7 +143,7 @@
     var idx = src ? src.indexOf('?') : -1;
     return idx === -1 ? '' : src.slice(idx);
   })();
-  var state = { search: '', vendorSearch: '', types: {}, vendors: {}, caps: {}, ctx: 'any', hideDep: true, sort: 'newest', limit: PAGE_SIZE };
+  var state = { search: '', vendorSearch: '', types: {}, vendors: {}, caps: {}, ctx: 'any', hideDep: true, sort: 'newest', limit: PAGE_SIZE, modal: 'all' };
 
   function computeCounts() {
     var types = {};
@@ -364,6 +375,38 @@
     }
   }
 
+  function applyModal(key, skipUrl) {
+    var tab = null;
+    for (var i = 0; i < MODAL_TABS.length; i++) {
+      if (MODAL_TABS[i].key === key) tab = MODAL_TABS[i];
+    }
+    if (!tab) return;
+    state.modal = key;
+    state.types = {};
+    if (tab.types) {
+      tab.types.forEach(function (tp) { state.types[tp] = true; });
+    }
+    state.limit = PAGE_SIZE;
+    if (!skipUrl && window.history && history.replaceState) {
+      var url = key === 'all' ? location.pathname : location.pathname + '?m=' + key;
+      history.replaceState(null, '', url);
+    }
+  }
+
+  function renderTabs() {
+    var box = document.getElementById('modal-tabs');
+    if (!box) return;
+    var L = labels();
+    box.innerHTML = MODAL_TABS.map(function (tabItem) {
+      var active = state.modal === tabItem.key;
+      return '<button type="button" data-modal-tab="' + tabItem.key + '" class="' +
+        (active
+          ? 'rounded-full bg-custom-ink px-4 py-1.5 text-sm font-semibold text-custom-wash dark:bg-white dark:text-custom-navy-deep'
+          : 'rounded-full bg-custom-ink/5 px-4 py-1.5 text-sm font-medium text-custom-muted transition-colors hover:text-custom-ink dark:bg-white/10 dark:text-slate-300 dark:hover:text-white') +
+        '">' + esc(L.tabs[tabItem.key] || tabItem.key) + '</button>';
+    }).join('');
+  }
+
   function renderCards(appendFrom) {
     var list = filtered();
     var count = document.getElementById('model-count');
@@ -438,12 +481,23 @@
       var input = e.target;
       if (!input || !input.matches || !input.matches('input[data-filter]')) return;
       var kind = input.getAttribute('data-filter');
-      if (kind === 'type') state.types[input.value] = input.checked;
+      if (kind === 'type') { state.types[input.value] = input.checked; state.modal = null; renderTabs(); }
       else if (kind === 'vendor') state.vendors[input.value] = input.checked;
       else if (kind === 'cap') state.caps[input.value] = input.checked;
       else if (kind === 'ctx') state.ctx = input.value;
       resetLimitAndRender();
     });
+    var tabsBox = document.getElementById('modal-tabs');
+    if (tabsBox) {
+      tabsBox.addEventListener('click', function (e) {
+        var btn = e.target && e.target.closest ? e.target.closest('[data-modal-tab]') : null;
+        if (!btn) return;
+        applyModal(btn.getAttribute('data-modal-tab'));
+        renderTabs();
+        renderFilters();
+        renderCards();
+      });
+    }
     var reset = document.getElementById('filter-reset');
     if (reset) {
       reset.addEventListener('click', function () {
@@ -456,6 +510,9 @@
         state.hideDep = true;
         state.sort = 'newest';
         state.limit = PAGE_SIZE;
+        state.modal = 'all';
+        if (window.history && history.replaceState) history.replaceState(null, '', location.pathname);
+        renderTabs();
         if (search) search.value = '';
         if (vendorSearch) vendorSearch.value = '';
         if (dep) dep.checked = true;
@@ -478,11 +535,17 @@
 
   function renderAll() {
     renderStats();
+    renderTabs();
     renderFilters();
     renderCards();
   }
 
   bind();
+  /* URL 直达：models.html?m=image 等（来自首页业务区） */
+  (function () {
+    var m = /[?&]m=([a-z]+)/.exec(location.search);
+    if (m) applyModal(m[1], true);
+  })();
   fetch('models-data.json' + ASSET_QUERY)
     .then(function (res) { return res.json(); })
     .then(function (json) {

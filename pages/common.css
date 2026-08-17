@@ -294,8 +294,8 @@ html[lang^="zh"] h3.font-headline {
 
 /* ===== 首页视频 Hero：全屏背景视频 + 暗色遮罩 + 白字 ===== */
 .hero-dark {
-  /* 视频加载前/加载失败的深色兜底（暖黑，不是纯黑） */
-  background: #16140f;
+  /* 视频加载前/失败/移动端的兜底：poster 静态图 + 暖黑 */
+  background: #16140f url(media/hero-rally.jpg) center / cover no-repeat;
 }
 
 .hero-video {
@@ -1260,8 +1260,25 @@ aside.doc-surface-panel {
 }
 
 @media (max-width: 639px) {
+  /* 移动端节奏收紧：桌面的呼吸感在小屏上是空旷感 */
   .section-block {
-    padding: 4rem 0;
+    padding: 3.25rem 0;
+  }
+
+  .section-block-tight {
+    padding: 2.75rem 0;
+  }
+
+  .feature-split {
+    gap: 1.5rem;
+  }
+
+  .chat-demo-body {
+    padding: 1rem;
+  }
+
+  .audio-demo {
+    padding: 1.1rem;
   }
 }
 

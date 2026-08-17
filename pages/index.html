@@ -18,14 +18,14 @@
     <meta name="twitter:title" content="Pigcode - 稳定高速的 AI 编程中转站" />
     <meta name="twitter:description" content="统一模型路由，兼容 AI 编程工具。一个 Key，三种协议，替换 Base URL 即可接入。" />
     <meta name="twitter:image" content="https://pigcode.ai/logo.png" />
-    <link href="tailwind.css?v=20260818-one-key" rel="stylesheet" />
-    <link href="logo.png?v=20260818-one-key" rel="icon" type="image/png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260818-one-key" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260818-one-key" />
+    <link href="tailwind.css?v=20260818-studio-story" rel="stylesheet" />
+    <link href="logo.png?v=20260818-studio-story" rel="icon" type="image/png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260818-studio-story" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260818-studio-story" />
     <link rel="canonical" href="https://pigcode.ai/" />
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link href="common.css?v=20260818-one-key" rel="stylesheet" />
+    <link href="common.css?v=20260818-studio-story" rel="stylesheet" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Pigcode","url":"https://pigcode.ai/","logo":"https://pigcode.ai/logo.png"}</script>
 </head>
 
@@ -38,7 +38,16 @@
         <!-- Hero：居中极简，标题 → 描述 → CTA 缓慢浮现 -->
         <section class="hero-modern hero-dark relative overflow-hidden">
             <!-- 高清源到位后直接替换 media/hero-rally.mp4 即可，无需改代码 -->
-            <video class="hero-video" src="media/hero-rally.mp4" poster="media/hero-rally.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+            <video id="hero-bg-video" class="hero-video" src="media/hero-rally.mp4" poster="media/hero-rally.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+            <script>
+                // 移动端不下载 12MB 背景视频：移除 video，由 .hero-dark 的 poster 背景兜底
+                (function () {
+                    if (window.innerWidth < 768) {
+                        var v = document.getElementById('hero-bg-video');
+                        if (v) { v.removeAttribute('autoplay'); v.setAttribute('preload', 'none'); v.remove(); }
+                    }
+                })();
+            </script>
             <div class="hero-scrim"></div>
             <div class="section-shell hero-full-shell">
                 <div class="mx-auto max-w-4xl text-center">
@@ -139,7 +148,7 @@
                                 <path d="M2 128 C 26 128, 24 75, 42 75" />
                             </svg>
                             <div class="router-node">
-                                <img src="logo.png?v=20260818-one-key" alt="" width="56" height="56" loading="lazy" />
+                                <img src="logo.png?v=20260818-studio-story" alt="" width="56" height="56" loading="lazy" />
                                 <span class="router-badge" data-i18n="index.routing.badge">一个 Key · 统一路由</span>
                             </div>
                             <svg class="router-link router-link-flip" viewBox="0 0 44 150" aria-hidden="true">
@@ -180,8 +189,12 @@
                             <span class="model-chip">gpt-5.6-sol</span>
                             <span class="model-chip">gemini-3.7-flash</span>
                         </div>
-                        <a href="https://pigcode.ai/connect/studio" target="_top"
-                            class="mt-6 inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.studioLink">进入 Studio →</a>
+                        <div class="mt-6 flex flex-wrap items-center gap-5">
+                            <a href="https://pigcode.ai/connect/studio" target="_top"
+                                class="inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.studioLink">进入 Studio →</a>
+                            <a href="models.html?m=chat"
+                                class="inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.modelsLink">浏览模型 →</a>
+                        </div>
                     </div>
                     <div class="chat-demo media-frame" data-reveal aria-hidden="true">
                         <div class="chat-demo-head">
@@ -221,8 +234,12 @@
                             <span class="model-chip">gemini-3-pro-image</span>
                             <span class="model-chip">grok-imagine-image-2.0</span>
                         </div>
-                        <a href="https://pigcode.ai/connect/studio" target="_top"
-                            class="mt-6 inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.studioLink">进入 Studio →</a>
+                        <div class="mt-6 flex flex-wrap items-center gap-5">
+                            <a href="https://pigcode.ai/connect/studio" target="_top"
+                                class="inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.studioLink">进入 Studio →</a>
+                            <a href="models.html?m=image"
+                                class="inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.modelsLink">浏览模型 →</a>
+                        </div>
                     </div>
                     <div class="media-frame" data-reveal>
                         <img src="media/showcase-image.jpg" alt="AI 生成的示例图像" loading="lazy" />
@@ -244,8 +261,12 @@
                             <span class="model-chip">grok-imagine-video-1.5</span>
                             <span class="model-chip">veo-3</span>
                         </div>
-                        <a href="https://pigcode.ai/connect/studio" target="_top"
-                            class="mt-6 inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.studioLink">进入 Studio →</a>
+                        <div class="mt-6 flex flex-wrap items-center gap-5">
+                            <a href="https://pigcode.ai/connect/studio" target="_top"
+                                class="inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.studioLink">进入 Studio →</a>
+                            <a href="models.html?m=video"
+                                class="inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.modelsLink">浏览模型 →</a>
+                        </div>
                     </div>
                     <div class="media-frame" data-reveal>
                         <video src="media/showcase-video.mp4" poster="media/showcase-video.jpg" autoplay muted loop playsinline aria-label="AI 生成的示例视频"></video>
@@ -267,8 +288,12 @@
                             <span class="model-chip">grok-voice-think-fast-2.0</span>
                             <span class="model-chip">suno-v5</span>
                         </div>
-                        <a href="https://pigcode.ai/connect/studio" target="_top"
-                            class="mt-6 inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.studioLink">进入 Studio →</a>
+                        <div class="mt-6 flex flex-wrap items-center gap-5">
+                            <a href="https://pigcode.ai/connect/studio" target="_top"
+                                class="inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.studioLink">进入 Studio →</a>
+                            <a href="models.html?m=audio"
+                                class="inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.modelsLink">浏览模型 →</a>
+                        </div>
                     </div>
                     <div class="audio-demo media-frame" data-reveal aria-hidden="true">
                         <div class="audio-demo-head">
@@ -608,9 +633,9 @@
             // 一键复制由 shared.js 的 [data-copy] 全局委托处理
         });
     </script>
-    <script src="i18n.js?v=20260818-one-key"></script>
-    <script src="components.js?v=20260818-one-key"></script>
-    <script src="shared.js?v=20260818-one-key"></script>
+    <script src="i18n.js?v=20260818-studio-story"></script>
+    <script src="components.js?v=20260818-studio-story"></script>
+    <script src="shared.js?v=20260818-studio-story"></script>
     <script>
         // 首页标题文字动效：逐字符入场（i18n 应用后拆分），金色强调词加流光
         (function () {
