@@ -47,6 +47,7 @@
         },
         cta: {
           start: '获取 API Key',
+          studio: '进入 Studio',
           docs: '查看接入文档',
           launch: '打开控制台',
           console: '立即前往控制台'
@@ -56,11 +57,11 @@
         copyFailed: '复制失败，请手动复制'
       },
       index: {
-        title: 'Pigcode - 稳定高速的 AI 编程中转站',
+        title: 'Pigcode - 一把钥匙，用遍全球模型',
         hero: {
           badge: 'AI Model Router / API Gateway',
-          title: '统一模型路由，兼容 <span class="brand-emphasis">AI 编程工具</span>',
-          description: '面向编程 CLI 的统一 API 入口，替换 Base URL 即可在 Claude、GPT、Gemini 间路由。',
+          title: '<span class="brand-emphasis">一把钥匙</span>，用遍全球模型',
+          description: '敲代码、写文案、画海报、出视频、配人声——五件事共用一个账户、一份余额，透明计价，不锁平台。',
           codeComment: '# 使用统一接口调用顶级模型',
           codePrompt: '"帮我写一个高效的排序算法"',
           metrics: {
@@ -80,13 +81,26 @@
           note: '复制对应协议的端点地址，工具原有配置保持不变。'
         },
         stats: {
+          models: '收录模型，创作与调用一站完成',
+          modalities: '大业务：Vibe coding · 对话 · 图像 · 视频 · 语音',
           protocols: '协议兼容 OpenAI / Anthropic / Gemini',
-          key: '一个密钥通行全部模型渠道',
-          channels: '模型渠道，倍率透明可选',
-          context: '最大上下文，支持 thinking'
+          key: '一个密钥通行全部模型渠道'
+        },
+        biz: {
+          studioLink: '进入 Studio →',
+          chat: { title: '旗舰对话模型，开箱即用', desc: '长上下文、深度推理与联网搜索——写文案、改方案、问问题，一个工作台全搞定。' },
+          image: { title: '从提示词到成图，几秒钟', desc: '文生图与图像编辑，写实、插画、设计风一次到位——海报、封面、素材说要就要。' },
+          video: { title: '文字一段，视频一条', desc: '文生视频与图生视频，运镜、光影交给模型，秒级出片。' },
+          audio: { title: '声音也是生产力', desc: '语音合成、音色设计与音乐生成——配音、口播、BGM 一条龙。' },
+          chatDemo: {
+            user: '帮我把这段产品介绍改得更有力一些',
+            ai: '「一把钥匙，用遍全球模型。今天接入，五分钟出活。」——结论前置，数字说话，结尾给出行动指令。',
+            input: '问点什么…'
+          },
+          audioDemo: { meta: 'suno-v5 · 生成音乐' }
         },
         routing: {
-          eyebrow: 'Request Routing',
+          eyebrow: 'Vibe Coding',
           badge: '一个 Key · 统一路由',
           checks: {
             channels: '按 Claude、Codex、Gemini 渠道组织，按工具选择路由',
@@ -121,7 +135,7 @@
           }
         },
         models: {
-          title: '主流模型，一个入口全部覆盖',
+          title: '每个想法，都有合适的模型',
           description: '聚合 Claude、GPT、Gemini、智谱等模型能力，按协议和工具场景提供统一路由。',
           zhipu: '智谱'
         },
@@ -171,8 +185,8 @@
         matrix: {
           eyebrow: 'Routing Matrix',
           title: '按工具选择模型渠道',
-          description: 'Pigcode 强调模型渠道、协议、上下文和能力标签，方便开发者判断该走哪条路由。',
-          pricingLink: '查看完整倍率表 →',
+          description: '从对话到图像、视频与音频，5,000+ 模型按渠道、协议与能力组织，方便判断该走哪条路由。',
+          pricingLink: '浏览完整模型目录 →',
           columns: {
             channel: '渠道',
             protocol: '协议',
@@ -183,6 +197,10 @@
         },
         faq: {
           title: '接入前，你可能想知道',
+          studio: {
+            q: 'Studio 是什么？',
+            a: 'Studio 是网页创作工作台：对话、生图、生视频和音频在同一个界面完成，无需任何配置，与 API 共用同一个账户和余额。'
+          },
           tools: {
             q: '支持哪些编程工具？',
             a: 'Claude Code、Codex CLI、Gemini CLI、OpenCode、Droid CLI 等。替换 Base URL 和 API Key 即可接入，工具原有用法保持不变。'
@@ -206,8 +224,8 @@
         },
         bottom: {
           eyebrow: 'API Ready',
-          title: '准备接入 Pigcode API？',
-          description: '先创建 API Key，再按工具复制对应 Endpoint。文档页提供 Claude Code、Codex CLI、Gemini CLI 和 OpenCode 的接入示例。'
+          title: '准备好开始了？',
+          description: '创作走 Studio，接入走 API——同一个账户、同一份余额。文档页提供各工具的接入示例。'
         }
       },
       pricing: {
@@ -761,6 +779,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         },
         cta: {
           start: 'Get API Key',
+          studio: 'Enter Studio',
           docs: 'Integration Docs',
           launch: 'Open Console',
           console: 'Open Console'
@@ -770,11 +789,11 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         copyFailed: 'Copy failed. Please copy manually.'
       },
       index: {
-        title: 'Pigcode - Stable High-Speed AI Coding Gateway',
+        title: 'Pigcode - One key opens every model',
         hero: {
           badge: 'AI Model Router / API Gateway',
-          title: 'Unified model routing for <span class="brand-emphasis">AI coding tools</span>',
-          description: 'One API entry for your coding CLIs. Swap the Base URL to route across Claude, GPT, and Gemini.',
+          title: '<span class="brand-emphasis">One key</span> opens every model.',
+          description: 'Code it, write it, paint it, film it, voice it — one account, one balance, transparent pricing, no lock-in.',
           codeComment: '# Call top-tier models through one unified interface',
           codePrompt: '"Write an efficient sorting algorithm for me"',
           metrics: {
@@ -794,13 +813,26 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           note: 'Copy the endpoint for your protocol — your tool config stays the same.'
         },
         stats: {
+          models: 'models — create and call in one place',
+          modalities: 'lines of business: vibe coding · chat · image · video · audio',
           protocols: 'Protocols: OpenAI, Anthropic & Gemini',
-          key: 'One key across every model channel',
-          channels: 'Model channels with transparent ratios',
-          context: 'Max context, thinking supported'
+          key: 'One key across everything'
+        },
+        biz: {
+          studioLink: 'Enter Studio →',
+          chat: { title: 'Flagship chat models, ready to go', desc: 'Long context, deep reasoning, and web search — drafts, rewrites, and answers in one workspace.' },
+          image: { title: 'Prompt to picture in seconds', desc: 'Text-to-image and editing — photoreal, illustration, or design styles for posters, covers, and assets.' },
+          video: { title: 'One paragraph in, one clip out', desc: 'Text-to-video and image-to-video — camera moves and lighting handled by the model.' },
+          audio: { title: 'Sound is a superpower too', desc: 'Speech synthesis, voice design, and music generation — voiceover, narration, and BGM in one stop.' },
+          chatDemo: {
+            user: 'Punch up this product intro for me',
+            ai: '“One key opens every model. Plug in today, ship in five minutes.” — conclusion first, numbers over adjectives, end with a call to action.',
+            input: 'Ask anything…'
+          },
+          audioDemo: { meta: 'suno-v5 · generated track' }
         },
         routing: {
-          eyebrow: 'Request Routing',
+          eyebrow: 'Vibe Coding',
           badge: 'one key · unified routing',
           checks: {
             channels: 'Channels organized by Claude, Codex, and Gemini — pick routes by tool',
@@ -883,10 +915,10 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           }
         },
         matrix: {
-          eyebrow: 'Routing Matrix',
+          eyebrow: 'Model Catalog',
           title: 'Choose Channels by Tool',
-          description: 'Instead of subscription plans, Pigcode highlights channels, protocols, context, and capability tags so developers can pick the right route.',
-          pricingLink: 'View full ratio table →',
+          description: 'From chat to image, video, and audio — 5,000+ models organized by channel, protocol, and capability.',
+          pricingLink: 'Browse the full catalog →',
           columns: {
             channel: 'Channel',
             protocol: 'Protocol',
@@ -897,6 +929,10 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         },
         faq: {
           title: 'Before you connect',
+          studio: {
+            q: 'What is Studio?',
+            a: 'Studio is the web workspace: chat, image, video, and audio creation in one interface with zero setup — sharing the same account and balance as the API.'
+          },
           tools: {
             q: 'Which coding tools are supported?',
             a: 'Claude Code, Codex CLI, Gemini CLI, OpenCode, Droid CLI, and more. Swap the Base URL and API key — everything else about your tool stays the same.'
@@ -920,8 +956,8 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         },
         bottom: {
           eyebrow: 'API Ready',
-          title: 'Ready to connect to Pigcode API?',
-          description: 'Create an API key, copy the endpoint for your tool, and follow docs for Claude Code, Codex CLI, Gemini CLI, and OpenCode.'
+          title: 'Ready to start?',
+          description: 'Create in Studio, or connect via API — one account, one balance. The docs cover setup for every tool.'
         }
       },
       pricing: {

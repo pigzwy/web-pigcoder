@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title data-i18n="index.title">Pigcode - 稳定高速的 AI 编程中转站</title>
-    <meta name="description" content="Pigcode 是面向 Claude Code、Codex CLI、Gemini CLI 的统一 AI 模型路由与 API 网关：替换 Base URL 即可在 Claude、GPT、Gemini 间路由，渠道倍率透明。" />
+    <title data-i18n="index.title">Pigcode - 一把钥匙，用遍全球模型</title>
+    <meta name="description" content="Pigcode：一把钥匙，用遍全球模型。Vibe coding、对话、图像、视频、语音五大业务共用一个账户、一份余额，透明计价，不锁平台。" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Pigcode - 稳定高速的 AI 编程中转站" />
     <meta property="og:description" content="统一模型路由，兼容 AI 编程工具。一个 Key，三种协议，替换 Base URL 即可接入 Claude、GPT、Gemini。" />
@@ -18,48 +18,50 @@
     <meta name="twitter:title" content="Pigcode - 稳定高速的 AI 编程中转站" />
     <meta name="twitter:description" content="统一模型路由，兼容 AI 编程工具。一个 Key，三种协议，替换 Base URL 即可接入。" />
     <meta name="twitter:image" content="https://pigcode.ai/logo.png" />
-    <link href="tailwind.css?v=20260816-model-lineup" rel="stylesheet" />
-    <link href="logo.png?v=20260816-model-lineup" rel="icon" type="image/png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260816-model-lineup" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260816-model-lineup" />
+    <link href="tailwind.css?v=20260818-one-key" rel="stylesheet" />
+    <link href="logo.png?v=20260818-one-key" rel="icon" type="image/png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260818-one-key" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260818-one-key" />
     <link rel="canonical" href="https://pigcode.ai/" />
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link href="common.css?v=20260816-model-lineup" rel="stylesheet" />
+    <link href="common.css?v=20260818-one-key" rel="stylesheet" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Pigcode","url":"https://pigcode.ai/","logo":"https://pigcode.ai/logo.png"}</script>
 </head>
 
 <body
-    class="bg-custom-wash dark:bg-custom-navy-deep font-body text-custom-ink dark:text-white transition-colors duration-300">
+    class="has-dark-hero bg-custom-wash dark:bg-custom-navy-deep font-body text-custom-ink dark:text-white transition-colors duration-300">
     <a href="#main-content" class="skip-link" data-i18n="common.skip">跳到主要内容</a>
     <div id="site-header"></div>
 
     <main id="main-content">
         <!-- Hero：居中极简，标题 → 描述 → CTA 缓慢浮现 -->
-        <section class="hero-modern relative overflow-hidden">
-            <div class="surface-gradient-hero"></div>
+        <section class="hero-modern hero-dark relative overflow-hidden">
+            <!-- 高清源到位后直接替换 media/hero-rally.mp4 即可，无需改代码 -->
+            <video class="hero-video" src="media/hero-rally.mp4" poster="media/hero-rally.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+            <div class="hero-scrim"></div>
             <div class="section-shell hero-full-shell">
                 <div class="mx-auto max-w-4xl text-center">
                     <h1 id="hero-title" data-i18n-html="index.hero.title"
-                        class="text-[2.6rem] sm:text-5xl md:text-6xl xl:text-7xl font-medium font-headline tracking-[-0.03em] text-custom-ink dark:text-white mb-7 leading-[1.06] text-balance">
-                        统一模型路由，兼容 <span class="brand-emphasis">AI 编程工具</span>
+                        class="text-[2.6rem] sm:text-5xl md:text-6xl xl:text-7xl font-medium font-headline tracking-[-0.03em] mb-7 leading-[1.06] text-balance">
+                        <span class="brand-emphasis">一把钥匙</span>，用遍全球模型
                     </h1>
                     <p data-i18n="index.hero.description"
-                        class="hero-rise hero-rise-2 mx-auto text-custom-muted dark:text-slate-300 text-base md:text-xl max-w-2xl mb-10 leading-relaxed text-pretty">
-                        面向编程 CLI 的统一 API 入口，替换 Base URL 即可在 Claude、GPT、Gemini 间路由。
+                        class="hero-rise hero-rise-2 hero-sub mx-auto text-base md:text-xl max-w-2xl mb-10 leading-relaxed text-pretty">
+                        敲代码、写文案、画海报、出视频、配人声——五件事共用一个账户、一份余额，透明计价，不锁平台。
                     </p>
                     <div class="hero-rise hero-rise-3" data-partial="partials/cta-actions.html"
                         data-wrapper-class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3"
-                        data-primary-href="https://pigcode.ai/login"
-                        data-primary-class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base"
-                        data-primary-label="获取 API Key"
-                        data-primary-i18n="common.cta.start"
-                        data-secondary-href="docs.html"
+                        data-primary-href="https://pigcode.ai/connect/studio"
+                        data-primary-class="btn-primary w-full sm:w-auto px-8 py-3.5 text-base"
+                        data-primary-label="进入 Studio"
+                        data-primary-i18n="common.cta.studio"
+                        data-secondary-href="https://pigcode.ai/login"
                         data-secondary-class="btn-secondary w-full sm:w-auto px-8 py-3.5 text-base"
-                        data-secondary-label="查看接入文档"
-                        data-secondary-i18n="common.cta.docs">
+                        data-secondary-label="获取 API Key"
+                        data-secondary-i18n="common.cta.start">
                         <!-- partial 加载失败时的最小降级：仅保留主操作（正常情况下由 partial 覆盖） -->
-                        <a href="https://pigcode.ai/login" target="_top" class="btn-primary btn-primary-gold w-full sm:w-auto px-8 py-3.5 text-base">获取 API Key</a>
+                        <a href="https://pigcode.ai/connect/studio" target="_top" class="btn-primary w-full sm:w-auto px-8 py-3.5 text-base">进入 Studio</a>
                     </div>
                 </div>
             </div>
@@ -71,6 +73,14 @@
             <div class="section-shell pb-4">
                 <dl class="stats-band">
                     <div class="stat-item" data-reveal>
+                        <dd><strong>5,097</strong></dd>
+                        <dt><span data-i18n="index.stats.models">收录模型，创作与调用一站完成</span></dt>
+                    </div>
+                    <div class="stat-item" data-reveal>
+                        <dd><strong>5</strong></dd>
+                        <dt><span data-i18n="index.stats.modalities">大业务：Vibe coding · 对话 · 图像 · 视频 · 语音</span></dt>
+                    </div>
+                    <div class="stat-item" data-reveal>
                         <dd><strong>3</strong></dd>
                         <dt><span data-i18n="index.stats.protocols">协议兼容 OpenAI / Anthropic / Gemini</span></dt>
                     </div>
@@ -78,72 +88,7 @@
                         <dd><strong>1 Key</strong></dd>
                         <dt><span data-i18n="index.stats.key">一个密钥通行全部模型渠道</span></dt>
                     </div>
-                    <div class="stat-item" data-reveal>
-                        <dd><strong>10+</strong></dd>
-                        <dt><span data-i18n="index.stats.channels">模型渠道，倍率透明可选</span></dt>
-                    </div>
-                    <div class="stat-item" data-reveal>
-                        <dd><strong>1M</strong></dd>
-                        <dt><span data-i18n="index.stats.context">最大上下文，支持 thinking</span></dt>
-                    </div>
                 </dl>
-            </div>
-        </section>
-
-        <!-- 端点带：三协议真实 Base URL + 终端演示 -->
-        <section class="section-block relative overflow-hidden">
-            <div class="surface-gradient-main"></div>
-            <div class="section-shell">
-                <div class="mb-10 max-w-2xl" data-reveal>
-                    <h2 data-i18n="index.endpoints.title" class="text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">替换一个 Base URL，接入三种协议</h2>
-                    <p data-i18n="index.endpoints.note" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">复制对应协议的端点地址，工具原有配置保持不变。</p>
-                </div>
-                <div class="endpoint-duo">
-                    <div class="endpoint-band">
-                        <button type="button" class="endpoint-chip" data-copy="https://pigcode.ai/v1" data-i18n-attr="aria-label:common.copy" aria-label="复制">
-                            <span class="endpoint-proto">OpenAI</span>
-                            <code>https://pigcode.ai/v1</code>
-                            <span class="endpoint-copy material-symbols-outlined" data-copy-icon aria-hidden="true">content_copy</span>
-                        </button>
-                        <button type="button" class="endpoint-chip" data-copy="https://pigcode.ai" data-i18n-attr="aria-label:common.copy" aria-label="复制">
-                            <span class="endpoint-proto">Anthropic</span>
-                            <code>https://pigcode.ai</code>
-                            <span class="endpoint-copy material-symbols-outlined" data-copy-icon aria-hidden="true">content_copy</span>
-                        </button>
-                        <button type="button" class="endpoint-chip" data-copy="https://pigcode.ai/v1beta" data-i18n-attr="aria-label:common.copy" aria-label="复制">
-                            <span class="endpoint-proto">Gemini</span>
-                            <code>https://pigcode.ai/v1beta</code>
-                            <span class="endpoint-copy material-symbols-outlined" data-copy-icon aria-hidden="true">content_copy</span>
-                        </button>
-                    </div>
-
-                    <!-- 终端演示：三工具 tab + 打字机 -->
-                    <div class="hero-terminal-card hero-terminal-lg" data-reveal aria-label="Pigcode 接入命令示例">
-                        <div class="flex items-center justify-between border-b border-white/10 px-4 py-3">
-                            <div class="flex gap-1.5" aria-hidden="true">
-                                <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-green-400"></span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <div class="flex items-center gap-1" role="tablist" aria-label="选择接入工具">
-                                    <button type="button" class="term-tab active" data-term-tab="claude" role="tab" aria-selected="true">Claude Code</button>
-                                    <button type="button" class="term-tab" data-term-tab="codex" role="tab" aria-selected="false">Codex</button>
-                                    <button type="button" class="term-tab" data-term-tab="gemini" role="tab" aria-selected="false">Gemini</button>
-                                </div>
-                                <button type="button" class="terminal-copy" data-copy="export ANTHROPIC_BASE_URL=https://pigcode.ai&#10;export ANTHROPIC_API_KEY=sk-pig-xxxx&#10;claude" data-i18n-attr="aria-label:common.copy" aria-label="复制">
-                                    <span class="material-symbols-outlined text-[18px]" data-copy-icon aria-hidden="true">content_copy</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="term-body space-y-2.5 p-5 font-mono text-sm leading-6">
-                            <p><span class="text-custom-gold">$</span> export ANTHROPIC_BASE_URL=<span class="text-green-300">https://pigcode.ai</span></p>
-                            <p><span class="text-custom-gold">$</span> export ANTHROPIC_API_KEY=<span class="text-green-300">sk-pig-••••</span></p>
-                            <p><span class="text-custom-gold">$</span> claude</p>
-                            <p class="text-white/55">→ routed to Anthropic · 200k ctx · thinking</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -153,7 +98,7 @@
             <div class="section-shell">
                 <div class="feature-split">
                     <div data-reveal>
-                        <span class="section-eyebrow" data-i18n="index.routing.eyebrow">Request Routing</span>
+                        <span class="section-eyebrow" data-i18n="index.routing.eyebrow">Vibe Coding</span>
                         <h2 data-i18n="index.choose.title"
                             class="mt-3 text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">一个 Key，路由到最合适的模型</h2>
                         <p data-i18n="index.features.protocol.description" class="mt-4 text-custom-muted dark:text-slate-400 leading-7">兼容 OpenAI / Anthropic / Gemini 常用协议，只需替换 Base URL 即可接入。</p>
@@ -194,7 +139,7 @@
                                 <path d="M2 128 C 26 128, 24 75, 42 75" />
                             </svg>
                             <div class="router-node">
-                                <img src="logo.png?v=20260816-model-lineup" alt="" width="56" height="56" loading="lazy" />
+                                <img src="logo.png?v=20260818-one-key" alt="" width="56" height="56" loading="lazy" />
                                 <span class="router-badge" data-i18n="index.routing.badge">一个 Key · 统一路由</span>
                             </div>
                             <svg class="router-link router-link-flip" viewBox="0 0 44 150" aria-hidden="true">
@@ -221,23 +166,139 @@
                 </div>
             </div>
         </section>
+        <!-- Chat 业务区 -->
+        <section class="section-block relative overflow-hidden">
+            <div class="surface-gradient-alt"></div>
+            <div class="section-shell">
+                <div class="feature-split is-flipped">
+                    <div data-reveal>
+                        <span class="section-eyebrow">Chat</span>
+                        <h2 data-i18n="index.biz.chat.title" class="mt-3 text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">旗舰对话模型，开箱即用</h2>
+                        <p data-i18n="index.biz.chat.desc" class="mt-4 text-custom-muted dark:text-slate-400 leading-7">长上下文、深度推理与联网搜索——写文案、改方案、问问题，一个工作台全搞定。</p>
+                        <div class="mt-5 flex flex-wrap gap-1.5">
+                            <span class="model-chip">claude-fable-5</span>
+                            <span class="model-chip">gpt-5.6-sol</span>
+                            <span class="model-chip">gemini-3.7-flash</span>
+                        </div>
+                        <a href="https://pigcode.ai/connect/studio" target="_top"
+                            class="mt-6 inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.studioLink">进入 Studio →</a>
+                    </div>
+                    <div class="chat-demo media-frame" data-reveal aria-hidden="true">
+                        <div class="chat-demo-head">
+                            <img src="logo.png" alt="" class="chat-demo-avatar" />
+                            <span class="chat-demo-name">Pigcode Studio</span>
+                            <span class="chat-demo-model">claude-fable-5</span>
+                        </div>
+                        <div class="chat-demo-body">
+                            <div class="chat-row is-user">
+                                <div class="chat-bubble is-user" data-i18n="index.biz.chatDemo.user">帮我把这段产品介绍改得更有力一些</div>
+                            </div>
+                            <div class="chat-row">
+                                <img src="logo.png" alt="" class="chat-row-avatar" />
+                                <div class="chat-bubble is-ai" data-i18n="index.biz.chatDemo.ai">「一把钥匙，用遍全球模型。今天接入，五分钟出活。」——结论前置，数字说话，结尾给出行动指令。</div>
+                            </div>
+                            <div class="chat-row">
+                                <img src="logo.png" alt="" class="chat-row-avatar" />
+                                <div class="chat-bubble is-ai chat-typing"><i></i><i></i><i></i></div>
+                            </div>
+                            <div class="chat-demo-input"><span data-i18n="index.biz.chatDemo.input">问点什么…</span><span class="chat-demo-send">↑</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Image 业务区 -->
+        <section class="section-block relative overflow-hidden">
+            <div class="surface-gradient-main"></div>
+            <div class="section-shell">
+                <div class="feature-split">
+                    <div data-reveal>
+                        <span class="section-eyebrow">Image</span>
+                        <h2 data-i18n="index.biz.image.title" class="mt-3 text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">从提示词到成图，几秒钟</h2>
+                        <p data-i18n="index.biz.image.desc" class="mt-4 text-custom-muted dark:text-slate-400 leading-7">文生图与图像编辑，写实、插画、设计风一次到位——海报、封面、素材说要就要。</p>
+                        <div class="mt-5 flex flex-wrap gap-1.5">
+                            <span class="model-chip">gpt-image-2</span>
+                            <span class="model-chip">gemini-3-pro-image</span>
+                            <span class="model-chip">grok-imagine-image-2.0</span>
+                        </div>
+                        <a href="https://pigcode.ai/connect/studio" target="_top"
+                            class="mt-6 inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.studioLink">进入 Studio →</a>
+                    </div>
+                    <div class="media-frame" data-reveal>
+                        <img src="media/showcase-image.jpg" alt="AI 生成的示例图像" loading="lazy" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Video 业务区 -->
+        <section class="section-block relative overflow-hidden">
+            <div class="surface-gradient-alt"></div>
+            <div class="section-shell">
+                <div class="feature-split is-flipped">
+                    <div data-reveal>
+                        <span class="section-eyebrow">Video</span>
+                        <h2 data-i18n="index.biz.video.title" class="mt-3 text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">文字一段，视频一条</h2>
+                        <p data-i18n="index.biz.video.desc" class="mt-4 text-custom-muted dark:text-slate-400 leading-7">文生视频与图生视频，运镜、光影交给模型，秒级出片。</p>
+                        <div class="mt-5 flex flex-wrap gap-1.5">
+                            <span class="model-chip">doubao-seedance-2-0-260128</span>
+                            <span class="model-chip">grok-imagine-video-1.5</span>
+                            <span class="model-chip">veo-3</span>
+                        </div>
+                        <a href="https://pigcode.ai/connect/studio" target="_top"
+                            class="mt-6 inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.studioLink">进入 Studio →</a>
+                    </div>
+                    <div class="media-frame" data-reveal>
+                        <video src="media/showcase-video.mp4" poster="media/showcase-video.jpg" autoplay muted loop playsinline aria-label="AI 生成的示例视频"></video>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Audio 业务区 -->
+        <section class="section-block relative overflow-hidden">
+            <div class="surface-gradient-main"></div>
+            <div class="section-shell">
+                <div class="feature-split">
+                    <div data-reveal>
+                        <span class="section-eyebrow">Audio</span>
+                        <h2 data-i18n="index.biz.audio.title" class="mt-3 text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">声音也是生产力</h2>
+                        <p data-i18n="index.biz.audio.desc" class="mt-4 text-custom-muted dark:text-slate-400 leading-7">语音合成、音色设计与音乐生成——配音、口播、BGM 一条龙。</p>
+                        <div class="mt-5 flex flex-wrap gap-1.5">
+                            <span class="model-chip">gpt-realtime-2.1</span>
+                            <span class="model-chip">grok-voice-think-fast-2.0</span>
+                            <span class="model-chip">suno-v5</span>
+                        </div>
+                        <a href="https://pigcode.ai/connect/studio" target="_top"
+                            class="mt-6 inline-flex items-center gap-1 text-[0.8rem] font-medium text-custom-muted transition-colors hover:text-custom-ink dark:text-slate-400 dark:hover:text-white" data-i18n="index.biz.studioLink">进入 Studio →</a>
+                    </div>
+                    <div class="audio-demo media-frame" data-reveal aria-hidden="true">
+                        <div class="audio-demo-head">
+                            <span class="audio-demo-play">▶</span>
+                            <div>
+                                <p class="audio-demo-title">brand-theme.mp3</p>
+                                <p class="audio-demo-meta" data-i18n="index.biz.audioDemo.meta">suno-v5 · 生成音乐</p>
+                            </div>
+                            <span class="audio-demo-time">0:42</span>
+                        </div>
+                        <div class="audio-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                        <div class="audio-demo-foot">
+                            <span class="model-chip">gpt-realtime-2.1</span>
+                            <span class="model-chip">grok-voice-think-fast-2.0</span>
+                            <span class="model-chip">suno-v5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- 覆盖区：真实 provider logo + 渠道对比卡 -->
         <section id="models" class="section-block relative overflow-hidden">
             <div class="surface-gradient-alt"></div>
             <div class="section-shell">
                 <div class="mb-8 max-w-2xl" data-reveal>
-                    <span class="section-eyebrow" data-i18n="index.matrix.eyebrow">Routing Matrix</span>
-                    <h2 data-i18n="index.models.title" class="mt-3 text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">主流模型，一个入口全部覆盖</h2>
-                    <p data-i18n="index.matrix.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Pigcode 强调模型渠道、协议、上下文和能力标签，方便开发者判断该走哪条路由。</p>
-                    <a href="pricing.html#plans" data-i18n="index.matrix.pricingLink" class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-custom-ink underline decoration-custom-gold/60 underline-offset-4 hover:decoration-custom-gold dark:text-custom-gold dark:decoration-custom-gold/40">查看完整倍率表 →</a>
-                </div>
-                <!-- 真实品牌 logo（内联 Simple Icons 官方路径，currentColor 自适应深浅色） -->
-                <div class="provider-logos mb-6" aria-label="支持的模型厂商">
-                    <svg class="provider-logo-svg logo-anthropic" viewBox="0 0 24 24" role="img" aria-label="Anthropic" xmlns="http://www.w3.org/2000/svg"><title>Anthropic</title><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg>
-                    <svg class="provider-logo-svg logo-openai" viewBox="0 0 24 24" role="img" aria-label="OpenAI" xmlns="http://www.w3.org/2000/svg"><title>OpenAI</title><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>
-                    <svg class="provider-logo-svg logo-gemini" viewBox="0 0 24 24" role="img" aria-label="Google Gemini" xmlns="http://www.w3.org/2000/svg"><title>Google Gemini</title><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg>
-                    <img class="provider-logo-img" src="model-icons/zhipuai.svg" alt="智谱 AI" title="智谱 AI" loading="lazy" />
+                    <span class="section-eyebrow" data-i18n="index.matrix.eyebrow">Model Catalog</span>
+                    <h2 data-i18n="index.models.title" class="mt-3 text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">每个想法，都有合适的模型</h2>
+                    <p data-i18n="index.matrix.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">从对话到图像、视频与音频，5,000+ 模型按渠道、协议与能力组织，方便判断该走哪条路由。</p>
+                    <a href="models.html" data-i18n="index.matrix.pricingLink" class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-custom-ink underline decoration-custom-gold/60 underline-offset-4 hover:decoration-custom-gold dark:text-custom-gold dark:decoration-custom-gold/40">浏览完整模型目录 →</a>
                 </div>
                 <!-- 常用模型：与价格页渠道目录保持一致 -->
                 <div class="model-chips mb-10" data-reveal aria-label="常用模型">
@@ -249,110 +310,10 @@
                     <span class="model-chip">gpt-5.6-luna</span>
                     <span class="model-chip">gemini-3.7-flash</span>
                     <span class="model-chip">grok-4.6</span>
+                    <span class="model-chip">gpt-image-2</span>
+                    <span class="model-chip">veo-3</span>
+                    <span class="model-chip">suno-v5</span>
                 </div>
-                <div class="channel-grid">
-                    <article class="channel-compare">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-custom-ink dark:text-white">Claude</h3>
-                            <span class="channel-pill">Anthropic</span>
-                        </div>
-                        <dl class="channel-specs">
-                            <div>
-                                <dt data-i18n="index.matrix.columns.ratio">倍率</dt>
-                                <dd class="font-mono">0.8x – 4.5x</dd>
-                            </div>
-                            <div>
-                                <dt data-i18n="index.matrix.columns.context">上下文 / 能力</dt>
-                                <dd>200k / 1M · thinking · WebSearch</dd>
-                            </div>
-                            <div>
-                                <dt data-i18n="index.matrix.columns.tools">适用工具</dt>
-                                <dd>Claude Code</dd>
-                            </div>
-                        </dl>
-                    </article>
-                    <article class="channel-compare">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-custom-ink dark:text-white">Codex</h3>
-                            <span class="channel-pill">OpenAI</span>
-                        </div>
-                        <dl class="channel-specs">
-                            <div>
-                                <dt data-i18n="index.matrix.columns.ratio">倍率</dt>
-                                <dd class="font-mono">0.08x – 3.5x</dd>
-                            </div>
-                            <div>
-                                <dt data-i18n="index.matrix.columns.context">上下文 / 能力</dt>
-                                <dd>gpt-5.x · xhigh · OpenAI compatible</dd>
-                            </div>
-                            <div>
-                                <dt data-i18n="index.matrix.columns.tools">适用工具</dt>
-                                <dd>Codex CLI / OpenCode</dd>
-                            </div>
-                        </dl>
-                    </article>
-                    <article class="channel-compare">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-custom-ink dark:text-white">Gemini</h3>
-                            <span class="channel-pill">Gemini v1beta</span>
-                        </div>
-                        <dl class="channel-specs">
-                            <div>
-                                <dt data-i18n="index.matrix.columns.ratio">倍率</dt>
-                                <dd class="font-mono">1x</dd>
-                            </div>
-                            <div>
-                                <dt data-i18n="index.matrix.columns.context">上下文 / 能力</dt>
-                                <dd>thinking · WebSearch · image generation</dd>
-                            </div>
-                            <div>
-                                <dt data-i18n="index.matrix.columns.tools">适用工具</dt>
-                                <dd>Gemini CLI</dd>
-                            </div>
-                        </dl>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- 接入流程：01-04 编号 stepper -->
-        <section class="section-block relative overflow-hidden">
-            <div class="surface-gradient-main"></div>
-            <div class="section-shell">
-                <div class="mb-10 max-w-2xl" data-reveal>
-                    <h2 data-i18n="index.integration.title" class="text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">从 API Key 到模型路由</h2>
-                    <p data-i18n="index.integration.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Pigcode 的页面信息围绕开发者接入路径组织：创建密钥、选择协议、替换 Endpoint、观察请求日志。</p>
-                </div>
-                <ol class="flow-stepper">
-                    <li class="flow-step-item">
-                        <span class="flow-step">01</span>
-                        <div>
-                            <h3 data-i18n="index.integration.keys.title" class="text-lg font-semibold text-custom-ink dark:text-white">创建 API Key</h3>
-                            <p data-i18n="index.integration.keys.description" class="mt-2 text-sm leading-6 text-custom-muted dark:text-slate-400">在控制台创建令牌，并按工具选择 OpenAI、Anthropic 或 Gemini 分组。</p>
-                        </div>
-                    </li>
-                    <li class="flow-step-item">
-                        <span class="flow-step">02</span>
-                        <div>
-                            <h3 data-i18n="index.integration.protocol.title" class="text-lg font-semibold text-custom-ink dark:text-white">选择协议</h3>
-                            <p data-i18n="index.integration.protocol.description" class="mt-2 text-sm leading-6 text-custom-muted dark:text-slate-400">根据 Claude Code、Codex CLI、Gemini CLI 等工具选择对应协议入口。</p>
-                        </div>
-                    </li>
-                    <li class="flow-step-item">
-                        <span class="flow-step">03</span>
-                        <div>
-                            <h3 data-i18n="index.integration.endpoint.title" class="text-lg font-semibold text-custom-ink dark:text-white">替换 Endpoint</h3>
-                            <p data-i18n="index.integration.endpoint.description" class="mt-2 text-sm leading-6 text-custom-muted dark:text-slate-400">只改 Base URL 和 API Key，尽量保持原工具配置方式不变。</p>
-                        </div>
-                    </li>
-                    <li class="flow-step-item">
-                        <span class="flow-step">04</span>
-                        <div>
-                            <h3 data-i18n="index.integration.logs.title" class="text-lg font-semibold text-custom-ink dark:text-white">查看日志</h3>
-                            <p data-i18n="index.integration.logs.description" class="mt-2 text-sm leading-6 text-custom-muted dark:text-slate-400">通过请求日志追踪模型、渠道、用量、状态和异常原因。</p>
-                        </div>
-                    </li>
-                </ol>
             </div>
         </section>
 
@@ -365,6 +326,15 @@
                 </div>
                 <div class="surface-card rounded-2xl p-6 md:p-8" data-reveal>
                     <div class="space-y-2">
+                        <div class="faq-item border-b border-custom-line dark:border-white/10 pb-2">
+                            <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 py-3 text-left" aria-expanded="false">
+                                <span data-i18n="index.faq.studio.q" class="font-semibold text-custom-ink dark:text-white text-sm">Studio 是什么？</span>
+                                <span class="material-symbols-outlined faq-chevron text-custom-muted dark:text-slate-400 text-xl" aria-hidden="true">expand_more</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p data-i18n="index.faq.studio.a" class="text-custom-muted dark:text-slate-400 text-sm pb-4 leading-relaxed">Studio 是网页创作工作台：对话、生图、生视频和音频在同一个界面完成，无需任何配置，与 API 共用同一个账户和余额。</p>
+                            </div>
+                        </div>
                         <div class="faq-item border-b border-custom-line dark:border-white/10 pb-2">
                             <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 py-3 text-left" aria-expanded="false">
                                 <span data-i18n="index.faq.tools.q" class="font-semibold text-custom-ink dark:text-white text-sm">支持哪些编程工具？</span>
@@ -422,21 +392,21 @@
                 <div class="api-cta-panel rounded-2xl p-6 md:p-8">
                     <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
                         <div>
-                            <h2 data-i18n="index.bottom.title" class="text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">准备接入 Pigcode API？</h2>
-                            <p data-i18n="index.bottom.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">先创建 API Key，再按工具复制对应 Endpoint。文档页提供 Claude Code、Codex CLI、Gemini CLI 和 OpenCode 的接入示例。</p>
+                            <h2 data-i18n="index.bottom.title" class="text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">准备好开始了？</h2>
+                            <p data-i18n="index.bottom.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">创作走 Studio，接入走 API——同一个账户、同一份余额。文档页提供各工具的接入示例。</p>
                         </div>
                         <div data-partial="partials/cta-actions.html"
                             data-wrapper-class="flex flex-col sm:flex-row lg:flex-col items-stretch gap-3"
-                            data-primary-href="https://pigcode.ai/login"
-                            data-primary-class="btn-primary btn-primary-gold w-full px-8 py-3.5 text-base"
-                            data-primary-label="获取 API Key"
-                            data-primary-i18n="common.cta.start"
-                            data-secondary-href="docs.html"
+                            data-primary-href="https://pigcode.ai/connect/studio"
+                            data-primary-class="btn-primary w-full px-8 py-3.5 text-base"
+                            data-primary-label="进入 Studio"
+                            data-primary-i18n="common.cta.studio"
+                            data-secondary-href="https://pigcode.ai/login"
                             data-secondary-class="btn-secondary w-full px-8 py-3.5 text-base"
-                            data-secondary-label="查看接入文档"
-                            data-secondary-i18n="common.cta.docs">
+                            data-secondary-label="获取 API Key"
+                            data-secondary-i18n="common.cta.start">
                             <!-- partial 加载失败时的最小降级：仅保留主操作（正常情况下由 partial 覆盖） -->
-                            <a href="https://pigcode.ai/login" target="_top" class="btn-primary btn-primary-gold w-full px-8 py-3.5 text-base">获取 API Key</a>
+                            <a href="https://pigcode.ai/connect/studio" target="_top" class="btn-primary w-full px-8 py-3.5 text-base">进入 Studio</a>
                         </div>
                     </div>
                 </div>
@@ -638,9 +608,9 @@
             // 一键复制由 shared.js 的 [data-copy] 全局委托处理
         });
     </script>
-    <script src="i18n.js?v=20260816-model-lineup"></script>
-    <script src="components.js?v=20260816-model-lineup"></script>
-    <script src="shared.js?v=20260816-model-lineup"></script>
+    <script src="i18n.js?v=20260818-one-key"></script>
+    <script src="components.js?v=20260818-one-key"></script>
+    <script src="shared.js?v=20260818-one-key"></script>
     <script>
         // 首页标题文字动效：逐字符入场（i18n 应用后拆分），金色强调词加流光
         (function () {
