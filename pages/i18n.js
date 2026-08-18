@@ -61,7 +61,7 @@
         hero: {
           badge: 'AI Model Router / API Gateway',
           title: '<span class="brand-emphasis">一把钥匙</span>，用遍全球模型',
-          description: '敲代码、写文案、画海报、出视频、配人声——五件事共用一个账户、一份余额，透明计价，不锁平台。',
+          description: 'Vibe coding、写文案、画海报、出视频、配人声——五件事共用一个账户、一份余额，透明计价，不锁平台。新的故事开始了。',
           codeComment: '# 使用统一接口调用顶级模型',
           codePrompt: '"帮我写一个高效的排序算法"',
           metrics: {
@@ -859,7 +859,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         hero: {
           badge: 'AI Model Router / API Gateway',
           title: '<span class="brand-emphasis">One key</span> opens every model.',
-          description: 'Code it, write it, paint it, film it, voice it — one account, one balance, transparent pricing, no lock-in.',
+          description: 'Vibe code it, write it, paint it, film it, voice it — one account, one balance, transparent pricing, no lock-in. A new story begins.',
           codeComment: '# Call top-tier models through one unified interface',
           codePrompt: '"Write an efficient sorting algorithm for me"',
           metrics: {
