@@ -352,7 +352,7 @@
 <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">成本参考：对话按所选模型 token 计价，几轮打磨只花掉 $1 体验额度的零头。</p>
 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">前置</h4>
 <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-<li>用控制台账号登录 <a href="https://pigcode.ai/connect/studio" target="_top" class="text-custom-gold hover:underline font-semibold">pigcode.ai/connect/studio</a>（注册即送 $1 体验额度）。</li>
+<li>登录 <a href="https://pigcode.ai/connect/studio" target="_top" class="text-custom-gold hover:underline font-semibold">Studio</a>（注册即送 $1 体验额度）。</li>
 <li>准备一句话产品介绍和目标读者画像。</li>
 </ol>
 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">步骤</h4>
@@ -376,7 +376,7 @@
 <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">成本参考：图像 $0.2 / 张，本篇约生成 5 张，合计约 $1。</p>
 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">前置</h4>
 <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-<li>用控制台账号登录 <a href="https://pigcode.ai/connect/studio" target="_top" class="text-custom-gold hover:underline font-semibold">pigcode.ai/connect/studio</a>，进入创作台的图像模式。</li>
+<li>登录 <a href="https://pigcode.ai/connect/studio" target="_top" class="text-custom-gold hover:underline font-semibold">Studio</a>，进入创作台的图像模式。</li>
 <li>余额不低于 $1（充值支付宝/微信 5 元起，¥1 = $1 入账）。</li>
 </ol>
 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">步骤</h4>
@@ -585,7 +585,7 @@ export GOOGLE_GEMINI_BASE_URL="https://pigcode.ai/v1beta"</code></pre>
         studio: {
           enter: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">进入 Studio</h3>
-            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">访问 <a href="https://pigcode.ai/connect/studio" target="_top" class="text-custom-gold hover:underline font-semibold">pigcode.ai/connect/studio</a>，使用与控制台相同的账号登录即可，无需任何配置。对话、图片与视频创作和 API 共用同一份余额，消费明细可在控制台「日志」中查看。</p>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">打开 <a href="https://pigcode.ai/connect/studio" target="_top" class="text-custom-gold hover:underline font-semibold">Studio</a>，用控制台账号登录即可，无需任何配置。对话、图片与视频创作和 API 共用同一份余额，消费明细可在控制台「日志」中查看。</p>
           `,
           chat: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">对话</h3>
@@ -1303,7 +1303,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
 <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Cost: chat is billed per token; a few rounds of polishing use only a fraction of the $1 sign-up credit.</p>
 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Before you start</h4>
 <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-<li>Log in to <a href="https://pigcode.ai/connect/studio" target="_top" class="text-custom-gold hover:underline font-semibold">pigcode.ai/connect/studio</a> with your console account ($1 trial credit on sign-up).</li>
+<li>Log in to <a href="https://pigcode.ai/connect/studio" target="_top" class="text-custom-gold hover:underline font-semibold">Studio</a> with your console account ($1 trial credit on sign-up).</li>
 <li>Have a one-line product intro and a clear target reader in mind.</li>
 </ol>
 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Steps</h4>
@@ -1327,7 +1327,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
 <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Cost: images are $0.2 each; this walkthrough generates about 5, roughly $1 in total.</p>
 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Before you start</h4>
 <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-<li>Log in to <a href="https://pigcode.ai/connect/studio" target="_top" class="text-custom-gold hover:underline font-semibold">pigcode.ai/connect/studio</a> with your console account and open the studio's image mode.</li>
+<li>Log in to <a href="https://pigcode.ai/connect/studio" target="_top" class="text-custom-gold hover:underline font-semibold">Studio</a> with your console account and open the studio's image mode.</li>
 <li>A balance of at least $1 (top up via Alipay/WeChat from 5 CNY; ¥1 credits as $1).</li>
 </ol>
 <h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Steps</h4>
@@ -1519,7 +1519,7 @@ export GOOGLE_GEMINI_BASE_URL="https://pigcode.ai/v1beta"</code></pre></div>
         studio: {
           enter: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Enter Studio</h3>
-            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Open <a href="https://pigcode.ai/connect/studio" target="_top" class="text-custom-gold hover:underline font-semibold">pigcode.ai/connect/studio</a> and sign in with your console account — zero setup. Chat, image, and video creation share one balance with the API; see the console <strong>Logs</strong> for itemized usage.</p>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Open <a href="https://pigcode.ai/connect/studio" target="_top" class="text-custom-gold hover:underline font-semibold">Studio</a> and sign in with your console account — zero setup. Chat, image, and video creation share one balance with the API; see the console <strong>Logs</strong> for itemized usage.</p>
           `,
           chat: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Chat</h3>
