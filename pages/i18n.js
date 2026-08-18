@@ -40,6 +40,7 @@
             docs: '开发者文档',
             api: 'API 参考',
             status: '故障排查',
+            telegram: 'Telegram 频道',
             contact: '联系我们',
             privacy: '隐私政策',
             terms: '服务条款'
@@ -221,7 +222,7 @@
           },
           support: {
             q: '遇到问题怎么获取支持？',
-            a: '先查阅文档页的故障排查章节，也可以加入用户群或通过工单联系客服。'
+            a: '先查阅文档页的故障排查章节，或加入 <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram</a> 频道直接联系我们。'
           }
         },
         bottom: {
@@ -274,15 +275,15 @@
           },
           model: {
             q: '支持哪些 AI 模型？',
-            a: '目前支持 Claude 全系列、GPT 和 Gemini。'
+            a: '对话、图像、视频与语音全模态——Claude、GPT、Gemini、Grok 等 60+ 厂商的 5,000+ 模型，详见模型目录。'
           },
           refund: {
             q: '可以退款吗？',
-            a: '可以。'
+            a: '可以。未消费的充值余额支持退款——通过 <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram</a> 频道联系我们，核实后原路退回；已消费部分按实际用量结算。'
           },
           support: {
             q: '如何获取技术支持？',
-            a: '查阅文档、加入用户群、通过工单联系客服。'
+            a: '查阅文档页的排查章节，或加入 <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram</a> 频道直接联系我们。'
           }
         },
       },
@@ -838,6 +839,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             docs: 'Developer Docs',
             api: 'API Reference',
             status: 'Troubleshooting',
+            telegram: 'Telegram channel',
             contact: 'Contact Us',
             privacy: 'Privacy Policy',
             terms: 'Terms of Service'
@@ -1019,7 +1021,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           },
           support: {
             q: 'How do I get support?',
-            a: 'Check the troubleshooting section in the docs, join the user group, or open a ticket.'
+            a: 'Check the troubleshooting section in the docs, or reach us directly on <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram</a>.'
           }
         },
         bottom: {
@@ -1072,15 +1074,15 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           },
           model: {
             q: 'Which AI models are supported?',
-            a: 'Pigcode currently supports the full Claude family, GPT, and Gemini.'
+            a: 'Every modality — chat, image, video, and speech: 5,000+ models from 60+ vendors including Claude, GPT, Gemini, and Grok.'
           },
           refund: {
             q: 'Can I get a refund?',
-            a: 'Yes.'
+            a: 'Yes — unused balance is refundable: contact us on <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram</a> and we will refund via the original payment method. Consumed usage is settled as-is.'
           },
           support: {
             q: 'How can I get technical support?',
-            a: 'Read the docs, join the user group, or contact support through tickets.'
+            a: 'Check the docs, or reach us directly on <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram</a>.'
           }
         },
       },
