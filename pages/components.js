@@ -4,6 +4,7 @@
   var page = '';
   if (path.includes('index.html') || path.endsWith('/') || path.endsWith('/pages')) page = 'index';
   else if (path.includes('docs.html')) page = 'docs';
+  else if (path.includes('guide.html')) page = 'guide';
   else if (path.includes('pricing.html')) page = 'pricing';
   else if (path.includes('models.html')) page = 'models';
 

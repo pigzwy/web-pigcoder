@@ -11,6 +11,7 @@
         nav: {
           index: '首页',
           docs: '文档',
+          guide: '指南',
           pricing: '价格',
           models: '模型'
         },
@@ -961,6 +962,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         nav: {
           index: 'Home',
           docs: 'Docs',
+          guide: 'Guide',
           pricing: 'Pricing',
           models: 'Models'
         },
