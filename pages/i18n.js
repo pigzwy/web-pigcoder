@@ -260,7 +260,7 @@
         },
         studio: {
           title: '创作计价（Studio）',
-          description: 'Studio 与 API 共用同一份余额——对话按模型 token 计价，图像与视频按下方单价即用即扣，无套餐无门槛。',
+          description: 'Studio 与 API 共用同一份余额——对话按模型 token 计价，图像、视频与语音按下方单价即用即扣，无套餐无门槛。充值支持支付宝 / 微信，5 元起，按 ¥1 = $1 计入余额。',
           image: { title: '图像生成', desc: 'GPT Image 2 与 Grok Imagine 全系——文生图、以图生图与编辑链', unit: '每张' },
           video: { title: '视频生成', desc: 'Grok Imagine 视频，支持 5 / 10 / 15 秒（约 $0.25–$0.75 一条）——更多视频模型陆续接入', unit: '每秒' },
           audio: { title: '语音生成', desc: '文本转语音——一段 500 字口播约 $0.01；更多模型正在接入', unit: '每千字符' },
@@ -272,6 +272,10 @@
           studioBilling: {
             q: 'Studio 里创作怎么计费？',
             a: '与 API 共用同一份余额：图像 $0.2/张，视频 $0.05/秒（5/10/15 秒可选），语音 $0.02/千字符，对话按所选模型的 token 单价结算，用多少扣多少。'
+          },
+          recharge: {
+            q: '如何充值？支持什么支付方式？',
+            a: '在控制台充值，支持支付宝与微信支付，最低 5 元。余额按 ¥1 = $1 入账——本页所有 $ 单价都按 1:1 人民币支付，余额在 API 与 Studio 通用。'
           },
           model: {
             q: '支持哪些 AI 模型？',
@@ -1059,7 +1063,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         },
         studio: {
           title: 'Creation pricing (Studio)',
-          description: 'Studio shares one balance with the API — chat is billed by model tokens, image and video at the unit prices below. No plans, no minimums.',
+          description: 'Studio shares one balance with the API — chat is billed by model tokens; images, video and speech at the unit prices below. No plans, no minimums. Top up via Alipay or WeChat Pay from ¥5, credited at ¥1 = $1.',
           image: { title: 'Image generation', desc: 'GPT Image 2 and the Grok Imagine family — text-to-image, image-to-image, and edit chains', unit: 'per image' },
           video: { title: 'Video generation', desc: 'Grok Imagine video in 5 / 10 / 15 s (≈ $0.25–$0.75 per clip) — more video models coming', unit: 'per second' },
           audio: { title: 'Speech generation', desc: 'Text to speech — a 500-character read costs about $0.01; more models coming', unit: 'per 1k chars' },
@@ -1071,6 +1075,10 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           studioBilling: {
             q: 'How is Studio creation billed?',
             a: "One balance shared with the API: images at $0.2 each, video at $0.05 per second (5/10/15 s), speech at $0.02 per 1k characters, chat by the selected model's token price. Pay only for what you use."
+          },
+          recharge: {
+            q: 'How do I top up? Which payment methods are supported?',
+            a: 'Top up from the console with Alipay or WeChat Pay, starting from ¥5. Credits are added at ¥1 = $1 — every $ price on this page is paid 1:1 in RMB — and the balance is shared between the API and Studio.'
           },
           model: {
             q: 'Which AI models are supported?',
@@ -1226,7 +1234,7 @@ export GOOGLE_GEMINI_BASE_URL="https://pigcode.ai/v1beta"</code></pre></div>
           `,
           image: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Image generation</h3>
-            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Open the creation workspace inside Studio. Billed at <strong>¥0.2 per image</strong>:</p>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Open the creation workspace inside Studio. Billed at <strong>$0.2 per image</strong>:</p>
             <ul class="list-disc ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
               <li><strong>GPT Image 2</strong> — text-to-image, image-to-image, and edit chains with multiple reference images.</li>
               <li><strong>Grok Imagine family</strong> — text-to-image (size/quality params not yet supported; constrain framing via prompt).</li>

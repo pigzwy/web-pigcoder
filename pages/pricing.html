@@ -18,15 +18,15 @@
   <meta name="twitter:title" content="Pigcode 模型渠道与倍率" />
   <meta name="twitter:description" content="按 Provider 与工具场景查看渠道倍率、可用模型与能力标签。充值后按实际调用消耗。" />
   <meta name="twitter:image" content="https://www.pigcode.ai/og-cover.jpg" />
-  <link href="tailwind.css?v=20260818-trust" rel="stylesheet" />
-  <link href="logo.png?v=20260818-trust" rel="icon" type="image/png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260818-trust" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260818-trust" />
+  <link href="tailwind.css?v=20260818-pay" rel="stylesheet" />
+  <link href="logo.png?v=20260818-pay" rel="icon" type="image/png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260818-pay" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260818-pay" />
   <link rel="canonical" href="https://www.pigcode.ai/pricing.html" />
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link href="common.css?v=20260818-trust" rel="stylesheet" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Studio 里创作怎么计费？","acceptedAnswer":{"@type":"Answer","text":"与 API 共用同一份余额：图像 $0.2/张，视频 $0.05/秒，语音 $0.02/千字符，对话按所选模型的 token 单价结算。"}},{"@type":"Question","name":"支持哪些 AI 模型？","acceptedAnswer":{"@type":"Answer","text":"对话、图像、视频与语音全模态：Claude、GPT、Gemini、Grok 等 60+ 厂商的 5,000+ 模型。"}},{"@type":"Question","name":"可以退款吗？","acceptedAnswer":{"@type":"Answer","text":"未消费的充值余额支持退款，通过 Telegram 频道（t.me/pigcoder1）联系核实后原路退回；已消费部分按实际用量结算。"}},{"@type":"Question","name":"如何获取技术支持？","acceptedAnswer":{"@type":"Answer","text":"查阅文档页的排查章节，或加入 Telegram 频道 t.me/pigcoder1 联系我们。"}}]}</script>
+  <link href="common.css?v=20260818-pay" rel="stylesheet" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Studio 里创作怎么计费？","acceptedAnswer":{"@type":"Answer","text":"与 API 共用同一份余额：图像 $0.2/张，视频 $0.05/秒，语音 $0.02/千字符，对话按所选模型的 token 单价结算。"}},{"@type":"Question","name":"如何充值？","acceptedAnswer":{"@type":"Answer","text":"在控制台充值，支持支付宝与微信支付，最低 5 元；余额按 ¥1 = $1 入账，API 与 Studio 通用。"}},{"@type":"Question","name":"支持哪些 AI 模型？","acceptedAnswer":{"@type":"Answer","text":"对话、图像、视频与语音全模态：Claude、GPT、Gemini、Grok 等 60+ 厂商的 5,000+ 模型。"}},{"@type":"Question","name":"可以退款吗？","acceptedAnswer":{"@type":"Answer","text":"未消费的充值余额支持退款，通过 Telegram 频道（t.me/pigcoder1）联系核实后原路退回；已消费部分按实际用量结算。"}},{"@type":"Question","name":"如何获取技术支持？","acceptedAnswer":{"@type":"Answer","text":"查阅文档页的排查章节，或加入 Telegram 频道 t.me/pigcoder1 联系我们。"}}]}</script>
   <!-- Cloudflare Web Analytics（隐私友好，无 Cookie） -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "87d92ae2a66042e49565b2e49e0ef4d1"}'></script>
 </head>
@@ -96,7 +96,7 @@
       <div class="section-shell-wide">
         <div class="pb-8 max-w-3xl">
           <h2 data-i18n="pricing.studio.title" class="text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">创作计价（Studio）</h2>
-          <p data-i18n="pricing.studio.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Studio 与 API 共用同一份余额——对话按模型 token 计价，图像与视频按下方单价即用即扣，无套餐无门槛。</p>
+          <p data-i18n="pricing.studio.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Studio 与 API 共用同一份余额——对话按模型 token 计价，图像、视频与语音按下方单价即用即扣，无套餐无门槛。充值支持支付宝 / 微信，5 元起，按 ¥1 = $1 计入余额。</p>
         </div>
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <div class="pricing-card channel-card rounded-2xl p-6">
@@ -178,7 +178,16 @@
                 <span class="material-symbols-outlined faq-chevron text-custom-muted dark:text-slate-400 text-xl" aria-hidden="true">expand_more</span>
               </button>
               <div class="faq-answer">
-                <p data-i18n="pricing.faq.studioBilling.a" class="text-custom-muted dark:text-slate-400 text-sm pb-4 leading-relaxed">与 API 共用同一份余额：图像 ¥0.2/张，视频 ¥0.05/秒（5/10/15 秒可选），对话按所选模型的 token 单价结算，用多少扣多少。</p>
+                <p data-i18n="pricing.faq.studioBilling.a" class="text-custom-muted dark:text-slate-400 text-sm pb-4 leading-relaxed">与 API 共用同一份余额：图像 $0.2/张，视频 $0.05/秒（5/10/15 秒可选），语音 $0.02/千字符，对话按所选模型的 token 单价结算，用多少扣多少。</p>
+              </div>
+            </div>
+            <div class="faq-item border-b border-custom-line dark:border-white/10 pb-2">
+              <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 py-3 text-left" aria-expanded="false">
+                <span data-i18n="pricing.faq.recharge.q" class="font-semibold text-custom-ink dark:text-white text-sm">如何充值？支持什么支付方式？</span>
+                <span class="material-symbols-outlined faq-chevron text-custom-muted dark:text-slate-400 text-xl" aria-hidden="true">expand_more</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="pricing.faq.recharge.a" class="text-custom-muted dark:text-slate-400 text-sm pb-4 leading-relaxed">在控制台充值，支持支付宝与微信支付，最低 5 元。余额按 ¥1 = $1 入账——本页所有 $ 单价都按 1:1 人民币支付，余额在 API 与 Studio 通用。</p>
               </div>
             </div>
 
@@ -267,10 +276,10 @@
     }
   </script>
 
-  <script src="i18n.js?v=20260818-trust"></script>
-  <script src="components.js?v=20260818-trust"></script>
-  <script src="pricing-cards.js?v=20260818-trust"></script>
-  <script src="shared.js?v=20260818-trust"></script>
+  <script src="i18n.js?v=20260818-pay"></script>
+  <script src="components.js?v=20260818-pay"></script>
+  <script src="pricing-cards.js?v=20260818-pay"></script>
+  <script src="shared.js?v=20260818-pay"></script>
 </body>
 
 </html>
