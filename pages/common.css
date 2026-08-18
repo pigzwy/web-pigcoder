@@ -1050,7 +1050,7 @@ body.has-dark-hero #site-header:not(.is-scrolled) .header-surface .btn-primary {
 
 .dark .kicker,
 .dark .doc-kicker {
-  color: #94a3b8;
+  color: #e2e8f0;
   background: transparent;
 }
 
@@ -1858,7 +1858,7 @@ aside.doc-surface-panel {
 }
 
 .dark .constellation-orbits circle {
-  stroke: rgba(255, 255, 255, 0.16);
+  stroke: rgba(255, 255, 255, 0.36);
 }
 
 .constellation-dot {
@@ -2008,8 +2008,28 @@ aside.doc-surface-panel {
   color: #8a5f0a;
 }
 
+/* 星轨是白纸面：暗色下不能跟页面 ink/text token 一起翻成浅色，
+   否则白底浅字、白底白图标、半透明金药丸都会糊进海军蓝地面 */
 .dark .constellation-pill {
-  border-color: rgba(255, 255, 255, 0.22);
+  background: #ffffff;
+  border-color: rgba(255, 255, 255, 0.32);
+  color: #201f1a;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.32), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dark .constellation-pill.is-gold {
+  background: #e8a825;
+  border-color: #f0c14b;
+  color: #201f1a;
+}
+
+.dark .constellation-glyph,
+.dark .constellation-center.is-glyph:not(.is-gold) {
+  color: #201f1a;
+}
+
+.dark .constellation-center:not(.is-gold) svg {
+  color: #201f1a;
 }
 
 .constellation-dot:nth-child(3n) .constellation-tile,
@@ -2039,7 +2059,18 @@ aside.doc-surface-panel {
 
 .dark .constellation-tile,
 .dark .constellation-center {
-  border-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.34), 0 1px 3px rgba(0, 0, 0, 0.22);
+}
+
+.dark .constellation-tile.is-sm {
+  opacity: 1;
+}
+
+.dark .constellation-center.is-gold {
+  background: #faf3e0;
+  border-color: rgba(240, 193, 75, 0.75);
+  color: #8a5f0a;
 }
 
 /* 数据新鲜度条：目录底部的可信度签名 */
