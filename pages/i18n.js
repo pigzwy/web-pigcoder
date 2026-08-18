@@ -306,9 +306,130 @@
             referenceTitle: '快速对照与排查'
           }
         },
+        tutorials: {
+          vibe: `
+<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Vibe coding：把 Claude Code 接上 Pigcode</h3>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">目标与成本</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">目标：十分钟内把 Claude Code 切到 Pigcode 端点，并让它写出一个能跑的命令行小工具。</p>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">成本参考：对话按所选模型 token 计价，注册赠送的 $1 体验额度足够跑完全篇。</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">前置</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>已注册 Pigcode 控制台账号（注册即送 $1 体验额度）。</li>
+<li>本机装有 Node.js v18+。</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">步骤</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>安装 Claude Code：<code class="code-chip code-chip-xs">npm install -g @anthropic-ai/claude-code</code>。</li>
+<li>控制台左侧「令牌」→「创建令牌」，复制生成的 <code class="code-chip code-chip-xs">sk-pig-</code> 开头密钥（只显示一次）。</li>
+<li>终端里设两个环境变量：<code class="code-chip code-chip-xs">export ANTHROPIC_BASE_URL="https://pigcode.ai"</code> 与 <code class="code-chip code-chip-xs">export ANTHROPIC_API_KEY="sk-pig-xxxx"</code>。</li>
+<li>新建一个空目录并进入，运行 <code class="code-chip code-chip-xs">claude</code>，用 <code class="code-chip code-chip-xs">/model</code> 确认切到 <code class="code-chip code-chip-xs">claude-fable-5</code>。</li>
+<li>下第一个任务：「写一个命令行小工具 csv2md：读入 CSV 文件，输出 Markdown 表格，附一份 README」。</li>
+<li>让它自证：「造一个 3 行的测试 CSV，跑一遍，输出不对就修到对」。</li>
+<li>收尾用 <code class="code-chip code-chip-xs">/cost</code> 看本次消耗，控制台「日志」里能对上每笔明细。</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">模型怎么选</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Claude Code 里默认 <code class="code-chip code-chip-xs">claude-fable-5</code>，改代码与长会话最稳。想换工具链：Codex CLI 配 <code class="code-chip code-chip-xs">gpt-5.6-sol</code>（<code class="code-chip code-chip-xs">OPENAI_BASE_URL=https://pigcode.ai/v1</code>），Gemini CLI 配 <code class="code-chip code-chip-xs">gemini-3.7-flash</code>（<code class="code-chip code-chip-xs">GOOGLE_GEMINI_BASE_URL=https://pigcode.ai/v1beta</code>）。同一把钥匙、同一份余额，三条线随时切。</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">常见问题</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">问：请求报 401 或超时？答：先检查端点是否误加了 <code class="code-chip code-chip-xs">/v1</code>——Claude Code 走 Anthropic 协议，只用 <code class="code-chip code-chip-xs">https://pigcode.ai</code>；再确认密钥完整、以 <code class="code-chip code-chip-xs">sk-pig-</code> 开头。</p>`,
+          copy: `
+<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">写文案：把一条推文从选题磨到成稿</h3>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">目标与成本</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">目标：在 Studio 对话里，从 3 个选题角度出发，把一条产品推文从初稿磨到能直接发。</p>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">成本参考：对话按所选模型 token 计价，几轮打磨只花掉 $1 体验额度的零头。</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">前置</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>用控制台账号登录 <code class="code-chip code-chip-xs">https://pigcode.ai/connect/studio</code>（注册即送 $1 体验额度）。</li>
+<li>准备一句话产品介绍和目标读者画像。</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">步骤</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>打开 Studio 对话，顶部模型选 <code class="code-chip code-chip-xs">claude-fable-5</code>。</li>
+<li>喂背景要选题：「产品是给独立开发者的周报生成器，读者是 indie hacker，给 3 个推文选题角度，各配一句开头钩子」。</li>
+<li>选定角度出初稿：「用第 2 个角度写一条 100 字以内的推文，短句，别用感叹号」。</li>
+<li>做减法：「删掉所有形容词，再压掉 20% 字数，信息一条不能丢」。</li>
+<li>换结尾：「给 3 个不同的行动号召结尾，各一句」。</li>
+<li>让它挑刺：「站在刷到这条推文的人的角度，说说你为什么不会点开」。</li>
+<li>按挑刺意见改出最后一版，通读一遍，把不像你口吻的词换掉。</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">模型怎么选</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">中文推文默认 <code class="code-chip code-chip-xs">claude-fable-5</code>，多轮改写里语气拿得最稳。要一口气铺 10 版备选，切 <code class="code-chip code-chip-xs">gemini-3.7-flash</code>，速度快。英文稿可以让 <code class="code-chip code-chip-xs">gpt-5.6-sol</code> 平行写一版对照。</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">常见问题</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">问：换了台电脑，昨天的对话不见了？答：Studio 聊天记录保存在浏览器本地，不跨设备同步，定稿请当场复制留存。</p>`,
+          poster: `
+<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">画海报：编辑链迭代一张活动海报</h3>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">目标与成本</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">目标：用 <code class="code-chip code-chip-xs">gpt-image-2</code> 从一句提示词起步，经编辑链三轮小步迭代，拿到一张能直接发的活动海报。</p>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">成本参考：图像 $0.2 / 张，本篇约生成 5 张，合计约 $1。</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">前置</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>用控制台账号登录 <code class="code-chip code-chip-xs">https://pigcode.ai/connect/studio</code>，进入创作台的图像模式。</li>
+<li>余额不低于 $1（充值支付宝/微信 5 元起，¥1 = $1 入账）。</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">步骤</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>模型选 <code class="code-chip code-chip-xs">gpt-image-2</code>，写首版提示词：「周末咖啡市集海报，奶油底色，扁平插画，竖版构图，大标题『City Roast』，留白多一点」。</li>
+<li>生成 2 张候选，挑构图与文字更稳的一张进入编辑链。</li>
+<li>编辑第一轮只改一件事：「底色换成深绿色，其余全部保持不变」。</li>
+<li>第二轮补信息：「标题下方加一行小字『8.23–8.24 · 滨江仓库』，层级低于标题」。</li>
+<li>第三轮收细节：「右下角加一枚极小的咖啡杯图标，整体构图不动」。</li>
+<li>逐版对比，回生成记录把定稿原图下载保存。</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">模型怎么选</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">要连续编辑就用 <code class="code-chip code-chip-xs">gpt-image-2</code>——文生图、以图生图、编辑链都支持，做海报的默认答案。想对比另一种风格，同一提示词抽一版 <code class="code-chip code-chip-xs">grok-imagine-image-2.0</code>（画幅用提示词约束）或 <code class="code-chip code-chip-xs">gemini-3-pro-image</code>，但改图仍回到 gpt-image-2 里做。</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">常见问题</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">问：只想改一处，结果整张图都变了？答：一次只提一个改动，并在指令里写明「其余保持不变」；改崩了就回上一版重新编辑，每一步的生成记录都还在。</p>`,
+          video: `
+<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">出视频：把海报变成 10 秒宣传片</h3>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">目标与成本</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">目标：把一张海报设为首帧，用 <code class="code-chip code-chip-xs">grok-imagine-video-1.5</code> 生成一条 10 秒 720p 的动态宣传片。</p>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">成本参考：视频 $0.05 / 秒，10 秒一条 $0.5，预留一次重生成共约 $1。</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">前置</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>一张海报图（上一篇的产出即可）。</li>
+<li>登录 Studio 创作台切到视频模式，余额不低于 $1。</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">步骤</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>模型选 <code class="code-chip code-chip-xs">grok-imagine-video-1.5</code>，上传海报作为首帧。</li>
+<li>写运动提示词：「镜头缓慢推近标题，杯口蒸汽升起，光线从左上角扫过，节奏平缓，文字保持清晰」。</li>
+<li>时长选 10 秒，分辨率选 720p（也可先花 $0.25 用 5 秒 480p 试运动方向）。</li>
+<li>提交任务；视频为异步生成，可离开页面，回来自动恢复进度。</li>
+<li>预览成片，运动跑偏就把幅度写小（如「轻微推近」）再生成一次。</li>
+<li>定稿后下载 mp4，生成结果默认同时存入账号云端历史。</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">模型怎么选</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">视频当前只有 <code class="code-chip code-chip-xs">grok-imagine-video-1.5</code> 系列，不用纠结。省预算的路线是先 5 秒 480p 验证运动方向，对了再上 10 秒 720p 出正片。更多视频模型陆续接入中。</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">常见问题</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">问：海报上的文字一动就糊？答：首帧文字要大而少，提示词写明「文字保持清晰、镜头轻微移动」，并选 720p；文字密集的海报只做轻推近。</p>`,
+          voice: `
+<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">配人声：给宣传片配一段口播旁白</h3>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">目标与成本</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">目标：给 10 秒宣传片写一段旁白，用 <code class="code-chip code-chip-xs">grok-voice-think-fast-2.0</code> 合成人声，在本地把音画合并导出成片。</p>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">成本参考：语音 $0.02 / 千字符，一段 10 秒旁白约 60 字，试上三版也不到 $0.01。</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">前置</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>一条已下载的视频（上一篇的 10 秒宣传片即可）。</li>
+<li>本机装有 ffmpeg（或任一剪辑软件）用于合并音画。</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">步骤</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>先写稿：10 秒约容纳 50–70 个中文字，按「一句钩子＋一句信息＋一句行动」写，如「这个周末，来 City Roast 咖啡市集：8 月 23 到 24 日，滨江仓库，三十家摊主到齐。」</li>
+<li>在 Studio 导航打开「语音」页，粘贴文稿，模型选 <code class="code-chip code-chip-xs">grok-voice-think-fast-2.0</code>。</li>
+<li>点生成，在线试听整段。</li>
+<li>节奏不对就改标点重生成：多用句号增加停顿，长句拆短。</li>
+<li>满意后下载音频文件，与视频放进同一目录。</li>
+<li>一条命令合并：<code class="code-chip code-chip-xs">ffmpeg -i promo.mp4 -i voice.mp3 -map 0:v -map 1:a -c:v copy -shortest final.mp4</code>。</li>
+<li>播放 final.mp4 检查：旁白比画面略短最自然，超长就回第 4 步删字。</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">模型怎么选</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">语音当前可用 <code class="code-chip code-chip-xs">grok-voice-think-fast-2.0</code>，中英文稿都直接用它。实时通话（gpt-realtime-2.1）与音乐生成（suno-v5）正在接入中，上线后会直接出现在模型选择器里。</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">常见问题</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">问：能顺便加背景音乐吗？答：音乐生成（suno-v5）正在接入中，目前请用本地音乐素材，在 ffmpeg 或剪辑软件里与旁白混音。</p>`,
+        },
         sections: {
           platform: '平台操作',
           studio: 'Studio 使用',
+          tutorials: '实战教程',
           tools: 'CLI 工具配置',
           reference: '参考'
         },
@@ -317,6 +438,7 @@
           toc: '本页目录',
           description: '快速定位接入步骤、工具配置与常见问题。',
           gettingStarted: '开始使用',
+          tutorialsGroup: '实战教程',
           studio: 'Studio 使用',
           tools: 'CLI 工具配置',
           reference: '参考',
@@ -332,6 +454,12 @@
             studioVideo: '视频生成',
             studioAudio: '语音生成',
             studioGallery: '灵感墙',
+            tutorials: '实战教程',
+            tutVibe: 'Vibe coding 上手',
+            tutCopy: '写文案',
+            tutPoster: '画海报',
+            tutVideo: '出视频',
+            tutVoice: '配人声',
             claudeCode: 'Claude Code',
             codexCli: 'Codex CLI',
             geminiCli: 'Gemini CLI',
@@ -1109,8 +1237,130 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             referenceTitle: 'Quick Tables & Troubleshooting'
           }
         },
+        tutorials: {
+          vibe: `
+<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Vibe coding: hook Claude Code up to Pigcode</h3>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Goal and cost</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Goal: point Claude Code at Pigcode and have it ship a working command-line tool, all within ten minutes.</p>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Cost: chat is billed per token by the model you pick; the $1 sign-up credit covers this whole tutorial.</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Before you start</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>A Pigcode console account ($1 trial credit on sign-up).</li>
+<li>Node.js v18+ installed.</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Steps</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>Install Claude Code: <code class="code-chip code-chip-xs">npm install -g @anthropic-ai/claude-code</code>.</li>
+<li>In the console, open "Tokens" → "Create token", then copy the key starting with <code class="code-chip code-chip-xs">sk-pig-</code> (shown only once).</li>
+<li>Set two environment variables: <code class="code-chip code-chip-xs">export ANTHROPIC_BASE_URL="https://pigcode.ai"</code> and <code class="code-chip code-chip-xs">export ANTHROPIC_API_KEY="sk-pig-xxxx"</code>.</li>
+<li>Run <code class="code-chip code-chip-xs">claude</code> in an empty directory and switch to <code class="code-chip code-chip-xs">claude-fable-5</code> with <code class="code-chip code-chip-xs">/model</code>.</li>
+<li>Give it the first task: "Build a CLI tool csv2md: read a CSV file, print a Markdown table, include a README."</li>
+<li>Make it prove itself: "Create a 3-row test CSV, run the tool, and fix it until the output is correct."</li>
+<li>Wrap up with <code class="code-chip code-chip-xs">/cost</code> to see the session spend, and match it against the console's "Logs" page.</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Picking a model</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Inside Claude Code, default to <code class="code-chip code-chip-xs">claude-fable-5</code> — steadiest for code edits and long sessions. Prefer another stack? Codex CLI pairs with <code class="code-chip code-chip-xs">gpt-5.6-sol</code> (<code class="code-chip code-chip-xs">OPENAI_BASE_URL=https://pigcode.ai/v1</code>), Gemini CLI with <code class="code-chip code-chip-xs">gemini-3.7-flash</code> (<code class="code-chip code-chip-xs">GOOGLE_GEMINI_BASE_URL=https://pigcode.ai/v1beta</code>). One key, one balance, switch any time.</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">FAQ</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Q: getting 401s or timeouts? A: make sure the endpoint has no <code class="code-chip code-chip-xs">/v1</code> — Claude Code speaks the Anthropic protocol and uses <code class="code-chip code-chip-xs">https://pigcode.ai</code> as-is; then confirm the key is pasted in full and starts with <code class="code-chip code-chip-xs">sk-pig-</code>.</p>`,
+          copy: `
+<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Copywriting: polish a tweet from angle to final</h3>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Goal and cost</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Goal: in Studio chat, start from 3 topic angles and polish one product tweet until it is ready to post.</p>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Cost: chat is billed per token; a few rounds of polishing use only a fraction of the $1 sign-up credit.</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Before you start</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>Log in to <code class="code-chip code-chip-xs">https://pigcode.ai/connect/studio</code> with your console account ($1 trial credit on sign-up).</li>
+<li>Have a one-line product intro and a clear target reader in mind.</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Steps</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>Open Studio chat and pick <code class="code-chip code-chip-xs">claude-fable-5</code> at the top.</li>
+<li>Feed context, ask for angles: "My product is a weekly-report generator for indie developers, readers are indie hackers — give me 3 tweet angles, each with a one-line hook."</li>
+<li>Pick one and draft: "Take angle 2 and write a tweet under 40 words, short sentences, no exclamation marks."</li>
+<li>Cut: "Delete every adjective, then trim another 20% — lose no information."</li>
+<li>Swap endings: "Give me 3 different call-to-action endings, one line each."</li>
+<li>Make it push back: "As someone scrolling past this tweet, tell me why you would not click."</li>
+<li>Apply the critique for a final pass, read it aloud, and replace any word that does not sound like you.</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Picking a model</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Default to <code class="code-chip code-chip-xs">claude-fable-5</code> — it holds tone best across many rounds of edits. Need 10 quick variants, switch to <code class="code-chip code-chip-xs">gemini-3.7-flash</code> for speed. Let <code class="code-chip code-chip-xs">gpt-5.6-sol</code> write one parallel version for contrast.</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">FAQ</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Q: switched computers and yesterday's chat is gone? A: Studio chat history lives in your browser's local storage and does not sync across devices — copy the final draft out as soon as it is done.</p>`,
+          poster: `
+<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Poster: iterate an event poster with the edit chain</h3>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Goal and cost</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Goal: start from one prompt with <code class="code-chip code-chip-xs">gpt-image-2</code>, iterate three small edit-chain passes, and land an event poster you can publish.</p>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Cost: images are $0.2 each; this walkthrough generates about 5, roughly $1 in total.</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Before you start</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>Log in to <code class="code-chip code-chip-xs">https://pigcode.ai/connect/studio</code> with your console account and open the studio's image mode.</li>
+<li>A balance of at least $1 (top up via Alipay/WeChat from 5 CNY; ¥1 credits as $1).</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Steps</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>Pick <code class="code-chip code-chip-xs">gpt-image-2</code> and write the first prompt: "Weekend coffee market poster, cream background, flat illustration, vertical layout, big title 'City Roast', generous whitespace."</li>
+<li>Generate 2 candidates and take the one with steadier layout and text into the edit chain.</li>
+<li>First edit changes one thing only: "Switch the background to deep green, keep everything else unchanged."</li>
+<li>Second edit adds information: "Add a smaller line under the title: '8.23–8.24 · Riverside Warehouse', lower in hierarchy than the title."</li>
+<li>Third edit polishes details: "Add a tiny coffee-cup icon in the bottom-right corner, leave the overall composition untouched."</li>
+<li>Compare the versions, then download the final full-size image from your generation records.</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Picking a model</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">For continuous editing, use <code class="code-chip code-chip-xs">gpt-image-2</code> — text-to-image, image-to-image and the edit chain are all supported, so it is the default for posters. For a style contrast, run the same prompt once through <code class="code-chip code-chip-xs">grok-imagine-image-2.0</code> (constrain aspect ratio in the prompt) or <code class="code-chip code-chip-xs">gemini-3-pro-image</code>, but keep the edits inside gpt-image-2.</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">FAQ</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Q: asked for one change and the whole image shifted? A: request a single change per edit and state "keep everything else unchanged"; if a pass goes wrong, step back to the previous version — every generation stays in your records.</p>`,
+          video: `
+<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Video: turn a poster into a 10-second promo</h3>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Goal and cost</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Goal: use a poster as the first frame and generate a 10-second 720p promo clip with <code class="code-chip code-chip-xs">grok-imagine-video-1.5</code>.</p>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Cost: video is $0.05 per second — $0.5 for one 10-second clip; budget about $1 to allow one retake.</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Before you start</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>A poster image (the one from the previous tutorial works).</li>
+<li>Log in to the studio, switch to video mode, balance of at least $1.</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Steps</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>Pick <code class="code-chip code-chip-xs">grok-imagine-video-1.5</code> and upload the poster as the first frame.</li>
+<li>Write a motion prompt: "Camera slowly pushes in on the title, steam rises from the cup, light sweeps from the top left, calm pacing, keep the text sharp."</li>
+<li>Set duration to 10 seconds and resolution to 720p (or spend $0.25 first on a 5-second 480p test of the motion).</li>
+<li>Submit the task; generation is asynchronous — you can leave the page and progress resumes when you return.</li>
+<li>Preview the result; if the motion drifts, dial it down in the prompt (e.g. "subtle push-in") and generate once more.</li>
+<li>Download the final mp4 — results are also saved to your account's cloud history by default.</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Picking a model</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Video currently offers the <code class="code-chip code-chip-xs">grok-imagine-video-1.5</code> series only, so no agonizing needed. The budget route: verify motion at 5 seconds 480p, then produce the final cut at 10 seconds 720p. More video models are on the way.</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">FAQ</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Q: the poster text blurs as soon as it moves? A: keep first-frame text big and sparse, state "keep the text sharp, subtle camera movement" in the prompt, and choose 720p; for text-heavy posters, stick to a gentle push-in.</p>`,
+          voice: `
+<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Voice-over: narrate the promo clip</h3>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Goal and cost</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Goal: write a narration for the 10-second promo, synthesize the voice with <code class="code-chip code-chip-xs">grok-voice-think-fast-2.0</code>, and merge audio and video locally for export.</p>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Cost: voice is $0.02 per thousand characters; a 10-second narration is about 25 words (150 characters), so even three takes cost well under $0.01.</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Before you start</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>A downloaded video (the 10-second promo from the previous tutorial works).</li>
+<li>ffmpeg installed (or any video editor) for merging audio and video.</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Steps</h4>
+<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+<li>Write the script first: 10 seconds fits roughly 20–25 English words — hook, facts, call to action — e.g. "This weekend, City Roast coffee market. August 23 to 24 at the Riverside Warehouse — thirty roasters, one long table."</li>
+<li>Open the Voice page from the Studio navigation, paste the script, and pick <code class="code-chip code-chip-xs">grok-voice-think-fast-2.0</code>.</li>
+<li>Hit generate and preview the full take in the browser.</li>
+<li>If the pacing is off, adjust punctuation and regenerate: periods add pauses, long sentences get split.</li>
+<li>Once satisfied, download the audio file into the same folder as the video.</li>
+<li>Merge with one command: <code class="code-chip code-chip-xs">ffmpeg -i promo.mp4 -i voice.mp3 -map 0:v -map 1:a -c:v copy -shortest final.mp4</code>.</li>
+<li>Play final.mp4 to check: narration slightly shorter than the footage feels most natural — if it runs long, go back to step 4 and cut words.</li>
+</ol>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">Picking a model</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Voice currently offers <code class="code-chip code-chip-xs">grok-voice-think-fast-2.0</code> — use it for both English and Chinese scripts. Real-time calls (gpt-realtime-2.1) and music generation (suno-v5) are being integrated and will appear in the model picker once live.</p>
+<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">FAQ</h4>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Q: can I add background music while I am at it? A: music generation (suno-v5) is still being integrated — for now, use a local music track and mix it with the narration in ffmpeg or your editor.</p>`,
+        },
         sections: {
           platform: 'Platform Setup',
+          studio: 'Using Studio',
+          tutorials: 'Hands-on Tutorials',
           tools: 'CLI Tooling',
           reference: 'Reference'
         },
@@ -1119,6 +1369,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           toc: 'On this page',
           description: 'Jump straight to onboarding steps, tool setup, and common issues.',
           gettingStarted: 'Getting Started',
+          tutorialsGroup: 'Hands-on Tutorials',
           studio: 'Using Studio',
           tools: 'CLI Tooling',
           reference: 'Reference',
@@ -1134,6 +1385,12 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             studioVideo: 'Video generation',
             studioAudio: 'Speech generation',
             studioGallery: 'Inspiration wall',
+            tutorials: 'Hands-on tutorials',
+            tutVibe: 'Vibe coding',
+            tutCopy: 'Copywriting',
+            tutPoster: 'Poster',
+            tutVideo: 'Video',
+            tutVoice: 'Voice-over',
             claudeCode: 'Claude Code',
             codexCli: 'Codex CLI',
             geminiCli: 'Gemini CLI',
