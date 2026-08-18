@@ -18,14 +18,15 @@
   <meta name="twitter:title" content="Pigcode 接入文档" />
   <meta name="twitter:description" content="平台开通、API Key 获取，以及各类 CLI 工具的端点配置与排查。" />
   <meta name="twitter:image" content="https://www.pigcode.ai/og-cover.jpg" />
-  <link href="tailwind.css?v=20260818-tutorials" rel="stylesheet" />
-  <link href="logo.png?v=20260818-tutorials" rel="icon" type="image/png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260818-tutorials" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260818-tutorials" />
+  <link href="tailwind.css?v=20260818-split" rel="stylesheet" />
+  <link href="logo.png?v=20260818-split" rel="icon" type="image/png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260818-split" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260818-split" />
   <link rel="canonical" href="https://www.pigcode.ai/docs.html" />
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link href="common.css?v=20260818-tutorials" rel="stylesheet" />
+  <script>(function () { var h = location.hash; if (/^#(studio-|tutorial)/.test(h)) location.replace('guide.html' + h); })();</script>
+  <link href="common.css?v=20260818-split" rel="stylesheet" />
   <style>
     .code-block {
       position: relative;
@@ -257,10 +258,7 @@
             <a href="#endpoint" data-i18n="docs.sidebar.links.endpoint" class="sidebar-link">确认端点地址</a>
             <a href="#usage" data-i18n="docs.sidebar.links.usage" class="sidebar-link">查看用量</a>
             <a href="#quick-config" data-i18n="docs.sidebar.links.quickConfig" class="sidebar-link">快速配置</a>
-            <a href="#studio-enter" data-i18n="docs.sidebar.links.studioEnter" class="sidebar-link">进入 Studio</a>
-            <a href="#studio-image" data-i18n="docs.sidebar.links.studioImage" class="sidebar-link">图片生成</a>
-            <a href="#studio-video" data-i18n="docs.sidebar.links.studioVideo" class="sidebar-link">视频生成</a>
-            <a href="#tutorials" data-i18n="docs.sidebar.links.tutorials" class="sidebar-link">实战教程</a>
+            <a href="guide.html" data-i18n="docs.sidebar.links.guidePage" class="sidebar-link">创作指南 →</a>
             <a href="#claude-code" data-i18n="docs.sidebar.links.claudeCode" class="sidebar-link">Claude Code</a>
             <a href="#codex-cli" data-i18n="docs.sidebar.links.codexCli" class="sidebar-link">Codex CLI</a>
             <a href="#gemini-cli" data-i18n="docs.sidebar.links.geminiCli" class="sidebar-link">Gemini CLI</a>
@@ -276,6 +274,11 @@
 
           <!-- 主内容区 -->
           <div class="flex-1 min-w-0 doc-surface-panel rounded-2xl p-6 md:p-10">
+
+            <div class="mb-10 rounded-2xl surface-card p-5 flex flex-wrap items-center justify-between gap-3">
+              <p class="text-sm text-slate-700 dark:text-slate-300" data-i18n="docs.guideBanner.text">找 Studio 使用说明与实战教程？它们已搬进独立的创作指南。</p>
+              <a href="guide.html" data-i18n="docs.guideBanner.link" class="text-custom-gold font-semibold text-sm hover:underline whitespace-nowrap">前往创作指南 →</a>
+            </div>
 
             <!-- ==================== 第一部分：平台操作 ==================== -->
             <section id="platform" class="mb-16">
@@ -399,195 +402,6 @@ export GOOGLE_GEMINI_BASE_URL="https://pigcode.ai/v1beta"</code></pre>
                       class="code-chip">~/.zshrc</code>，这样每次打开终端都会自动加载。
                   </p>
                 </div>
-              </div>
-            </section>
-
-            <!-- ==================== Studio 使用 ==================== -->
-            <section id="studio-guide" class="mb-16">
-              <h2 data-i18n="docs.sections.studio"
-                class="doc-section-heading text-2xl md:text-3xl font-semibold text-custom-ink dark:text-white mb-8 pb-4 border-b border-slate-200 dark:border-white/10">
-                Studio 使用</h2>
-
-              <div id="studio-enter" data-i18n-html="docs.studio.enter" class="mb-12 scroll-mt-20">
-                <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">进入 Studio</h3>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">访问 <a href="https://pigcode.ai/connect/studio" target="_top" class="text-custom-gold hover:underline font-semibold">pigcode.ai/connect/studio</a>，使用与控制台相同的账号登录即可，无需任何配置。对话、图片与视频创作和 API 共用同一份余额，消费明细可在控制台「日志」中查看。</p>
-              </div>
-
-              <div id="studio-chat" data-i18n-html="docs.studio.chat" class="mb-12 scroll-mt-20">
-                <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">对话</h3>
-                <ul class="list-disc ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
-                  <li>顶部选择<strong>分组</strong>与<strong>模型</strong>——分组对应价格页的渠道倍率，模型来自该分组的可用列表。</li>
-                  <li>回复为流式输出，支持推理过程（reasoning）展示与消息级操作（重试、复制等）。</li>
-                  <li>聊天记录保存在浏览器本地（localStorage），按浏览器隔离——换设备或清缓存不会同步，重要内容请自行留存。</li>
-                </ul>
-              </div>
-
-              <div id="studio-image" data-i18n-html="docs.studio.image" class="mb-12 scroll-mt-20">
-                <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">图片生成</h3>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">进入创作台（Studio 页内「创作」入口），计费 <strong>$0.2 / 张</strong>：</p>
-                <ul class="list-disc ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                  <li><strong>GPT Image 2</strong>——文生图、以图生图与编辑链，支持多张参考图连续编辑。</li>
-                  <li><strong>Grok Imagine 系列</strong>——文生图（暂不支持尺寸/质量参数，画幅用提示词约束）。</li>
-                  <li>生成记录保存在浏览器本地（IndexedDB），支持批量下载与删除；刷新页面任务自动恢复。</li>
-                </ul>
-              </div>
-
-              <div id="studio-video" data-i18n-html="docs.studio.video" class="mb-12 scroll-mt-20">
-                <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">视频生成</h3>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">当前提供 <strong>Grok Imagine 视频</strong>（更多视频模型陆续接入），支持文生视频与图生视频，时长可选 <strong>5 / 10 / 15 秒</strong>，计费 <strong>$0.05 / 秒</strong>（约 $0.25–$0.75 一条）：</p>
-                <ul class="list-disc ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                  <li>视频为异步生成，创建任务后可离开页面，回来自动恢复进度。</li>
-                  <li>图生视频：上传一张图作为首帧，配合提示词控制运动方向。</li>
-                </ul>
-                <div class="border-l-4 border-custom-gold bg-amber-50 dark:bg-amber-900/20 p-4 rounded-r-lg">
-                  <p class="text-sm text-slate-700 dark:text-slate-300"><strong>注意：</strong>生成完成的视频链接约 2 小时后过期，请及时下载保存。</p>
-                </div>
-              </div>
-
-              <div id="studio-audio" data-i18n-html="docs.studio.audio" class="mb-12 scroll-mt-20">
-                <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">语音生成</h3>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">文本转语音，当前可用 <strong>grok-voice-think-fast-2.0</strong>，计费 <strong>$0.02 / 千字符</strong>（一段 500 字口播约 $0.01）。输入文本、选择模型，生成后可在线播放与下载。</p>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed"><code class="code-chip">gpt-realtime-2.1</code> 与 <code class="code-chip">suno-v5</code>（音乐生成）正在接入中，上线后会直接出现在模型选择器里。</p>
-              </div>
-
-              <div id="studio-gallery" data-i18n-html="docs.studio.gallery" class="mb-12 scroll-mt-20">
-                <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">灵感墙</h3>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">Studio 内置公开案例库「灵感墙」：浏览各类风格的生成案例，看到喜欢的效果，一键把 Prompt 带入创作台，在此基础上改出自己的版本。</p>
-              </div>
-            </section>
-
-            <!-- ==================== 实战教程 ==================== -->
-            <section id="tutorials" class="mb-16">
-              <h2 data-i18n="docs.sections.tutorials"
-                class="doc-section-heading text-2xl md:text-3xl font-semibold text-custom-ink dark:text-white mb-8 pb-4 border-b border-slate-200 dark:border-white/10">
-                实战教程</h2>
-
-              <div id="tutorial-vibe" data-i18n-html="docs.tutorials.vibe" class="mb-12 scroll-mt-20">
-<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Vibe coding：把 Claude Code 接上 Pigcode</h3>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">目标与成本</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">目标：十分钟内把 Claude Code 切到 Pigcode 端点，并让它写出一个能跑的命令行小工具。</p>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">成本参考：对话按所选模型 token 计价，注册赠送的 $1 体验额度足够跑完全篇。</p>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">前置</h4>
-<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-<li>已注册 Pigcode 控制台账号（注册即送 $1 体验额度）。</li>
-<li>本机装有 Node.js v18+。</li>
-</ol>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">步骤</h4>
-<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-<li>安装 Claude Code：<code class="code-chip code-chip-xs">npm install -g @anthropic-ai/claude-code</code>。</li>
-<li>控制台左侧「令牌」→「创建令牌」，复制生成的 <code class="code-chip code-chip-xs">sk-pig-</code> 开头密钥（只显示一次）。</li>
-<li>终端里设两个环境变量：<code class="code-chip code-chip-xs">export ANTHROPIC_BASE_URL="https://pigcode.ai"</code> 与 <code class="code-chip code-chip-xs">export ANTHROPIC_API_KEY="sk-pig-xxxx"</code>。</li>
-<li>新建一个空目录并进入，运行 <code class="code-chip code-chip-xs">claude</code>，用 <code class="code-chip code-chip-xs">/model</code> 确认切到 <code class="code-chip code-chip-xs">claude-fable-5</code>。</li>
-<li>下第一个任务：「写一个命令行小工具 csv2md：读入 CSV 文件，输出 Markdown 表格，附一份 README」。</li>
-<li>让它自证：「造一个 3 行的测试 CSV，跑一遍，输出不对就修到对」。</li>
-<li>收尾用 <code class="code-chip code-chip-xs">/cost</code> 看本次消耗，控制台「日志」里能对上每笔明细。</li>
-</ol>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">模型怎么选</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Claude Code 里默认 <code class="code-chip code-chip-xs">claude-fable-5</code>，改代码与长会话最稳。想换工具链：Codex CLI 配 <code class="code-chip code-chip-xs">gpt-5.6-sol</code>（<code class="code-chip code-chip-xs">OPENAI_BASE_URL=https://pigcode.ai/v1</code>），Gemini CLI 配 <code class="code-chip code-chip-xs">gemini-3.7-flash</code>（<code class="code-chip code-chip-xs">GOOGLE_GEMINI_BASE_URL=https://pigcode.ai/v1beta</code>）。同一把钥匙、同一份余额，三条线随时切。</p>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">常见问题</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">问：请求报 401 或超时？答：先检查端点是否误加了 <code class="code-chip code-chip-xs">/v1</code>——Claude Code 走 Anthropic 协议，只用 <code class="code-chip code-chip-xs">https://pigcode.ai</code>；再确认密钥完整、以 <code class="code-chip code-chip-xs">sk-pig-</code> 开头。</p>
-              </div>
-
-              <div id="tutorial-copy" data-i18n-html="docs.tutorials.copy" class="mb-12 scroll-mt-20">
-<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">写文案：把一条推文从选题磨到成稿</h3>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">目标与成本</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">目标：在 Studio 对话里，从 3 个选题角度出发，把一条产品推文从初稿磨到能直接发。</p>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">成本参考：对话按所选模型 token 计价，几轮打磨只花掉 $1 体验额度的零头。</p>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">前置</h4>
-<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-<li>用控制台账号登录 <code class="code-chip code-chip-xs">https://pigcode.ai/connect/studio</code>（注册即送 $1 体验额度）。</li>
-<li>准备一句话产品介绍和目标读者画像。</li>
-</ol>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">步骤</h4>
-<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-<li>打开 Studio 对话，顶部模型选 <code class="code-chip code-chip-xs">claude-fable-5</code>。</li>
-<li>喂背景要选题：「产品是给独立开发者的周报生成器，读者是 indie hacker，给 3 个推文选题角度，各配一句开头钩子」。</li>
-<li>选定角度出初稿：「用第 2 个角度写一条 100 字以内的推文，短句，别用感叹号」。</li>
-<li>做减法：「删掉所有形容词，再压掉 20% 字数，信息一条不能丢」。</li>
-<li>换结尾：「给 3 个不同的行动号召结尾，各一句」。</li>
-<li>让它挑刺：「站在刷到这条推文的人的角度，说说你为什么不会点开」。</li>
-<li>按挑刺意见改出最后一版，通读一遍，把不像你口吻的词换掉。</li>
-</ol>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">模型怎么选</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">中文推文默认 <code class="code-chip code-chip-xs">claude-fable-5</code>，多轮改写里语气拿得最稳。要一口气铺 10 版备选，切 <code class="code-chip code-chip-xs">gemini-3.7-flash</code>，速度快。英文稿可以让 <code class="code-chip code-chip-xs">gpt-5.6-sol</code> 平行写一版对照。</p>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">常见问题</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">问：换了台电脑，昨天的对话不见了？答：Studio 聊天记录保存在浏览器本地，不跨设备同步，定稿请当场复制留存。</p>
-              </div>
-
-              <div id="tutorial-poster" data-i18n-html="docs.tutorials.poster" class="mb-12 scroll-mt-20">
-<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">画海报：编辑链迭代一张活动海报</h3>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">目标与成本</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">目标：用 <code class="code-chip code-chip-xs">gpt-image-2</code> 从一句提示词起步，经编辑链三轮小步迭代，拿到一张能直接发的活动海报。</p>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">成本参考：图像 $0.2 / 张，本篇约生成 5 张，合计约 $1。</p>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">前置</h4>
-<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-<li>用控制台账号登录 <code class="code-chip code-chip-xs">https://pigcode.ai/connect/studio</code>，进入创作台的图像模式。</li>
-<li>余额不低于 $1（充值支付宝/微信 5 元起，¥1 = $1 入账）。</li>
-</ol>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">步骤</h4>
-<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-<li>模型选 <code class="code-chip code-chip-xs">gpt-image-2</code>，写首版提示词：「周末咖啡市集海报，奶油底色，扁平插画，竖版构图，大标题『City Roast』，留白多一点」。</li>
-<li>生成 2 张候选，挑构图与文字更稳的一张进入编辑链。</li>
-<li>编辑第一轮只改一件事：「底色换成深绿色，其余全部保持不变」。</li>
-<li>第二轮补信息：「标题下方加一行小字『8.23–8.24 · 滨江仓库』，层级低于标题」。</li>
-<li>第三轮收细节：「右下角加一枚极小的咖啡杯图标，整体构图不动」。</li>
-<li>逐版对比，回生成记录把定稿原图下载保存。</li>
-</ol>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">模型怎么选</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">要连续编辑就用 <code class="code-chip code-chip-xs">gpt-image-2</code>——文生图、以图生图、编辑链都支持，做海报的默认答案。想对比另一种风格，同一提示词抽一版 <code class="code-chip code-chip-xs">grok-imagine-image-2.0</code>（画幅用提示词约束）或 <code class="code-chip code-chip-xs">gemini-3-pro-image</code>，但改图仍回到 gpt-image-2 里做。</p>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">常见问题</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">问：只想改一处，结果整张图都变了？答：一次只提一个改动，并在指令里写明「其余保持不变」；改崩了就回上一版重新编辑，每一步的生成记录都还在。</p>
-              </div>
-
-              <div id="tutorial-video" data-i18n-html="docs.tutorials.video" class="mb-12 scroll-mt-20">
-<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">出视频：把海报变成 10 秒宣传片</h3>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">目标与成本</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">目标：把一张海报设为首帧，用 <code class="code-chip code-chip-xs">grok-imagine-video-1.5</code> 生成一条 10 秒 720p 的动态宣传片。</p>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">成本参考：视频 $0.05 / 秒，10 秒一条 $0.5，预留一次重生成共约 $1。</p>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">前置</h4>
-<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-<li>一张海报图（上一篇的产出即可）。</li>
-<li>登录 Studio 创作台切到视频模式，余额不低于 $1。</li>
-</ol>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">步骤</h4>
-<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-<li>模型选 <code class="code-chip code-chip-xs">grok-imagine-video-1.5</code>，上传海报作为首帧。</li>
-<li>写运动提示词：「镜头缓慢推近标题，杯口蒸汽升起，光线从左上角扫过，节奏平缓，文字保持清晰」。</li>
-<li>时长选 10 秒，分辨率选 720p（也可先花 $0.25 用 5 秒 480p 试运动方向）。</li>
-<li>提交任务；视频为异步生成，可离开页面，回来自动恢复进度。</li>
-<li>预览成片，运动跑偏就把幅度写小（如「轻微推近」）再生成一次。</li>
-<li>定稿后下载 mp4，生成结果默认同时存入账号云端历史。</li>
-</ol>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">模型怎么选</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">视频当前只有 <code class="code-chip code-chip-xs">grok-imagine-video-1.5</code> 系列，不用纠结。省预算的路线是先 5 秒 480p 验证运动方向，对了再上 10 秒 720p 出正片。更多视频模型陆续接入中。</p>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">常见问题</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">问：海报上的文字一动就糊？答：首帧文字要大而少，提示词写明「文字保持清晰、镜头轻微移动」，并选 720p；文字密集的海报只做轻推近。</p>
-              </div>
-
-              <div id="tutorial-voice" data-i18n-html="docs.tutorials.voice" class="mb-12 scroll-mt-20">
-<h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">配人声：给宣传片配一段口播旁白</h3>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">目标与成本</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">目标：给 10 秒宣传片写一段旁白，用 <code class="code-chip code-chip-xs">grok-voice-think-fast-2.0</code> 合成人声，在本地把音画合并导出成片。</p>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">成本参考：语音 $0.02 / 千字符，一段 10 秒旁白约 60 字，试上三版也不到 $0.01。</p>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">前置</h4>
-<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-<li>一条已下载的视频（上一篇的 10 秒宣传片即可）。</li>
-<li>本机装有 ffmpeg（或任一剪辑软件）用于合并音画。</li>
-</ol>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">步骤</h4>
-<ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-<li>先写稿：10 秒约容纳 50–70 个中文字，按「一句钩子＋一句信息＋一句行动」写，如「这个周末，来 City Roast 咖啡市集：8 月 23 到 24 日，滨江仓库，三十家摊主到齐。」</li>
-<li>在 Studio 导航打开「语音」页，粘贴文稿，模型选 <code class="code-chip code-chip-xs">grok-voice-think-fast-2.0</code>。</li>
-<li>点生成，在线试听整段。</li>
-<li>节奏不对就改标点重生成：多用句号增加停顿，长句拆短。</li>
-<li>满意后下载音频文件，与视频放进同一目录。</li>
-<li>一条命令合并：<code class="code-chip code-chip-xs">ffmpeg -i promo.mp4 -i voice.mp3 -map 0:v -map 1:a -c:v copy -shortest final.mp4</code>。</li>
-<li>播放 final.mp4 检查：旁白比画面略短最自然，超长就回第 4 步删字。</li>
-</ol>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">模型怎么选</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">语音当前可用 <code class="code-chip code-chip-xs">grok-voice-think-fast-2.0</code>，中英文稿都直接用它。实时通话（gpt-realtime-2.1）与音乐生成（suno-v5）正在接入中，上线后会直接出现在模型选择器里。</p>
-<h4 class="text-base font-semibold text-custom-ink dark:text-slate-200 mt-6 mb-3">常见问题</h4>
-<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">问：能顺便加背景音乐吗？答：音乐生成（suno-v5）正在接入中，目前请用本地音乐素材，在 ffmpeg 或剪辑软件里与旁白混音。</p>
               </div>
             </section>
 
@@ -1117,25 +931,11 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
               <a href="#quick-config" data-i18n="docs.sidebar.links.quickConfig" class="sidebar-link">快速配置</a>
             </div>
 
-            <!-- Studio 使用 -->
-            <h3 data-i18n="docs.sidebar.studio" class="text-xs font-semibold text-custom-ink dark:text-slate-300 uppercase tracking-widest mb-3">Studio 使用</h3>
+            <!-- 创作指南 -->
+            <h3 data-i18n="docs.sidebar.creatorGuide" class="text-xs font-semibold text-custom-ink dark:text-slate-300 uppercase tracking-widest mb-3">创作指南</h3>
             <div class="space-y-1 mb-6">
-              <a href="#studio-enter" data-i18n="docs.sidebar.links.studioEnter" class="sidebar-link">进入 Studio</a>
-              <a href="#studio-chat" data-i18n="docs.sidebar.links.studioChat" class="sidebar-link">对话</a>
-              <a href="#studio-image" data-i18n="docs.sidebar.links.studioImage" class="sidebar-link">图片生成</a>
-              <a href="#studio-video" data-i18n="docs.sidebar.links.studioVideo" class="sidebar-link">视频生成</a>
-              <a href="#studio-audio" data-i18n="docs.sidebar.links.studioAudio" class="sidebar-link">语音生成</a>
-              <a href="#studio-gallery" data-i18n="docs.sidebar.links.studioGallery" class="sidebar-link">灵感墙</a>
-            </div>
-
-            <!-- 实战教程 -->
-            <h3 data-i18n="docs.sidebar.tutorialsGroup" class="text-xs font-semibold text-custom-ink dark:text-slate-300 uppercase tracking-widest mb-3">实战教程</h3>
-            <div class="space-y-1 mb-6">
-              <a href="#tutorial-vibe" data-i18n="docs.sidebar.links.tutVibe" class="sidebar-link">Vibe coding 上手</a>
-              <a href="#tutorial-copy" data-i18n="docs.sidebar.links.tutCopy" class="sidebar-link">写文案</a>
-              <a href="#tutorial-poster" data-i18n="docs.sidebar.links.tutPoster" class="sidebar-link">画海报</a>
-              <a href="#tutorial-video" data-i18n="docs.sidebar.links.tutVideo" class="sidebar-link">出视频</a>
-              <a href="#tutorial-voice" data-i18n="docs.sidebar.links.tutVoice" class="sidebar-link">配人声</a>
+              <a href="guide.html" data-i18n="docs.sidebar.links.guideStudio" class="sidebar-link">Studio 使用 →</a>
+              <a href="guide.html#tutorials" data-i18n="docs.sidebar.links.guideTutorials" class="sidebar-link">实战教程 →</a>
             </div>
 
             <!-- CLI 工具配置 -->
@@ -1252,9 +1052,9 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
       });
     });
   </script>
-<script src="i18n.js?v=20260818-tutorials"></script>
-  <script src="components.js?v=20260818-tutorials"></script>
-  <script src="shared.js?v=20260818-tutorials"></script>
+<script src="i18n.js?v=20260818-split"></script>
+  <script src="components.js?v=20260818-split"></script>
+  <script src="shared.js?v=20260818-split"></script>
 </body>
 
 </html>

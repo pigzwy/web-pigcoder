@@ -38,6 +38,7 @@
             pricing: '价格体系',
             enterprise: '企业版',
             docs: '开发者文档',
+            guide: '创作指南',
             api: 'API 参考',
             status: '故障排查',
             telegram: 'Telegram 频道',
@@ -306,6 +307,18 @@
             referenceTitle: '快速对照与排查'
           }
         },
+        guide: {
+          title: '创作指南 - Pigcode',
+          heroTitle: '创作指南',
+          heroDesc: 'Studio 五种创作的使用说明，加上五篇从接入到出片的实战教程——照着做，十分钟出第一件作品。',
+          toDocs: 'API 接入文档 →',
+          sidebarTitle: 'Guide Index',
+          sidebarDesc: 'Studio 使用说明与实战教程速查。'
+        },
+        guideBanner: {
+          text: '找 Studio 使用说明与实战教程？它们已搬进独立的创作指南。',
+          link: '前往创作指南 →'
+        },
         tutorials: {
           vibe: `
 <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Vibe coding：把 Claude Code 接上 Pigcode</h3>
@@ -439,6 +452,8 @@
           description: '快速定位接入步骤、工具配置与常见问题。',
           gettingStarted: '开始使用',
           tutorialsGroup: '实战教程',
+          creatorGuide: '创作指南',
+          devDocs: '开发者文档',
           studio: 'Studio 使用',
           tools: 'CLI 工具配置',
           reference: '参考',
@@ -460,6 +475,10 @@
             tutPoster: '画海报',
             tutVideo: '出视频',
             tutVoice: '配人声',
+            guidePage: '创作指南 →',
+            guideStudio: 'Studio 使用 →',
+            guideTutorials: '实战教程 →',
+            toDocs: 'API 接入与 CLI 配置 →',
             claudeCode: 'Claude Code',
             codexCli: 'Codex CLI',
             geminiCli: 'Gemini CLI',
@@ -969,6 +988,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             pricing: 'Channel Pricing',
             enterprise: 'Enterprise',
             docs: 'Developer Docs',
+            guide: 'Creator guide',
             api: 'API Reference',
             status: 'Troubleshooting',
             telegram: 'Telegram channel',
@@ -1237,6 +1257,18 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             referenceTitle: 'Quick Tables & Troubleshooting'
           }
         },
+        guide: {
+          title: 'Creator Guide - Pigcode',
+          heroTitle: 'Creator Guide',
+          heroDesc: 'How-to notes for all five Studio crafts, plus five hands-on tutorials from setup to finished work — follow along and ship your first piece in ten minutes.',
+          toDocs: 'API docs →',
+          sidebarTitle: 'Guide Index',
+          sidebarDesc: 'Studio how-tos and hands-on tutorials.'
+        },
+        guideBanner: {
+          text: 'Looking for Studio how-tos and tutorials? They moved to the Creator Guide.',
+          link: 'Open the Creator Guide →'
+        },
         tutorials: {
           vibe: `
 <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Vibe coding: hook Claude Code up to Pigcode</h3>
@@ -1370,6 +1402,8 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           description: 'Jump straight to onboarding steps, tool setup, and common issues.',
           gettingStarted: 'Getting Started',
           tutorialsGroup: 'Hands-on Tutorials',
+          creatorGuide: 'Creator guide',
+          devDocs: 'Developer docs',
           studio: 'Using Studio',
           tools: 'CLI Tooling',
           reference: 'Reference',
@@ -1391,6 +1425,10 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             tutPoster: 'Poster',
             tutVideo: 'Video',
             tutVoice: 'Voice-over',
+            guidePage: 'Creator guide →',
+            guideStudio: 'Using Studio →',
+            guideTutorials: 'Hands-on tutorials →',
+            toDocs: 'API & CLI setup →',
             claudeCode: 'Claude Code',
             codexCli: 'Codex CLI',
             geminiCli: 'Gemini CLI',
