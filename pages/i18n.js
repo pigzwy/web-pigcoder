@@ -1151,7 +1151,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 1 — Register and Sign In</h3>
             <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
               <li>Open the <a href="https://pigcode.ai" target="_top" class="text-custom-gold hover:underline font-semibold">console</a>.</li>
-              <li>Create an account with email or a third-party login such as GitHub or Google.</li>
+              <li>Create an account with email or a third-party login such as GitHub or Google — new accounts get $1 of free credit.</li>
               <li>After signing in, enter your personal dashboard.</li>
             </ol>
           `,
