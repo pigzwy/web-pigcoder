@@ -1921,6 +1921,36 @@ aside.doc-surface-panel {
   color: var(--pc-ink);
 }
 
+.constellation-center.is-gold svg {
+  color: #8a5f0a;
+}
+
+/* 工作台环的模态色瓦片：四种柔和功能色只做图标语义（对话/图像/视频/语音），
+   底色掺纸面白保持温度，不与金色强调冲突 */
+.constellation-tile.is-chat {
+  background: #edf3fe;
+  border-color: rgba(74, 125, 224, 0.42);
+}
+.constellation-tile.is-chat svg { color: #3565c4; }
+
+.constellation-tile.is-image {
+  background: #fdeeea;
+  border-color: rgba(226, 96, 70, 0.42);
+}
+.constellation-tile.is-image svg { color: #bf4c2b; }
+
+.constellation-tile.is-video {
+  background: #f1edfc;
+  border-color: rgba(124, 92, 224, 0.42);
+}
+.constellation-tile.is-video svg { color: #6247c0; }
+
+.constellation-tile.is-voice {
+  background: #e9f6f0;
+  border-color: rgba(47, 165, 124, 0.45);
+}
+.constellation-tile.is-voice svg { color: #1f7a5c; }
+
 .constellation-tile.is-sm {
   width: 2.4rem;
   height: 2.4rem;
