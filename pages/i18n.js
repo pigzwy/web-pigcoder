@@ -275,7 +275,7 @@
           },
           recharge: {
             q: '如何充值？支持什么支付方式？',
-            a: '在控制台充值，支持支付宝与微信支付，最低 5 元。余额按 ¥1 = $1 入账——本页所有 $ 单价都按 1:1 人民币支付，余额在 API 与 Studio 通用。'
+            a: '新用户注册即送 $1 体验额度。充值支持支付宝与微信支付，最低 5 元，余额按 ¥1 = $1 入账——本页所有 $ 单价都按 1:1 人民币支付，余额在 API 与 Studio 通用。'
           },
           model: {
             q: '支持哪些 AI 模型？',
@@ -349,7 +349,7 @@
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Step 1 — 注册与登录</h3>
             <ol class="list-decimal ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
               <li>访问 <a href="https://pigcode.ai" target="_top" class="text-custom-gold hover:underline font-semibold">控制台</a>。</li>
-              <li>使用邮箱或第三方账号（GitHub / Google）完成注册。</li>
+              <li>使用邮箱或第三方账号（GitHub / Google）完成注册，注册即送 $1 体验额度。</li>
               <li>登录后进入个人仪表盘。</li>
             </ol>
           `,
@@ -1078,7 +1078,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           },
           recharge: {
             q: 'How do I top up? Which payment methods are supported?',
-            a: 'Top up from the console with Alipay or WeChat Pay, starting from ¥5. Credits are added at ¥1 = $1 — every $ price on this page is paid 1:1 in RMB — and the balance is shared between the API and Studio.'
+            a: 'New accounts get $1 of free credit on sign-up. Top up with Alipay or WeChat Pay from ¥5. Credits are added at ¥1 = $1 — every $ price on this page is paid 1:1 in RMB — and the balance is shared between the API and Studio.'
           },
           model: {
             q: 'Which AI models are supported?',
