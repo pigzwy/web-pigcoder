@@ -1791,6 +1791,19 @@ aside.doc-surface-panel {
   background: rgba(232, 168, 37, 0.1);
 }
 
+/* 「接入中」模型 chip：可见但明显未就绪（虚线边 + 降透明度） */
+.model-chip.is-pending {
+  border-style: dashed;
+  opacity: 0.62;
+}
+
+.model-chip.is-pending em {
+  margin-left: 0.15rem;
+  color: var(--pc-muted);
+  font-style: normal;
+  font-size: 0.68rem;
+}
+
 /* ===== 模型目录页（models.html）===== */
 
 /* 厂商星轨：本页唯一的装饰装置——白色 squircle 图标块沿虚线轨道缓慢漂浮 */

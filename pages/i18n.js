@@ -89,6 +89,7 @@
         biz: {
           studioLink: '进入 Studio →',
           modelsLink: '浏览模型 →',
+          pending: '接入中',
           chat: { title: '旗舰对话模型，开箱即用', desc: '长上下文、深度推理与联网搜索——写文案、改方案、问问题，一个工作台全搞定。' },
           image: { title: '从提示词到成图，几秒钟', desc: '文生图与图像编辑，写实、插画、设计风一次到位——海报、封面、素材说要就要。' },
           video: { title: '文字一段，视频一条', desc: '文生视频与图生视频，运镜、光影交给模型，秒级出片。' },
@@ -98,7 +99,7 @@
             ai: '「一把钥匙，用遍全球模型。今天接入，五分钟出活。」——结论前置，数字说话，结尾给出行动指令。',
             input: '问点什么…'
           },
-          audioDemo: { meta: 'suno-v5 · 生成音乐' }
+          audioDemo: { meta: 'grok-voice-think-fast-2.0 · 语音合成' }
         },
         routing: {
           eyebrow: 'Vibe Coding',
@@ -260,7 +261,8 @@
           title: '创作计价（Studio）',
           description: 'Studio 与 API 共用同一份余额——对话按模型 token 计价，图像与视频按下方单价即用即扣，无套餐无门槛。',
           image: { title: '图像生成', desc: 'GPT Image 2 与 Grok Imagine 全系——文生图、以图生图与编辑链', unit: '每张' },
-          video: { title: '视频生成', desc: 'Grok Imagine 视频，支持 5 / 10 / 15 秒（约 ¥0.25–¥0.75 一条）——更多视频模型陆续接入', unit: '每秒' },
+          video: { title: '视频生成', desc: 'Grok Imagine 视频，支持 5 / 10 / 15 秒（约 $0.25–$0.75 一条）——更多视频模型陆续接入', unit: '每秒' },
+          audio: { title: '语音生成', desc: '文本转语音——一段 500 字口播约 $0.01；更多模型正在接入', unit: '每千字符' },
           chat: { title: '对话', desc: '按所选模型的 token 单价结算——单价见模型目录，渠道倍率见上表', value: 'Token', unit: '按量计' },
           note: '* 创作单价随上游调整可能变化，以控制台实时展示为准。'
         },
@@ -268,7 +270,7 @@
           title: '接入与计费问题',
           studioBilling: {
             q: 'Studio 里创作怎么计费？',
-            a: '与 API 共用同一份余额：图像 ¥0.2/张，视频 ¥0.05/秒（5/10/15 秒可选），对话按所选模型的 token 单价结算，用多少扣多少。'
+            a: '与 API 共用同一份余额：图像 $0.2/张，视频 $0.05/秒（5/10/15 秒可选），语音 $0.02/千字符，对话按所选模型的 token 单价结算，用多少扣多少。'
           },
           model: {
             q: '支持哪些 AI 模型？',
@@ -323,6 +325,7 @@
             studioChat: '对话',
             studioImage: '图片生成',
             studioVideo: '视频生成',
+            studioAudio: '语音生成',
             studioGallery: '灵感墙',
             claudeCode: 'Claude Code',
             codexCli: 'Codex CLI',
@@ -441,7 +444,7 @@ export GOOGLE_GEMINI_BASE_URL="https://pigcode.ai/v1beta"</code></pre>
           `,
           image: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">图片生成</h3>
-            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">进入创作台（Studio 页内「创作」入口），计费 <strong>¥0.2 / 张</strong>：</p>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">进入创作台（Studio 页内「创作」入口），计费 <strong>$0.2 / 张</strong>：</p>
             <ul class="list-disc ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
               <li><strong>GPT Image 2</strong>——文生图、以图生图与编辑链，支持多张参考图连续编辑。</li>
               <li><strong>Grok Imagine 系列</strong>——文生图（暂不支持尺寸/质量参数，画幅用提示词约束）。</li>
@@ -450,7 +453,7 @@ export GOOGLE_GEMINI_BASE_URL="https://pigcode.ai/v1beta"</code></pre>
           `,
           video: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">视频生成</h3>
-            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">当前提供 <strong>Grok Imagine 视频</strong>（更多视频模型陆续接入），支持文生视频与图生视频，时长可选 <strong>5 / 10 / 15 秒</strong>，计费 <strong>¥0.05 / 秒</strong>（约 ¥0.25–¥0.75 一条）：</p>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">当前提供 <strong>Grok Imagine 视频</strong>（更多视频模型陆续接入），支持文生视频与图生视频，时长可选 <strong>5 / 10 / 15 秒</strong>，计费 <strong>$0.05 / 秒</strong>（约 $0.25–$0.75 一条）：</p>
             <ul class="list-disc ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
               <li>视频为异步生成，创建任务后可离开页面，回来自动恢复进度。</li>
               <li>图生视频：上传一张图作为首帧，配合提示词控制运动方向。</li>
@@ -458,6 +461,11 @@ export GOOGLE_GEMINI_BASE_URL="https://pigcode.ai/v1beta"</code></pre>
             <div class="border-l-4 border-custom-gold bg-amber-50 dark:bg-amber-900/20 p-4 rounded-r-lg">
               <p class="text-sm text-slate-700 dark:text-slate-300"><strong>注意：</strong>生成完成的视频链接约 2 小时后过期，请及时下载保存。</p>
             </div>
+          `,
+          audio: `
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">语音生成</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">文本转语音，当前可用 <strong>grok-voice-think-fast-2.0</strong>，计费 <strong>$0.02 / 千字符</strong>（一段 500 字口播约 $0.01）。输入文本、选择模型，生成后可在线播放与下载。</p>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed"><code class="code-chip">gpt-realtime-2.1</code> 与 <code class="code-chip">suno-v5</code>（音乐生成）正在接入中，上线后会直接出现在模型选择器里。</p>
           `,
           gallery: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">灵感墙</h3>
@@ -879,6 +887,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         biz: {
           studioLink: 'Enter Studio →',
           modelsLink: 'Browse models →',
+          pending: 'coming soon',
           chat: { title: 'Flagship chat models, ready to go', desc: 'Long context, deep reasoning, and web search — drafts, rewrites, and answers in one workspace.' },
           image: { title: 'Prompt to picture in seconds', desc: 'Text-to-image and editing — photoreal, illustration, or design styles for posters, covers, and assets.' },
           video: { title: 'One paragraph in, one clip out', desc: 'Text-to-video and image-to-video — camera moves and lighting handled by the model.' },
@@ -888,7 +897,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             ai: '“One key opens every model. Plug in today, ship in five minutes.” — conclusion first, numbers over adjectives, end with a call to action.',
             input: 'Ask anything…'
           },
-          audioDemo: { meta: 'suno-v5 · generated track' }
+          audioDemo: { meta: 'grok-voice-think-fast-2.0 · speech synthesis' }
         },
         routing: {
           eyebrow: 'Vibe Coding',
@@ -1050,7 +1059,8 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           title: 'Creation pricing (Studio)',
           description: 'Studio shares one balance with the API — chat is billed by model tokens, image and video at the unit prices below. No plans, no minimums.',
           image: { title: 'Image generation', desc: 'GPT Image 2 and the Grok Imagine family — text-to-image, image-to-image, and edit chains', unit: 'per image' },
-          video: { title: 'Video generation', desc: 'Grok Imagine video in 5 / 10 / 15 s (≈ ¥0.25–¥0.75 per clip) — more video models coming', unit: 'per second' },
+          video: { title: 'Video generation', desc: 'Grok Imagine video in 5 / 10 / 15 s (≈ $0.25–$0.75 per clip) — more video models coming', unit: 'per second' },
+          audio: { title: 'Speech generation', desc: 'Text to speech — a 500-character read costs about $0.01; more models coming', unit: 'per 1k chars' },
           chat: { title: 'Chat', desc: "Billed by the selected model's token price — see the model catalog and channel ratios above", value: 'Token', unit: 'metered' },
           note: '* Creation prices may change with upstream adjustments; the live console is authoritative.'
         },
@@ -1058,7 +1068,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
           title: 'Integration & Billing Questions',
           studioBilling: {
             q: 'How is Studio creation billed?',
-            a: "One balance shared with the API: images at ¥0.2 each, video at ¥0.05 per second (5/10/15 s), chat by the selected model's token price. Pay only for what you use."
+            a: "One balance shared with the API: images at $0.2 each, video at $0.05 per second (5/10/15 s), speech at $0.02 per 1k characters, chat by the selected model's token price. Pay only for what you use."
           },
           model: {
             q: 'Which AI models are supported?',
@@ -1112,6 +1122,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             studioChat: 'Chat',
             studioImage: 'Image generation',
             studioVideo: 'Video generation',
+            studioAudio: 'Speech generation',
             studioGallery: 'Inspiration wall',
             claudeCode: 'Claude Code',
             codexCli: 'Codex CLI',
@@ -1222,7 +1233,7 @@ export GOOGLE_GEMINI_BASE_URL="https://pigcode.ai/v1beta"</code></pre></div>
           `,
           video: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Video generation</h3>
-            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Currently powered by <strong>Grok Imagine video</strong> (more models coming). Text-to-video and image-to-video at <strong>5 / 10 / 15 seconds</strong>, billed at <strong>¥0.05 per second</strong> (≈ ¥0.25–¥0.75 per clip):</p>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Currently powered by <strong>Grok Imagine video</strong> (more models coming). Text-to-video and image-to-video at <strong>5 / 10 / 15 seconds</strong>, billed at <strong>$0.05 per second</strong> (≈ $0.25–$0.75 per clip):</p>
             <ul class="list-disc ml-6 space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
               <li>Video jobs run asynchronously — leave the page and progress resumes when you return.</li>
               <li>Image-to-video: upload a first frame and steer the motion with your prompt.</li>
@@ -1230,6 +1241,11 @@ export GOOGLE_GEMINI_BASE_URL="https://pigcode.ai/v1beta"</code></pre></div>
             <div class="border-l-4 border-custom-gold bg-amber-50 dark:bg-amber-900/20 p-4 rounded-r-lg">
               <p class="text-sm text-slate-700 dark:text-slate-300"><strong>Note:</strong> finished video links expire after ~2 hours — download promptly.</p>
             </div>
+          `,
+          audio: `
+            <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Speech generation</h3>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-3">Text to speech with <strong>grok-voice-think-fast-2.0</strong>, billed at <strong>$0.02 per 1k characters</strong> (a 500-character read ≈ $0.01). Type, pick a model, then play or download the result.</p>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed"><code class="code-chip">gpt-realtime-2.1</code> and <code class="code-chip">suno-v5</code> (music) are being connected and will appear in the model picker once live.</p>
           `,
           gallery: `
             <h3 class="text-xl font-semibold text-custom-ink dark:text-white mb-4">Inspiration wall</h3>

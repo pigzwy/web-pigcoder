@@ -18,14 +18,14 @@
   <meta name="twitter:title" content="Pigcode 模型渠道与倍率" />
   <meta name="twitter:description" content="按 Provider 与工具场景查看渠道倍率、可用模型与能力标签。充值后按实际调用消耗。" />
   <meta name="twitter:image" content="https://pigcode.ai/logo.png" />
-  <link href="tailwind.css?v=20260818-studio-story" rel="stylesheet" />
-  <link href="logo.png?v=20260818-studio-story" rel="icon" type="image/png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260818-studio-story" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260818-studio-story" />
+  <link href="tailwind.css?v=20260818-usd-audio" rel="stylesheet" />
+  <link href="logo.png?v=20260818-usd-audio" rel="icon" type="image/png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260818-usd-audio" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260818-usd-audio" />
   <link rel="canonical" href="https://pigcode.ai/pricing.html" />
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link href="common.css?v=20260818-studio-story" rel="stylesheet" />
+  <link href="common.css?v=20260818-usd-audio" rel="stylesheet" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"支持哪些 AI 模型？","acceptedAnswer":{"@type":"Answer","text":"目前支持 Claude 全系列、GPT 和 Gemini。"}},{"@type":"Question","name":"可以退款吗？","acceptedAnswer":{"@type":"Answer","text":"可以。"}},{"@type":"Question","name":"如何获取技术支持？","acceptedAnswer":{"@type":"Answer","text":"查阅文档、加入用户群、通过工单联系客服。"}}]}</script>
 </head>
 
@@ -96,7 +96,7 @@
           <h2 data-i18n="pricing.studio.title" class="text-2xl md:text-3xl lg:text-4xl font-semibold font-headline text-custom-ink dark:text-white">创作计价（Studio）</h2>
           <p data-i18n="pricing.studio.description" class="mt-3 text-custom-muted dark:text-slate-400 leading-7">Studio 与 API 共用同一份余额——对话按模型 token 计价，图像与视频按下方单价即用即扣，无套餐无门槛。</p>
         </div>
-        <div class="grid gap-4 md:grid-cols-3">
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <div class="pricing-card channel-card rounded-2xl p-6">
             <div class="flex items-start justify-between gap-4">
               <div class="min-w-0">
@@ -104,7 +104,7 @@
                 <p data-i18n="pricing.studio.image.desc" class="mt-1 text-[0.8rem] leading-5 text-custom-muted dark:text-slate-400">GPT Image 2 与 Grok Imagine 全系——文生图、以图生图与编辑链</p>
               </div>
               <div class="channel-ratio-slim shrink-0 text-right">
-                <strong>¥0.2</strong>
+                <strong>$0.2</strong>
                 <span data-i18n="pricing.studio.image.unit">每张</span>
               </div>
             </div>
@@ -117,15 +117,30 @@
             <div class="flex items-start justify-between gap-4">
               <div class="min-w-0">
                 <h3 data-i18n="pricing.studio.video.title" class="text-[0.95rem] font-semibold leading-snug text-custom-ink dark:text-white">视频生成</h3>
-                <p data-i18n="pricing.studio.video.desc" class="mt-1 text-[0.8rem] leading-5 text-custom-muted dark:text-slate-400">Grok Imagine 视频，支持 5 / 10 / 15 秒（约 ¥0.25–¥0.75 一条）——更多视频模型陆续接入</p>
+                <p data-i18n="pricing.studio.video.desc" class="mt-1 text-[0.8rem] leading-5 text-custom-muted dark:text-slate-400">Grok Imagine 视频，支持 5 / 10 / 15 秒（约 $0.25–$0.75 一条）——更多视频模型陆续接入</p>
               </div>
               <div class="channel-ratio-slim shrink-0 text-right">
-                <strong>¥0.05</strong>
+                <strong>$0.05</strong>
                 <span data-i18n="pricing.studio.video.unit">每秒</span>
               </div>
             </div>
             <div class="mt-3 flex flex-wrap items-center gap-1.5">
               <span class="model-chip">grok-imagine-video-1.5</span>
+            </div>
+          </div>
+          <div class="pricing-card channel-card rounded-2xl p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div class="min-w-0">
+                <h3 data-i18n="pricing.studio.audio.title" class="text-[0.95rem] font-semibold leading-snug text-custom-ink dark:text-white">语音生成</h3>
+                <p data-i18n="pricing.studio.audio.desc" class="mt-1 text-[0.8rem] leading-5 text-custom-muted dark:text-slate-400">文本转语音——一段 500 字口播约 $0.01；更多模型正在接入</p>
+              </div>
+              <div class="channel-ratio-slim shrink-0 text-right">
+                <strong>$0.02</strong>
+                <span data-i18n="pricing.studio.audio.unit">每千字符</span>
+              </div>
+            </div>
+            <div class="mt-3 flex flex-wrap items-center gap-1.5">
+              <span class="model-chip">grok-voice-think-fast-2.0</span>
             </div>
           </div>
           <div class="pricing-card channel-card rounded-2xl p-6">
@@ -250,10 +265,10 @@
     }
   </script>
 
-  <script src="i18n.js?v=20260818-studio-story"></script>
-  <script src="components.js?v=20260818-studio-story"></script>
-  <script src="pricing-cards.js?v=20260818-studio-story"></script>
-  <script src="shared.js?v=20260818-studio-story"></script>
+  <script src="i18n.js?v=20260818-usd-audio"></script>
+  <script src="components.js?v=20260818-usd-audio"></script>
+  <script src="pricing-cards.js?v=20260818-usd-audio"></script>
+  <script src="shared.js?v=20260818-usd-audio"></script>
 </body>
 
 </html>
