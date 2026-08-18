@@ -83,7 +83,7 @@
         },
         stats: {
           models: '收录模型，创作与调用一站完成',
-          modalities: '大业务：Vibe coding · 对话 · 图像 · 视频 · 语音',
+          modalities: 'Vibe coding · 对话 · 图像 · 视频 · 语音',
           protocols: '协议兼容 OpenAI / Anthropic / Gemini',
           key: '一个密钥通行全部模型渠道'
         },
@@ -886,7 +886,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         },
         stats: {
           models: 'models — create and call in one place',
-          modalities: 'lines of business: vibe coding · chat · image · video · audio',
+          modalities: 'vibe coding · chat · image · video · audio',
           protocols: 'Protocols: OpenAI, Anthropic & Gemini',
           key: 'One key across everything'
         },
