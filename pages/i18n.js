@@ -18,6 +18,7 @@
         header: {
           console: '控制台',
           studio: 'Studio',
+          home: 'Pigcode 首页',
           switchToEnglish: '切换到英文',
           switchToChinese: '切换到中文',
           switchToLight: '切换到浅色模式',
@@ -61,6 +62,7 @@
       },
       index: {
         title: 'Pigcode - 一把钥匙，用遍全球模型',
+        description: 'Pigcode：一把钥匙，用遍全球模型。Vibe coding、对话、图像、视频、语音五大业务共用一个账户、一份余额，透明计价，不锁平台。',
         hero: {
           badge: 'AI Model Router / API Gateway',
           title: '<span class="brand-emphasis">一把钥匙</span>，用遍全球模型',
@@ -235,6 +237,7 @@
       },
       pricing: {
         title: '价格 - Pigcode',
+        description: 'Pigcode 模型渠道与倍率、Studio 创作单价与充值说明。最终权益以控制台实时配置为准。',
         hero: {
           badge: '模型渠道与倍率',
           title: '透明模型倍率与渠道能力',
@@ -295,6 +298,7 @@
       },
       docs: {
         title: '技术文档 - Pigcode',
+        description: 'Pigcode 接入文档：平台开通、API Key 获取，以及 Claude Code、Codex CLI、Gemini CLI、OpenCode、Droid CLI、CC Switch 的配置与常见排查。',
         hero: {
           badge: 'Documentation',
           title: 'Pigcode 接入文档',
@@ -310,6 +314,7 @@
         },
         guide: {
           title: '创作指南 - Pigcode',
+          description: 'Pigcode 创作指南：Studio 对话、图像、视频与语音的使用说明，以及五篇从接入到出片的实战教程。',
           heroTitle: '创作指南',
           heroDesc: 'Studio 五种创作的使用说明，加上五篇从接入到出片的实战教程——照着做，十分钟出第一件作品。',
           toDocs: 'API 接入文档 →',
@@ -908,6 +913,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
       },
       models: {
         title: '模型目录 - Pigcode',
+        description: 'Pigcode 模型目录：60+ 厂商、5,000+ 模型的上下文、能力标签与模态，支持检索对比。',
         hero: {
           badge: '模型目录',
           title: '<span>全球模型元数据</span> <span class="brand-emphasis">一览无余</span>',
@@ -921,7 +927,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         filters: {
           title: '筛选',
           search: '搜索模型',
-          searchPlaceholder: '搜索模型名或 ID…',
+          searchPlaceholder: '搜索模型名、ID 或厂商…',
           type: '类型',
           vendor: '厂商',
           vendorSearchPlaceholder: '搜索厂商…',
@@ -954,6 +960,48 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         empty: '没有匹配的模型，试试放宽筛选条件。',
         note: '* 本站实际可用模型与倍率以控制台实时配置为准，详见',
         noteLink: '价格页'
+      },
+      privacy: {
+        title: '隐私政策 - Pigcode',
+        description: 'Pigcode 隐私政策：我们收集什么、创作内容如何存储、云端历史的关闭方式、数据删除与联系渠道。',
+        kicker: 'Privacy Policy',
+        h1: '隐私政策',
+        effective: '生效日期：2026 年 8 月 18 日 · 本政策适用于 Pigcode 网站、API 服务及 Pigcode Studio',
+        s1Title: '一、我们收集什么',
+        s1: '<ul class="list-disc ml-6 space-y-2"><li><strong>账号信息</strong>：注册邮箱或第三方登录（GitHub / Google）提供的基础资料。</li><li><strong>计费信息</strong>：充值记录、余额与消费明细。</li><li><strong>调用日志</strong>：API 与 Studio 请求的模型、用量、状态与时间，用于计费、限流与故障排查。</li></ul>',
+        s2Title: '二、你的创作内容',
+        s2: '<ul class="list-disc ml-6 space-y-2"><li><strong>对话记录</strong>：仅保存在你的浏览器本地（localStorage），我们的服务器不留存对话内容副本；清除浏览器数据或更换设备后不可恢复。</li><li><strong>图像与视频生成结果</strong>：默认保存到你的账号云端历史，便于跨设备找回；你可以在 Studio 设置中随时关闭云端保存，关闭后结果仅存于浏览器本地。</li><li><strong>作品分享</strong>：仅在你显式点击分享时才会生成公开链接，链接可随时撤销；分享页不被搜索引擎索引。</li></ul>',
+        s3Title: '三、第三方处理',
+        s3: '<p>为完成生成，你的请求内容会转发至所选模型的上游服务商（如 OpenAI、Anthropic、Google、xAI 等），其处理行为受各自隐私政策约束。我们不会向任何第三方出售你的个人信息或创作内容。</p>',
+        s4Title: '四、Cookie 与本地存储',
+        s4: '<p>我们使用浏览器本地存储保存你的主题、语言偏好与登录态；不使用第三方广告追踪 Cookie。</p>',
+        s5Title: '五、数据删除与你的权利',
+        s5: '<p>你可以随时删除云端历史中的单条或全部生成记录；如需注销账号或删除全部相关数据，请通过 <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram 频道</a> 联系我们，我们将在核实身份后处理。</p>',
+        s6Title: '六、政策更新',
+        s6: '<p>本政策更新时将修改本页的生效日期；重大变更会在网站显著位置提示。继续使用服务即视为接受更新后的政策。</p>'
+      },
+      terms: {
+        title: '服务条款 - Pigcode',
+        description: 'Pigcode 服务条款：服务范围、计费与退款、用户内容权属、可接受使用与免责说明。',
+        kicker: 'Terms of Service',
+        h1: '服务条款',
+        effective: '生效日期：2026 年 8 月 18 日 · 使用 Pigcode 网站、API 服务或 Pigcode Studio 即表示你同意以下条款',
+        s1Title: '一、服务内容',
+        s1: '<p>Pigcode 提供统一的 AI 模型接入服务，包括：兼容 OpenAI / Anthropic / Gemini 协议的 API 网关，以及提供对话、图像、视频与语音创作能力的 Studio 工作台。实际可用模型、渠道与倍率以控制台实时配置为准。</p>',
+        s2Title: '二、账户与安全',
+        s2: '<ul class="list-disc ml-6 space-y-2"><li>你需要妥善保管账号与 API Key；因保管不当造成的调用消耗由账户持有人承担。</li><li>发现异常消耗请立即在控制台重置密钥并联系我们。</li></ul>',
+        s3Title: '三、计费与余额',
+        s3: '<ul class="list-disc ml-6 space-y-2"><li>服务按<strong>美元（$）</strong>计价，按实际用量从充值余额中扣除：对话按模型 token 单价与渠道倍率结算，图像、视频、语音按公示单价结算。</li><li>充值支持支付宝与微信支付；充值汇率与最低充值金额以控制台充值页实时公示为准。</li><li>单价与倍率可能随上游调整而变化，以控制台实时展示为准；已发生的消费不受后续调价影响。</li></ul>',
+        s4Title: '四、退款',
+        s4: '<p>未消费的充值余额支持退款：请通过 <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram 频道</a> 联系我们，说明账号与退款金额，核实后原路退回；已消费部分按实际用量结算，不予退还。</p>',
+        s5Title: '五、你的内容与权属',
+        s5: '<ul class="list-disc ml-6 space-y-2"><li>你通过本服务生成的内容，在法律允许的范围内归你所有；商业使用请自行确认所用模型上游的许可条款。</li><li>为提供服务（云端历史、分享链接等），你授予我们对相关内容进行存储与传输的必要许可；该许可随内容删除而终止。</li><li>你对输入与生成内容的合法性负责。</li></ul>',
+        s6Title: '六、可接受使用',
+        s6: '<p>禁止利用本服务从事违法活动、生成侵权或有害内容、规避安全与限流机制、转售未经授权的访问。违反者我们有权限制或终止服务，剩余余额按第四条处理。</p>',
+        s7Title: '七、可用性与责任限制',
+        s7: '<ul class="list-disc ml-6 space-y-2"><li>上游模型的可用性、质量与内容由各服务商决定，我们不对生成结果的准确性作担保；服务按“现状”提供。</li><li>在法律允许的最大范围内，我们对间接损失不承担责任；累计责任以你过去三个月实际支付的费用为限。</li></ul>',
+        s8Title: '八、条款变更与联系',
+        s8: '<p>条款更新时将修改本页生效日期，重大变更会在网站显著位置提示。任何问题请通过 <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram 频道</a> 联系我们。</p>'
       }
     },
     'en-US': {
@@ -969,6 +1017,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         header: {
           console: 'Console',
           studio: 'Studio',
+          home: 'Pigcode home',
           switchToEnglish: 'Switch to English',
           switchToChinese: 'Switch to Chinese',
           switchToLight: 'Switch to Light Mode',
@@ -1012,6 +1061,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
       },
       index: {
         title: 'Pigcode - One key opens every model',
+        description: 'Pigcode: one key opens every model. Vibe coding, chat, image, video, and speech share one account and one balance — transparent pricing, no lock-in.',
         hero: {
           badge: 'AI Model Router / API Gateway',
           title: '<span class="brand-emphasis">One key</span> opens every model.',
@@ -1186,6 +1236,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
       },
       pricing: {
         title: 'Pricing - Pigcode',
+        description: 'Pigcode channel ratios, Studio unit prices, and top-up notes. Live entitlements follow the console.',
         hero: {
           badge: 'Model Channels & Ratios',
           title: 'Transparent model ratios and channel capabilities',
@@ -1246,6 +1297,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
       },
       docs: {
         title: 'Documentation - Pigcode',
+        description: 'Pigcode docs: account setup, API keys, and configuration for Claude Code, Codex CLI, Gemini CLI, OpenCode, Droid CLI, and CC Switch.',
         hero: {
           badge: 'Documentation',
           title: 'Pigcode Integration Docs',
@@ -1261,6 +1313,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         },
         guide: {
           title: 'Creator Guide - Pigcode',
+          description: 'Pigcode creator guide: Studio chat, image, video, and speech, plus five tutorials from setup to a finished piece.',
           heroTitle: 'Creator Guide',
           heroDesc: 'How-to notes for all five Studio crafts, plus five hands-on tutorials from setup to finished work — follow along and ship your first piece in ten minutes.',
           toDocs: 'API docs →',
@@ -1842,6 +1895,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
       },
       models: {
         title: 'Model Catalog - Pigcode',
+        description: 'Pigcode model catalog: context, capabilities, and modalities for 60+ vendors and 5,000+ models.',
         hero: {
           badge: 'Model Catalog',
           title: '<span>Every model in the world, </span><span class="brand-emphasis">at a glance</span>',
@@ -1855,7 +1909,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         filters: {
           title: 'Filters',
           search: 'Search models',
-          searchPlaceholder: 'Search name or model ID…',
+          searchPlaceholder: 'Search name, ID, or vendor…',
           type: 'Modality',
           vendor: 'Vendor',
           vendorSearchPlaceholder: 'Search vendor…',
@@ -1888,6 +1942,48 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
         empty: 'No matching models. Try relaxing the filters.',
         note: '* Models and ratios actually available on this site follow the live console. See the',
         noteLink: 'pricing page'
+      },
+      privacy: {
+        title: 'Privacy Policy - Pigcode',
+        description: 'Pigcode privacy policy: what we collect, how creations are stored, how to turn off cloud history, and how to delete your data.',
+        kicker: 'Privacy Policy',
+        h1: 'Privacy Policy',
+        effective: 'Effective 18 August 2026 · This policy covers the Pigcode website, API, and Pigcode Studio',
+        s1Title: '1. What we collect',
+        s1: '<ul class="list-disc ml-6 space-y-2"><li><strong>Account data</strong>: email used to register, or basic profile from GitHub / Google sign-in.</li><li><strong>Billing data</strong>: top-ups, balance, and usage charges.</li><li><strong>Request logs</strong>: model, usage, status, and time for API and Studio calls — used for billing, rate limits, and debugging.</li></ul>',
+        s2Title: '2. Your creations',
+        s2: '<ul class="list-disc ml-6 space-y-2"><li><strong>Chat history</strong>: kept only in your browser (localStorage). We do not store a server-side copy; clearing site data or switching devices cannot restore it.</li><li><strong>Image and video outputs</strong>: saved to your account cloud history by default so you can reopen them on another device. You can turn cloud save off in Studio settings; outputs then stay in the browser only.</li><li><strong>Sharing</strong>: a public link is created only when you explicitly share, and you can revoke it at any time. Share pages are not indexed by search engines.</li></ul>',
+        s3Title: '3. Third-party processing',
+        s3: '<p>To generate a result, your request is forwarded to the upstream provider of the model you chose (for example OpenAI, Anthropic, Google, or xAI). Their handling is governed by their own privacy policies. We do not sell your personal data or creations to anyone.</p>',
+        s4Title: '4. Cookies and local storage',
+        s4: '<p>We use browser storage for theme, language, and sign-in state. We do not use third-party advertising cookies.</p>',
+        s5Title: '5. Deletion and your rights',
+        s5: '<p>You can delete individual cloud-history items or clear them all at any time. To close your account or erase remaining data, contact us via the <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram channel</a>. We will act after we verify the request.</p>',
+        s6Title: '6. Policy updates',
+        s6: '<p>When this policy changes we update the effective date on this page. Material changes will also be flagged prominently on the site. Continued use means you accept the updated policy.</p>'
+      },
+      terms: {
+        title: 'Terms of Service - Pigcode',
+        description: 'Pigcode terms of service: scope, billing and refunds, ownership of your content, acceptable use, and liability limits.',
+        kicker: 'Terms of Service',
+        h1: 'Terms of Service',
+        effective: 'Effective 18 August 2026 · Using the Pigcode website, API, or Pigcode Studio means you agree to these terms',
+        s1Title: '1. The service',
+        s1: '<p>Pigcode provides unified access to AI models: an API gateway compatible with the OpenAI, Anthropic, and Gemini protocols, and Studio for chat, image, video, and speech. Models, channels, and ratios follow the live console.</p>',
+        s2Title: '2. Account and security',
+        s2: '<ul class="list-disc ml-6 space-y-2"><li>Keep your account and API keys safe. Usage caused by leaked credentials is the account holder\'s responsibility.</li><li>If you see unexpected usage, rotate the key in the console immediately and contact us.</li></ul>',
+        s3Title: '3. Billing and balance',
+        s3: '<ul class="list-disc ml-6 space-y-2"><li>Prices are in <strong>US dollars ($)</strong> and are deducted from your top-up balance: chat by model token price and channel ratio; image, video, and speech by the published unit prices.</li><li>Top-ups accept Alipay and WeChat Pay. FX and minimum amounts follow the live console top-up page.</li><li>Unit prices and ratios may change with upstream costs; the console is authoritative. Charges already incurred are not retroactively adjusted.</li></ul>',
+        s4Title: '4. Refunds',
+        s4: '<p>Unused top-up balance can be refunded. Contact us via the <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram channel</a> with your account and amount. After verification we refund the original payment path. Used balance is settled at actual usage and is not refunded.</p>',
+        s5Title: '5. Your content',
+        s5: '<ul class="list-disc ml-6 space-y-2"><li>Content you generate through the service is yours to the extent the law allows. For commercial use, check the upstream model\'s license yourself.</li><li>To operate features such as cloud history and share links, you grant us a limited license to store and transmit that content. The license ends when you delete the content.</li><li>You are responsible for the lawfulness of what you input and generate.</li></ul>',
+        s6Title: '6. Acceptable use',
+        s6: '<p>Do not use the service for illegal activity, infringing or harmful content, bypassing safety or rate limits, or reselling unauthorized access. We may limit or terminate service for violations; remaining balance is handled under section 4.</p>',
+        s7Title: '7. Availability and liability',
+        s7: '<ul class="list-disc ml-6 space-y-2"><li>Upstream availability, quality, and outputs are controlled by each provider. We do not warrant accuracy. The service is provided as is.</li><li>To the fullest extent allowed by law we are not liable for indirect loss. Aggregate liability is capped at the fees you actually paid in the preceding three months.</li></ul>',
+        s8Title: '8. Changes and contact',
+        s8: '<p>When these terms change we update the effective date. Material changes will be flagged on the site. Questions: <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram channel</a>.</p>'
       }
     }
   };
@@ -2009,6 +2105,10 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
 
   function apply(root) {
     document.documentElement.lang = currentLocale;
+    var ogLocale = document.querySelector('meta[property="og:locale"]');
+    if (ogLocale) {
+      ogLocale.setAttribute('content', currentLocale === 'zh-CN' ? 'zh_CN' : 'en_US');
+    }
     applyHtml(root);
     applyText(root);
     applyAttributes(root);

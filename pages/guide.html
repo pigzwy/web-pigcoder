@@ -4,8 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <script src="boot.js?v=20260820-reviewfix"></script>
   <title data-i18n="docs.guide.title">创作指南 - Pigcode</title>
-  <meta name="description" content="Pigcode 创作指南：Studio 对话、图像、视频与语音的使用说明，以及五篇从接入到出片的实战教程。" />
+  <meta name="description" data-i18n-attr="content:docs.guide.description" content="Pigcode 创作指南：Studio 对话、图像、视频与语音的使用说明，以及五篇从接入到出片的实战教程。" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Pigcode 创作指南" />
   <meta property="og:description" content="Studio 使用说明与五篇实战教程——照着做，十分钟出第一件作品。" />
@@ -18,14 +19,14 @@
   <meta name="twitter:title" content="Pigcode 创作指南" />
   <meta name="twitter:description" content="Studio 使用说明与五篇实战教程。" />
   <meta name="twitter:image" content="https://www.pigcode.ai/og-cover.jpg" />
-  <link href="tailwind.css?v=20260818-linktext" rel="stylesheet" />
-  <link href="logo.png?v=20260818-linktext" rel="icon" type="image/png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260818-linktext" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260818-linktext" />
+  <link href="tailwind.css?v=20260820-reviewfix" rel="stylesheet" />
+  <link href="logo.png?v=20260820-reviewfix" rel="icon" type="image/png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260820-reviewfix" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260820-reviewfix" />
   <link rel="canonical" href="https://www.pigcode.ai/guide.html" />
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link href="common.css?v=20260818-linktext" rel="stylesheet" />
+  <link href="common.css?v=20260820-reviewfix" rel="stylesheet" />
   <style>
     .code-block {
       position: relative;
@@ -230,9 +231,9 @@
           </span>
           <span class="constellation-dot" style="left:36%;top:14%;--d:1.35"><span class="constellation-pill">prompt</span></span>
           <span class="constellation-dot" style="left:86%;top:48%;--d:1.2"><span class="constellation-pill">Grok</span></span>
-          <span class="constellation-dot" style="left:42%;top:72%;--d:1.2"><span class="constellation-pill">TTS</span></span>
-          <span class="constellation-dot" style="left:24%;top:80%;--d:1.25"><span class="constellation-pill is-gold">10s 出片</span></span>
-          <span class="constellation-dot" style="left:58%;top:86%;--d:1.45"><span class="constellation-pill">Seedance 2.0</span></span>
+          <span class="constellation-dot" style="left:44%;top:62%;--d:1.2"><span class="constellation-pill">TTS</span></span>
+          <span class="constellation-dot" style="left:20%;top:84%;--d:1.25"><span class="constellation-pill is-gold">10s 出片</span></span>
+          <span class="constellation-dot" style="left:72%;top:88%;--d:1.45"><span class="constellation-pill">Seedance 2.0</span></span>
           <span class="constellation-dot" style="left:14%;top:40%;--d:1.55">
             <span class="constellation-tile is-sm is-voice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6" /><path d="M10.2 9l5 3-5 3z" fill="currentColor" stroke="none" /></svg></span>
           </span>
@@ -559,7 +560,9 @@
             var code = block.querySelector('code');
             if (!code) return;
             var text = code.textContent;
-            navigator.clipboard.writeText(text).then(function () {
+            var copyFn = window.PigcodeCopy || (navigator.clipboard && navigator.clipboard.writeText.bind(navigator.clipboard));
+            if (!copyFn) return;
+            Promise.resolve(copyFn(text)).then(function () {
               btn.classList.add('copied');
               btn.setAttribute('aria-label', copiedLabel);
               btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">check</span>';
@@ -568,7 +571,7 @@
                 btn.setAttribute('aria-label', copyLabel);
                 btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">content_copy</span>';
               }, 1500);
-            });
+            }).catch(function () {});
           });
         });
       }
@@ -595,9 +598,9 @@
       });
     });
   </script>
-<script src="i18n.js?v=20260818-linktext"></script>
-  <script src="components.js?v=20260818-linktext"></script>
-  <script src="shared.js?v=20260818-linktext"></script>
+<script src="i18n.js?v=20260820-reviewfix"></script>
+  <script src="components.js?v=20260820-reviewfix"></script>
+  <script src="shared.js?v=20260820-reviewfix"></script>
 </body>
 
 </html>

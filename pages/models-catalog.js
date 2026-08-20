@@ -162,7 +162,7 @@
     if (window.PigcodeI18n && typeof window.PigcodeI18n.getLocale === 'function') {
       return window.PigcodeI18n.getLocale();
     }
-    return document.documentElement.lang === 'en' ? 'en-US' : 'zh-CN';
+    return String(document.documentElement.lang || '').indexOf('en') === 0 ? 'en-US' : 'zh-CN';
   }
 
   function labels() {
@@ -237,7 +237,8 @@
         if (mcaps.indexOf(caps[i]) === -1) return false;
       }
       if (q) {
-        var hay = (m.name + ' ' + m.id + ' ' + m.slug + ' ' + (m.alias || []).join(' ')).toLowerCase();
+        var intro = m.intro ? ((m.intro.zh || '') + ' ' + (m.intro.en || '')) : '';
+        var hay = (m.name + ' ' + m.id + ' ' + m.slug + ' ' + (m.vendor || '') + ' ' + intro + ' ' + (m.alias || []).join(' ')).toLowerCase();
         if (hay.indexOf(q) === -1) return false;
       }
       return true;
@@ -440,13 +441,24 @@
     renderCards();
   }
 
+  function debounce(fn, ms) {
+    var timer;
+    return function () {
+      var args = arguments;
+      var ctx = this;
+      clearTimeout(timer);
+      timer = setTimeout(function () { fn.apply(ctx, args); }, ms);
+    };
+  }
+
   function bind() {
     var search = document.getElementById('model-search');
     if (search) {
-      search.addEventListener('input', function () {
+      var onSearch = debounce(function () {
         state.search = search.value;
         resetLimitAndRender();
-      });
+      }, 180);
+      search.addEventListener('input', onSearch);
     }
     var vendorSearch = document.getElementById('vendor-search');
     if (vendorSearch) {

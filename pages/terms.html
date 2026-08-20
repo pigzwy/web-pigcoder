@@ -4,13 +4,14 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>服务条款 - Pigcode</title>
-  <meta name="description" content="Pigcode 服务条款：服务范围、计费与退款、用户内容权属、可接受使用与免责说明。" />
-  <link href="tailwind.css?v=20260818-linktext" rel="stylesheet" />
-  <link href="logo.png?v=20260818-linktext" rel="icon" type="image/png" />
+  <script src="boot.js?v=20260820-reviewfix"></script>
+  <title data-i18n="terms.title">服务条款 - Pigcode</title>
+  <meta name="description" data-i18n-attr="content:terms.description" content="Pigcode 服务条款：服务范围、计费与退款、用户内容权属、可接受使用与免责说明。" />
+  <link href="tailwind.css?v=20260820-reviewfix" rel="stylesheet" />
+  <link href="logo.png?v=20260820-reviewfix" rel="icon" type="image/png" />
   <link rel="canonical" href="https://www.pigcode.ai/terms.html" />
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link href="common.css?v=20260818-linktext" rel="stylesheet" />
+  <link href="common.css?v=20260820-reviewfix" rel="stylesheet" />
   <!-- Cloudflare Web Analytics（隐私友好，无 Cookie） -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "87d92ae2a66042e49565b2e49e0ef4d1"}'></script>
 </head>
@@ -24,64 +25,65 @@
       <div class="surface-gradient-main"></div>
       <div class="section-shell-narrow">
         <div class="pt-10 pb-8">
-          <span class="kicker mb-4">Terms of Service</span>
-          <h1 class="text-3xl md:text-4xl font-medium font-headline text-custom-ink dark:text-white">服务条款</h1>
-          <p class="mt-3 text-sm text-custom-muted dark:text-slate-400 tabular-nums">生效日期：2026 年 8 月 18 日 · 使用 Pigcode 网站、API 服务或 Pigcode Studio 即表示你同意以下条款</p>
+          <span class="kicker mb-4" data-i18n="terms.kicker">Terms of Service</span>
+          <h1 data-i18n="terms.h1" class="text-3xl md:text-4xl font-medium font-headline text-custom-ink dark:text-white">服务条款</h1>
+          <p data-i18n="terms.effective" class="mt-3 text-sm text-custom-muted dark:text-slate-400 tabular-nums">生效日期：2026 年 8 月 18 日 · 使用 Pigcode 网站、API 服务或 Pigcode Studio 即表示你同意以下条款</p>
         </div>
 
         <div class="doc-surface-panel surface-card rounded-2xl p-6 md:p-10 space-y-8 text-slate-700 dark:text-slate-300 leading-relaxed text-[0.95rem]">
           <section>
-            <h2 class="text-lg font-semibold text-custom-ink dark:text-white mb-3">一、服务内容</h2>
-            <p>Pigcode 提供统一的 AI 模型接入服务，包括：兼容 OpenAI / Anthropic / Gemini 协议的 API 网关，以及提供对话、图像、视频与语音创作能力的 Studio 工作台。实际可用模型、渠道与倍率以控制台实时配置为准。</p>
+            <h2 data-i18n="terms.s1Title" class="text-lg font-semibold text-custom-ink dark:text-white mb-3">一、服务内容</h2>
+            <div data-i18n-html="terms.s1"><p>Pigcode 提供统一的 AI 模型接入服务，包括：兼容 OpenAI / Anthropic / Gemini 协议的 API 网关，以及提供对话、图像、视频与语音创作能力的 Studio 工作台。实际可用模型、渠道与倍率以控制台实时配置为准。</p></div>
           </section>
-
           <section>
-            <h2 class="text-lg font-semibold text-custom-ink dark:text-white mb-3">二、账户与安全</h2>
-            <ul class="list-disc ml-6 space-y-2">
-              <li>你需要妥善保管账号与 API Key；因保管不当造成的调用消耗由账户持有人承担。</li>
-              <li>发现异常消耗请立即在控制台重置密钥并联系我们。</li>
-            </ul>
+            <h2 data-i18n="terms.s2Title" class="text-lg font-semibold text-custom-ink dark:text-white mb-3">二、账户与安全</h2>
+            <div data-i18n-html="terms.s2">
+              <ul class="list-disc ml-6 space-y-2">
+                <li>你需要妥善保管账号与 API Key；因保管不当造成的调用消耗由账户持有人承担。</li>
+                <li>发现异常消耗请立即在控制台重置密钥并联系我们。</li>
+              </ul>
+            </div>
           </section>
-
           <section>
-            <h2 class="text-lg font-semibold text-custom-ink dark:text-white mb-3">三、计费与余额</h2>
-            <ul class="list-disc ml-6 space-y-2">
-              <li>服务按<strong>美元（$）</strong>计价，按实际用量从充值余额中扣除：对话按模型 token 单价与渠道倍率结算，图像、视频、语音按公示单价结算。</li>
-              <li>充值支持支付宝与微信支付；充值汇率与最低充值金额以控制台充值页实时公示为准。</li>
-              <li>单价与倍率可能随上游调整而变化，以控制台实时展示为准；已发生的消费不受后续调价影响。</li>
-            </ul>
+            <h2 data-i18n="terms.s3Title" class="text-lg font-semibold text-custom-ink dark:text-white mb-3">三、计费与余额</h2>
+            <div data-i18n-html="terms.s3">
+              <ul class="list-disc ml-6 space-y-2">
+                <li>服务按<strong>美元（$）</strong>计价，按实际用量从充值余额中扣除：对话按模型 token 单价与渠道倍率结算，图像、视频、语音按公示单价结算。</li>
+                <li>充值支持支付宝与微信支付；充值汇率与最低充值金额以控制台充值页实时公示为准。</li>
+                <li>单价与倍率可能随上游调整而变化，以控制台实时展示为准；已发生的消费不受后续调价影响。</li>
+              </ul>
+            </div>
           </section>
-
           <section>
-            <h2 class="text-lg font-semibold text-custom-ink dark:text-white mb-3">四、退款</h2>
-            <p>未消费的充值余额支持退款：请通过 <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram 频道</a> 联系我们，说明账号与退款金额，核实后原路退回；已消费部分按实际用量结算，不予退还。</p>
+            <h2 data-i18n="terms.s4Title" class="text-lg font-semibold text-custom-ink dark:text-white mb-3">四、退款</h2>
+            <div data-i18n-html="terms.s4"><p>未消费的充值余额支持退款：请通过 <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram 频道</a> 联系我们，说明账号与退款金额，核实后原路退回；已消费部分按实际用量结算，不予退还。</p></div>
           </section>
-
           <section>
-            <h2 class="text-lg font-semibold text-custom-ink dark:text-white mb-3">五、你的内容与权属</h2>
-            <ul class="list-disc ml-6 space-y-2">
-              <li>你通过本服务生成的内容，在法律允许的范围内归你所有；商业使用请自行确认所用模型上游的许可条款。</li>
-              <li>为提供服务（云端历史、分享链接等），你授予我们对相关内容进行存储与传输的必要许可；该许可随内容删除而终止。</li>
-              <li>你对输入与生成内容的合法性负责。</li>
-            </ul>
+            <h2 data-i18n="terms.s5Title" class="text-lg font-semibold text-custom-ink dark:text-white mb-3">五、你的内容与权属</h2>
+            <div data-i18n-html="terms.s5">
+              <ul class="list-disc ml-6 space-y-2">
+                <li>你通过本服务生成的内容，在法律允许的范围内归你所有；商业使用请自行确认所用模型上游的许可条款。</li>
+                <li>为提供服务（云端历史、分享链接等），你授予我们对相关内容进行存储与传输的必要许可；该许可随内容删除而终止。</li>
+                <li>你对输入与生成内容的合法性负责。</li>
+              </ul>
+            </div>
           </section>
-
           <section>
-            <h2 class="text-lg font-semibold text-custom-ink dark:text-white mb-3">六、可接受使用</h2>
-            <p>禁止利用本服务从事违法活动、生成侵权或有害内容、规避安全与限流机制、转售未经授权的访问。违反者我们有权限制或终止服务，剩余余额按第四条处理。</p>
+            <h2 data-i18n="terms.s6Title" class="text-lg font-semibold text-custom-ink dark:text-white mb-3">六、可接受使用</h2>
+            <div data-i18n-html="terms.s6"><p>禁止利用本服务从事违法活动、生成侵权或有害内容、规避安全与限流机制、转售未经授权的访问。违反者我们有权限制或终止服务，剩余余额按第四条处理。</p></div>
           </section>
-
           <section>
-            <h2 class="text-lg font-semibold text-custom-ink dark:text-white mb-3">七、可用性与责任限制</h2>
-            <ul class="list-disc ml-6 space-y-2">
-              <li>上游模型的可用性、质量与内容由各服务商决定，我们不对生成结果的准确性作担保；服务按"现状"提供。</li>
-              <li>在法律允许的最大范围内，我们对间接损失不承担责任；累计责任以你过去三个月实际支付的费用为限。</li>
-            </ul>
+            <h2 data-i18n="terms.s7Title" class="text-lg font-semibold text-custom-ink dark:text-white mb-3">七、可用性与责任限制</h2>
+            <div data-i18n-html="terms.s7">
+              <ul class="list-disc ml-6 space-y-2">
+                <li>上游模型的可用性、质量与内容由各服务商决定，我们不对生成结果的准确性作担保；服务按“现状”提供。</li>
+                <li>在法律允许的最大范围内，我们对间接损失不承担责任；累计责任以你过去三个月实际支付的费用为限。</li>
+              </ul>
+            </div>
           </section>
-
           <section>
-            <h2 class="text-lg font-semibold text-custom-ink dark:text-white mb-3">八、条款变更与联系</h2>
-            <p>条款更新时将修改本页生效日期，重大变更会在网站显著位置提示。任何问题请通过 <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram 频道</a> 联系我们。</p>
+            <h2 data-i18n="terms.s8Title" class="text-lg font-semibold text-custom-ink dark:text-white mb-3">八、条款变更与联系</h2>
+            <div data-i18n-html="terms.s8"><p>条款更新时将修改本页生效日期，重大变更会在网站显著位置提示。任何问题请通过 <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram 频道</a> 联系我们。</p></div>
           </section>
         </div>
       </div>
@@ -90,9 +92,9 @@
 
   <div id="site-footer"></div>
 
-  <script src="i18n.js?v=20260818-linktext"></script>
-  <script src="components.js?v=20260818-linktext"></script>
-  <script src="shared.js?v=20260818-linktext"></script>
+  <script src="i18n.js?v=20260820-reviewfix"></script>
+  <script src="components.js?v=20260820-reviewfix"></script>
+  <script src="shared.js?v=20260820-reviewfix"></script>
 </body>
 
 </html>

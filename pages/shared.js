@@ -129,6 +129,8 @@
     copyText(text).then(done).catch(failed);
   });
 
+  window.PigcodeCopy = copyText;
+
   // 鼠标跟随柔光 + 星轨视差：只作用于 hero（卡片级光斑已随改版退役）。
   // 柔光：--spot-x/--spot-y 供 hero-modern::after 径向渐变定位；
   // 视差：--par-x/--par-y 写入 .hero-constellation，元素按 --d 深度系数跟随（参考 cch）。

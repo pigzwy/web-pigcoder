@@ -2,12 +2,14 @@
 
 `Pigcode Web` 是 `Pigcode` 的静态官网与接入文档站点，用来承载 AI 模型路由 / API Gateway 定位、CLI/SDK 接入说明、模型目录、渠道倍率与常见问题。
 
-当前站点包含 4 个核心页面：
+当前站点包含 5 个主导航页面，外加页脚法律页：
 
 - `首页`：展示平台定位、路由能力、模型覆盖和开发者接入路径
-- `模型目录页`：聚合各厂商模型的元数据，支持按类型/厂商/能力/上下文检索
 - `文档页`：说明控制台注册、API Key、端点地址和常见 CLI 工具配置
+- `指南页`：Studio 五种创作说明与实战教程
 - `价格页`：展示模型渠道倍率、充值引导和 FAQ
+- `模型目录页`：聚合各厂商模型的元数据，支持按类型/厂商/能力/上下文检索
+- `隐私政策` / `服务条款`：页脚入口，中英双语
 
 ## 项目定位
 
@@ -48,7 +50,7 @@ pnpm build:css                     # 改了 HTML 里的 Tailwind 类名或 tailw
 所有 CSS/JS/JSON 通过 `?v=版本号` 破缓存。发布前全局替换为新值：
 
 ```bash
-grep -rl "20260816-model-lineup" pages/ | xargs sed -i 's/20260816-model-lineup/新版本号/g'
+grep -rl "20260820-reviewfix" pages/ | xargs sed -i 's/20260820-reviewfix/新版本号/g'
 ```
 
 （当前版本号以 `grep -o '?v=[^"]*' pages/index.html | head -1` 查询为准）
@@ -165,7 +167,7 @@ pnpm run watch:css    # 或开发时开启监听，自动重编译
 需重点确认以下文件能被正常访问：
 
 - `pages/common.css`、`pages/tailwind.css`
-- `pages/components.js`、`pages/shared.js`、`pages/i18n.js`
+- `pages/boot.js`、`pages/components.js`、`pages/shared.js`、`pages/i18n.js`
 - `pages/pricing-cards.js`、`pages/models-catalog.js`、`pages/models-data.json`
 - `pages/partials/*.html`、`pages/model-icons/*.svg`、`pages/fonts/*`
 
@@ -176,9 +178,8 @@ pnpm run watch:css    # 或开发时开启监听，自动重编译
 后续维护建议优先按以下方向继续：
 
 1. 在真实域名环境中做浏览器 smoke test，确认 partial 与模型目录的加载体验
-2. 将 FAQ、文档中的重复配置块继续做 partial 化或数据化
-3. 为 `隐私政策`、`服务条款`、`企业版` 补正式落地页，而不是继续指向占位入口
-4. 如果页面数量持续增长，再考虑升级到 Vite / Next.js 等前端工程化方案
+2. 将 FAQ、文档中的重复配置块继续做数据化，减轻 `i18n.js` 双写
+3. 如果页面数量持续增长，再考虑升级到 Vite / Next.js 等前端工程化方案
 
 ## 注意事项
 

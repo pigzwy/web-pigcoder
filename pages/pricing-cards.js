@@ -142,17 +142,44 @@
     return getLocale() === 'zh-CN';
   }
 
+  function localizeLiveGroup(g) {
+    var locale = getLocale();
+    var snap = catalogs[locale] || catalogs['zh-CN'];
+    var other = catalogs[locale === 'zh-CN' ? 'en-US' : 'zh-CN'];
+    var hit = snap.filter(function (s) {
+      return s.platform === g.platform && ratioValue(s.ratio) === ratioValue(g.ratio);
+    })[0];
+    if (!hit && other) {
+      var src = other.filter(function (s) {
+        return s.platform === g.platform && (s.title === g.title || ratioValue(s.ratio) === ratioValue(g.ratio));
+      })[0];
+      if (src) {
+        hit = snap.filter(function (s) {
+          return s.platform === src.platform && ratioValue(s.ratio) === ratioValue(src.ratio);
+        })[0];
+      }
+    }
+    if (!hit) {
+      return {
+        platform: g.platform,
+        title: g.title,
+        ratio: g.ratio,
+        billing: g.billing || (isZh() ? '标准（余额）' : 'Standard (balance)'),
+        description: g.description || ''
+      };
+    }
+    return {
+      platform: g.platform,
+      title: hit.title,
+      ratio: g.ratio,
+      billing: g.billing || hit.billing,
+      description: hit.description || g.description || ''
+    };
+  }
+
   function getCards() {
     if (liveGroups) {
-      return liveGroups.map(function (g) {
-        return {
-          platform: g.platform,
-          title: g.title,
-          ratio: g.ratio,
-          billing: g.billing || (isZh() ? '标准（余额）' : 'Standard (balance)'),
-          description: g.description || ''
-        };
-      });
+      return liveGroups.map(localizeLiveGroup);
     }
     return catalogs[getLocale()] || catalogs['zh-CN'];
   }
@@ -241,37 +268,42 @@
     animateCards(Array.prototype.slice.call(grid.querySelectorAll('.pricing-card')));
   }
 
-  /* 滚动进场：渲染完成后为价格卡挂淡入动画 */
+  /* 滚动进场：observer / scroll 只建一次，locale 或实时数据重渲染时复用 */
+  var cardIo = null;
+  var cardEls = [];
+  var cardScrollOn = false;
+
+  function revealPricingCards() {
+    var vh = window.innerHeight;
+    cardEls.forEach(function (el) {
+      if (!el.classList.contains('visible') && el.getBoundingClientRect().top < vh - 40) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
   function animateCards(elements) {
+    cardEls = elements;
     elements.forEach(function (el) {
       el.classList.add('fade-up');
     });
-
-    var observer = new IntersectionObserver(function (entries) {
+    if (cardIo) cardIo.disconnect();
+    cardIo = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          cardIo.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    function revealByPosition() {
-      var vh = window.innerHeight;
-      var allVisible = true;
-      elements.forEach(function (el) {
-        if (!el.classList.contains('visible')) {
-          if (el.getBoundingClientRect().top < vh - 40) el.classList.add('visible');
-          else allVisible = false;
-        }
-      });
-      if (allVisible) window.removeEventListener('scroll', revealByPosition);
-    }
-    window.addEventListener('scroll', revealByPosition, { passive: true });
-    revealByPosition();
-
     elements.forEach(function (el) {
-      observer.observe(el);
+      cardIo.observe(el);
     });
+    if (!cardScrollOn) {
+      window.addEventListener('scroll', revealPricingCards, { passive: true });
+      cardScrollOn = true;
+    }
+    revealPricingCards();
   }
 
   render();

@@ -4,13 +4,14 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>隐私政策 - Pigcode</title>
-  <meta name="description" content="Pigcode 隐私政策：我们收集什么、创作内容如何存储、云端历史的关闭方式、数据删除与联系渠道。" />
-  <link href="tailwind.css?v=20260818-linktext" rel="stylesheet" />
-  <link href="logo.png?v=20260818-linktext" rel="icon" type="image/png" />
+  <script src="boot.js?v=20260820-reviewfix"></script>
+  <title data-i18n="privacy.title">隐私政策 - Pigcode</title>
+  <meta name="description" data-i18n-attr="content:privacy.description" content="Pigcode 隐私政策：我们收集什么、创作内容如何存储、云端历史的关闭方式、数据删除与联系渠道。" />
+  <link href="tailwind.css?v=20260820-reviewfix" rel="stylesheet" />
+  <link href="logo.png?v=20260820-reviewfix" rel="icon" type="image/png" />
   <link rel="canonical" href="https://www.pigcode.ai/privacy.html" />
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link href="common.css?v=20260818-linktext" rel="stylesheet" />
+  <link href="common.css?v=20260820-reviewfix" rel="stylesheet" />
   <!-- Cloudflare Web Analytics（隐私友好，无 Cookie） -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "87d92ae2a66042e49565b2e49e0ef4d1"}'></script>
 </head>
@@ -24,48 +25,55 @@
       <div class="surface-gradient-main"></div>
       <div class="section-shell-narrow">
         <div class="pt-10 pb-8">
-          <span class="kicker mb-4">Privacy Policy</span>
-          <h1 class="text-3xl md:text-4xl font-medium font-headline text-custom-ink dark:text-white">隐私政策</h1>
-          <p class="mt-3 text-sm text-custom-muted dark:text-slate-400 tabular-nums">生效日期：2026 年 8 月 18 日 · 本政策适用于 Pigcode 网站、API 服务及 Pigcode Studio</p>
+          <span class="kicker mb-4" data-i18n="privacy.kicker">Privacy Policy</span>
+          <h1 data-i18n="privacy.h1" class="text-3xl md:text-4xl font-medium font-headline text-custom-ink dark:text-white">隐私政策</h1>
+          <p data-i18n="privacy.effective" class="mt-3 text-sm text-custom-muted dark:text-slate-400 tabular-nums">生效日期：2026 年 8 月 18 日 · 本政策适用于 Pigcode 网站、API 服务及 Pigcode Studio</p>
         </div>
 
         <div class="doc-surface-panel surface-card rounded-2xl p-6 md:p-10 space-y-8 text-slate-700 dark:text-slate-300 leading-relaxed text-[0.95rem]">
           <section>
-            <h2 class="text-lg font-semibold text-custom-ink dark:text-white mb-3">一、我们收集什么</h2>
-            <ul class="list-disc ml-6 space-y-2">
-              <li><strong>账号信息</strong>：注册邮箱或第三方登录（GitHub / Google）提供的基础资料。</li>
-              <li><strong>计费信息</strong>：充值记录、余额与消费明细。</li>
-              <li><strong>调用日志</strong>：API 与 Studio 请求的模型、用量、状态与时间，用于计费、限流与故障排查。</li>
-            </ul>
+            <h2 data-i18n="privacy.s1Title" class="text-lg font-semibold text-custom-ink dark:text-white mb-3">一、我们收集什么</h2>
+            <div data-i18n-html="privacy.s1">
+              <ul class="list-disc ml-6 space-y-2">
+                <li><strong>账号信息</strong>：注册邮箱或第三方登录（GitHub / Google）提供的基础资料。</li>
+                <li><strong>计费信息</strong>：充值记录、余额与消费明细。</li>
+                <li><strong>调用日志</strong>：API 与 Studio 请求的模型、用量、状态与时间，用于计费、限流与故障排查。</li>
+              </ul>
+            </div>
           </section>
-
           <section>
-            <h2 class="text-lg font-semibold text-custom-ink dark:text-white mb-3">二、你的创作内容</h2>
-            <ul class="list-disc ml-6 space-y-2">
-              <li><strong>对话记录</strong>：仅保存在你的浏览器本地（localStorage），我们的服务器不留存对话内容副本；清除浏览器数据或更换设备后不可恢复。</li>
-              <li><strong>图像与视频生成结果</strong>：默认保存到你的账号云端历史，便于跨设备找回；你可以在 Studio 设置中随时关闭云端保存，关闭后结果仅存于浏览器本地。</li>
-              <li><strong>作品分享</strong>：仅在你显式点击分享时才会生成公开链接，链接可随时撤销；分享页不被搜索引擎索引。</li>
-            </ul>
+            <h2 data-i18n="privacy.s2Title" class="text-lg font-semibold text-custom-ink dark:text-white mb-3">二、你的创作内容</h2>
+            <div data-i18n-html="privacy.s2">
+              <ul class="list-disc ml-6 space-y-2">
+                <li><strong>对话记录</strong>：仅保存在你的浏览器本地（localStorage），我们的服务器不留存对话内容副本；清除浏览器数据或更换设备后不可恢复。</li>
+                <li><strong>图像与视频生成结果</strong>：默认保存到你的账号云端历史，便于跨设备找回；你可以在 Studio 设置中随时关闭云端保存，关闭后结果仅存于浏览器本地。</li>
+                <li><strong>作品分享</strong>：仅在你显式点击分享时才会生成公开链接，链接可随时撤销；分享页不被搜索引擎索引。</li>
+              </ul>
+            </div>
           </section>
-
           <section>
-            <h2 class="text-lg font-semibold text-custom-ink dark:text-white mb-3">三、第三方处理</h2>
-            <p>为完成生成，你的请求内容会转发至所选模型的上游服务商（如 OpenAI、Anthropic、Google、xAI 等），其处理行为受各自隐私政策约束。我们不会向任何第三方出售你的个人信息或创作内容。</p>
+            <h2 data-i18n="privacy.s3Title" class="text-lg font-semibold text-custom-ink dark:text-white mb-3">三、第三方处理</h2>
+            <div data-i18n-html="privacy.s3">
+              <p>为完成生成，你的请求内容会转发至所选模型的上游服务商（如 OpenAI、Anthropic、Google、xAI 等），其处理行为受各自隐私政策约束。我们不会向任何第三方出售你的个人信息或创作内容。</p>
+            </div>
           </section>
-
           <section>
-            <h2 class="text-lg font-semibold text-custom-ink dark:text-white mb-3">四、Cookie 与本地存储</h2>
-            <p>我们使用浏览器本地存储保存你的主题、语言偏好与登录态；不使用第三方广告追踪 Cookie。</p>
+            <h2 data-i18n="privacy.s4Title" class="text-lg font-semibold text-custom-ink dark:text-white mb-3">四、Cookie 与本地存储</h2>
+            <div data-i18n-html="privacy.s4">
+              <p>我们使用浏览器本地存储保存你的主题、语言偏好与登录态；不使用第三方广告追踪 Cookie。</p>
+            </div>
           </section>
-
           <section>
-            <h2 class="text-lg font-semibold text-custom-ink dark:text-white mb-3">五、数据删除与你的权利</h2>
-            <p>你可以随时删除云端历史中的单条或全部生成记录；如需注销账号或删除全部相关数据，请通过 <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram 频道</a> 联系我们，我们将在核实身份后处理。</p>
+            <h2 data-i18n="privacy.s5Title" class="text-lg font-semibold text-custom-ink dark:text-white mb-3">五、数据删除与你的权利</h2>
+            <div data-i18n-html="privacy.s5">
+              <p>你可以随时删除云端历史中的单条或全部生成记录；如需注销账号或删除全部相关数据，请通过 <a href="https://t.me/pigcoder1" target="_blank" rel="noopener" class="text-custom-gold hover:underline font-semibold">Telegram 频道</a> 联系我们，我们将在核实身份后处理。</p>
+            </div>
           </section>
-
           <section>
-            <h2 class="text-lg font-semibold text-custom-ink dark:text-white mb-3">六、政策更新</h2>
-            <p>本政策更新时将修改本页的生效日期；重大变更会在网站显著位置提示。继续使用服务即视为接受更新后的政策。</p>
+            <h2 data-i18n="privacy.s6Title" class="text-lg font-semibold text-custom-ink dark:text-white mb-3">六、政策更新</h2>
+            <div data-i18n-html="privacy.s6">
+              <p>本政策更新时将修改本页的生效日期；重大变更会在网站显著位置提示。继续使用服务即视为接受更新后的政策。</p>
+            </div>
           </section>
         </div>
       </div>
@@ -74,9 +82,9 @@
 
   <div id="site-footer"></div>
 
-  <script src="i18n.js?v=20260818-linktext"></script>
-  <script src="components.js?v=20260818-linktext"></script>
-  <script src="shared.js?v=20260818-linktext"></script>
+  <script src="i18n.js?v=20260820-reviewfix"></script>
+  <script src="components.js?v=20260820-reviewfix"></script>
+  <script src="shared.js?v=20260820-reviewfix"></script>
 </body>
 
 </html>

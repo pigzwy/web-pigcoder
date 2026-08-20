@@ -4,8 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <script src="boot.js?v=20260820-reviewfix"></script>
   <title data-i18n="docs.title">技术文档 - Pigcode</title>
-  <meta name="description" content="Pigcode 接入文档：平台开通、API Key 获取，以及 Claude Code、Codex CLI、Gemini CLI、OpenCode、Droid CLI、CC Switch 的配置与常见排查。" />
+  <meta name="description" data-i18n-attr="content:docs.description" content="Pigcode 接入文档：平台开通、API Key 获取，以及 Claude Code、Codex CLI、Gemini CLI、OpenCode、Droid CLI、CC Switch 的配置与常见排查。" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Pigcode 接入文档" />
   <meta property="og:description" content="平台开通、API Key 获取，以及各类 CLI 工具的端点配置与排查。" />
@@ -18,15 +19,15 @@
   <meta name="twitter:title" content="Pigcode 接入文档" />
   <meta name="twitter:description" content="平台开通、API Key 获取，以及各类 CLI 工具的端点配置与排查。" />
   <meta name="twitter:image" content="https://www.pigcode.ai/og-cover.jpg" />
-  <link href="tailwind.css?v=20260818-linktext" rel="stylesheet" />
-  <link href="logo.png?v=20260818-linktext" rel="icon" type="image/png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260818-linktext" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260818-linktext" />
+  <link href="tailwind.css?v=20260820-reviewfix" rel="stylesheet" />
+  <link href="logo.png?v=20260820-reviewfix" rel="icon" type="image/png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20260820-reviewfix" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260820-reviewfix" />
   <link rel="canonical" href="https://www.pigcode.ai/docs.html" />
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
   <script>(function () { var h = location.hash; if (/^#(studio-|tutorial)/.test(h)) location.replace('guide.html' + h); })();</script>
-  <link href="common.css?v=20260818-linktext" rel="stylesheet" />
+  <link href="common.css?v=20260820-reviewfix" rel="stylesheet" />
   <style>
     .code-block {
       position: relative;
@@ -1023,7 +1024,9 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
             var code = block.querySelector('code');
             if (!code) return;
             var text = code.textContent;
-            navigator.clipboard.writeText(text).then(function () {
+            var copyFn = window.PigcodeCopy || (navigator.clipboard && navigator.clipboard.writeText.bind(navigator.clipboard));
+            if (!copyFn) return;
+            Promise.resolve(copyFn(text)).then(function () {
               btn.classList.add('copied');
               btn.setAttribute('aria-label', copiedLabel);
               btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">check</span>';
@@ -1032,7 +1035,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
                 btn.setAttribute('aria-label', copyLabel);
                 btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">content_copy</span>';
               }, 1500);
-            });
+            }).catch(function () {});
           });
         });
       }
@@ -1059,9 +1062,9 @@ export PATH="$(npm config get prefix)/bin:$PATH"</code></pre>
       });
     });
   </script>
-<script src="i18n.js?v=20260818-linktext"></script>
-  <script src="components.js?v=20260818-linktext"></script>
-  <script src="shared.js?v=20260818-linktext"></script>
+<script src="i18n.js?v=20260820-reviewfix"></script>
+  <script src="components.js?v=20260820-reviewfix"></script>
+  <script src="shared.js?v=20260820-reviewfix"></script>
 </body>
 
 </html>
